@@ -1,0 +1,211 @@
+A Gentle Introduction to the Chi-Squared Test for Machine Learning
+A Gentle Introduction to the Chi-Squared Test for Machine Learning
+Tutorial Overview
+Contingency Table
+Pearson’s Chi-Squared Test
+Example Chi-Squared Test
+Extensions
+Further Reading
+Articles
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Books
+API
+64 Responses to A Gentle Introduction to the Chi-Squared Test for Machine Learning
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Update Jun/2018
+Update Oct/2019
+If Statistic >= Critical Value
+If Statistic < Critical Value
+If p-value <= alpha
+If p-value > alpha
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on October 31, 2019
+A common problem in applied machine learning is determining whether input features are relevant to the outcome to be predicted.
+This is the problem of feature selection.
+In the case of classification problems where input variables are also categorical, we can use statistical tests to determine whether the output variable is dependent or independent of the input variables. If independent, then the input variable is a candidate for a feature that may be irrelevant to the problem and removed from the dataset.
+The Pearson’s chi-squared statistical hypothesis is an example of a test for independence between categorical variables.
+In this tutorial, you will discover the chi-squared statistical hypothesis test for quantifying the independence of pairs of categorical variables.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to the Chi-Squared Test for Machine LearningPhoto by NC Wetlands, some rights reserved
+This tutorial is divided into 3 parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+A categorical variable is a variable that may take on one of a set of labels.
+An example might be sex, which may be summarized as male or female. The variable or factor is ‘sex‘ and the labels or levels of the variable are ‘male‘ and ‘female‘ in this case.
+We may wish to look at a summary of a categorical variable as it pertains to another categorical variable. For example, sex and interest, where interest may have the labels ‘science‘, ‘math‘, or ‘art‘. We can collect observations from people collected with regard to these two categorical variables; for example:
+We can summarize the collected observations in a table with one variable corresponding to columns and another variable corresponding to rows. Each cell in the table corresponds to the count or frequency of observations that correspond to the row and column categories.
+Historically, a table summarization of two categorical variables in this form is called a contingency table.
+For example, the Sex=rows and Interest=columns table with contrived counts might look as follows:
+The table was called a contingency table, by Karl Pearson, because the intent is to help determine whether one variable is contingent upon or depends upon the other variable. For example, does an interest in math or science depend on gender, or are they independent?
+This is challenging to determine from the table alone; instead, we can use a statistical method called the Pearson’s Chi-Squared test.
+The Pearson’s Chi-Squared test, or just Chi-Squared test for short, is named for Karl Pearson, although there are variations on the test.
+The Chi-Squared test is a statistical hypothesis test that assumes (the null hypothesis) that the observed frequencies for a categorical variable match the expected frequencies for the categorical variable. The test calculates a statistic that has a chi-squared distribution, named for the Greek capital letter Chi (X) pronounced “ki” as in kite.
+Given the Sex/Interest example above, the number of observations for a category (such as male and female) may or may not the same. Nevertheless, we can calculate the expected frequency of observations in each Interest group and see whether the partitioning of interests by Sex results in similar or different frequencies.
+The Chi-Squared test does this for a contingency table, first calculating the expected frequencies for the groups, then determining whether the division of the groups, called the observed frequencies, matches the expected frequencies.
+The result of the test is a test statistic that has a chi-squared distribution and can be interpreted to reject or fail to reject the assumption or null hypothesis that the observed and expected frequencies are the same.
+When observed frequency is far from the expected frequency, the corresponding term in the sum is large; when the two are close, this term is small. Large values of X^2 indicate that observed and expected frequencies are far apart. Small values of X^2 mean the opposite: observeds are close to expecteds. So X^2 does give a measure of the distance between observed and expected frequencies.
+— Page 525, Statistics, Fourth Edition, 2007.
+The variables are considered independent if the observed and expected frequencies are similar, that the levels of the variables do not interact, are not dependent.
+The chi-square test of independence works by comparing the categorically coded data that you have collected (known as the observed frequencies) with the frequencies that you would expect to get in each cell of a table by chance alone (known as the expected frequencies).
+— Page 162, Statistics in Plain English, Third Edition, 2010.
+We can interpret the test statistic in the context of the chi-squared distribution with the requisite number of degress of freedom as follows:
+The degrees of freedom for the chi-squared distribution is calculated based on the size of the contingency table as:
+In terms of a p-value and a chosen significance level (alpha), the test can be interpreted as follows:
+For the test to be effective, at least five observations are required in each cell of the contingency table.
+Next, let’s look at how we can calculate the chi-squared test.
+The Pearson’s chi-squared test for independence can be calculated in Python using the chi2_contingency() SciPy function.
+The function takes an array as input representing the contingency table for the two categorical variables. It returns the calculated statistic and p-value for interpretation as well as the calculated degrees of freedom and table of expected frequencies.
+We can interpret the statistic by retrieving the critical value from the chi-squared distribution for the probability and number of degrees of freedom.
+For example, a probability of 95% can be used, suggesting that the finding of the test is quite likely given the assumption of the test that the variable is independent. If the statistic is less than or equal to the critical value, we can fail to reject this assumption, otherwise it can be rejected.
+We can also interpret the p-value by comparing it to a chosen significance level, which would be 5%, calculated by inverting the 95% probability used in the critical value interpretation.
+We can tie all of this together and demonstrate the chi-squared significance test using a contrived contingency table.
+A contingency table is defined below that has a different number of observations for each population (row), but a similar proportion across each group (column). Given the similar proportions, we would expect the test to find that the groups are similar and that the variables are independent (fail to reject the null hypothesis, or H0).
+The complete example is listed below.
+Running the example first prints the contingency table. The test is calculated and the degrees of freedom (dof) is reported as 2, which makes sense given:
+Next, the calculated expected frequency table is printed and we can see that indeed the observed contingency table does appear to match via an eyeball check of the numbers.
+The critical value is calculated and interpreted, finding that indeed the variables are independent (fail to reject H0). The interpretation of the p-value makes the same finding.
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered the chi-squared statistical hypothesis test for quantifying the independence of pairs of categorical variables.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Hi Jason,
+Thanks for this nice post.
+What statistical test should be used to test the dependence of a continuous variable on a categorical variable (ex: weight and gender).
+Best, Elie
+Good question. I have not seen a test that can do this directly.
+Often, the continuous variable is made discrete/ordinal and the chi-squared test is used. It will give a results, but I’m not sure how statistically valid this would be.
+Is there any way to get the correlation between all the input features only but with binary values which is 0 and 1 (converted from true and false)?
+Perhaps if you convert input features into nominal variables, e.g. discrete buckets?
+its a discrete variables like for example
+df = pd.DataFrame({ ‘y1’: [1,1,1,1,1,1,1,1,0,1,0,0], ‘y2’: [1,1,1,1,1,1,1,1,0,1,1,0], y3: [0,1,0,0,0,1,0,0,0,1,1,0], y4: [0,1,1,1,0,0,1,1,0,0,1,0],
+Here it should be a strong correlation between y1 and y2. this all are features ( independent/input variables ). no one is a target variable. is there any methods i can use to find correlation in it? Please help.
+Chi squared might be a good start.
+Chi squared is about input and output. isn’t it? What about cosine similarity? i think it will work.
+Chi squared is only concerned with two categorical variables. They may or may not be inputs or outputs to a model.
+What about cosine similarity exactly?
+cosine similarity can give me the similarity of two different vectors. here in my example above, it will say that y1 and y2 are related with some more than ~95%
+Details here: https://en.wikipedia.org/wiki/Cosine_similarity
+Hi Elie,
+You might try using the binning technique. Please see below
+http://www.saedsayad.com/binning.htm
+Hope it helps 🙂
+Analysis of variance will work for this.
+A 2 sample KS test (https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.ks_2samp.html)
+Nice!
+Independent two sample t test
+https://en.wikipedia.org/wiki/Correlation_ratio
+Hi Jason, great article! One quick thing: shouldn’t the above read: “If statistic > critical value then significant result” and “If statistic <= critical value then non-significant result"? The statistic's value and p-value should be inversely related.
+Yes, thanks. That was a typo in the explanation. Fixed.
+Hi ,
+How can I loop the chisq to check the Target vs. all other variables in one step and will let me know the p-value dof etc… of any combination with Target vs each variable ?
+I tried and it didnt work out….
+Thanks !
+Perhaps write a for-loop to check all variables?
+How do we perform chi-squared test for finding terms that are the most correlated with each class ?
+Perhaps calculate the test for each term, then rank order the results?
+Very helpful and easy to understand. Thank you very much.
+Thanks, I’m glad it helped.
+Such a nicely written article! Thanks for your time!
+Thanks, I’m glad it helped.
+Hi ,
+I have 3 categorical variables in my data set:
+Happiness, Income and Degree
+I need to find below :- A survey was conducted among 2800 customers on several demographic characteristics. Working status, sex, age, age-group, race, happiness, no. of child, marital status, educational qualifications, income group etc. had been captured for that purpose. (Data set: sample_survey.csv). a. Is there any relationship in between labour force status with marital status? b. Do you think educational qualification is somehow controlling the marital status? c. Is happiness is driven by earnings or marital status?
+Perhaps try using the chi squared test?
+How to creat the cotingency table in python
+See this: https://www.statsmodels.org/stable/contingency_tables.html
+You could also have a look at the pandas crosstab functions ~ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.crosstab.html
+Thanks for the note Patrick.
+Great content! Thanks! Doubt: – If I understood well, with this chi-squared test you can say if there is or not significant differences among the group categories, but if so, how to find out which ones? Eg.: Let’s say that you managed to reject the null hypothesis. How to figure out which group has significant differences? Do we have to apply a Fisher exact test in each category against each other in multiples 2×2 contingency tables? Thanks!
+What do you mean group? Do you mean the categories for a given variable?
+For example: In your example you have 3 categories been tested: Science, Math and Art. Let’s say your result concludes you have evidence enough to reject the null hypothesis (the variables are dependent). But, how do you know which one (or whether all of them) account for such result? Let’s consider another example, where you have 34 categories (Degrees of Freedom = 33). You also manage to reject the null hypothesis. So, how do you know which of those 34 categories were responsible for the final result (p <= alpha)?
+Yes, that is one discrete random variable that has 3 states or events.
+The test comments on the random variable, not the states.
+Does that help?
+Can someone please provide python code for the below 4 categorical variables???
+The table shows the contingency table of marital status by education. Use Chi-Square test for testing Homogenity.contingency table of marital status by education.
+View the table by executing the following command python from prettytable import PrettyTable t = PrettyTable([‘Marital Status’,’Middle school’, ‘High School’,’Bachelor’,’Masters’,’PhD’]) t.add_row([‘Single’,18,36,21,9,6]) t.add_row([‘Married’,12,36,45,36,21]) t.add_row([‘Divorced’,6,9,9,3,3]) t.add_row([‘Widowed’,3,9,9,6,3]) print (t) exit()
+Hypothesis
+Null Hypothesis: There is no difference in distribution between the types of education level in terms of marital status.
+Alternate Hypothesis: There is a Difference
+Coding 1.Import chi2_contingency and chi2 from scipy.stats package.
+2.Declare a 2D array with the values mentioned in the contingency table of marital status by education.
+3.Calculate and print the values of
+– Chi-Square Statistic – Degree of Freedom – P value – Hint: Use chi2_contigency() function 4.Assume the alpha value to be 0.05
+5.Compare the P value with alpha and decide whether or not to reject the null hypothesis.
+– If Rejected print “Reject the Null Hypothesis” – Else print “Failed to reject the Null Hypothesis”
+Sample output 2.33 4.5 8.9 Reject the Null Hypothesis
+Looks like homework. Perhaps try posting to stackoverflow?
+from scipy.stats import chi2_contingency from scipy.stats import chi2
+table= [ [18,31,21,9,6],[12,36,45,36,21], [6,9,9,3,3],[3,9,9,6,3] ]
+stat,p,dof,expected = chi2_contingency(table) prob = 0.95 critical = chi2.ppf(prob, dof)
+if abs(p) <= 0.05: print(stat, dof ,p ,'Reject the Null Hypothesis') else: print(stat, dof ,p ,'Failed to reject the Null Hypothesis')
+output
+21.032858435297882 12 0.0499013559023993 Reject the Null Hypothesis
+Help needed : Please let me know why the output is incorrect
+I have some suggestions here that might help: https://machinelearningmastery.com/faq/single-faq/why-does-the-code-in-the-tutorial-not-work-for-me
+Your table indicates that for the “Single” road the values are 18,36,21,9,6 and for your code you have 18,*31*,21… That 31 should be 36
+Thanks for sharing.
+Thank you for the clear explanations.
+In the text you say: “The variable is ‘sex‘ and the labels or factors of the variable are ‘male‘ and ‘female‘ in this case.”
+Don’t you mean: “The variable or factor is ‘sex‘ and the labels or levels of the variable are ‘male‘ and ‘female‘ in this case.”
+ref: https://stattrek.com/statistics/dictionary.aspx?definition=factor
+Yes, you’re right. Fixed, thanks.
+Thanks Jason. Good read it is.
+You’re welcome.
+Great tutorial, thanks! I’m wondering how to do chi2 test where survey respondents could select multiple answers.
+For example: which OS do you use? A) Windows B) Linux C)Mac Results: 1000 people take the survey, 500 say windows, 400 say Mac and 200 say linux. Total is greater than the number of respondents.
+Can I compare windows and mac by creating the following contingency table and running the test?
+OS, Not OS Mac 400, 600 Windows 500, 500
+Good question, I’m not sure off the cuff when it comes to multiple answers. It messes up the contingency table.
+You might have to hit the books or ping a statistician / post on crossvalidated.
+Hi Jason,
+Very nice article, clearly explained the Chi2 test. I have one question to ask. When reading the sklearn feature selection using the Chi2 test here: https://scikit-learn.org/stable/modules/feature_selection.html, I am confused by the example, in which the Iris data is used to demo the Chi 2 test on non categorical data, which is not even frequency or count. Is it wrong?
+Probably.
+A very clearly written article.
+Thank you!
+Hi Jason,
+Does chi-square test work well on independent variables of an imbalanced data having bad rate just 1%?
+The test requires at least 20 examples in each cell of the contingency table I believe.
+Hi Jason.
+Great article. I have one question. If we done the chi-square test on a sample dataset and the result between two categorical variables are dependent. Does the ‘dependency’ also can be said to the population?
+Yes and No. It is a statistical estimate. A probabilistic guess with some degree of confidence.
+Thanks Jason for the Good and informative article. Sometimes I get mixed up between chi-square Goodness of fit and chi-square Tests of Independence. Can we use the terms interchangeably or are they different to each other?
+Same thing I believe, different use case.
+Thanks Jason for the clarification. In scipy there are 2 different function for chi-square- 1)scipy.stats.chisquare 2)scipy.stats.chi2_contingency Do you mind telling which one to use for which use-case, please?
+Perhaps check the API documentation to see which matches your requirements.
+Hey JB,
+Have you ever explored the reason why sklearn’s chi2 gives different values for the test statistic and p-value compared to performing the test by hand or using chi2_contingence from scipy?
+I can’t seem to find a satisfactory answer, and I’m hoping the good doctor (you) might have some insight.
+Cheers
+I have not.
+Hey,
+I am very new in this area. I have x_1 and x_2 and y. How can I see the dependence of y to x_1 and x_2? x=[[1,0],[1,0],[0,1],[1,1],[1,0],[1,0],[1,0],[1,1],[0,1],[0,1]] y=[0,0,1,1,0,0,0,1,1,1]
+Why not use the above tutorial to calculate the dependence?
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,187 @@
+Hypothesis Test for Comparing Machine Learning Algorithms
+Hypothesis Test for Comparing Machine Learning Algorithms
+Tutorial Overview
+Hypothesis Test for Comparing Algorithms
+5×2 Procedure With MLxtend
+Comparing Classifier Algorithms
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Tutorials
+Papers
+APIs
+31 Responses to Hypothesis Test for Comparing Machine Learning Algorithms
+Leave a Reply Click here to cancel reply.
+statistical hypothesis test
+Kick-start your project
+Note
+Note
+Note
+Do you have any questions?
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on September 1, 2020
+Machine learning models are chosen based on their mean performance, often calculated using k-fold cross-validation.
+The algorithm with the best mean performance is expected to be better than those algorithms with worse mean performance. But what if the difference in the mean performance is caused by a statistical fluke?
+The solution is to use a statistical hypothesis test to evaluate whether the difference in the mean performance between any two algorithms is real or not.
+In this tutorial, you will discover how to use statistical hypothesis tests for comparing machine learning algorithms.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Hypothesis Test for Comparing Machine Learning AlgorithmsPhoto by Frank Shepherd, some rights reserved.
+This tutorial is divided into three parts; they are:
+Model selection involves evaluating a suite of different machine learning algorithms or modeling pipelines and comparing them based on their performance.
+The model or modeling pipeline that achieves the best performance according to your performance metric is then selected as your final model that you can then use to start making predictions on new data.
+This applies to regression and classification predictive modeling tasks with classical machine learning algorithms and deep learning. It’s always the same process.
+The problem is, how do you know the difference between two models is real and not just a statistical fluke?
+This problem can be addressed using a statistical hypothesis test.
+One approach is to evaluate each model on the same k-fold cross-validation split of the data (e.g. using the same random number seed to split the data in each case) and calculate a score for each split. This would give a sample of 10 scores for 10-fold cross-validation. The scores can then be compared using a paired statistical hypothesis test because the same treatment (rows of data) was used for each algorithm to come up with each score. The Paired Student’s t-Test could be used.
+A problem with using the Paired Student’s t-Test, in this case, is that each evaluation of the model is not independent. This is because the same rows of data are used to train the data multiple times — actually, each time, except for the time a row of data is used in the hold-out test fold. This lack of independence in the evaluation means that the Paired Student’s t-Test is optimistically biased.
+This statistical test can be adjusted to take the lack of independence into account. Additionally, the number of folds and repeats of the procedure can be configured to achieve a good sampling of model performance that generalizes well to a wide range of problems and algorithms. Specifically two-fold cross-validation with five repeats, so-called 5×2-fold cross-validation.
+This approach was proposed by Thomas Dietterich in his 1998 paper titled “Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms.”
+For more on this topic, see the tutorial:
+Thankfully, we don’t need to implement this procedure ourselves.
+The MLxtend library by Sebastian Raschka provides an implementation via the paired_ttest_5x2cv() function.
+First, you must install the mlxtend library, for example:
+To use the evaluation, you must first load your dataset, then define the two models that you wish to compare.
+You can then call the paired_ttest_5x2cv() function and pass in your data and models and it will report the t-statistic value and the p-value as to whether the difference in the performance of the two algorithms is significant or not.
+The p-value must be interpreted using an alpha value, which is the significance level that you are willing to accept.
+If the p-value is less or equal to the chosen alpha, we reject the null hypothesis that the models have the same mean performance, which means the difference is probably real. If the p-value is greater than alpha, we fail to reject the null hypothesis that the models have the same mean performance and any observed difference in the mean accuracies is probability a statistical fluke.
+The smaller the alpha value, the better, and a common value is 5 percent (0.05).
+Now that we are familiar with the way to use a hypothesis test to compare algorithms, let’s look at some examples.
+In this section, let’s compare the performance of two machine learning algorithms on a binary classification task, then check if the observed difference is statistically significant or not.
+First, we can use the make_classification() function to create a synthetic dataset with 1,000 samples and 20 input variables.
+The example below creates the dataset and summarizes its shape.
+Running the example creates the dataset and summarizes the number of rows and columns, confirming our expectations.
+We can use this data as the basis for comparing two algorithms.
+We will compare the performance of two linear algorithms on this dataset. Specifically, a logistic regression algorithm and a linear discriminant analysis (LDA) algorithm.
+The procedure I like is to use repeated stratified k-fold cross-validation with 10 folds and three repeats. We will use this procedure to evaluate each algorithm and return and report the mean classification accuracy.
+The complete example is listed below.
+Running the example first reports the mean classification accuracy for each algorithm.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, the results suggest that LDA has better performance if we just look at the mean scores: 89.2 percent for logistic regression and 89.3 percent for LDA.
+A box and whisker plot is also created summarizing the distribution of accuracy scores.
+This plot would support my decision in choosing LDA over LR.
+Box and Whisker Plot of Classification Accuracy Scores for Two Algorithms
+Now we can use a hypothesis test to see if the observed results are statistically significant.
+First, we will use the 5×2 procedure to evaluate the algorithms and calculate a p-value and test statistic value.
+We can then interpret the p-value using an alpha of 5 percent.
+Tying this together, the complete example is listed below.
+Running the example, we first evaluate the algorithms before, then report on the result of the statistical hypothesis test.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the p-value is about 0.3, which is much larger than 0.05. This leads us to fail to reject the null hypothesis, suggesting that any observed difference between the algorithms is probably not real.
+We could just as easily choose logistic regression or LDA and both would perform about the same on average.
+This highlights that performing model selection based only on the mean performance may not be sufficient.
+Recall that we are reporting performance using a different procedure (3×10 CV) than the procedure used to estimate the performance in the statistical test (5×2 CV). Perhaps results would be different if we looked at scores using five repeats of two-fold cross-validation?
+The example below is updated to report classification accuracy for each algorithm using 5×2 CV.
+Running the example reports the mean accuracy for both algorithms and the results of the statistical test.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the difference in the mean performance for the two algorithms is even larger, 89.4 percent vs. 89.0 percent in favor of logistic regression instead of LDA as we saw with 3×10 CV.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to use statistical hypothesis tests for comparing machine learning algorithms.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Thanks for the post!!
+Another possible option would be the bayesian approach through BEST
+https://best.readthedocs.io/en/latest/
+Thanks for sharing!
+Really it was good….for those who have not proper knowledge can easily understand. I m Associate professor in Statistics in one of the reputed Science college.
+Thanks!
+Dear Dr Jason, I have extended the above accuracy with the models used at https://machinelearningmastery.com/calculate-the-bias-variance-trade-off/#comment-550512. That is I have made pairwise combinations of the models from that site and this site and produced the following results.
+This contained statistically significant and not significant comparisons
+The statistically significant models were:
+Conclusion: Out of the statistically significant models SVC had the highest accuracy of 0.952 compared to LDA of 0.894. The p-value is 0.003
+Thank you, Anthony of Sydney
+Dear Dr Jason, apologies, I forgot to consider the comparison of SVC and KNeighborsClassifier with average values of 0.952 and 0.942 respectively and significant with p-value of 0.028.
+Further conclusion: Though there was little difference in accuracy between SVC and KNeighborsClassifier, it appears for the particular dataset consisting of X and y, SVC is likely to be the most suitable method for accuracy.
+So if one is to made predictions for a given dataset X, y , SVC is likely to be model of choice.
+Thank you, Anthony of Sydney
+Nice, thanks for sharing.
+Nice work!
+A good way to present pair-wise hypothesis tests is in a matrix with algorithms along both axis and significant true/false in each cell of the matrix.
+Dear Dr Jason, Thank you for your reply. When you say that a “…good way to present pair wise hypothesis testing in a matrix…” could you elaborate please. Do you mean pair-wise boxplots, with a scatter matrix pairs?
+Is there a scatter_matrix that enables one to switch from a scatter plot to a pairwise comparison of boxplots?
+Thank you, Anthony of Sydney
+No, not a plot, a matrix or table with true/false values indicating whether there is a significant difference between each pair of algorithms or not.
+One can then review the actual mean values for each algorithm that has significant results and ignore the rest.
+A list of pairs can also be used.
+Dear Dr Jason, Thank you for that. Do you mean a table such as this:
+Please advise. Thank you, Anthony of Sydney
+I don’t think so. It was something I did way back in my phd days.
+Dear Dr Jason, Please widen the above ‘table’ it shows
+Thank you, Anthony of Sydney
+Dear Dr Jason, A modification to the program, produced this list:
+Do you mean something like the above? If so is there a way to display text in a nice way = the text aligns nicely.
+Thank you, Anthony of Sydney
+Nice work!
+Dear Dr Jason, This is a text-graphic of the output using the package ‘prettyable’ from https://pypi.org/project/PrettyTable/
+Some code to demonstrate implementation:
+Output – expand the width of the page by hovering your mouse over the top of this output to view complete viewing.
+Thank you,
+Anthony of Sydney
+Very cool.
+Weka does this too I think and adds a * to the mean that is larger – to make the table easier to scan.
+Dear Dr Jason, The above was an ascii text table. The following two are graphical implementations using plotly and matplotlib
+Thank you, Anthony of Sydney
+Nice!
+Dear Dr Jason, You mentioned “….Weka does this too I think and adds a * to the mean that is larger – to make the table easier to scan.>
+I spent an extra two minutes to modify the code in python.
+Here is the result:
+Thank you, Anthony of Sydney
+This is really great stuff Anthony!
+Dear Dr Jason, The table above used the package prettytable. Unfortunately you cannot add a header using prettytable package. If you want to add a header like the table below:
+Use the pytable package. First you uninstall prettytable then install pytable.
+In your python program you import the ptable package as importing prettytable.
+In this example, you add another line
+Here is the code:
+Thank you, Anthony of Sydney
+Nice work.
+Dear Dr Jason, From my enhancements to your tutorial on comparing the scores of models, I have shown how one can make a table of the significant relationships between one model versus another model.
+This tutorial showed the boxplots of the scores when comparing models.
+Without showing the code in its entirety, I go to the essentials of plotting data of boxplots using matplotlib, matplotlib and seaborn which uses matplotlib. Note I did not accidentally write matplotlib twice. There are two methods.
+I will relate this to the tutorial.
+It is assumed that the packages have been declared at the top of the program.
+This is presented as a ‘conceptual’ method but without the accoutrements
+First matplotlib where subplots is instantiated with number of rows and number of columns
+This uses matplotlib : compare the difference between instantiation of subplots in this and the previous example
+This example uses seaborn and matplotlib.
+A boxplot in seaborn requires (i) a DataFrame, and (ii) restructing the two variables model1 and model2 into one array The boxplot in seaborn does IS NOT
+What is required in seaborn’s boxplot is to have two variables, the categorical variable identifying model1 and model2, and another array consisting of the stacking of model1 and models’ values.
+The generation of the separate categorical and values arrays are performed automatically using pandas’ melt and DataFrame function.
+A bonus. You can use a DataFrame in conjunction with the melt method to generate an array of categorical variable associated with the other ‘array’ of data.
+The categorical variable’s is derived when intializing the DataFrame.
+Thank you, Anthony of Sydney
+Nice work, thanks for sharing!
+Hi Jason, This is a very interesting post which will help me with my PhD work a lot so thank you. I am just wondering what your advice would be if you wanted to test multiple machine learning algorithms on multiple data sets.
+I was thinking I could test each data set using cross-validation and then get a table of results for each machine learning algorithm to conduct a hypothesis test. An example below shows a table presenting the standardised RMSE for various machine learning algorithms:
+Dataset | GP1 | GP2 | ANN | Linear Regression Ishigami | 0.21 | 0.16 | 0.19 | 0.32 Sobol | blah | blah | blah | blah …. ….
+and so on.
+So in this case. Would there be a recommended hypothesis test to compare the regression techniques? Any literature you would recommend to investigate this further? And what are your thoughts on this sort of analysis?
+My issue is that most of the literature I am finding is comparing two machine learning techniques as the best for just one dataset. Whereas I am wanting to find an overall better technique for numerous datasets.
+Thanks, Aaron
+Perhaps pair-wise tests between all cases.
+Anyone has an idea how to calculate power of such a test? 🙂
+Perhaps the references in this tutorial will help: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+Hi Jason,
+Thanks for the article! It is indeed very helpful!
+May I ask what method would you suggest when using large datasets? Cross-validation would be very time-consuming, so maybe there is something else out there that I could consider?
+Thanks, Laura
+For very large datasets, perhaps a train/test split and a mcnemars test: https://machinelearningmastery.com/mcnemars-test-for-machine-learning/
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

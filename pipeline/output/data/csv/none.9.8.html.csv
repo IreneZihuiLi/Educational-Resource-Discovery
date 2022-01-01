@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,A Gentle Introduction to k-fold Cross-Validation,https://machinelearningmastery.com/k-fold-cross-validation/,2,4,13,0,592,827,18.652,15.507,15425,4.206,4.772,0.123,8.114,33.792,2.353,527,1,0,machinelearningmastery,com/k-fold-cross-validation,com,2

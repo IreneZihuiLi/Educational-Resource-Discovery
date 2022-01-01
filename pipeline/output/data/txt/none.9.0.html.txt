@@ -1,0 +1,111 @@
+The Role of Randomization to Address Confounding Variables in Machine Learning
+The Role of Randomization to Address Confounding Variables in Machine Learning
+Overview
+Confounding Variables
+Confounding in Machine Learning
+Randomization of Experiments
+Randomization in Machine Learning
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Should We Use a Blind Trial?
+8 Responses to The Role of Randomization to Address Confounding Variables in Machine Learning
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on July 31, 2020
+A large part of applied machine learning is about running controlled experiments to discover what algorithm or algorithm configuration to use on a predictive modeling problem.
+A challenge is that there are aspects of the problem and the algorithm called confounding variables that cannot be controlled (held constant) and must be controlled-for. An example is the use of randomness in a learning algorithm, such as random initialization or random choices during learning.
+The solution is to use randomness in a way that has become a standard in applied machine learning. We can learn more about the rationale for using randomness in controlled experiments by looking briefly at why randomness is used to manage confounding variables in medicine through the use of randomized clinical trials.
+In this post, you will discover confounding variables and how we can address them using the tool of randomization.
+After reading this post, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+The Role of Randomization to Address Confounding Variables in Machine LearningPhoto by Funk Dooby, some rights reserved.
+This post is divided into four parts;l they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+In an experiment, we are often interested in the effect of an independent variable on a dependent variable.
+A confounding variable is a variable that confuses the relationship between the independent and the dependent variable.
+Confounding, sometimes referred to as confounding bias, is mostly described as a ‘mixing’ or ‘blurring’ of effects.
+— Confounding: What it is and how to deal with it, 2008.
+A confounding variable can influence the outcome of an experiment in many ways, such as:
+A confounding variable may be known or unknown.
+They are often characterized as having an association or correlation with both the independent and dependent variables.
+Another characterization is that the confounding variable affects groups or observations differently.
+Confounding variables or confounders are often defined as the variables correlate (positively or negatively) with both the dependent variable and the independent variable. A Confounder is an extraneous variable whose presence affects the variables being studied so that the results do not reflect the actual relationship between the variables under study.
+— How to control confounding effects by statistical analysis, 2012.
+The deeper difficulty of confounding variables is that it may not be obvious that they exist and are impacting results.
+The effects of confounding variables are often not obvious or even identifiable unless they are specifically addressed in the design of the experiment or data collection method.
+Confounding variables are traditionally a concern in applied statistics.
+This is because in statistics we are often concerned with the effect of independent variables on dependent variables in data. Statistical methods are designed to discover and describe these relationships and confounding variables can essentially corrupt or invalidate discoveries.
+Machine learning practitioners are typically interested in the skill of a predictive model and less concerned with the statistical correctness or interpretability of the model. As such, confounding variables are an important topic when it comes to data selection and preparation, but less important than they may be when developing descriptive statistical models.
+Nevertheless, confounding variables are critically important in applied machine learning.
+The evaluation of a machine learning model is an experiment with independent and dependent variables. As such, it is subject to confounding variables.
+What may be surprising is that you already know this and that the gold-standard practices in applied machine learning address this. Therefore, being intimately aware of the confounding variables in machine learning experiments is required to understand the choice and interpretation of machine learning model evaluation.
+Consider, what impacts the evaluation of a machine learning model, what are the independent variables?
+Some examples include:
+Each of these choices will impact the dependent variable in a machine learning experiment, which is the chosen metric used to estimate the skill of the model when making predictions.
+The evaluation of a machine learning model involves the design and execution of controlled experiments. A controlled experiment holds all elements constant except one element under study. The two most common types of controlled experiments in machine learning are:
+Nevertheless, there are confounding variables that the controlled experiments cannot hold constant. Specifically, there are sources of randomness, that if they were held constant would result in an invalid evaluation of the model. Three examples include:
+For example, weights in a neural network are initialized to random values. Stochastic gradient descent randomizes the order of samples in an epoch to vary the types of updates performed. Random subsets of features are selected for each possible cut point in random forest. And many more examples.
+Randomization in machine learning algorithms is not a bug; it is a feature intended to improve the performance of the model on average over classical deterministic methods.
+Randomness can be present in ML at many different levels, usually enhancing performance or alleviating problems and difficulties of classical methods.
+— Randomized Machine Learning Approaches: Recent Developments and Challenges, 2017.
+These are confounding variables that we cannot hold constant. If they are held constant, the evaluation of the model will no longer provide insight into the generalizability of the result. We will know how well the model performs on a specific data sample or initialization of sequence of decisions during learning, but little idea on how the model will perform in general.
+The way that we can handle confounding variables that we cannot control is by using randomization.
+Randomization is a technique used in experimental design to give control over confounding variables that cannot (should not) be held constant.
+For example, randomization is used in clinical experiments to control-for the biological differences between individual human beings when evaluating a treatment. It is the reason why a treatment must be evaluated on multiple individuals rather than on a single individual before the findings can be generalized.
+In randomization the random assignment of study subjects to exposure categories to breaking any links between exposure and confounders. This reduces potential for confounding by generating groups that are fairly comparable with respect to known and unknown confounding variables.
+— How to control confounding effects by statistical analysis, 2012.
+Randomization is a simple tool in experimental design that allows the confounding variables to have their effect across a sample. It shifts the experiment from looking at an individual case to a collection of observations, where statistical tools are used to interpret the finding.
+In medicine, randomization is the gold standard for evaluating a treatment and is called the randomized clinical trial. It is designed to remove not only the confounding effects of biological differences, but also the bias, such as the effect of the experimenter choosing the members of the treatment and non-treatment groups. You can imagine that a treatment would look very successful if the least-sick members of a cohort were chosen to be administered.
+An [Randomized clinical trial] is a special kind of cohort study, with the characteristic that patients are randomly assigned to the experimental group (with exposure) and the control group (without exposure). […] Therefore, randomization helps to prevent selection by the clinician, and helps to establish groups that are equal with respect to relevant prognostic factors.
+— The randomized clinical trial: An unbeatable standard in clinical research?, 2007.
+There are still confounding variables when using a randomized clinical trial. An example is the case where the experimenters know what treatment participants of the study are receiving. This can impact the way the experimenters interact with the participants, which in turn can impact the results of the experiment.
+The answer is to use blinding where participants or experimenters do not know the treatment. Ideally, a double-blind experiment is adopted, ensuring that both participates and experimenters are unaware of their treatment.
+When feasible, it is strongly recommended that also after randomization, patients and clinicians do not know who receives the intervention and who does not. Studies may be single blind (either the patient or the clinician does not know who receives the treatment and who does not) or double blind (both the patient and the clinician do not know who receives the treatment).
+— The randomized clinical trial: An unbeatable standard in clinical research?, 2007.
+Note, before we move on to look at the use of randomization in machine learning, consider that there are other approaches to managing the effect of confounding variables. Wikipedia has a good list here.
+Randomization is used in the evaluation of machine learning models to manage the uncontrollable confounding variables.
+It is key to the standard ways described for evaluating machine learning models and the rationale for using methods such as data resampling and repeating experiments.
+Randomization allows the machine learning practitioner to generalize a finding, to make it useful and applicable. It’s the reason why careful design of the test harness and resampling method is important. It is the reason why we repeat the evaluation of a model and the reason we don’t fix the seed on the pseudorandom number generator.
+I talk more about these topics in the posts:
+When we take a closer look at why we use randomization, to control for confounding variables, it raises questions about the other confounders that we may not be controlling for.
+For example, the machine learning practitioner knowing the skill of models prior to giving each model a chance to do its best via data preparation and hyperparameter tuning. Perhaps practitioners should blind themselves to remove the possibility of biasing the choice of final model.
+The risk is that the practitioner that really likes artificial neural networks will “discover” a neural network configuration that outperforms other models.
+At best it is a statistical fluke or violation of Occam’s Razor for a parsimonious solution to a predictive modeling project; at worst, it is scientific fraud. The reason that clinicians aggressively removed this bias is people’s lives were at risk. We may get to that point with machine learning algorithms, e.g. in cars.
+In practice, today, I think this is good motivation for front-loading an experiment with a large and careful design and automating the execution and statistical interpretation of the results.
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered confounding variables and how we can address them using the tool of randomization.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Thanks Jason for this nice post. Are you planning any posts on experimental design and A/B testing soon?
+Thanks. I might have more on experimental design. I don’t expect to cover A/B testing.
+With this statement “They are often characterized as having an association or correlation with both the independent and dependent variables.” do you mean that collinear variable is an confounding variable
+Yes, for those variables not included in the regression.
+Thanks Jason for this for front readings
+I’m happy it helps.
+I did not understand so far how does randomization reduces the effect of the confounding variables?
+In a nutshell: repeated CV controls for stochastic nature of the data sample and learning algorithm.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

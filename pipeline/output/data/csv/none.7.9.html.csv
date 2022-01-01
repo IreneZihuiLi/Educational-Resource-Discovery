@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,Statistical Methods for Machine Learning,https://machinelearningmastery.com/statistics_for_machine_learning/,3,4,27,0,457,589,17.334,14.55,10210,4.265,2.765,0.146,6.843,25.968,1.332,226,0,0,machinelearningmastery,com/statistics_for_machine_learning,com,2

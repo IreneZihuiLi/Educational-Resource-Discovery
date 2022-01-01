@@ -1,0 +1,9 @@
+name: "KeyBert"
+params:
+  ngram_range:
+    - 1
+    - 2
+  use_mmr: True
+  diversity: 0.7
+  num_keyphrases: 30
+  top_n: 100

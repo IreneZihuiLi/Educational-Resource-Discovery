@@ -1,0 +1,160 @@
+Regression Metrics for Machine Learning
+Regression Metrics for Machine Learning
+Tutorial Overview
+Regression Predictive Modeling
+Evaluating Regression Models
+Metrics for Regression
+Further Reading
+Summary
+Discover Fast Machine Learning in Python!
+Navigation
+Main Menu
+Mean Squared Error
+Root Mean Squared Error
+Mean Absolute Error
+Tutorials
+APIs
+Articles
+16 Responses to Regression Metrics for Machine Learning
+Leave a Reply Click here to cancel reply.
+error metrics for regression
+We cannot calculate accuracy for a regression model
+Do you have any questions?
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on February 16, 2021
+Regression refers to predictive modeling problems that involve predicting a numeric value.
+It is different from classification that involves predicting a class label. Unlike classification, you cannot use classification accuracy to evaluate the predictions made by a regression model.
+Instead, you must use error metrics specifically designed for evaluating predictions made on regression problems.
+In this tutorial, you will discover how to calculate error metrics for regression predictive modeling projects.
+After completing this tutorial, you will know:
+Let’s get started.
+Regression Metrics for Machine LearningPhoto by Gael Varoquaux, some rights reserved.
+This tutorial is divided into three parts; they are:
+Predictive modeling is the problem of developing a model using historical data to make a prediction on new data where we do not have the answer.
+Predictive modeling can be described as the mathematical problem of approximating a mapping function (f) from input variables (X) to output variables (y). This is called the problem of function approximation.
+The job of the modeling algorithm is to find the best mapping function we can given the time and resources available.
+For more on approximating functions in applied machine learning, see the post:
+Regression predictive modeling is the task of approximating a mapping function (f) from input variables (X) to a continuous output variable (y).
+Regression is different from classification, which involves predicting a category or class label.
+For more on the difference between classification and regression, see the tutorial:
+A continuous output variable is a real-value, such as an integer or floating point value. These are often quantities, such as amounts and sizes.
+For example, a house may be predicted to sell for a specific dollar value, perhaps in the range of $100,000 to $200,000.
+Now that we are familiar with regression predictive modeling, let’s look at how we might evaluate a regression model.
+A common question by beginners to regression predictive modeling projects is:
+How do I calculate accuracy for my regression model?
+Accuracy (e.g. classification accuracy) is a measure for classification, not regression.
+We cannot calculate accuracy for a regression model.
+The skill or performance of a regression model must be reported as an error in those predictions.
+This makes sense if you think about it. If you are predicting a numeric value like a height or a dollar amount, you don’t want to know if the model predicted the value exactly (this might be intractably difficult in practice); instead, we want to know how close the predictions were to the expected values.
+Error addresses exactly this and summarizes on average how close predictions were to their expected values.
+There are three error metrics that are commonly used for evaluating and reporting the performance of a regression model; they are:
+There are many other metrics for regression, although these are the most commonly used. You can see the full list of regression metrics supported by the scikit-learn Python machine learning library here:
+In the next section, let’s take a closer look at each in turn.
+In this section, we will take a closer look at the popular metrics for regression models and how to calculate them for your predictive modeling project.
+Mean Squared Error, or MSE for short, is a popular error metric for regression problems.
+It is also an important loss function for algorithms fit or optimized using the least squares framing of a regression problem. Here “least squares” refers to minimizing the mean squared error between predictions and expected values.
+The MSE is calculated as the mean or average of the squared differences between predicted and expected target values in a dataset.
+Where y_i is the i’th expected value in the dataset and yhat_i is the i’th predicted value. The difference between these two values is squared, which has the effect of removing the sign, resulting in a positive error value.
+The squaring also has the effect of inflating or magnifying large errors. That is, the larger the difference between the predicted and expected values, the larger the resulting squared positive error. This has the effect of “punishing” models more for larger errors when MSE is used as a loss function. It also has the effect of “punishing” models by inflating the average error score when used as a metric.
+We can create a plot to get a feeling for how the change in prediction error impacts the squared error.
+The example below gives a small contrived dataset of all 1.0 values and predictions that range from perfect (1.0) to wrong (0.0) by 0.1 increments. The squared error between each prediction and expected value is calculated and plotted to show the quadratic increase in squared error.
+The complete example is listed below.
+Running the example first reports the expected value, predicted value, and squared error for each case.
+We can see that the error rises quickly, faster than linear (a straight line).
+A line plot is created showing the curved or super-linear increase in the squared error value as the difference between the expected and predicted value is increased.
+The curve is not a straight line as we might naively assume for an error metric.
+Line Plot of the Increase Square Error With Predictions
+The individual error terms are averaged so that we can report the performance of a model with regard to how much error the model makes generally when making predictions, rather than specifically for a given example.
+The units of the MSE are squared units.
+For example, if your target value represents “dollars,” then the MSE will be “squared dollars.” This can be confusing for stakeholders; therefore, when reporting results, often the root mean squared error is used instead (discussed in the next section).
+The mean squared error between your expected and predicted values can be calculated using the mean_squared_error() function from the scikit-learn library.
+The function takes a one-dimensional array or list of expected values and predicted values and returns the mean squared error value.
+The example below gives an example of calculating the mean squared error between a list of contrived expected and predicted values.
+Running the example calculates and prints the mean squared error.
+A perfect mean squared error value is 0.0, which means that all predictions matched the expected values exactly.
+This is almost never the case, and if it happens, it suggests your predictive modeling problem is trivial.
+A good MSE is relative to your specific dataset.
+It is a good idea to first establish a baseline MSE for your dataset using a naive predictive model, such as predicting the mean target value from the training dataset. A model that achieves an MSE better than the MSE for the naive model has skill.
+The Root Mean Squared Error, or RMSE, is an extension of the mean squared error.
+Importantly, the square root of the error is calculated, which means that the units of the RMSE are the same as the original units of the target value that is being predicted.
+For example, if your target variable has the units “dollars,” then the RMSE error score will also have the unit “dollars” and not “squared dollars” like the MSE.
+As such, it may be common to use MSE loss to train a regression predictive model, and to use RMSE to evaluate and report its performance.
+The RMSE can be calculated as follows:
+Where y_i is the i’th expected value in the dataset, yhat_i is the i’th predicted value, and sqrt() is the square root function.
+We can restate the RMSE in terms of the MSE as:
+Note that the RMSE cannot be calculated as the average of the square root of the mean squared error values. This is a common error made by beginners and is an example of Jensen’s inequality.
+You may recall that the square root is the inverse of the square operation. MSE uses the square operation to remove the sign of each error value and to punish large errors. The square root reverses this operation, although it ensures that the result remains positive.
+The root mean squared error between your expected and predicted values can be calculated using the mean_squared_error() function from the scikit-learn library.
+By default, the function calculates the MSE, but we can configure it to calculate the square root of the MSE by setting the “squared” argument to False.
+The function takes a one-dimensional array or list of expected values and predicted values and returns the mean squared error value.
+The example below gives an example of calculating the root mean squared error between a list of contrived expected and predicted values.
+Running the example calculates and prints the root mean squared error.
+A perfect RMSE value is 0.0, which means that all predictions matched the expected values exactly.
+This is almost never the case, and if it happens, it suggests your predictive modeling problem is trivial.
+A good RMSE is relative to your specific dataset.
+It is a good idea to first establish a baseline RMSE for your dataset using a naive predictive model, such as predicting the mean target value from the training dataset. A model that achieves an RMSE better than the RMSE for the naive model has skill.
+Mean Absolute Error, or MAE, is a popular metric because, like RMSE, the units of the error score match the units of the target value that is being predicted.
+Unlike the RMSE, the changes in MAE are linear and therefore intuitive.
+That is, MSE and RMSE punish larger errors more than smaller errors, inflating or magnifying the mean error score. This is due to the square of the error value. The MAE does not give more or less weight to different types of errors and instead the scores increase linearly with increases in error.
+As its name suggests, the MAE score is calculated as the average of the absolute error values. Absolute or abs() is a mathematical function that simply makes a number positive. Therefore, the difference between an expected and predicted value may be positive or negative and is forced to be positive when calculating the MAE.
+The MAE can be calculated as follows:
+Where y_i is the i’th expected value in the dataset, yhat_i is the i’th predicted value and abs() is the absolute function.
+We can create a plot to get a feeling for how the change in prediction error impacts the MAE.
+The example below gives a small contrived dataset of all 1.0 values and predictions that range from perfect (1.0) to wrong (0.0) by 0.1 increments. The absolute error between each prediction and expected value is calculated and plotted to show the linear increase in error.
+The complete example is listed below.
+Running the example first reports the expected value, predicted value, and absolute error for each case.
+We can see that the error rises linearly, which is intuitive and easy to understand.
+A line plot is created showing the straight line or linear increase in the absolute error value as the difference between the expected and predicted value is increased.
+Line Plot of the Increase Absolute Error With Predictions
+The mean absolute error between your expected and predicted values can be calculated using the mean_absolute_error() function from the scikit-learn library.
+The function takes a one-dimensional array or list of expected values and predicted values and returns the mean absolute error value.
+The example below gives an example of calculating the mean absolute error between a list of contrived expected and predicted values.
+Running the example calculates and prints the mean absolute error.
+A perfect mean absolute error value is 0.0, which means that all predictions matched the expected values exactly.
+This is almost never the case, and if it happens, it suggests your predictive modeling problem is trivial.
+A good MAE is relative to your specific dataset.
+It is a good idea to first establish a baseline MAE for your dataset using a naive predictive model, such as predicting the mean target value from the training dataset. A model that achieves a MAE better than the MAE for the naive model has skill.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to calculate error for regression predictive modeling projects.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of scikit-learn code
+Learn how in my new Ebook: Machine Learning Mastery With Python
+Covers self-study tutorials and end-to-end projects like: Loading data, visualization, modeling, tuning, and much more...
+Skip the Academics. Just Results.
+Thank you so much for your great post. Do you have a plan to explain the other regression matrics, such as r2_score, RMSLE, MAPE, pearson correlation, and so on?
+Yes, I hope to in the future.
+This is nice, but the error of a straight line is above the parabola for values < 1, idk if that's an error or am I missing something probably?
+Sorry I don’t follow, can you please elaborate?
+PD: is there any reason why you don’t use mathjax? it’s a javascript lib that let you display math formulas nicely, it would greatly improve readability.
+But the post is great anyways!
+Yes, it is intentional to make the content more approachable by developers.
+Something interesting about MSE, is that if you have outliers, it will normally affect the errors and the algorithm quite a bit (imho).
+Agreed, more punishment for the error in the outlier’s prediction.
+Hi Jason, great overview. I think there is a typo in this sentence at the start of the MAE section: “Unlike the RMSE, the changes in RMSE are linear and therefore intuitive.” Should it not read: “Unlike the RMSE, the changes in MAE are linear and therefore intuitive.”?
+Thanks, fixed!
+Hi. Thanks for the great article, it really helped! One question:
+> It is a good idea to first establish a baseline MAE for your dataset using a naive predictive model, such as predicting the mean target value from the training dataset. A model that achieves a MAE better than the MAE for the naive model has skill.
+How would one go about making a naive predictive model? By making a column for average target values and then predicting over it? Am I getting it right?
+Yes!
+You can predict the average value from the training set.
+I know you didn’t discuss MAPE here, but you did mention the fact that we cannot calculate accuracy for a regression model. Do you have thoughts on subtracting MAPE from 1 to get an “accuracy” for reporting purposes?
+It would be inverse MAPE (or something), not accuracy.
+Hey there Jason.
+Is it possible to set a target value for a machine learning model to reach? Say the model can produce an MAE of 0.7 but I want my MAE to be 0.2 and so I want the model to keep looping until it reaches the required value.
+Is it possible, or is it just about accepting how the model can perform on the dataset?
+It may not be possible to achieve a given metric score for a given model + dataset + test test harness.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Machine Learning with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

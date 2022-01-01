@@ -1,0 +1,200 @@
+A Gentle Introduction to Joint, Marginal, and Conditional Probability
+A Gentle Introduction to Joint, Marginal, and Conditional Probability
+Overview
+Probability of One Random Variable
+Probability of Multiple Random Variables
+Probability of Independence and Exclusivity
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+Want to Learn Probability for Machine Learning
+Joint Probability of Two Variables
+Marginal Probability
+Conditional Probability
+Independence
+Exclusivity
+Books
+Articles
+30 Responses to A Gentle Introduction to Joint, Marginal, and Conditional Probability
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Update Oct/2019
+Update Nov/2019
+Joint Probability
+Marginal Probability
+Conditional Probability
+Joint Probability
+Marginal Probability
+Conditional Probability
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on May 6, 2020
+Probability quantifies the uncertainty of the outcomes of a random variable.
+It is relatively easy to understand and compute the probability for a single variable. Nevertheless, in machine learning, we often have many random variables that interact in often complex and unknown ways.
+There are specific techniques that can be used to quantify the probability for multiple random variables, such as the joint, marginal, and conditional probability. These techniques provide the basis for a probabilistic understanding of fitting a predictive model to data.
+In this post, you will discover a gentle introduction to joint, marginal, and conditional probability for multiple random variables.
+After reading this post, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to Joint, Marginal, and Conditional ProbabilityPhoto by Masterbutler, some rights reserved.
+This tutorial is divided into three parts; they are:
+Probability quantifies the likelihood of an event.
+Specifically, it quantifies how likely a specific outcome is for a random variable, such as the flip of a coin, the roll of a dice, or drawing a playing card from a deck.
+Probability gives a measure of how likely it is for something to happen.
+— Page 57, Probability: For the Enthusiastic Beginner, 2016.
+For a random variable x, P(x) is a function that assigns a probability to all values of x.
+The probability of a specific event A for a random variable x is denoted as P(x=A), or simply as P(A).
+Probability is calculated as the number of desired outcomes divided by the total possible outcomes, in the case where all outcomes are equally likely.
+This is intuitive if we think about a discrete random variable such as the roll of a die. For example, the probability of a die rolling a 5 is calculated as one outcome of rolling a 5 (1) divided by the total number of discrete outcomes (6) or 1/6 or about 0.1666 or about 16.666%.
+The sum of the probabilities of all outcomes must equal one. If not, we do not have valid probabilities.
+The probability of an impossible outcome is zero. For example, it is impossible to roll a 7 with a standard six-sided die.
+The probability of a certain outcome is one. For example, it is certain that a value between 1 and 6 will occur when rolling a six-sided die.
+The probability of an event not occurring, called the complement.
+This can be calculated by one minus the probability of the event, or 1 – P(A). For example, the probability of not rolling a 5 would be 1 – P(5) or 1 – 0.166 or about 0.833 or about 83.333%.
+Now that we are familiar with the probability of one random variable, let’s consider probability for multiple random variables.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+In machine learning, we are likely to work with many random variables.
+For example, given a table of data, such as in excel, each row represents a separate observation or event, and each column represents a separate random variable.
+Variables may be either discrete, meaning that they take on a finite set of values, or continuous, meaning they take on a real or numerical value.
+As such, we are interested in the probability across two or more random variables.
+This is complicated as there are many ways that random variables can interact, which, in turn, impacts their probabilities.
+This can be simplified by reducing the discussion to just two random variables (X, Y), although the principles generalize to multiple variables.
+And further, to discuss the probability of just two events, one for each variable (X=A, Y=B), although we could just as easily be discussing groups of events for each variable.
+Therefore, we will introduce the probability of multiple random variables as the probability of event A and event B, which in shorthand is X=A and Y=B.
+We assume that the two variables are related or dependent in some way.
+As such, there are three main types of probability we might want to consider; they are:
+These types of probability form the basis of much of predictive modeling with problems such as classification and regression. For example:
+Joint, marginal, and conditional probability are foundational in machine learning.
+Let’s take a closer look at each in turn.
+We may be interested in the probability of two simultaneous events, e.g. the outcomes of two different random variables.
+The probability of two (or more) events is called the joint probability. The joint probability of two or more random variables is referred to as the joint probability distribution.
+For example, the joint probability of event A and event B is written formally as:
+The “and” or conjunction is denoted using the upside down capital “U” operator “^” or sometimes a comma “,”.
+The joint probability for events A and B is calculated as the probability of event A given event B multiplied by the probability of event B.
+This can be stated formally as follows:
+The calculation of the joint probability is sometimes called the fundamental rule of probability or the “product rule” of probability or the “chain rule” of probability.
+Here, P(A given B) is the probability of event A given that event B has occurred, called the conditional probability, described below.
+The joint probability is symmetrical, meaning that P(A and B) is the same as P(B and A). The calculation using the conditional probability is also symmetrical, for example:
+We may be interested in the probability of an event for one random variable, irrespective of the outcome of another random variable.
+For example, the probability of X=A for all outcomes of Y.
+The probability of one event in the presence of all (or a subset of) outcomes of the other random variable is called the marginal probability or the marginal distribution. The marginal probability of one random variable in the presence of additional random variables is referred to as the marginal probability distribution.
+It is called the marginal probability because if all outcomes and probabilities for the two variables were laid out together in a table (X as columns, Y as rows), then the marginal probability of one variable (X) would be the sum of probabilities for the other variable (Y rows) on the margin of the table.
+There is no special notation for the marginal probability; it is just the sum or union over all the probabilities of all events for the second variable for a given fixed event for the first variable.
+This is another important foundational rule in probability, referred to as the “sum rule.”
+The marginal probability is different from the conditional probability (described next) because it considers the union of all events for the second variable rather than the probability of a single event.
+We may be interested in the probability of an event given the occurrence of another event.
+The probability of one event given the occurrence of another event is called the conditional probability. The conditional probability of one to one or more random variables is referred to as the conditional probability distribution.
+For example, the conditional probability of event A given event B is written formally as:
+The “given” is denoted using the pipe “|” operator; for example:
+The conditional probability for events A given event B is calculated as follows:
+This calculation assumes that the probability of event B is not zero, e.g. is not impossible.
+The notion of event A given event B does not mean that event B has occurred (e.g. is certain); instead, it is the probability of event A occurring after or in the presence of event B for a given trial.
+When considering multiple random variables, it is possible that they do not interact.
+We may know or assume that two variables are not dependent upon each other instead are independent.
+Alternately, the variables may interact but their events may not occur simultaneously, referred to as exclusivity.
+We will take a closer look at the probability of multiple random variables under these circumstances in this section.
+If one variable is not dependent on a second variable, this is called independence or statistical independence.
+This has an impact on calculating the probabilities of the two variables.
+For example, we may be interested in the joint probability of independent events A and B, which is the same as the probability of A and the probability of B.
+Probabilities are combined using multiplication, therefore the joint probability of independent events is calculated as the probability of event A multiplied by the probability of event B.
+This can be stated formally as follows:
+As we might intuit, the marginal probability for an event for an independent random variable is simply the probability of the event.
+It is the idea of probability of a single random variable that are familiar with:
+We refer to the marginal probability of an independent probability as simply the probability.
+Similarly, the conditional probability of A given B when the variables are independent is simply the probability of A as the probability of B has no effect. For example:
+We may be familiar with the notion of statistical independence from sampling. This assumes that one sample is unaffected by prior samples and does not affect future samples.
+Many machine learning algorithms assume that samples from a domain are independent to each other and come from the same probability distribution, referred to as independent and identically distributed, or i.i.d. for short.
+If the occurrence of one event excludes the occurrence of other events, then the events are said to be mutually exclusive.
+The probability of the events are said to be disjoint, meaning that they cannot interact, are strictly independent.
+If the probability of event A is mutually exclusive with event B, then the joint probability of event A and event B is zero.
+Instead, the probability of an outcome can be described as event A or event B, stated formally as follows:
+The “or” is also called a union and is denoted as a capital “U” letter; for example:
+If the events are not mutually exclusive, we may be interested in the outcome of either event.
+The probability of non-mutually exclusive events is calculated as the probability of event A and the probability of event B minus the probability of both events occurring simultaneously.
+This can be stated formally as follows:
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered a gentle introduction to joint, marginal, and conditional probability for multiple random variables.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+Dear Mr. Brownlee,
+if I’m not mistaken, in the line “Marginal Probability: Probability of event A given variable B.” should be written “…: Probability of event A given variable Y”.
+Thank you for your nice articles and hints that have helped me a lot!
+Best regards Anna
+Thanks, fixed!
+Hello Jason, great article as usual. Only one question: in literature, the authors usually refer to marginal probability distribution P(X) as a definition to the dataset.
+For example: in the paper, A Survey on Transfer Learning: the authors defined the domain as: A domain D consists of two components: a feature space X and a marginal probability distribution P(X), where X={x_1,x_2,…,x_n}∈X.
+In general, if two domains are different, then they may have different feature spaces or different marginal probability distributions
+My question is: what to understand if an author said that: a certain dataset has a marginal probability distribution P(X)
+Thanks.
+Good question.
+The “marginal” probability distribution is just the probability distribution of the variables in the data sample. You can read the same line without the word “marginal” and get the same meaning. It is used to be precise.
+Does that help?
+Another example is “the two datasets marginal distributions are different”? What exactly does this mean?
+They have a different probability distribution. The distribution has changed or is different.
+Again, “marginal” can be removed from the sentence to get the intended meaning. It is added to be precise.
+Excellent questions!
+Hi,
+You have a type in this line;
+“Discover bayes opimization, naive bayes…”
+I’m lost, where does that line appear exactly?
+Hi Jason, I am a big fan of you contents. Please let me know if there is a option to buy your books in India.
+Thanks.
+If my books are too expensive, you can discover my best free tutorials here: https://machinelearningmastery.com/start-here/
+Hi,this article is full of informative about Marginal and Conditional Probability.Thank you for your nice articles and hints that have helped me a lot!
+Thanks.
+Thank you for this extremely well written post.
+You’re welcome, I’m happy it was helpful.
+Nice article, thanks. Also, I love how you respond to every comment, even totally inane ones like this one. That’s so cool.
+Hahah, I try. Sometimes the comments are really hard to parse.
+For the marginal probability sections,
+Should:
+P(X=A) = sum P(X=A, Y=yi) for all y
+Be:
+P(X=A) = sum P(X=A | Y=yi) for all y
+or am i missing something?
+No. It is the sum of the join probabilities, not conditional.
+See marginal probability distribution for mass function: https://en.wikipedia.org/wiki/Marginal_distribution
+Thanks for the post. It proved vry helpful
+You’re welcome.
+Could you please review this writing? “ ”The joint probability for events A and B is calculated the probability of event A given event B multiplied by the probability of event B.“ Thanks
+Thanks! Fixed.
+I have a team of editors, yet errors slip through.
+I am learning transfer learning, have question regarding marginal probability
+if marginal probability of two domain are different P(Xs) = P(Xt) is it equal to saying feature space distribution of Xs != feature space distribution of Xt
+where s is source and t is target.
+P.S: I also read previous comment regarding marginal probability
+Not sure I follow sorry, your statements contain contradictions. Perhaps you could elaborate or restate your question?
+The notion of event A given event B does not mean that
+” event B has occurred (e.g. is certain)” ;
+instead, it is the probability of event A occurring
+” after or in the presence of event B ”
+for a given trial.
+can u explain the quotes and give an example? also why is the first quote wrong?
+Perhaps this will help: https://en.wikipedia.org/wiki/Conditional_probability
+X A 0.5 X B 0.6
+Y A 0.55
+What will be common probability of What will be marginal probability of X and Y ?
+Sounds like homework. Perhaps discuss with your teacher directly.
+Jason I am sure everyone else is up to speed but I am not following.Please can you give me real life illustration for marginal probability,conditional probability, what are mutually exclusive events, independent v dependent events. If I can apply the math to a real situation I can understand it . Thanks for your patient help. Much appreciated.
+Yes, you can see some examples here: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

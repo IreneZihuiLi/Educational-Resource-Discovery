@@ -1,0 +1,196 @@
+How to Develop and Evaluate Naive Classifier Strategies Using Probability
+How to Develop and Evaluate Naive Classifier Strategies Using Probability
+Tutorial Overview
+Naive Classifier
+Predict a Random Guess
+Predict a Randomly Selected Class
+Predict the Majority Class
+Naive Classifiers in scikit-learn
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+Want to Learn Probability for Machine Learning
+32 Responses to How to Develop and Evaluate Naive Classifier Strategies Using Probability
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Random Guess
+Select Random Class
+Majority Class
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on September 25, 2019
+A Naive Classifier is a simple classification model that assumes little to nothing about the problem and the performance of which provides a baseline by which all other models evaluated on a dataset can be compared.
+There are different strategies that can be used for a naive classifier, and some are better than others, depending on the dataset and the choice of performance measures. The most common performance measure is classification accuracy and common naive classification strategies, including randomly guessing class labels, randomly choosing labels from a training dataset, and using a majority class label.
+It is useful to develop a small probability framework to calculate the expected performance of a given naive classification strategy and to perform experiments to confirm the theoretical expectations. These exercises provide an intuition both for the behavior of naive classification algorithms in general, and the importance of establishing a performance baseline for a classification task.
+In this tutorial, you will discover how to develop and evaluate naive classification strategies for machine learning.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Develop and Evaluate Naive Classifier Strategies Using ProbabilityPhoto by Richard Leonard, some rights reserved.
+This tutorial is divided into five parts; they are:
+Classification predictive modeling problems involve predicting a class label given an input to the model.
+Classification models are fit on a training dataset and evaluated on a test dataset, and performance is often reported as a fraction of the number of correct predictions compared to the total number of predictions made, called accuracy.
+Given a classification model, how do you know if the model has skill or not?
+This is a common question on every classification predictive modeling project. The answer is to compare the results of a given classifier model to a baseline or naive classifier model.
+A naive classifier model is one that does not use any sophistication in order to make a prediction, typically making a random or constant prediction. Such models are naive because they don’t use any knowledge about the domain or any learning in order to make a prediction.
+The performance of a baseline classifier on a classification task provides a lower bound on the expected performance of all other models on the problem. For example, if a classification model performs better than a naive classifier, then it has some skill. If a classifier model performs worse than the naive classifier, it does not have any skill.
+What classifier should be used as the naive classifier?
+This is a common area of confusion for beginners, and different naive classifiers are adopted.
+Some common choices include:
+The problem is, not all naive classifiers are created equal, and some perform better than others. As such, we should use the best-performing naive classifier on all of our classification predictive modeling projects.
+We can use simple probability to evaluate the performance of different naive classifier models and confirm the one strategy that should always be used as the native classifier.
+Before we start evaluating different strategies, let’s define a contrived two-class classification problem. To make it interesting, we will assume that the number of observations is not equal for each class (e.g. the problem is imbalanced) with 25 examples for class-0 and 75 examples for class-1.
+We can make this concrete with a small example in Python, listed below.
+Running the example creates the dataset and summarizes the fraction of examples that belong to each class, showing 25% and 75% for class-0 and class-1 as we might intuitively expect.
+Finally, we can define a probabilistic model for evaluating naive classification strategies.
+In this case, we are interested in calculating the classification accuracy of a given binary classification model.
+This can be calculated as the probability of the model predicting each class value multiplied by the probability of observing each class occurrence.
+This calculates the expected performance of a model on a dataset. It provides a very simple probabilistic model that we can use to calculate the expected performance of a naive classifier model in general.
+Next, we will use this contrived prediction problem to explore different strategies for a naive classifier.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Perhaps the simplest strategy is to randomly guess one of the available classes for each prediction that is required.
+We will call this the random-guess strategy.
+Using our probabilistic model, we can calculate how well this model is expected to perform on average on our contrived dataset.
+A random guess for each class is a uniform probability distribution over each possible class label, or in the case of a two-class problem, a probability of 0.5 for each class. Also, we know the expected probability of the values for class-0 and class-1 for our dataset because we contrived the problem; they are 0.25 and 0.75 respectively. Therefore, we calculate the average performance of this strategy as follows:
+This calculation suggests that the performance of predicting a uniformly random class label on our contrived problem is 0.5 or 50% classification accuracy.
+This might be surprising, which is good as it highlights the benefit of systematically calculating the expected performance of a naive strategy.
+We can confirm that this estimation is correct with a small experiment.
+The strategy can be implemented as a function that randomly selects a 0 or 1 for each prediction required.
+This can then be called for each prediction required in the dataset and the accuracy can be evaluated
+That is a single trial, but the accuracy will be different each time the strategy is used.
+To counter this issue, we can repeat the experiment 1,000 times and report the average performance of the strategy. We would expect the average performance to match our expected performance calculated above.
+The complete example is listed below.
+Running the example performs 1,000 trials of our experiment and reports the mean accuracy of the strategy.
+Your specific result will vary given the stochastic nature of the algorithm.
+In this case, we can see that the expected performance very closely matches the calculated performance. Given the law of large numbers, the more trials of this experiment we perform, the closer our estimate will get to the theoretical value we calculated.
+This is a good start, but what if we use some basic information about the composition of the training dataset in the strategy. We will explore that next.
+Another naive classifier approach is to make use of the training dataset in some way.
+Perhaps the simplest approach would be to use the observations in the training dataset as predictions. Specifically, we can randomly select observations in the training set and return them for each requested prediction.
+This makes sense, and we may expect this primitive use of the training dataset would result in a slightly better naive accuracy than randomly guessing.
+We can find out by calculating the expected performance of the approach using our probabilistic framework.
+If we select examples from the training dataset with a uniform probability distribution, we will draw examples from each class with the same probability of their occurrence in the training dataset. That is, we will draw examples of class-0 with a probability of 25% and class-1 with a probability of 75%. This too will be the probability of the independent predictions by the model.
+With this knowledge, we can plug-in these values into the probabilistic model.
+The result suggests that using a uniformly randomly selected class from the training dataset as a prediction results in a better naive classifier than simply predicting a uniformly random class on this dataset, showing 62.5% instead of 50%, or a 12.2% lift.
+Not bad!
+Let’s confirm our calculations again with a small simulation.
+The random_class() function below implements this naive classifier strategy by selecting and returning a random class label from the training dataset.
+We can then use the same framework from the previous section to evaluate the model 1,000 times and report the average classification accuracy across those trials. We would expect that this empirical estimate would match our expected value, or be very close to it.
+The complete example is listed below.
+Running the example performs 1,000 trials of our experiment and reports the mean accuracy of the strategy.
+Your specific result will vary given the stochastic nature of the algorithm.
+In this case, we can see that the expected performance again very closely matches the calculated performance: 62.4% in the simulation vs. 62.5% that we calculated above.
+Perhaps we can do better than a uniform distribution when predicting a class label. We will explore this in the next section.
+In the previous section, we explored a strategy that selected a class label based on a uniform probability distribution over the observed label in the training dataset.
+This allowed the predicted probability distribution to match the observed probability distribution for each class and an improvement over a uniform distribution of class labels. A downside to this imbalanced dataset, in particular, is one class is expected above the other to a greater degree and randomly predicting classes, even in a biased way, leads to too many incorrect predictions.
+Instead, we can predict the majority class and be assured of achieving an accuracy that is at least as high as the composition of the majority class in the training dataset.
+That is, if 75% of the examples in the training set are class-1, and we predicted class-1 for all examples, then we know that we would at least achieve an accuracy of 75%, an improvement over randomly selecting a class as we did in the previous section.
+We can confirm this by calculating the expected performance of the approach using our probability model.
+The probability of this naive classification strategy predicting class-0 would be 0.0 (impossible), and the probability of predicting class-1 is 1.0 (certain). Therefore:
+This confirms our expectations and suggests that this strategy would give a further lift of 12.5% over the previous strategy on this specific dataset.
+Again, we can confirm this approach with a simulation.
+The majority class can be calculated statistically using the mode; that is, the most common observation in a distribution.
+The mode() SciPy function can be used. It returns two values, the first of which is the mode that we can return. The majority_class() function below implements this naive classifier.
+We can then evaluate the strategy on the contrived dataset. We do not need to repeat the experiment multiple times as there is no random component to the strategy, and the algorithm will give the same performance on the same dataset every time.
+The complete example is listed below.
+Running the example reports the accuracy of the majority class naive classifier on the dataset.
+The accuracy matches the expected value calculated by the probability framework of 75% and the composition of the training dataset.
+This majority class naive classifier is the method that should be used to calculate a baseline performance on your classification predictive modeling problems.
+It works just as well for those datasets with an equal number of class labels, and for problems with more than two class labels, e.g. multi-class classification problems.
+Now that we have discovered the best-performing naive classifier model, we can see how we might use it in our next project.
+The scikit-learn machine learning library provides an implementation of the majority class naive classification algorithm that you can use on your next classification predictive modeling project.
+It is provided as part of the DummyClassifier class.
+To use the naive classifier, the class must be defined and the “strategy” argument set to “most_frequent” to ensure that the majority class is predicted. The class can then be fit on a training dataset and used to make predictions on a test dataset or other resampling model evaluation strategy.
+In fact, the DummyClassifier is flexible and allows the other two naive classifiers to be used.
+Specifically, setting “strategy” to “uniform” will perform the random guess strategy that we tested first, and setting “strategy” to “stratified” will perform the randomly selected class strategy that we tested second.
+We can confirm that the DummyClassifier performs as expected with the majority class naive classification strategy by testing it on our contrived dataset.
+The complete example is listed below.
+Running the example prepares the dataset, then defines and fits the DummyClassifier on the dataset using the majority class strategy.
+Evaluating the classification accuracy of the predictions from the model confirms that the model performs as expected, achieving a score of 75%.
+This example provides a starting point for calculating the naive classifier baseline performance on your own classification predictive modeling projects in the future.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to develop and evaluate naive classification strategies for machine learning.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+Hello Jason, I have some questions. First about normalization and standardization When I have to use normalization and when serialization in data preprocessing? Is there any rule? I’m working on the Boston Housing dataset.
+Second question is about regression. What is the output of the following model? Is it a specific value (e.g. a specific price) or a series of values/ prices in a range (continuous quantity)? I’m working on the Boston Housing dataset.
+model.add(Dense(64,activation=’relu’,input_dim=train_data.shape[1])) model.add(Dense(1))
+Last question is about plotting Do you have any code example about how evaluate regression predictions after training?
+Regards and many thanks. Marco
+Good question, this will help: https://machinelearningmastery.com/faq/single-faq/what-is-the-difference-between-standardization-and-normalization
+Yes, it can be a good idea to scale the output as well.
+Yes, you can evaluate predictions in regression using error, such as RMSE. This will help: https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/
+Thanks a lot for your answer. One more question about normalization/ standardization. Do I have to normalize/ standardize also the output y ? Or I can leave it As Is? Thanks Marco
+I recommend test with and without and use the approach that results in the model with the best skill.
+Hello Jason, I’m still working on Boston Housing dataset. I’ve the following model code:
+model = models.Sequential() model.add(layers.Dense(8, activation=’relu’, input_shape=[X_train.shape[1]])) model.add(layers.Dense(16, activation=’relu’)) model.add(layers.Dense(1)) model.compile(optimizer=’rmsprop’, loss=’mse’, metrics=[‘mae’]) history = model.fit(X_train_scaled, y_train, validation_split=0.2, epochs=100) model.evaluate(X_test_scaled, y_test)
+The output is: [26.68399990306181, 3.7581424339144838] What is 3.7581424339144838. In case of a price (in .K$) is it the difference between the real price and the predicted one? And what is 26.6839 … in simple words? 🙂 I guess it is the mean of all differences between the real prices and the predicted ones (?) How to plot them?
+Thanks, Marco
+The output is the mean squared error and the mean absolute error.
+You can take the square root of the mse value to return to original units. mae is already in the original units.
+Hi Jason,
+This is a great post providing an excellent probabilistic insight into the performance of naive classifiers. Well done!!
+Thanks, I’m glad it helped.
+It was really fun to write!
+Hello Jason, I have a question related to the following code:
+import numpy as np np.random.seed(123)
+What does it mean? Where I have to put it in the code? When / why have I to use it?
+Thanks a lot, Marco
+We are seeding the random number generator: https://machinelearningmastery.com/introduction-to-random-number-generators-for-machine-learning/
+I am trying to make the example reproducible for the tutorial, so that you get the same results as me.
+Hello Jason,
+I’m still working on IMDB dataset. The main code coming from Kears site (https://github.com/keras-team/keras/blob/master/examples/imdb_lstm.py). I wrote the following snippet of code at the end of the example, but It doesn’t provide good predictions.
+The result is 0.7625497 (1 good, 0 not so good). I wondering why? Thanks a lot, Marco
+This is a common question that I answer here: https://machinelearningmastery.com/faq/single-faq/can-you-read-review-or-debug-my-code
+Hello Jason, one more question is about the use of [0]. Some times I found the following code:
+prediction = model.predict(x_testtext)[0][0]
+What does [0][0] mean and why use it? Thanks a lot, Marco
+We do not make predictions that way in this tutorial.
+In general, that is an array index for the result of the prediction. You can learn more about array indexes here: https://machinelearningmastery.com/index-slice-reshape-numpy-arrays-machine-learning-python/
+Hello Jason, do you know if exist a visual tool (open source or not) to develop Machine Learning models without programming? Thanks, Marco
+Yes, you can use Weka, start here: https://machinelearningmastery.com/start-here/#weka
+Hello Jason, I have one more question. So far I’ve seen a lot of examples about using Keras for supervised learning. Does Keras work also for unsupervised learning? Do you have any simple example? Thanks, Marco
+Yes, mostly unsupervised learning problems framed as supervised learning, like generative models and autoencoders.
+Here’s an example: https://machinelearningmastery.com/lstm-autoencoders/
+how suitably is naive bayes for one class classification problem? and can i get more insights on how to tackle such kind of problem involving targets with only one label
+I recommend testing a suite of different models for a given predictive modeling problem.
+Naive bayes can be very effective.
+Note, in this post we are discussing naive classifiers, not naive bayes.
+Hello Jason, I’m looking at regularization. Do you have any example with code about (e.g.) dropout, early stopping, etc. Thanks, Marco
+Yes, many examples. Perhaps start here: https://machinelearningmastery.com/introduction-to-regularization-to-reduce-overfitting-and-improve-generalization-error/
+Hello Jason, do you have any article about what is and how to use a sklearn classification_report? Thanks, Marco
+No, but you can just call it and review the output.
+What problem are you having with it exactly?
+Hello Jason, I have a couple of questions for you. Is it possbile to use Keras and Sklearn TOGETHER, i.e. building a model and then use Sklearn funtions (e.g confusion matrix, classification report) to evalutate results? The previous question was about the meaning of precision, recall, f1-score and support (what are they) and if thery are useful with Keras. Thank you, Marco
+Yes.
+Keras has a wrapper for use of neural nets in sklearn. I have examples on the blog.
+If you just want to use sklearn metrics, the wrapper is not needed, for example: https://machinelearningmastery.com/how-to-calculate-precision-recall-f1-and-more-for-deep-learning-models/
+One more question: when I have to use Keras and when Scitkit-learn for predictions (Scitkit-learn models seem easier to build/ use)? Thanks, Marco
+The sklearn models are generally simpler than neural nets.
+Hello Jason, just a question I’m reading a book about Keras “Deep Learning with Python” I’m wondering why they use formulas (i.e. some code) to normalize (or standardize) instead of using sklearn.preprocessing functions? The result is it the same ? and is it a shorter way to perform the task? Ragards, Marco
+Just a preference I would guess.
+Good morning Jason! Great explanation of the problem, baseline seems to always be helpful to exclude simple problems (and avoid over-optimistic estimations on KPIs).
+One question: are those naive classifier strategies basically the same as Zero Rule Algorithm that you described in another entry? (“How To Implement Baseline Machine Learning Algorithms From Scratch With Python”) If no, what is the difference?
+Best regards!
+Thanks.
+Yes, basically the same. You may want to use a different strategy depending on the choice of metric used to evaluate solutions.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,130 @@
+How to Use Optimization Algorithms to Manually Fit Regression Models
+How to Use Optimization Algorithms to Manually Fit Regression Models
+Tutorial Overview
+Optimize Regression Models
+Optimize a Linear Regression Model
+Optimize a Logistic Regression Model
+Further Reading
+Summary
+Navigation
+Main Menu
+APIs
+Articles
+Leave a Reply Click here to cancel reply.
+optimization algorithms to fit a regression model
+Note
+Note
+Note
+Note
+Do you have any questions?
+Welcome!
+help developers
+machine learning
+Really Good
+Regression models are fit on training data using linear regression and local search optimization algorithms.
+Models like linear regression and logistic regression are trained by least squares optimization, and this is the most efficient approach to finding coefficients that minimize error for these models.
+Nevertheless, it is possible to use alternate optimization algorithms to fit a regression model to a training dataset. This can be a useful exercise to learn more about how regression functions and the central nature of optimization in applied machine learning. It may also be required for regression with data that does not meet the requirements of a least squares optimization procedure.
+In this tutorial, you will discover how to manually optimize the coefficients of regression models.
+After completing this tutorial, you will know:
+Let’s get started.
+How to Use Optimization Algorithms to Manually Fit Regression ModelsPhoto by Christian Collins, some rights reserved.
+This tutorial is divided into three parts; they are:
+Regression models, like linear regression and logistic regression, are well-understood algorithms from the field of statistics.
+Both algorithms are linear, meaning the output of the model is a weighted sum of the inputs. Linear regression is designed for “regression” problems that require a number to be predicted, and logistic regression is designed for “classification” problems that require a class label to be predicted.
+These regression models involve the use of an optimization algorithm to find a set of coefficients for each input to the model that minimizes the prediction error. Because the models are linear and well understood, efficient optimization algorithms can be used.
+In the case of linear regression, the coefficients can be found by least squares optimization, which can be solved using linear algebra. In the case of logistic regression, a local search optimization algorithm is commonly used.
+It is possible to use any arbitrary optimization algorithm to train linear and logistic regression models.
+That is, we can define a regression model and use a given optimization algorithm to find a set of coefficients for the model that result in a minimum of prediction error or a maximum of classification accuracy.
+Using alternate optimization algorithms is expected to be less efficient on average than using the recommended optimization. Nevertheless, it may be more efficient in some specific cases, such as if the input data does not meet the expectations of the model like a Gaussian distribution and is uncorrelated with outer inputs.
+It can also be an interesting exercise to demonstrate the central nature of optimization in training machine learning algorithms, and specifically regression models.
+Next, let’s explore how to train a linear regression model using stochastic hill climbing.
+The linear regression model might be the simplest predictive model that learns from data.
+The model has one coefficient for each input and the predicted output is simply the weights of some inputs and coefficients.
+In this section, we will optimize the coefficients of a linear regression model.
+First, let’s define a synthetic regression problem that we can use as the focus of optimizing the model.
+We can use the make_regression() function to define a regression problem with 1,000 rows and 10 input variables.
+The example below creates the dataset and summarizes the shape of the data.
+Running the example prints the shape of the created dataset, confirming our expectations.
+Next, we need to define a linear regression model.
+Before we optimize the model coefficients, we must develop the model and our confidence in how it works.
+Let’s start by developing a function that calculates the activation of the model for a given input row of data from the dataset.
+This function will take the row of data and the coefficients for the model and calculate the weighted sum of the input with the addition of an extra y-intercept (also called the offset or bias) coefficient. The predict_row() function below implements this.
+We are using simple Python lists and imperative programming style instead of NumPy arrays or list compressions intentionally to make the code more readable for Python beginners. Feel free to optimize it and post your code in the comments below.
+Next, we can call the predict_row() function for each row in a given dataset. The predict_dataset() function below implements this.
+Again, we are intentionally using a simple imperative coding style for readability instead of list compressions.
+Finally, we can use the model to make predictions on our synthetic dataset to confirm it is all working correctly.
+We can generate a random set of model coefficients using the rand() function.
+Recall that we need one coefficient for each input (ten inputs in this dataset) plus an extra weight for the y-intercept coefficient.
+We can then use these coefficients with the dataset to make predictions.
+We can evaluate the mean squared error of these predictions.
+That’s it.
+We can tie all of this together and demonstrate our linear regression model for regression predictive modeling. The complete example is listed below.
+Running the example generates a prediction for each example in the training dataset, then prints the mean squared error for the predictions.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+We would expect a large error given a set of random weights, and that is what we see in this case, with an error value of about 7,307 units.
+We can now optimize the coefficients of the dataset to achieve low error on this dataset.
+First, we need to split the dataset into train and test sets. It is important to hold back some data not used in optimizing the model so that we can prepare a reasonable estimate of the performance of the model when used to make predictions on new data.
+We will use 67 percent of the data for training and the remaining 33 percent as a test set for evaluating the performance of the model.
+Next, we can develop a stochastic hill climbing algorithm.
+The optimization algorithm requires an objective function to optimize. It must take a set of coefficients and return a score that is to be minimized or maximized corresponding to a better model.
+In this case, we will evaluate the mean squared error of the model with a given set of coefficients and return the error score, which must be minimized.
+The objective() function below implements this, given the dataset and a set of coefficients, and returns the error of the model.
+Next, we can define the stochastic hill climbing algorithm.
+The algorithm will require an initial solution (e.g. random coefficients) and will iteratively keep making small changes to the solution and checking if it results in a better performing model. The amount of change made to the current solution is controlled by a step_size hyperparameter. This process will continue for a fixed number of iterations, also provided as a hyperparameter.
+The hillclimbing() function below implements this, taking the dataset, objective function, initial solution, and hyperparameters as arguments and returns the best set of coefficients found and the estimated performance.
+We can then call this function, passing in an initial set of coefficients as the initial solution and the training dataset as the dataset to optimize the model against.
+Finally, we can evaluate the best model on the test dataset and report the performance.
+Tying this together, the complete example of optimizing the coefficients of a linear regression model on the synthetic regression dataset is listed below.
+Running the example will report the iteration number and mean squared error each time there is an improvement made to the model.
+At the end of the search, the performance of the best set of coefficients on the training dataset is reported and the performance of the same model on the test dataset is calculated and reported.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the optimization algorithm found a set of coefficients that achieved an error of about 0.08 on both the train and test datasets.
+The fact that the algorithm found a model with very similar performance on train and test datasets is a good sign, showing that the model did not over-fit (over-optimize) to the training dataset. This means the model generalizes well to new data.
+Now that we are familiar with how to manually optimize the coefficients of a linear regression model, let’s look at how we can extend the example to optimize the coefficients of a logistic regression model for classification.
+A Logistic Regression model is an extension of linear regression for classification predictive modeling.
+Logistic regression is for binary classification tasks, meaning datasets that have two class labels, class=0 and class=1.
+The output first involves calculating the weighted sum of the inputs, then passing this weighted sum through a logistic function, also called a sigmoid function. The result is a Binomial probability between 0 and 1 for the example belonging to class=1.
+In this section, we will build on what we learned in the previous section to optimize the coefficients of regression models for classification. We will develop the model and test it with random coefficients, then use stochastic hill climbing to optimize the model coefficients.
+First, let’s define a synthetic binary classification problem that we can use as the focus of optimizing the model.
+We can use the make_classification() function to define a binary classification problem with 1,000 rows and five input variables.
+The example below creates the dataset and summarizes the shape of the data.
+Running the example prints the shape of the created dataset, confirming our expectations.
+Next, we need to define a logistic regression model.
+Let’s start by updating the predict_row() function to pass the weighted sum of the input and coefficients through a logistic function.
+The logistic function is defined as:
+Where result is the weighted sum of the inputs and the coefficients and exp() is e (Euler’s number) raised to the power of the provided value, implemented via the exp() function.
+The updated predict_row() function is listed below.
+That’s about it in terms of changes for linear regression to logistic regression.
+As with linear regression, we can test the model with a set of random model coefficients.
+The predictions made by the model are probabilities for an example belonging to class=1.
+We can round the prediction to be integer values 0 and 1 for the expected class labels.
+We can evaluate the classification accuracy of these predictions.
+That’s it.
+We can tie all of this together and demonstrate our simple logistic regression model for binary classification. The complete example is listed below.
+Running the example generates a prediction for each example in the training dataset then prints the classification accuracy for the predictions.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+We would expect about 50 percent accuracy given a set of random weights and a dataset with an equal number of examples in each class, and that is approximately what we see in this case.
+We can now optimize the weights of the dataset to achieve good accuracy on this dataset.
+The stochastic hill climbing algorithm used for linear regression can be used again for logistic regression.
+The important difference is an update to the objective() function to round the predictions and evaluate the model using classification accuracy instead of mean squared error.
+The hillclimbing() function also must be updated to maximize the score of solutions instead of minimizing in the case of linear regression.
+Finally, the coefficients found by the search can be evaluated using classification accuracy at the end of the run.
+Tying this all together, the complete example of using stochastic hill climbing to maximize classification accuracy of a logistic regression model is listed below.
+Running the example will report the iteration number and classification accuracy each time there is an improvement made to the model.
+At the end of the search, the performance of the best set of coefficients on the training dataset is reported and the performance of the same model on the test dataset is calculated and reported.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the optimization algorithm found a set of weights that achieved about 87.3 percent accuracy on the training dataset and about 83.9 percent accuracy on the test dataset.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to manually optimize the coefficients of regression models.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The EBook Catalog is where you'll find the Really Good stuff.
+>> See What's Inside
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

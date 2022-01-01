@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,A Gentle Introduction to Probability Distributions,https://machinelearningmastery.com/what-are-probability-distributions/,2,4,14,0,105,130,18.438,11.462,2397,4.577,3.652,0.249,4.015,11.149,2.753,102,0,0,machinelearningmastery,com/what-are-probability-distributions,com,2

@@ -1,0 +1,117 @@
+A Gentle Introduction to Maximum a Posteriori (MAP) for Machine Learning
+A Gentle Introduction to Maximum a Posteriori (MAP) for Machine Learning
+Overview
+Density Estimation
+Maximum a Posteriori (MAP)
+MAP and Machine Learning
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+Want to Learn Probability for Machine Learning
+Books
+Articles
+9 Responses to A Gentle Introduction to Maximum a Posteriori (MAP) for Machine Learning
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Note
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Density estimation is the problem of estimating the probability distribution for a sample of observations from a problem domain.
+Typically, estimating the entire distribution is intractable, and instead, we are happy to have the expected value of the distribution, such as the mean or mode. Maximum a Posteriori or MAP for short is a Bayesian-based approach to estimating a distribution and model parameters that best explain an observed dataset.
+This flexible probabilistic framework can be used to provide a Bayesian foundation for many machine learning algorithms, including important methods such as linear regression and logistic regression for predicting numeric values and class labels respectively, and unlike maximum likelihood estimation, explicitly allows prior belief about candidate models to be incorporated systematically.
+In this post, you will discover a gentle introduction to Maximum a Posteriori estimation.
+After reading this post, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to Maximum a Posteriori (MAP) for Machine LearningPhoto by Guilhem Vellut, some rights reserved.
+This tutorial is divided into three parts; they are:
+A common modeling problem involves how to estimate a joint probability distribution for a dataset.
+For example, given a sample of observation (X) from a domain (x1, x2, x3, …, xn), where each observation is drawn independently from the domain with the same probability distribution (so-called independent and identically distributed, i.i.d., or close to it).
+Density estimation involves selecting a probability distribution function and the parameters of that distribution that best explains the joint probability distribution of the observed data (X).
+Often estimating the density is too challenging; instead, we are happy with a point estimate from the target distribution, such as the mean.
+There are many techniques for solving this problem, although two common approaches are:
+Both approaches frame the problem as optimization and involve searching for a distribution and set of parameters for the distribution that best describes the observed data.
+In Maximum Likelihood Estimation, we wish to maximize the probability of observing the data from the joint probability distribution given a specific probability distribution and its parameters, stated formally as:
+or
+This resulting conditional probability is referred to as the likelihood of observing the data given the model parameters.
+The objective of Maximum Likelihood Estimation is to find the set of parameters (theta) that maximize the likelihood function, e.g. result in the largest likelihood value.
+An alternative and closely related approach is to consider the optimization problem from the perspective of Bayesian probability.
+A popular replacement for maximizing the likelihood is maximizing the Bayesian posterior probability density of the parameters instead.
+— Page 306, Information Theory, Inference and Learning Algorithms, 2003.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Recall that the Bayes theorem provides a principled way of calculating a conditional probability.
+It involves calculating the conditional probability of one outcome given another outcome, using the inverse of this relationship, stated as follows:
+The quantity that we are calculating is typically referred to as the posterior probability of A given B and P(A) is referred to as the prior probability of A.
+The normalizing constant of P(B) can be removed, and the posterior can be shown to be proportional to the probability of B given A multiplied by the prior.
+Or, simply:
+This is a helpful simplification as we are not interested in estimating a probability, but instead in optimizing a quantity. A proportional quantity is good enough for this purpose.
+We can now relate this calculation to our desire to estimate a distribution and parameters (theta) that best explains our dataset (X), as we described in the previous section. This can be stated as:
+Maximizing this quantity over a range of theta solves an optimization problem for estimating the central tendency of the posterior probability (e.g. the model of the distribution). As such, this technique is referred to as “maximum a posteriori estimation,” or MAP estimation for short, and sometimes simply “maximum posterior estimation.”
+We are typically not calculating the full posterior probability distribution, and in fact, this may not be tractable for many problems of interest.
+… finding MAP hypotheses is often much easier than Bayesian learning, because it requires solving an optimization problem instead of a large summation (or integration) problem.
+— Page 804, Artificial Intelligence: A Modern Approach, 3rd edition, 2009.
+Instead, we are calculating a point estimation such as a moment of the distribution, like the mode, the most common value, which is the same as the mean for the normal distribution.
+One common reason for desiring a point estimate is that most operations involving the Bayesian posterior for most interesting models are intractable, and a point estimate offers a tractable approximation.
+— Page 139, Deep Learning, 2016.
+Note: this is very similar to Maximum Likelihood Estimation, with the addition of the prior probability over the distribution and parameters.
+In fact, if we assume that all values of theta are equally likely because we don’t have any prior information (e.g. a uniform prior), then both calculations are equivalent.
+Because of this equivalence, both MLE and MAP often converge to the same optimization problem for many machine learning algorithms. This is not always the case; if the calculation of the MLE and MAP optimization problem differ, the MLE and MAP solution found for an algorithm may also differ.
+… the maximum likelihood hypothesis might not be the MAP hypothesis, but if one assumes uniform prior probabilities over the hypotheses then it is.
+— Page 167, Machine Learning, 1997.
+In machine learning, Maximum a Posteriori optimization provides a Bayesian probability framework for fitting model parameters to training data and an alternative and sibling to the perhaps more common Maximum Likelihood Estimation framework.
+Maximum a posteriori (MAP) learning selects a single most likely hypothesis given the data. The hypothesis prior is still used and the method is often more tractable than full Bayesian learning.
+— Page 825, Artificial Intelligence: A Modern Approach, 3rd edition, 2009.
+One framework is not better than another, and as mentioned, in many cases, both frameworks frame the same optimization problem from different perspectives.
+Instead, MAP is appropriate for those problems where there is some prior information, e.g. where a meaningful prior can be set to weigh the choice of different distributions and parameters or model parameters. MLE is more appropriate where there is no such prior.
+Bayesian methods can be used to determine the most probable hypothesis given the data-the maximum a posteriori (MAP) hypothesis. This is the optimal hypothesis in the sense that no other hypothesis is more likely.
+— Page 197, Machine Learning, 1997.
+In fact, the addition of the prior to the MLE can be thought of as a type of regularization of the MLE calculation. This insight allows other regularization methods (e.g. L2 norm in models that use a weighted sum of inputs) to be interpreted under a framework of MAP Bayesian inference. For example, L2 is a bias or prior that assumes that a set of coefficients or weights have a small sum squared value.
+… in particular, L2 regularization is equivalent to MAP Bayesian inference with a Gaussian prior on the weights.
+— Page 236, Deep Learning, 2016.
+We can make the relationship between MAP and machine learning clearer by re-framing the optimization problem as being performed over candidate modeling hypotheses (h in H) instead of the more abstract distribution and parameters (theta); for example:
+Here, we can see that we want a model or hypothesis (h) that best explains the observed training dataset (X) and that the prior (P(h)) is our belief about how useful a hypothesis is expected to be, generally, regardless of the training data. The optimization problem involves estimating the posterior probability for each candidate hypothesis.
+We can determine the MAP hypotheses by using Bayes theorem to calculate the posterior probability of each candidate hypothesis.
+— Page 157, Machine Learning, 1997.
+Like MLE, solving the optimization problem depends on the choice of model. For simpler models, like linear regression, there are analytical solutions. For more complex models like logistic regression, numerical optimization is required that makes use of first- and second-order derivatives. For the more prickly problems, stochastic optimization algorithms may be required.
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered a gentle introduction to Maximum a Posteriori estimation.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+Do we have a python implementation for MAP. It helps to understand better
+It is more a framework – some linear algorithms are solved under this framework, probably some of the bayes implementations of linear models in sklearn.
+Dear Json! With best regards…
+Thanks for the informative post. I think in the section you talked about MLE, you need to write MLE equation as:
+L(theta | Data).
+This is the description of the likelihood. What you have written, “P(Data | theta)”, is the description of probability, not likelihood. However, when calculating the likelihood (and trying to maximize it), one uses the same PDF of the distribution which is essentially a probability.
+Thanks
+I believe it is correct.
+Maybe I did a bad job of explaining the topic. Perhaps check some of the references in the further reading section for additional descriptions of the same topic.
+Hi Json.
+Yes! It is correct! Don’t get me wrong please. I just mentioned it is better to add the description of likelihood before probability! What is maximized in reality is the same probability (The exact same description you have provided)
+Thanks! 🙂
+Thanks for this wonderful article , you may also mention links of related topic of bayesian in this article as well
+thanks !
+Thanks.
+What’s the stock on this learning
+Sorry, I don’t understand, can you elaborate?
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

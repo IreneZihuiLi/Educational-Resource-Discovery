@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,A Gentle Introduction to Bayes Theorem for Machine Learning,https://machinelearningmastery.com/bayes-theorem-for-machine-learning/,2,4,14,0,290,288,24.948,21.91,7184,4.185,3.143,0.152,6.573,23.171,1.712,135,0,0,machinelearningmastery,com/bayes-theorem-for-machine-learning,com,2

@@ -1,0 +1,4 @@
+name: "Bing"
+params:
+  domain: "https://www.bing.com"
+  search_bar_name: "q"

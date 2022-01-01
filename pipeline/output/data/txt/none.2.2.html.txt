@@ -1,0 +1,176 @@
+How to Calculate the Bias-Variance Trade-off with Python
+How to Calculate the Bias-Variance Trade-off with Python
+Tutorial Overview
+Bias, Variance, and Irreducible Error
+Bias-Variance Trade-off
+Calculate the Bias and Variance
+Further Reading
+Summary
+Discover Fast Machine Learning in Python!
+Navigation
+Main Menu
+Model Bias
+Model Variance
+Irreducible Error
+Tutorials
+Books
+Articles
+18 Responses to How to Calculate the Bias-Variance Trade-off with Python
+Leave a Reply Click here to cancel reply.
+bias
+variance
+Kick-start your project
+variance
+bias
+irreducible error
+Low Bias
+High Bias
+Low Variance
+High Variance
+bias-variance trade-off
+Note
+Do you have any questions?
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 26, 2020
+The performance of a machine learning model can be characterized in terms of the bias and the variance of the model.
+A model with high bias makes strong assumptions about the form of the unknown underlying function that maps inputs to outputs in the dataset, such as linear regression. A model with high variance is highly dependent upon the specifics of the training dataset, such as unpruned decision trees. We desire models with low bias and low variance, although there is often a trade-off between these two concerns.
+The bias-variance trade-off is a useful conceptualization for selecting and configuring models, although generally cannot be computed directly as it requires full knowledge of the problem domain, which we do not have. Nevertheless, in some cases, we can estimate the error of a model and divide the error down into bias and variance components, which may provide insight into a given model’s behavior.
+In this tutorial, you will discover how to calculate the bias and variance for a machine learning model.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Machine Learning Mastery With Python, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Calculate the Bias-Variance Trade-off in PythonPhoto by Nathalie, some rights reserved.
+This tutorial is divided into three parts; they are:
+Consider a machine learning model that makes predictions for a predictive modeling task, such as regression or classification.
+The performance of the model on the task can be described in terms of the prediction error on all examples not used to train the model. We will refer to this as the model error.
+The model error can be decomposed into three sources of error: the variance of the model, the bias of the model, and the variance of the irreducible error in the data.
+Let’s take a closer look at each of these three terms.
+The bias is a measure of how close the model can capture the mapping function between inputs and outputs.
+It captures the rigidity of the model: the strength of the assumption the model has about the functional form of the mapping between inputs and outputs.
+This reflects how close the functional form of the model can get to the true relationship between the predictors and the outcome.
+— Page 97, Applied Predictive Modeling, 2013.
+A model with high bias is helpful when the bias matches the true but unknown underlying mapping function for the predictive modeling problem. Yet, a model with a large bias will be completely useless when the functional form for the problem is mismatched with the assumptions of the model, e.g. assuming a linear relationship for data with a high non-linear relationship.
+The bias is always positive.
+The variance of the model is the amount the performance of the model changes when it is fit on different training data.
+It captures the impact of the specifics the data has on the model.
+Variance refers to the amount by which [the model] would change if we estimated it using a different training data set.
+— Page 34, An Introduction to Statistical Learning with Applications in R, 2014.
+A model with high variance will change a lot with small changes to the training dataset. Conversely, a model with low variance will change little with small or even large changes to the training dataset.
+The variance is always positive.
+On the whole, the error of a model consists of reducible error and irreducible error.
+The reducible error is the element that we can improve. It is the quantity that we reduce when the model is learning on a training dataset and we try to get this number as close to zero as possible.
+The irreducible error is the error that we can not remove with our model, or with any model.
+The error is caused by elements outside our control, such as statistical noise in the observations.
+… usually called “irreducible noise” and cannot be eliminated by modeling.
+— Page 97, Applied Predictive Modeling, 2013.
+As such, although we may be able to squash the reducible error to a very small value close to zero, or even zero in some cases, we will also have some irreducible error. It defines a lower bound in performance on a problem.
+It is important to keep in mind that the irreducible error will always provide an upper bound on the accuracy of our prediction for Y. This bound is almost always unknown in practice.
+— Page 19, An Introduction to Statistical Learning with Applications in R, 2014.
+It is a reminder that no model is perfect.
+The bias and the variance of a model’s performance are connected.
+Ideally, we would prefer a model with low bias and low variance, although in practice, this is very challenging. In fact, this could be described as the goal of applied machine learning for a given predictive modeling problem,
+Reducing the bias can easily be achieved by increasing the variance. Conversely, reducing the variance can easily be achieved by increasing the bias.
+This is referred to as a trade-off because it is easy to obtain a method with extremely low bias but high variance […] or a method with very low variance but high bias …
+— Page 36, An Introduction to Statistical Learning with Applications in R, 2014.
+This relationship is generally referred to as the bias-variance trade-off. It is a conceptual framework for thinking about how to choose models and model configuration.
+We can choose a model based on its bias or variance. Simple models, such as linear regression and logistic regression, generally have a high bias and a low variance. Complex models, such as random forest, generally have a low bias but a high variance.
+We may also choose model configurations based on their effect on the bias and variance of the model. The k hyperparameter in k-nearest neighbors controls the bias-variance trade-off. Small values, such as k=1, result in a low bias and a high variance, whereas large k values, such as k=21, result in a high bias and a low variance.
+High bias is not always bad, nor is high variance, but they can lead to poor results.
+We often must test a suite of different models and model configurations in order to discover what works best for a given dataset. A model with a large bias may be too rigid and underfit the problem. Conversely, a large variance may overfit the problem.
+We may decide to increase the bias or the variance as long as it decreases the overall estimate of model error.
+I get this question all the time:
+How can I calculate the bias-variance trade-off for my algorithm on my dataset?
+Technically, we cannot perform this calculation.
+We cannot calculate the actual bias and variance for a predictive modeling problem.
+This is because we do not know the true mapping function for a predictive modeling problem.
+Instead, we use the bias, variance, irreducible error, and the bias-variance trade-off as tools to help select models, configure models, and interpret results.
+In a real-life situation in which f is unobserved, it is generally not possible to explicitly compute the test MSE, bias, or variance for a statistical learning method. Nevertheless, one should always keep the bias-variance trade-off in mind.
+— Page 36, An Introduction to Statistical Learning with Applications in R, 2014.
+Even though the bias-variance trade-off is a conceptual tool, we can estimate it in some cases.
+The mlxtend library by Sebastian Raschka provides the bias_variance_decomp() function that can estimate the bias and variance for a model over multiple bootstrap samples.
+First, you must install the mlxtend library; for example:
+The example below loads the Boston housing dataset directly via URL, splits it into train and test sets, then estimates the mean squared error (MSE) for a linear regression as well as the bias and variance for the model error over 200 bootstrap samples.
+Running the example reports the estimated error as well as the estimated bias and variance for the model error.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the model has a high bias and a low variance. This is to be expected given that we are using a linear regression model. We can also see that the sum of the estimated mean and variance equals the estimated error of the model, e.g. 20.726 + 1.761 = 22.487.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to calculate the bias and variance for a machine learning model.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of scikit-learn code
+Learn how in my new Ebook: Machine Learning Mastery With Python
+Covers self-study tutorials and end-to-end projects like: Loading data, visualization, modeling, tuning, and much more...
+Skip the Academics. Just Results.
+Hi Jason,
+It’s wonderful article.Liked it very much. Never knew we could get bias & variance from a model.
+One question I have is , using the library mlxtend similar to how you calculated bias ,Variance and compared it with (mse) for linear regression is it also possible for getting bias , variance for classifier models( logistic or Tree based one) – if so against what we should compare ( against which error term)?
+Thanks, Nalla
+Thank you!
+It is possible I believe, but not straightforward. Perhaps the mlxtend has an implementation for classification too?
+Perhaps you can check the literature and try implementing it?
+Hi Jason,
+It is a wonderful article. Liked the way you explained,
+I have a small doubt. you have written reducing the bias cannot easily be achieved by increasing the variance. shouldn’t it be reducing the bias that can easily be achieved by increasing the variance?
+You’re right, it looks like a typo. Fixed, thank you!
+Hi Jason,
+Great article and thank you for all the articles and books!
+I tried the bias_variance_decomp() on an XGBRegressor() that I hypertuned and used early_stopping. Below are some metrics. Could we say we are overfitting the model and if so what would be some techniques to lower the bias and increase the variance? Less hypertuning or early_stopping?
+Best Params: {‘subsample’: 0.7, ‘n_estimators’: 250, ‘max_depth’: 10, ‘learning_rate’: 0.2, ‘colsample_bynode’: 0.6} RMSE 1.5669 MSE 2.4553 MAE 1.0522 R2 0.8716 MSE: 4.2508 Bias: 3.2046 Variance: 1.0463
+Thanks, Bill
+You’re welcome Bill!
+Not sure we can use the tool this way. I need to think about it.
+You are overfitting if improved performance on the training set negatively impacts performance on the hold out/test set.
+Fewer trees would increase variance, although typically with xgboost we want more bias, not more variance. E.g. try more regularization.
+Hi Jason,
+I am following your script, but I got this error:
+————————————————————————— ImportError Traceback (most recent call last) in () 3 from sklearn.model_selection import train_test_split 4 from sklearn.linear_model import LinearRegression —-> 5 from mlxtend.evaluate import bias_variance_decomp
+ImportError: cannot import name ‘bias_variance_decomp’
+Any advice about it? Thanks in advance, JL
+It looks like you do not have the mlxtend library installed.
+Dear Dr Jason, I was not quite sure what to get from determining the mse, bias and variance from one model from the mlxtend package.
+So what I did was to look at various models at another of your tutorials at https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/ where I modified the code to include the measure of bias, variance and mse.
+The code is from your site.
+The dataset used was not the housing.csv, but synthetically generated data.
+I included these models.
+I did some further modifications to include into the evaluate_models
+I had the following results of not only the mean(scores), std(scores), but also the mse, variance and bias.
+A table of the models based on highest to lowest scores is presented:
+From the above, SVM had the highest mean score. It also had the lowest stddev, mse,bias and variance.
+At the same time, there appears to be no tradeoff between bias and variance.
+In the end, you cannot choose a model just only on bias, variance and mse alone. Have to look also at other scoring methods, otherwise LR would have been a candidate. BUT LR has a lower score than SVM.
+Thank you, Anthony of Sydney
+Great work.
+Agreed, choosing a model based on bias/variance would not be sufficient. MSE should be the focus.
+Hi Jason, with keras sequential model Keras_fit = Sequential() Keras_fit.add…. Keras_fit.compile(optimizer = optimizer, loss = 'binary_crossentropy', metrics = ['accuracy']) mse, bias, var = bias_variance_decomp(Keras_fit, X_train, y_train, X_valid, y_valid, loss='mse', num_rounds=200, random_seed=1) As keras_fit doesn’t have the model, If I only pass the keras_fit to, I get AttributeError: 'History' object has no attribute 'predict' Even passing model, it doesn’t work Keras_model = Keras_fit.fit(X_train, y_train, validation_data=(X_valid, y_valid), batch_size = batch_size, epochs = epoch, verbose = 2) May i know how to get that Thanks
+The fit() function returns history, not the model.
+Call fit() on the model object itself.
+Here’s an example: https://machinelearningmastery.com/tutorial-first-neural-network-python-keras/
+For svm model your “loss” cannot be “mse”. It should be “0-1” or “hinge loss”. svm is not solving the regression problem but the classification problem. So, it is more justifiable to use “0-1 loss” or “hinge loss” (I am not sure whether hinge loss is avaiable or not for this library”
+There is a version of SVM for regression called SVR, you can learn more here: https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html
+Nice article Jason. Am running the same code that you have provided. But I seem to get this error. Any idea to fix this will be very helpful. Thanks in advance. –
+KeyError Traceback (most recent call last) in 1 # estimate bias and variance 2 mse=0 —-> 3 mse, bias, var = bias_variance_decomp(model, X_train, y_train, X_test, y_test, loss=’mse’, num_rounds=200, random_seed=1)
+C:\ProgramData\Anaconda3\lib\site-packages\mlxtend\evaluate\bias_variance_decomp.py in bias_variance_decomp(estimator, X_train, y_train, X_test, y_test, loss, num_rounds, random_seed, **fit_params) 84 85 for i in range(num_rounds): —> 86 X_boot, y_boot = _draw_bootstrap_sample(rng, X_train, y_train) 87 88 # Keras support
+C:\ProgramData\Anaconda3\lib\site-packages\mlxtend\evaluate\bias_variance_decomp.py in _draw_bootstrap_sample(rng, X, y) 14 size=sample_indices.shape[0], 15 replace=True) —> 16 return X[bootstrap_indices], y[bootstrap_indices] 17 18
+C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\frame.py in __getitem__(self, key) 2804 if is_iterator(key): 2805 key = list(key) -> 2806 indexer = self.loc._get_listlike_indexer(key, axis=1, raise_missing=True)[1] 2807 2808 # take() does not accept boolean indexers
+C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\indexing.py in _get_listlike_indexer(self, key, axis, raise_missing) 1550 1551 self._validate_read_indexer( -> 1552 keyarr, indexer, o._get_axis_number(axis), raise_missing=raise_missing 1553 ) 1554 return keyarr, indexer
+C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\indexing.py in _validate_read_indexer(self, key, indexer, axis, raise_missing) 1637 if missing == len(indexer): 1638 axis_name = self.obj._get_axis_name(axis) -> 1639 raise KeyError(f”None of [{key}] are in the [{axis_name}]”) 1640 1641 # We (temporarily) allow for some missing keys with .loc, except in
+KeyError: “None of [Int64Index([ 37, 235, 908, 72, 767, 905, 715, 645, 847, 144,\n …\n 110, 434, 502, 132, 265, 124, 384, 218, 405, 507],\n dtype=’int64′, length=919)] are in the [columns]”
+Thanks.
+Sorry to hear that you’re having trouble, perhaps some of these tips will help: https://machinelearningmastery.com/faq/single-faq/why-does-the-code-in-the-tutorial-not-work-for-me
+Hi, did you manage to solve that issue? I’m getting the same error.
+Do you use this part of the code for your DataFrame before applying bias_variance_decomp? data = dataframe.values X, y = data[:, :-1], data[:, -1]
+It helped me to solve the same issue.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Machine Learning with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

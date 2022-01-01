@@ -1,0 +1,150 @@
+A Gentle Introduction to Expected Value, Variance, and Covariance with NumPy
+A Gentle Introduction to Expected Value, Variance, and Covariance with NumPy
+Tutorial Overview
+Expected Value
+Variance
+Covariance
+Covariance Matrix
+Extensions
+Further Reading
+Summary
+Get a Handle on Linear Algebra for Machine Learning!
+Navigation
+Main Menu
+Need help with Linear Algebra for Machine Learning?
+Books
+API
+Articles
+Posts
+14 Responses to A Gentle Introduction to Expected Value, Variance, and Covariance with NumPy
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated Mar/2018
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on November 16, 2019
+Fundamental statistics are useful tools in applied machine learning for a better understanding your data.
+They are also the tools that provide the foundation for more advanced linear algebra operations and machine learning methods, such as the covariance matrix and principal component analysis respectively. As such, it is important to have a strong grip on fundamental statistics in the context of linear algebra notation.
+In this tutorial, you will discover how fundamental statistical operations work and how to implement them using NumPy with notation and terminology from linear algebra.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Linear Algebra for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to Expected Value, Variance, and Covariance with NumPyPhoto by Robyn Jay, some rights reserved.
+This tutorial is divided into 4 parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+In probability, the average value of some random variable X is called the expected value or the expectation.
+The expected value uses the notation E with square brackets around the name of the variable; for example:
+It is calculated as the probability weighted sum of values that can be drawn.
+In simple cases, such as the flipping of a coin or rolling a dice, the probability of each event is just as likely. Therefore, the expected value can be calculated as the sum of all values multiplied by the reciprocal of the number of values.
+In statistics, the mean, or more technically the arithmetic mean or sample mean, can be estimated from a sample of examples drawn from the domain. It is confusing because mean, average, and expected value are used interchangeably.
+In the abstract, the mean is denoted by the lower case Greek letter mu and is calculated from the sample of observations, rather than all possible values.
+Or, written more compactly:
+Where x is the vector of observations and P(x) is the calculated probability for each value.
+When calculated for a specific variable, such as x, the mean is denoted as a lower case variable name with a line above, called x-bar.
+The arithmetic mean can be calculated for a vector or matrix in NumPy by using the mean() function.
+The example below defines a 6-element vector and calculates the mean.
+Running the example first prints the defined vector and the mean of the values in the vector.
+The mean function can calculate the row or column means of a matrix by specifying the axis argument and the value 0 or 1 respectively.
+The example below defines a 2×6 matrix and calculates both column and row means.
+Running the example first prints the defined matrix, then the calculated column and row mean values.
+In probability, the variance of some random variable X is a measure of how much values in the distribution vary on average with respect to the mean.
+The variance is denoted as the function Var() on the variable.
+Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
+Assuming the expected value of the variable has been calculated (E[X]), the variance of the random variable can be calculated as the sum of the squared difference of each example from the expected value multiplied by the probability of that value.
+If the probability of each example in the distribution is equal, variance calculation can drop the individual probabilities and multiply the sum of squared differences by the reciprocal of the number of examples in the distribution.
+In statistics, the variance can be estimated from a sample of examples drawn from the domain.
+In the abstract, the sample variance is denoted by the lower case sigma with a 2 superscript indicating the units are squared, not that you must square the final value. The sum of the squared differences is multiplied by the reciprocal of the number of examples minus 1 to correct for a bias.
+In NumPy, the variance can be calculated for a vector or a matrix using the var() function. By default, the var() function calculates the population variance. To calculate the sample variance, you must set the ddof argument to the value 1.
+The example below defines a 6-element vector and calculates the sample variance.
+Running the example first prints the defined vector and then the calculated sample variance of the values in the vector.
+The var function can calculate the row or column variances of a matrix by specifying the axis argument and the value 0 or 1 respectively, the same as the mean function above.
+The example below defines a 2×6 matrix and calculates both column and row sample variances.
+Running the example first prints the defined matrix and then the column and row sample variance values.
+The standard deviation is calculated as the square root of the variance and is denoted as lowercase “s”.
+To keep with this notation, sometimes the variance is indicated as s^2, with 2 as a superscript, again showing that the units are squared.
+NumPy also provides a function for calculating the standard deviation directly via the std() function. As with the var() function, the ddof argumentmust be set to 1 to calculate the unbiased sample standard deviation and column and row standard deviations can be calculated by setting the axis argument to 0 and 1 respectively.
+The example below demonstrates how to calculate the sample standard deviation for the rows and columns of a matrix.
+Running the example first prints the defined matrix and then the column and row sample standard deviation values.
+In probability, covariance is the measure of the joint probability for two random variables. It describes how the two variables change together.
+It is denoted as the function cov(X, Y), where X and Y are the two random variables being considered.
+Covariance is calculated as expected value or average of the product of the differences of each random variable from their expected values, where E[X] is the expected value for X and E[Y] is the expected value of y.
+Assuming the expected values for X and Y have been calculated, the covariance can be calculated as the sum of the difference of x values from their expected value multiplied by the difference of the y values from their expected values multiplied by the reciprocal of the number of examples in the population.
+In statistics, the sample covariance can be calculated in the same way, although with a bias correction, the same as with the variance.
+The sign of the covariance can be interpreted as whether the two variables increase together (positive) or decrease together (negative). The magnitude of the covariance is not easily interpreted. A covariance value of zero indicates that both variables are completely independent.
+NumPy does not have a function to calculate the covariance between two variables directly. Instead, it has a function for calculating a covariance matrix called cov() that we can use to retrieve the covariance. By default, the cov()function will calculate the unbiased or sample covariance between the provided random variables.
+The example below defines two vectors of equal length with one increasing and one decreasing. We would expect the covariance between these variables to be negative.
+We access just the covariance for the two variables as the [0,1] element of the square covariance matrix returned.
+Running the example first prints the two vectors followed by the covariance for the values in the two vectors. The value is negative, as we expected.
+The covariance can be normalized to a score between -1 and 1 to make the magnitude interpretable by dividing it by the standard deviation of X and Y. The result is called the correlation of the variables, also called the Pearson correlation coefficient, named for the developer of the method.
+Where r is the correlation coefficient of X and Y, cov(X, Y) is the sample covariance of X and Y and sX and sY are the standard deviations of X and Y respectively.
+NumPy provides the corrcoef() function for calculating the correlation between two variables directly. Like cov(), it returns a matrix, in this case a correlation matrix. As with the results from cov() we can access just the correlation of interest from the [0,1] value from the returned squared matrix.
+Running the example first prints the two defined vectors followed by the correlation coefficient. We can see that the vectors are maximally negatively correlated as we designed.
+The covariance matrix is a square and symmetric matrix that describes the covariance between two or more random variables.
+The diagonal of the covariance matrix are the variances of each of the random variables.
+A covariance matrix is a generalization of the covariance of two variables and captures the way in which all variables in the dataset may change together.
+The covariance matrix is denoted as the uppercase Greek letter Sigma. The covariance for each pair of random variables is calculated as above.
+Where:
+And X is a matrix where each column represents a random variable.
+The covariance matrix provides a useful tool for separating the structured relationships in a matrix of random variables. This can be used to decorrelate variables or applied as a transform to other variables. It is a key element used in the Principal Component Analysis data reduction method, or PCA for short.
+The covariance matrix can be calculated in NumPy using the cov() function. By default, this function will calculate the sample covariance matrix.
+The cov() function can be called with a single matrix containing columns on which to calculate the covariance matrix, or two arrays, such as one for each variable.
+Below is an example that defines two 9-element vectors and calculates the unbiased covariance matrix from them.
+Running the example first prints the two vectors and then the calculated covariance matrix.
+The values of the arrays were contrived such that as one variable increases, the other decreases. We would expect to see a negative sign on the covariance for these two variables, and this is what we see in the covariance matrix.
+The covariance matrix is used widely in linear algebra and the intersection of linear algebra and statistics called multivariate analysis. We have only had a small taste in this post.
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how fundamental statistical operations work and how to implement them using NumPy with notation and terminology from linear algebra.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Linear Algebra for Machine Learning
+It provides self-study tutorials on topics like: Vector Norms, Matrix Multiplication, Tensors, Eigendecomposition, SVD, PCA and much more...
+Skip the Academics. Just Results.
+Hi Jason
+Don’t understand something. Immediately below “The example below defines a 6-element vector and calculates the sample variance.” is a code block that purports to compute the variance.
+Under that block the answer is shown as var = 3.5. This is not what I get. Going back to the definition of variance, I get var = 2.9167.
+I’m confused.
+Sorry to hear that. I can confirm that the code and result as listed are correct.
+Are you able to confirm that you copied the code exactly?
+Also, are you able to confirm that your Python libraries are up to date?
+Hi Jason,
+Just spotted a typo – the definition of covariance (second code block beneath the Covariance heading) is missing a closing parenthesis. It reads:
+cov(X, Y) = E[(X – E[X] . (Y – E[Y])]
+but should read:
+cov(X, Y) = E[(X – E[X]) . (Y – E[Y])]
+Cheers,
+Ari
+Thanks. Fixed.
+x = array([1,2,3,4,5,6,7,8,9]) python does not need the array. Use python list.
+Amazing article anyway.
+Thanks!
+Thanks.
+What about non-linear distributions? Like set of data generated in exponential distribution. Python already take into account in the list? Thanks!
+What do you mean exactly “in the list”?
+Hi Jason! Thanks a lot for your article! I have a little note.
+In covariance you wrote: “As with the results from cov() we can access just the correlation of interest from the [0,1] value from the returned squared matrix.”
+Then, in the example provided there is a simple corrcoef(x,y) so it has to return the whole covariance matrix. But the answer is such: -1.0.
+I think it is necessary to fix the code.
+Thanks.
+why Covariance is calculated
+cov(X, Y) = E[(X – E[X] . (Y – E[Y])] what is the physical meaning behind this
+if x,y two random variables those E(xy) is said to be correlation what does it mean……
+give the detailed interpretation of these formulas. multiplying two sequence of Random
+variables how will give co variance…………….kindly give the explanation
+This may help as a beginner introduction to correlation: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Linear Algebra for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

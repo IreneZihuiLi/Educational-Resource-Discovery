@@ -1,0 +1,240 @@
+How to Code the Student's t-Test from Scratch in Python
+How to Code the Student’s t-Test from Scratch in Python
+Tutorial Overview
+Student’s t-Test
+Student’s t-Test for Independent Samples
+Student’s t-Test for Dependent Samples
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Calculation
+Implementation
+Worked Example
+Calculation
+Implementation
+Worked Example
+Extensions
+Books
+API
+Articles
+47 Responses to How to Code the Student’s t-Test from Scratch in Python
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+If abs(t-statistic) <= critical value
+If abs(t-statistic) > critical value
+If p > alpha
+If p <= alpha
+Independent Samples
+Dependent Samples
+Note
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 8, 2019
+Perhaps one of the most widely used statistical hypothesis tests is the Student’s t test.
+Because you may use this test yourself someday, it is important to have a deep understanding of how the test works. As a developer, this understanding is best achieved by implementing the hypothesis test yourself from scratch.
+In this tutorial, you will discover how to implement the Student’s t-test statistical hypothesis test from scratch in Python.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Code the Student’s t-Test from Scratch in PythonPhoto by n1d, some rights reserved.
+This tutorial is divided into three parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+The Student’s t-Test is a statistical hypothesis test for testing whether two samples are expected to have been drawn from the same population.
+It is named for the pseudonym “Student” used by William Gosset, who developed the test.
+The test works by checking the means from two samples to see if they are significantly different from each other. It does this by calculating the standard error in the difference between means, which can be interpreted to see how likely the difference is, if the two samples have the same mean (the null hypothesis).
+The t statistic calculated by the test can be interpreted by comparing it to critical values from the t-distribution. The critical value can be calculated using the degrees of freedom and a significance level with the percent point function (PPF).
+We can interpret the statistic value in a two-tailed test, meaning that if we reject the null hypothesis, it could be because the first mean is smaller or greater than the second mean. To do this, we can calculate the absolute value of the test statistic and compare it to the positive (right tailed) critical value, as follows:
+We can also retrieve the cumulative probability of observing the absolute value of the t-statistic using the cumulative distribution function (CDF) of the t-distribution in order to calculate a p-value. The p-value can then be compared to a chosen significance level (alpha) such as 0.05 to determine if the null hypothesis can be rejected:
+In working with the means of the samples, the test assumes that both samples were drawn from a Gaussian distribution. The test also assumes that the samples have the same variance, and the same size, although there are corrections to the test if these assumptions do not hold. For example, see Welch’s t-test.
+There are two main versions of Student’s t-test:
+Both the independent and the dependent Student’s t-tests are available in Python via the ttest_ind() and ttest_rel() SciPy functions respectively.
+Note: I recommend using these SciPy functions to calculate the Student’s t-test for your applications, if they are suitable. The library implementations will be faster and less prone to bugs. I would only recommend implementing the test yourself for learning purposes or in the case where you require a modified version of the test.
+We will use the SciPy functions to confirm the results from our own version of the tests.
+Note, for reference, all calculations presented in this tutorial are taken directly from Chapter 9 “t Tests” in “Statistics in Plain English“, Third Edition, 2010. I mention this because you may see the equations with different forms, depending on the reference text that you use.
+We’ll start with the most common form of the Student’s t-test: the case where we are comparing the means of two independent samples.
+The calculation of the t-statistic for two independent samples is as follows:
+or
+Where X1 and X2 are the first and second data samples and sed is the standard error of the difference between the means.
+The standard error of the difference between the means can be calculated as follows:
+Where se1 and se2 are the standard errors for the first and second datasets.
+The standard error of a sample can be calculated as:
+Where se is the standard error of the sample, std is the sample standard deviation, and n is the number of observations in the sample.
+These calculations make the following assumptions:
+We can implement these equations easily using functions from the Python standard library, NumPy and SciPy.
+Let’s assume that our two data samples are stored in the variables data1 and data2.
+We can start off by calculating the mean for these samples as follows:
+We’re halfway there.
+Now we need to calculate the standard error.
+We can do this manually, first by calculating the sample standard deviations:
+And then the standard errors:
+Alternately, we can use the sem() SciPy function to calculate the standard error directly.
+We can use the standard errors of the samples to calculate the “standard error on the difference between the samples“:
+We can now calculate the t statistic:
+We can also calculate some other values to help interpret and present the statistic.
+The number of degrees of freedom for the test is calculated as the sum of the observations in both samples, minus two.
+The critical value can be calculated using the percent point function (PPF) for a given significance level, such as 0.05 (95% confidence).
+This function is available for the t distribution in SciPy, as follows:
+The p-value can be calculated using the cumulative distribution function on the t-distribution, again in SciPy.
+Here, we assume a two-tailed distribution, where the rejection of the null hypothesis could be interpreted as the first mean is either smaller or larger than the second mean.
+We can tie all of these pieces together into a simple function for calculating the t-test for two independent samples:
+In this section we will calculate the t-test on some synthetic data samples.
+First, let’s generate two samples of 100 Gaussian random numbers with the same variance of 5 and differing means of 50 and 51 respectively. We will expect the test to reject the null hypothesis and find a significant difference between the samples:
+We can calculate the t-test on these samples using the built in SciPy function ttest_ind(). This will give us a t-statistic value and a p-value to compare to, to ensure that we have implemented the test correctly.
+The complete example is listed below.
+Running the example, we can see a t-statistic value and p value.
+We will use these as our expected values for the test on these data.
+We can now apply our own implementation on the same data, using the function defined in the previous section.
+The function will return a t-statistic value and a critical value. We can use the critical value to interpret the t statistic to see if the finding of the test is significant and that indeed the means are different as we expected.
+The function also returns a p-value. We can interpret the p-value using an alpha, such as 0.05 to determine if the finding of the test is significant and that indeed the means are different as we expected.
+We expect that both interpretations will always match.
+The complete example is listed below.
+Running the example first calculates the test.
+The results of the test are printed, including the t-statistic, the degrees of freedom, the critical value, and the p-value.
+We can see that both the t-statistic and p-value match the outputs of the SciPy function. The test appears to be implemented correctly.
+The t-statistic and the p-value are then used to interpret the results of the test. We find that as we expect, there is sufficient evidence to reject the null hypothesis, finding that the sample means are likely different.
+We can now look at the case of calculating the Student’s t-test for dependent samples.
+This is the case where we collect some observations on a sample from the population, then apply some treatment, and then collect observations from the same sample.
+The result is two samples of the same size where the observations in each sample are related or paired.
+The t-test for dependent samples is referred to as the paired Student’s t-test.
+The calculation of the paired Student’s t-test is similar to the case with independent samples.
+The main difference is in the calculation of the denominator.
+Where X1 and X2 are the first and second data samples and sed is the standard error of the difference between the means.
+Here, sed is calculated as:
+Where sd is the standard deviation of the difference between the dependent sample means and n is the total number of paired observations (e.g. the size of each sample).
+The calculation of sd first requires the calculation of the sum of the squared differences between the samples:
+It also requires the sum of the (non squared) differences between the samples:
+We can then calculate sd as:
+That’s it.
+We can implement the calculation of the paired Student’s t-test directly in Python.
+The first step is to calculate the means of each sample.
+Next, we will require the number of pairs (n). We will use this in a few different calculations.
+Next, we must calculate the sum of the squared differences between the samples, as well as the sum differences.
+We can now calculate the standard deviation of the difference between means.
+This is then used to calculate the standard error of the difference between the means.
+Finally, we have everything we need to calculate the t statistic.
+The only other key difference between this implementation and the implementation for independent samples is the calculation of the number of degrees of freedom.
+As before, we can tie all of this together into a reusable function. The function will take two paired samples and a significance level (alpha) and calculate the t-statistic, number of degrees of freedom, critical value, and p-value.
+The complete function is listed below.
+In this section, we will use the same dataset in the worked example as we did for the independent Student’s t-test.
+The data samples are not paired, but we will pretend they are. We expect the test to reject the null hypothesis and find a significant difference between the samples.
+As before, we can evaluate the test problem with the SciPy function for calculating a paired t-test. In this case, the ttest_rel() function.
+The complete example is listed below.
+Running the example calculates and prints the t-statistic and the p-value.
+We will use these values to validate the calculation of our own paired t-test function.
+We can now test our own implementation of the paired Student’s t-test.
+The complete example, including the developed function and interpretation of the results of the function, is listed below.
+Running the example calculates the paired t-test on the sample problem.
+The calculated t-statistic and p-value match what we expect from the SciPy library implementation. This suggests that the implementation is correct.
+The interpretation of the t-test statistic with the critical value, and the p-value with the significance level both find a significant result, rejecting the null hypothesis that the means are equal.
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to implement the Student’s t-test statistical hypothesis test from scratch in Python.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Jason,
+Great post, I enjoy them.
+A source of confusion for me for a long time was that the t-test doesn’t require the two populations to be normally distributed, but rather the *sampling distribution* be normal which happens with a larger number of samples thanks to the central limit theorem
+So taking 200 samples each of size 30, the distribution of those means will approach normality.
+A large sample will just reproduce the parent population. This is why the t-test is so useful, because you could have a freaky triangular parent distribution and it still works.
+Great note Tim, thanks for sharing.
+Hi Jason,
+Thanks for this well-written and informative blog-post ! I had two minor queries:
+1) In the above post, you have recommended to make use of abs(t-statistic). Does the sign of t-statistic matter in a one-sided t-test or will it be always positive?
+2) Does the interpretation made based on “observed value of statistic > t-critical” always match the one drawn by p-value? [What surprises me is that the formula for the former cv = t.ppf(1.0 – alpha, df) needs alpha or significance level to be mentioned apriori whereas the latter p = (1 – t.cdf(abs(t_stat), df)) * 2 doesn’t]
+It really depends on the specific finding you’re looking to explore with the test, e.g. one or two tailed. We’re keeping things really simple in this case – e.g. assuming a right tailed test.
+The interpretations must always match.
+I am new to hypothesis testing . So for the one tailed test how could we modify this code
+For the t-test one tailed shouldn’t the p value = p/2/
+You can pick one side or the other around the critical value, e.g. above or below.
+Or you can use the library: https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/
+Have you got a tutorial on A/B-testing. It must be similar I do assume or not? A dedicated tutorial could bring clarification.
+Thanks for the suggestion, but A/B testing is not really machine learning.
+It is more stats or experimental design.
+Thanks for the answer and your excellent work general. You are right with AB of course, but this is true for the stuff above, isn’t it?
+A/B testing is a methodology, the comparison of results involves the comparison of data samples.
+The broader question of comparing data samples is called statistical hypothesis testing, and I do cover it with many tutorials: https://machinelearningmastery.com/start-here/#statistical_methods
+Fantastic post Jason as always. Quick question: I’m carrying out a study on a massive data set with 1500 observations and 270 variables. Ive seen that the standard deviation of each variable is huge yet the means of each sample overlap greatly. Im doing some statistical experiments and have seen differences in other aspects of the sample that aren’t the mean. Is it possible to substitue the mean for the median or any other measurement of variance among the samples for this test? Instead of comparing differences in mean can i substitute it for something else? Or does the test not work like that? It might be a stupid question, so I apologise! If not do you know any other test that compares the distribution of samples without using the mean? Ive read some work using the biweight midvariance but am searching for alternatives just to experiment with. Thanks
+If the variables are not Gaussian, perhaps use a rank test instead (e.g. non-parametric)? https://machinelearningmastery.com/nonparametric-statistical-significance-tests-in-python/
+Fantastic, will give it a try! Thanks for the reply!
+You’re welcome.
+Update: It worked! The kruskal test worked really well on my particular data set and joint with the wilcoxon test I was able to detect some interesting patterns that has really made the entire study very interesting.
+On another note I also applied the Levene’s test (which I discovered surfing random blogs) and that also helped me overcome issues that were conditioning my study with regards to the mean.
+Thanks a lot Jason, great advice!
+Well done!
+Thank you Jason! Finally found someone who explained the topic so intuitive.
+Regards,
+Thanks, I’m happy that it helped!
+Hi, Jason
+when I compare two regressors , would it be better to apply the t-test to scoring skill like r2 score, or better to MSE? will they show different results whether to reject the null hypothesis?
+Thanks and Regards, Michelle
+MSE I believe.
+thank you Jason, I tried it, when I apply the t test to r2 score, collected from each folds of 10fold cross validation, the result turns different from using RMSE or MSE, do you know why?
+thanks.
+I don’t know about the expected distribution of r^2 scores and whether the test is appropriate.
+Perhaps post to crossvalidated?
+Hi Jason,
+what do you mean, post to crossvalidated? btw, i have noticed when I apply t test to MSE to compare SVR and Decision tree, if I do 10fold cv with each MSE sample of 10 varibales, the result if to reject the null hypothesis is different compare with that, when I do 20fold cv and get each MSE smaple of 20 varibales. Do you know how to handle this kind of situation? Thank you.
+Sorry, the Cross Validated Stack Exchange: https://stats.stackexchange.com/
+Yes, focus on the mean value and the variance. Differences across runs is to be expected: https://machinelearningmastery.com/faq/single-faq/why-do-i-get-different-results-each-time-i-run-the-code
+thanks Jason, what I meant is, if use 10fold CV and get 10 MSE values for SVR and decision tree(DT) respecitively, I apply these 10 values for t test get SVR and DT are significantly different. Again i do 20fold cv and get 20 MSE values for SVR and DT, again apply to t test but get the result SVR and DT are NOT significantly different. Which result shall I take then?
+thank you, Jason
+Perhaps the result based on the largest sample? Perhaps use a version of the t-test that is modified the dof to account for the reuse of samples? See this: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+Hi Jason, actually I used shapiro algorithm to check the distributions of the MSEs, which is not normal distributed, therefore I have applied wilcoxon test rather than students t test. Thank you!
+Nice work.
+Do you share how to preform power analysis on ttest one sample test.
+This might help: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+Hi Jason, could you demonstrate how to do a one tailed t test? The two tailed tests if they are = or not equal, but what if you want to see which is greater or smaller than the other?
+Thanks for the suggestion, hopefully I can give an example in the future.
+Thanks.
+It is a print statement that outputs floats and integers. Perhaps see this: https://docs.python.org/3/tutorial/inputoutput.html
+When i encode categorical data to numerical data, would i use pair t test? How about ordinal data(good, fair, bed) ? When i find that the p value is larger than alpha, which means i do not reject the null hypothesis? And those two variables are same? Thanks.
+You do not need to use a hypothesis test to encode data, you can encode it directly: https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/
+please help
+i would like to see the actual code used within scipy to calculate the function call scipy.stats.t.ppf(q, df).
+I.e, the code that calculates the particular t value to provide column/tow entry in the table with row (1-alpha), column degrees of freedom.
+i want to see this because i want to calculate it from first principles. I have the gamma function but it foes not provide the correct valve.
+All of the code for scipy is available: https://github.com/scipy/scipy
+you may be wondering about my initial question, but I guess for me it’s really a case of trying to code and lend (import library) code to do this from 1st principles.
+thanks for your reply and yes you are right, it’s there but for the life of me I can’t find it. According to the documentation, scipy.special.stdr returns the integral from minus INF to t according to the calculation
+gamma((df+1)/2)/(sqrt(df*pi)*gamma(df/2) * intergral((1+x**2)/df)**(-df/2-1/2), x=-inf..t) this being the CDF…
+the PPF uses stdtrit (df, q) to return the inverse of the above CDF via stdtr(df.f).
+Still can’t find the code so I can’t substitute the actual code (scipy repository) to replace a simple t.ppf(1 – alpha, df) call.
+i know your busy, but if you find time to locate the file and line number I would love to know.
+maybe its really hard to extract because of the class abstractions !
+Hi dear Jason, Thank you for your nice article. I have a question. In many articles, I see that univariate and multivariate analysis is performed for feature selection. some articles report the results of univariate analysis by student t-test. They reported p-values and AUCs for features and select features with high AUCs. Actually, I don’t know what is AUC in this case ( already I know ROC AUC for multivariate analysis). Would you please explain it? how AUC is calculated in this case?
+You’re welcome.
+AUC is probably ROC AUC, but I would recommend asking the author directly.
+Hey Jason, I have a question, if means are equals on prints statement in both cases then why we accept null hypothesis in first print statement and reject in else print statement?
+We are comparing distributions not means.
+Hi Jason, nice summary – thanks!
+When using scipy.stats.t.ppf(), should you set the arguments for location and scale? They default to 0 and 1 respectively, but this data is centred around 50 with a spread of 5.
+Thanks, Rupert
+You’re welcome.
+I don’t believe so. Perhaps check the usage documentation.
+Hi Jason, this is very helpful.
+Can you demonstrate how to do a hypothesis test that compare the difference of mean from two independent samples?
+For example: H0: u1 – u2 >= d H1: u1 – u2 < d where d is a threshold defined by user
+I searched online for a while but can't find a demo. Thanks in advance.
+Yes, there are many on the blog, maybe start here: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

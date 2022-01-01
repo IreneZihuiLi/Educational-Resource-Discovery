@@ -1,0 +1,142 @@
+Develop an Intuition for Bayes Theorem With Worked Examples
+Develop an Intuition for Bayes Theorem With Worked Examples
+Tutorial Overview
+Introduction to Bayes Theorem
+Naming the Terms in the Theorem
+Example 1: Elderly Fall and Death
+Example 2: Email and Spam Detection
+Example 3: Liars and Lie Detectors
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+10 Responses to Develop an Intuition for Bayes Theorem With Worked Examples
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Conditional Probability
+Bayes Theorem
+Note
+posterior probability
+prior probability
+likelihood
+evidence
+sensitivity
+specificity
+precision
+specificity
+sensitivity
+precision
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 19, 2020
+Bayes Theorem provides a principled way for calculating a conditional probability.
+It is a deceptively simple calculation, providing a method that is easy to use for scenarios where our intuition often fails.
+The best way to develop an intuition for Bayes Theorem is to think about the meaning of the terms in the equation and to apply the calculation many times in a range of different real-world scenarios. This will provide the context for what is being calculated and examples that can be used as a starting point when applying the calculation in new scenarios in the future.
+In this tutorial, you will discover an intuition for calculating Bayes Theorem by working through multiple realistic scenarios.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Develop an Intuition for Bayes Theorem With Worked ExamplesPhoo by Bureau of Land Management, some rights reserved.
+This tutorial is divided into five parts; they are:
+Conditional probability is the probability of one event given the occurrence of another event, often described in terms of events A and B from two dependent random variables e.g. X and Y.
+The conditional probability can be calculated using the joint probability; for example:
+The conditional probability is not symmetrical; for example:
+Nevertheless, one conditional probability can be calculated using the other conditional probability.
+This is called Bayes Theorem, named for Reverend Thomas Bayes, and can be stated as follows:
+Bayes Theorem provides a principled way for calculating a conditional probability and an alternative to using the joint probability.
+This alternate approach to calculating the conditional probability is useful either when the joint probability is challenging to calculate, or when the reverse conditional probability is available or easy to calculate.
+It is often the case that we do not have access to the denominator directly, e.g. P(B).
+We can calculate it an alternative way; for example:
+This gives a formulation of Bayes Theorem that we can use that uses the alternate calculation of P(B), described below:
+Note: the denominator is simply the expansion we gave above.
+As such, if we have P(A), then we can calculate P(not A) as its complement; for example:
+Additionally, if we have P(not B|not A), then we can calculate P(B|not A) as its complement; for example:
+Now that we are familiar with the calculation of Bayes Theorem, let’s take a closer look at the meaning of the terms in the equation.
+The terms in the Bayes Theorem equation are given names depending on the context where the equation is used.
+It can be helpful to think about the calculation from these different perspectives and help to map your problem onto the equation.
+Firstly, in general, the result P(A|B) is referred to as the posterior probability and P(A) is referred to as the prior probability.
+Sometimes P(B|A) is referred to as the likelihood and P(B) is referred to as the evidence.
+This allows Bayes Theorem to be restated as:
+We can make this clear with a smoke and fire case.
+What is the probability that there is fire given that there is smoke?
+Where P(Fire) is the Prior, P(Smoke|Fire) is the Likelihood, and P(Smoke) is the evidence:
+You can imagine the same situation with rain and clouds.
+We can also think about the calculation in the terms of a binary classifier.
+For example, P(B|A) may be referred to as the True Positive Rate (TPR) or the sensitivity, P(B|not A) may be referred to as the False Positive Rate (FPR), the complement P(not B|not A) may be referred to as the True Negative Rate (TNR) or specificity, and the value we are calculating P(A|B) may be referred to as the Positive Predictive Value (PPV) or precision.
+For example, we may re-state the calculation using these terms as follows:
+This is a useful perspective on Bayes Theorem and is elaborated further in the tutorial:
+Now that we are familiar with Bayes Theorem and the meaning of the terms, let’s look at some scenarios where we can calculate it.
+Note that all of the following examples are contrived; they are not based on real-world probabilities.
+Consider the case where an elderly person (over 80 years of age) falls; what is the probability that they will die from the fall?
+Let’s assume that the base rate of someone elderly dying P(A) is 10%, and the base rate for elderly people falling P(B) is 5%, and from all elderly people, 7% of those that die had a fall P(B|A).
+Let’s plug what we know into the theorem:
+or
+That is, if an elderly person falls, then there is a 14 percent probability that they will die from the fall.
+To make this concrete, we can perform the calculation in Python, first defining what we know, then using Bayes Theorem to calculate the outcome.
+The complete example is listed below.
+Running the example confirms the value we calculated manually.
+Consider the case where we receive an email and the spam detector puts it in the spam folder; what is the probability it was spam?
+Let’s assume some details such as 2 percent of the email we receive is spam P(A). Let’s assume that the spam detector is really good and when an email is spam, it detects it P(B|A) with an accuracy of 99 percent, and when an email is not spam, it will mark it as spam with a very low rate of 0.1 percent P(B|not A).
+Let’s plug what we know into the theorem:
+or
+We don’t know P(B), that is P(Detected), but we can calculate it using:
+Or in terms of our problem:
+We know P(Detected|not Spam), which is 0.1 percent and we can calculate P(not Spam) as 1 – P(Spam); for example:
+Therefore, we can calculate P(Detected) as:
+That is, about 2 percent of all emails are detected as spam, regardless of whether they are spam or not.
+Now we can calculate the answer as:
+That is, if an email is in the spam folder, there is a 95.2 percent probability that it is, in fact, spam.
+Again, let’s confirm this result by calculating it with an example in Python.
+The complete example is listed below.
+Running the example gives the same result, confirming our manual calculation.
+Consider the case where a person is tested with a lie detector and the test suggests they are lying. What is the probability that the person is indeed lying?
+Let’s assume some details, such as most people that are tested are telling the truth, such as 98 percent, meaning (1 – 0.98) or 2 percent are liars P(A). Let’s also assume that when someone is lying, that the test can detect them well, but not great, such as 72 percent of the time P(B|A). Let’s also assume that when the machine says they are not lying, this is true 97 percent of the time P(not B | not A).
+Let’s plug what we know into the theorem:
+Or:
+Again, we don’t know P(B), or in this case how often the detector returns a positive result in general.
+We can calculate this using the formula:
+Or:
+Or, with numbers:
+In this case, we don’t know the probability of a positive detection result given that the person was not lying; that is we don’t know the false positive rate or the false alarm rate.
+This can be calculated as follows:
+Or:
+Therefore, we can calculate P(B) or P(Positive) as:
+That is, the test returns a positive result about 4 percent of the time, regardless of whether the person is lying or not.
+We can now calculate Bayes Theorem for this scenario:
+That is, if the lie detector test comes back with a positive result, then there is a 32.8 percent probability that they are, in fact, lying. It’s a poor test!
+Finally, let’s confirm this calculation in Python.
+The complete example is listed below.
+Running the example gives the same result, confirming our manual calculation.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered an intuition for calculating Bayes Theorem by working through multiple realistic scenarios.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+Very useful and clear explanation. Thanks.
+You’re welcome, I’m happy it helped!
+I have read 300-page books on Bayes that cannot compete with you on clarity. Well done!
+Thanks for your kind words!
+Hi Jason! How clear are your examples, liked very much the analogies/cases between smoke and fire , as well as the cloud and rain for teaching purposes! I believe there is a typo in: PPV = (TPV * P(A)) / (TPR * P(A) + FPR * P(not A)) as I believe (to be consistent with the notation used) it should be: PPV = (TPR * P(A)) / (TPR * P(A) + FPR * P(not A)) Thanks again for these working examples…
+Thanks!
+Great catch, fixed.
+heaven is for you Jason
+Thanks!
+Good examples. I am a pure mathematician, but I wanted some intuition on Bayes.
+Thanks Pablo!
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

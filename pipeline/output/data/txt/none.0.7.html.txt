@@ -1,0 +1,157 @@
+Robust Regression for Machine Learning in Python
+Robust Regression for Machine Learning in Python
+Tutorial Overview
+Regression With Outliers
+Regression Dataset With Outliers
+Robust Regression Algorithms
+Compare Robust Regression Algorithms
+Further Reading
+Summary
+Discover Fast Machine Learning in Python!
+Navigation
+Main Menu
+Linear Regression (not robust)
+Huber Regression
+RANSAC Regression
+Theil Sen Regression
+APIs
+Articles
+29 Responses to Robust Regression for Machine Learning in Python
+Leave a Reply Click here to cancel reply.
+Robust regression
+Do you have any questions?
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Regression is a modeling task that involves predicting a numerical value given an input.
+Algorithms used for regression tasks are also referred to as “regression” algorithms, with the most widely known and perhaps most successful being linear regression.
+Linear regression fits a line or hyperplane that best describes the linear relationship between inputs and the target numeric value. If the data contains outlier values, the line can become biased, resulting in worse predictive performance. Robust regression refers to a suite of algorithms that are robust in the presence of outliers in training data.
+In this tutorial, you will discover robust regression algorithms for machine learning.
+After completing this tutorial, you will know:
+Let’s get started.
+Robust Regression for Machine Learning in PythonPhoto by Lenny K Photography, some rights reserved.
+This tutorial is divided into four parts; they are:
+Regression predictive modeling involves predicting a numeric variable given some input, often numerical input.
+Machine learning algorithms used for regression predictive modeling tasks are also referred to as “regression” or “regression algorithms.” The most common method is linear regression.
+Many regression algorithms are linear in that they assume that the relationship between the input variable or variables and the target variable is linear, such as a line in two-dimensions, a plane in three dimensions, and a hyperplane in higher dimensions. This is a reasonable assumption for many prediction tasks.
+Linear regression assumes that the probability distribution of each variable is well behaved, such as has a Gaussian distribution. The less well behaved the probability distribution for a feature is in a dataset, the less likely that linear regression will find a good fit.
+A specific problem with the probability distribution of variables when using linear regression is outliers. These are observations that are far outside the expected distribution. For example, if a variable has a Gaussian distribution, then an observation that is 3 or 4 (or more) standard deviations from the mean is considered an outlier.
+A dataset may have outliers on either the input variables or the target variable, and both can cause problems for a linear regression algorithm.
+Outliers in a dataset can skew summary statistics calculated for the variable, such as the mean and standard deviation, which in turn can skew the model towards the outlier values, away from the central mass of observations. This results in models that try to balance performing well on outliers and normal data, and performing worse on both overall.
+The solution instead is to use modified versions of linear regression that specifically address the expectation of outliers in the dataset. These methods are referred to as robust regression algorithms.
+We can define a synthetic regression dataset using the make_regression() function.
+In this case, we want a dataset that we can plot and understand easily. This can be achieved by using a single input variable and a single output variable. We don’t want the task to be too easy, so we will add a large amount of statistical noise.
+Once we have the dataset, we can augment it by adding outliers. Specifically, we will add outliers to the input variables.
+This can be done by changing some of the input variables to have a value that is a factor of the number of standard deviations away from the mean, such as 2-to-4. We will add 10 outliers to the dataset.
+We can tie this together into a function that will prepare the dataset. This function can then be called and we can plot the dataset with the input values on the x-axis and the target or outcome on the y-axis.
+The complete example of preparing and plotting the dataset is listed below.
+Running the example creates the synthetic regression dataset and adds outlier values.
+The dataset is then plotted, and we can clearly see the linear relationship in the data, with statistical noise, and a modest number of outliers as points far from the main mass of data.
+Scatter Plot of Regression Dataset With Outliers
+Now that we have a dataset, let’s fit different regression models on it.
+In this section, we will consider different robust regression algorithms for the dataset.
+Before diving into robust regression algorithms, let’s start with linear regression.
+We can evaluate linear regression using repeated k-fold cross-validation on the regression dataset with outliers. We will measure mean absolute error and this will provide a lower bound on model performance on this task that we might expect some robust regression algorithms to out-perform.
+We can also plot the model’s line of best fit on the dataset. To do this, we first fit the model on the entire training dataset, then create an input dataset that is a grid across the entire input domain, make a prediction for each, then draw a line for the inputs and predicted outputs.
+This plot shows how the model “sees” the problem, specifically the relationship between the input and output variables. The idea is that the line will be skewed by the outliers when using linear regression.
+Tying this together, the complete example for linear regression is listed below.
+Running the example first reports the mean MAE for the model on the dataset.
+We can see that linear regression achieves a MAE of about 5.2 on this dataset, providing an upper-bound in error.
+Next, the dataset is plotted as a scatter plot showing the outliers and this is overlaid with the line of best fit from the linear regression algorithm.
+In this case, we can see that the line of best fit is not aligning with the data and it has been skewed by the outliers. In turn, we expect this has caused the model to have a worse-than-expected performance on the dataset.
+Line of Best Fit for Linear Regression on a Dataset with Outliers
+Huber regression is a type of robust regression that is aware of the possibility of outliers in a dataset and assigns them less weight than other examples in the dataset.
+We can use Huber regression via the HuberRegressor class in scikit-learn. The “epsilon” argument controls what is considered an outlier, where smaller values consider more of the data outliers, and in turn, make the model more robust to outliers. The default is 1.35.
+The example below evaluates Huber regression on the regression dataset with outliers, first evaluating the model with repeated cross-validation and then plotting the line of best fit.
+Running the example first reports the mean MAE for the model on the dataset.
+We can see that Huber regression achieves a MAE of about 4.435 on this dataset, outperforming the linear regression model in the previous section.
+Next, the dataset is plotted as a scatter plot showing the outliers and this is overlaid with the line of best fit from the algorithm.
+In this case, we can see that the line of best fit is better aligned with the main body of the data, and does not appear to be obviously influenced by the outliers that are present.
+Line of Best Fit for Huber Regression on a Dataset with Outliers
+Random Sample Consensus, or RANSAC for short, is another robust regression algorithm.
+RANSAC tries to separate data into outliers and inliers and fits the model on the inliers.
+The scikit-learn library provides an implementation via the RANSACRegressor class.
+The example below evaluates RANSAC regression on the regression dataset with outliers, first evaluating the model with repeated cross-validation and then plotting the line of best fit.
+Running the example first reports the mean MAE for the model on the dataset.
+We can see that RANSAC regression achieves a MAE of about 4.454 on this dataset, outperforming the linear regression model but perhaps not Huber regression.
+Next, the dataset is plotted as a scatter plot showing the outliers, and this is overlaid with the line of best fit from the algorithm.
+In this case, we can see that the line of best fit is aligned with the main body of the data, perhaps even better than the plot for Huber regression.
+Line of Best Fit for RANSAC Regression on a Dataset with Outliers
+Theil Sen regression involves fitting multiple regression models on subsets of the training data and combining the coefficients together in the end.
+The scikit-learn provides an implementation via the TheilSenRegressor class.
+The example below evaluates Theil Sen regression on the regression dataset with outliers, first evaluating the model with repeated cross-validation and then plotting the line of best fit.
+Running the example first reports the mean MAE for the model on the dataset.
+We can see that Theil Sen regression achieves a MAE of about 4.371 on this dataset, outperforming the linear regression model as well as RANSAC and Huber regression.
+Next, the dataset is plotted as a scatter plot showing the outliers, and this is overlaid with the line of best fit from the algorithm.
+In this case, we can see that the line of best fit is aligned with the main body of the data.
+Line of Best Fit for Theil Sen Regression on a Dataset with Outliers
+Now that we are familiar with some popular robust regression algorithms and how to use them, we can look at how we might compare them directly.
+It can be useful to run an experiment to directly compare the robust regression algorithms on the same dataset. We can compare the mean performance of each method, and more usefully, use tools like a box and whisker plot to compare the distribution of scores across the repeated cross-validation folds.
+The complete example is listed below.
+Running the example evaluates each model in turn, reporting the mean and standard deviation MAE scores of reach.
+Note: your specific results will differ given the stochastic nature of the learning algorithms and evaluation procedure. Try running the example a few times.
+We can see some minor differences between these scores and those reported in the previous section, although the differences may or may not be statistically significant. The general pattern of the robust regression methods performing better than linear regression holds, TheilSen achieving better performance than the other methods.
+A plot is created showing a box and whisker plot summarizing the distribution of results for each evaluated algorithm.
+We can clearly see the distributions for the robust regression algorithms sitting and extending lower than the linear regression algorithm.
+Box and Whisker Plot of MAE Scores for Robust Regression Algorithms
+It may also be interesting to compare robust regression algorithms based on a plot of their line of best fit.
+The example below fits each robust regression algorithm and plots their line of best fit on the same plot in the context of a scatter plot of the entire training dataset.
+Running the example creates a plot showing the dataset as a scatter plot and the line of best fit for each algorithm.
+We can clearly see the off-axis line for the linear regression algorithm and the much better lines for the robust regression algorithms that follow the main body of the data.
+Comparison of Robust Regression Algorithms Line of Best Fit
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered robust regression algorithms for machine learning.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of scikit-learn code
+Learn how in my new Ebook: Machine Learning Mastery With Python
+Covers self-study tutorials and end-to-end projects like: Loading data, visualization, modeling, tuning, and much more...
+Skip the Academics. Just Results.
+It is a quite nice and fun tutorial for linear regression tools. However is there any link with Machine Learning ?
+Thanks.
+Machine learning borrows predictive models from statistics. Therefore a linear regression can be referred to as machine learning.
+More here: https://machinelearningmastery.com/faq/single-faq/how-are-statistics-and-machine-learning-related
+Thanks for introducing last two robust models
+You’re welcome.
+Great post Jason! I learned a lot. Thank you.
+Thanks!
+Dear Dr Jason, thank you for these tutorials. In the third last example:
+Why do you prefer the TheiSen model 4.371 (1.961) which is > Huber 4.435 (1.868)?
+Thank you, Anthony of Sydney
+TheilSen has lower error 4.371 vs 4.435.
+Dear Dr Jason, Thank you, and apologies. Anthony of Sydney
+Dear Dr Jason, thank you for these tutorials. It is very nicely written and explained.
+You’re welcome!
+I never tire of learning with you. Thanks for your post.
+Thanks!
+Great article I learnt a lot! I was wondering – what should be done if we also want to give different weights for the observations? For example in a time series of 3-4 years we want to give more weight for closer observations. Can you guide to further reading of this? Thanks!!
+The model will learn these weights for you in away that results in the minimum error. This is the whole idea of machine learning.
+What I meant was if you want to compare between 12 months slope this month vs. 12 months slope last month. In this case you want the slope to be less affected by earlier observations.
+Linear models will learn a separate weight for each lag observation – if the weighting as you described is optimal, the model will find it.
+First of all thank you for your job, posting these interesting methods. I was wondering: is it possible to insert robust regression in a clustering algorithm? That is, placing a condition that makes a cluster of points belong to a regression estimator, or calculating a cluster based on a regressor and then go on with other clusters (which would have other regressors). This, maybe, by placing a tolerance angle for each cluster. It would be very interesting to have such a feature.
+You’re welcome.
+I don’t see how. But if you have some ideas, perhaps try them out with a prototype.
+I too cannot figure out how to do it. I guess it would may be possible to do such a process by iterating the operation of linear estimation n times on a 2d/3d array, being n = number of clusters, for example, in a k-mean type clustering. But I don’t really understand at which place of the clustering algorithm code I have to change what to place the regression condition.
+Perhaps explore your idea with small code prototypes to see if it is viable.
+Great tutorial
+Thanks!
+Great tutorial, thank you for it and for the others that you have published on the site. I was wondering if it is possible to do a linear regression estimation on 3d data sets with these methods. Will much appreciate any advice. Thanks
+I don’t see why not. Try it and see.
+Any advice on how to plot 3d results? how to plot the plane of best fit? thanks
+Yes, matplotlib supports 3d surface plots. Check the API docs.
+Great article!
+My only observation is that HuberRegressor appears to be significantly faster than TheilSenRegressor.
+Thanks!
+It sure is.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Machine Learning with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

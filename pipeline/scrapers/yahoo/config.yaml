@@ -1,0 +1,4 @@
+name: "Yahoo"
+params:
+  domain: "https://ca.search.yahoo.com"
+  search_bar_name: "p"

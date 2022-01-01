@@ -1,0 +1,906 @@
+2021-05-16 19:44:28,447 - Command Line Arguments
+2021-05-16 19:44:28,448 -             uris:               []
+2021-05-16 19:44:28,448 -     searchengine:            Yahoo
+2021-05-16 19:44:28,448 -          csv_dir: ./pipeline/output/data/csv
+2021-05-16 19:44:28,448 -          txt_dir: ./pipeline/output/data/txt
+2021-05-16 19:44:28,448 -        list_file: ./pipeline/output/annotation.csv
+2021-05-16 19:44:28,448 -      start_query:                0
+2021-05-16 19:44:28,448 -        end_query:               10
+2021-05-16 19:44:28,448 -       keyphrases:               []
+2021-05-16 19:44:28,448 -  keyphrases_file: ./pipeline/sample_queries.txt
+2021-05-16 19:44:28,448 -          verbose:            False
+2021-05-16 19:44:28,448 -          extract:             None
+2021-05-16 19:44:28,448 -           counts:               []
+2021-05-16 19:44:28,448 -    searchresults:                5
+2021-05-16 19:44:28,448 - operating_system:            linux
+2021-05-16 19:44:28,448 -           visual:            False
+2021-05-16 19:44:28,448 -           domain:               .*
+2021-05-16 19:44:28,448 - 
+
+
+2021-05-16 19:44:28,448 - Downloading and Preparing Seed Documents
+2021-05-16 19:44:28,448 - Done building parsers.
+2021-05-16 19:44:28,448 - 
+
+
+2021-05-16 19:44:28,448 - Extracting Keywords from Documents
+2021-05-16 19:44:28,449 - Explicit Keyphrases Provided
+2021-05-16 19:44:28,449 - linear regression" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "regression" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "variance" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "probability" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "statistic" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "correlation" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "histogram" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - "control group" site:machinelearningmastery.com
+2021-05-16 19:44:28,449 - 
+
+
+2021-05-16 19:44:28,449 - Scraping the Web
+2021-05-16 19:44:29,708 - Scraping for keyphrase: linear regression" site:machinelearningmastery.com
+2021-05-16 19:44:29,708 - Searching up linear regression" site:machinelearningmastery.com
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/linear-regression-for-machine-learning/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/linear-regression-in-r/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/linear-regression-tutorial-using-gradient-descent-for-machine-learning/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/implement-linear-regression-stochastic-gradient-descent-scratch-python/
+2021-05-16 19:44:31,354 - Found: https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/
+2021-05-16 19:44:33,725 - Loaded next page
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/optimize-regression-models/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/regression-metrics-for-machine-learning/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/lars-regression-with-python/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/feature-selection-for-regression-data/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/examples-of-linear-algebra-in-machine-learning/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/essence-of-stacking-ensembles-for-machine-learning/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/different-results-each-time-in-machine-learning/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/standardscaler-and-minmaxscaler-transforms-in-python/
+2021-05-16 19:44:33,851 - Found: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+2021-05-16 19:44:34,733 - Scraping for keyphrase: "regression" site:machinelearningmastery.com
+2021-05-16 19:44:34,733 - Searching up "regression" site:machinelearningmastery.com
+2021-05-16 19:44:35,866 - Found: https://machinelearningmastery.com/linear-regression-for-machine-learning/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/regression-metrics-for-machine-learning/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/xgboost-for-regression/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/
+2021-05-16 19:44:35,867 - Found: https://machinelearningmastery.com/multi-output-regression-models-with-python/
+2021-05-16 19:44:37,010 - Loaded next page
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/optimize-regression-models/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/feature-selection-for-regression-data/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/linear-regression-tutorial-using-gradient-descent-for-machine-learning/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/elastic-net-regression-in-python/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/logistic-regression-tutorial-for-machine-learning/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/ridge-regression-with-python/
+2021-05-16 19:44:37,107 - Found: https://machinelearningmastery.com/implement-linear-regression-stochastic-gradient-descent-scratch-python/
+2021-05-16 19:44:37,108 - Found: https://machinelearningmastery.com/ensemble-diversity-for-machine-learning/
+2021-05-16 19:44:39,006 - Scraping for keyphrase: "variance" site:machinelearningmastery.com
+2021-05-16 19:44:39,007 - Searching up "variance" site:machinelearningmastery.com
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/how-to-reduce-model-variance/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/calculate-the-bias-variance-trade-off/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/different-results-each-time-in-machine-learning/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/basic-data-cleaning-for-machine-learning/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/
+2021-05-16 19:44:40,007 - Found: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+2021-05-16 19:44:41,237 - Loaded next page
+2021-05-16 19:44:41,382 - Found: https://machinelearningmastery.com/basic-data-cleaning-for-machine-learning/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/what-are-probability-distributions/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/continuous-probability-distributions-for-machine-learning/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/prediction-intervals-for-deep-learning-neural-networks/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/why-use-ensemble-learning/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/report-classifier-performance-confidence-intervals/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/ensemble-methods-for-deep-learning-neural-networks/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/develop-arch-and-garch-models-for-time-series-forecasting-in-python/
+2021-05-16 19:44:41,383 - Found: https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/
+2021-05-16 19:44:42,284 - Scraping for keyphrase: "probability" site:machinelearningmastery.com
+2021-05-16 19:44:42,284 - Searching up "probability" site:machinelearningmastery.com
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/what-is-probability/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/probability-for-machine-learning/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/probability-resources-for-machine-learning/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/probability-for-machine-learning-7-day-mini-course/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/what-are-probability-distributions/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/why-learn-probability-for-machine-learning/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/monte-carlo-sampling-for-probability/
+2021-05-16 19:44:43,445 - Found: https://machinelearningmastery.com/how-to-score-probability-predictions-in-python/
+2021-05-16 19:44:48,885 - Loaded next page
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/probability-resources-for-machine-learning/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/discrete-probability-distributions-for-machine-learning/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/how-to-score-probability-predictions-in-python/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/markov-chain-monte-carlo-for-probability/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/how-to-develop-and-evaluate-naive-classifier-strategies-using-probability/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/how-to-make-classification-and-regression-predictions-for-deep-learning-models-in-keras/
+2021-05-16 19:44:49,016 - Found: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+2021-05-16 19:44:50,948 - Scraping for keyphrase: "statistic" site:machinelearningmastery.com
+2021-05-16 19:44:50,948 - Searching up "statistic" site:machinelearningmastery.com
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/what-is-statistics/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistics-in-plain-english-for-machine-learning/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistical-data-distributions/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:44:51,996 - Found: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+2021-05-16 19:44:54,349 - Loaded next page
+2021-05-16 19:44:54,521 - Found: https://machinelearningmastery.com/statistics-in-plain-english-for-machine-learning/
+2021-05-16 19:44:54,521 - Found: https://machinelearningmastery.com/statistics-books-for-machine-learning/
+2021-05-16 19:44:54,521 - Found: https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/estimation-statistics-for-machine-learning/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/nonparametric-statistical-significance-tests-in-python/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/chi-squared-test-for-machine-learning/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/
+2021-05-16 19:44:54,522 - Found: https://machinelearningmastery.com/calculate-bootstrap-confidence-intervals-machine-learning-results-python/
+2021-05-16 19:44:56,425 - Scraping for keyphrase: "correlation" site:machinelearningmastery.com
+2021-05-16 19:44:56,425 - Searching up "correlation" site:machinelearningmastery.com
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/ensemble-diversity-for-machine-learning/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/elastic-net-regression-in-python/
+2021-05-16 19:44:57,509 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:44:59,702 - Loaded next page
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/ensemble-diversity-for-machine-learning/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/elastic-net-regression-in-python/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/perform-feature-selection-machine-learning-data-weka/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/feature-selection-machine-learning-python/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/chi-squared-test-for-machine-learning/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/descriptive-statistics-examples-with-r/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/principal-components-analysis-for-dimensionality-reduction-in-python/
+2021-05-16 19:44:59,831 - Found: https://machinelearningmastery.com/better-understand-machine-learning-data-weka/
+2021-05-16 19:45:01,780 - Scraping for keyphrase: "histogram" site:machinelearningmastery.com
+2021-05-16 19:45:01,780 - Searching up "histogram" site:machinelearningmastery.com
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/seaborn-data-visualization-for-machine-learning/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/data-visualization-methods-in-python/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/probability-density-estimation/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/develop-a-neural-network-for-woods-mammography-dataset/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/calculate-bootstrap-confidence-intervals-machine-learning-results-python/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/how-to-transform-data-to-fit-the-normal-distribution/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/empirical-distribution-function-in-python/
+2021-05-16 19:45:03,008 - Found: https://machinelearningmastery.com/quick-and-dirty-data-analysis-with-pandas/
+2021-05-16 19:45:05,292 - Loaded next page
+2021-05-16 19:45:05,449 - Found: https://machinelearningmastery.com/data-visualization-methods-in-python/
+2021-05-16 19:45:05,449 - Found: https://machinelearningmastery.com/use-statistical-significance-tests-interpret-machine-learning-results/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/develop-a-neural-network-for-woods-mammography-dataset/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/quantile-transforms-for-machine-learning/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/how-to-transform-data-to-fit-the-normal-distribution/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/empirical-distribution-function-in-python/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/monte-carlo-sampling-for-probability/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/how-to-load-and-explore-household-electricity-usage-data/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/descriptive-statistics-examples-with-r/
+2021-05-16 19:45:05,450 - Found: https://machinelearningmastery.com/a-gentle-introduction-to-the-central-limit-theorem-for-machine-learning/
+2021-05-16 19:45:08,381 - Scraping for keyphrase: "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:45:08,382 - Searching up "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/hypothesis-test-for-comparing-machine-learning-algorithms/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/what-is-a-hypothesis-in-machine-learning/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/estimation-statistics-for-machine-learning/
+2021-05-16 19:45:09,575 - Found: https://machinelearningmastery.com/how-to-code-the-students-t-test-from-scratch-in-python/
+2021-05-16 19:45:10,806 - Loaded next page
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/statistics_for_machine_learning/
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/how-to-code-the-students-t-test-from-scratch-in-python/
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/statistics-for-evaluating-machine-learning-models/
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/all-of-statistics-for-machine-learning/
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/statistical-methods-in-an-applied-machine-learning-project/
+2021-05-16 19:45:10,956 - Found: https://machinelearningmastery.com/chi-squared-test-for-machine-learning/
+2021-05-16 19:45:10,957 - Found: https://machinelearningmastery.com/use-statistical-significance-tests-interpret-machine-learning-results/
+2021-05-16 19:45:10,957 - Found: https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/
+2021-05-16 19:45:10,957 - Found: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/
+2021-05-16 19:45:10,957 - Found: https://machinelearningmastery.com/statistical-sampling-and-resampling/
+2021-05-16 19:45:12,948 - Scraping for keyphrase: "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:45:12,948 - Searching up "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:45:14,193 - Found: https://machinelearningmastery.com/joint-marginal-and-conditional-probability-for-machine-learning/
+2021-05-16 19:45:14,193 - Found: https://machinelearningmastery.com/how-to-calculate-joint-marginal-and-conditional-probability/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/bayes-theorem-for-machine-learning/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/probability-for-machine-learning-7-day-mini-course/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/why-learn-probability-for-machine-learning/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/probability-for-machine-learning/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/what-is-maximum-likelihood-estimation-in-machine-learning/
+2021-05-16 19:45:14,194 - Found: https://machinelearningmastery.com/maximum-a-posteriori-estimation/
+2021-05-16 19:45:18,524 - Loaded next page
+2021-05-16 19:45:18,666 - Found: https://machinelearningmastery.com/why-learn-probability-for-machine-learning/
+2021-05-16 19:45:18,666 - Found: https://machinelearningmastery.com/probability-for-machine-learning/
+2021-05-16 19:45:18,666 - Found: https://machinelearningmastery.com/probability-resources-for-machine-learning/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/probability-density-estimation/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/naive-bayes-for-machine-learning/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/linear-discriminant-analysis-with-python/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/introduction-to-bayesian-belief-networks/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/introduction-to-bayesian-networks-with-jhonatan-de-souza-oliveira/
+2021-05-16 19:45:18,667 - Found: https://machinelearningmastery.com/naive-bayes-tutorial-for-machine-learning/
+2021-05-16 19:45:22,775 - Scraping for keyphrase: "control group" site:machinelearningmastery.com
+2021-05-16 19:45:22,775 - Searching up "control group" site:machinelearningmastery.com
+2021-05-16 19:45:23,811 - Found: https://machinelearningmastery.com/confounding-variables-in-machine-learning/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/how-to-get-baseline-results-and-why-they-matter/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/clustering-algorithms-with-python/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/use-classification-machine-learning-algorithms-weka/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/simple-time-series-forecasting-models/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/k-fold-cross-validation/
+2021-05-16 19:45:23,812 - Found: https://machinelearningmastery.com/how-to-load-and-manipulate-images-for-deep-learning-in-python-with-pil-pillow/
+2021-05-16 19:45:24,792 - 
+
+Overall Resources Scraped
+2021-05-16 19:45:24,792 - Keyphrase: linear regression" site:machinelearningmastery.com
+2021-05-16 19:45:24,793 -    none.0.0.html: https://machinelearningmastery.com/linear-regression-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.0.1.html: https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/
+2021-05-16 19:45:24,793 -    none.0.2.html: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.0.3.html: https://machinelearningmastery.com/linear-regression-tutorial-using-gradient-descent-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.0.4.html: https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/
+2021-05-16 19:45:24,793 -    none.0.5.html: https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/
+2021-05-16 19:45:24,793 -    none.0.6.html: https://machinelearningmastery.com/implement-linear-regression-stochastic-gradient-descent-scratch-python/
+2021-05-16 19:45:24,793 -    none.0.7.html: https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/
+2021-05-16 19:45:24,793 -    none.0.8.html: https://machinelearningmastery.com/optimize-regression-models/
+2021-05-16 19:45:24,793 -    none.0.9.html: https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/
+2021-05-16 19:45:24,793 - Keyphrase: "regression" site:machinelearningmastery.com
+2021-05-16 19:45:24,793 -    none.1.0.html: https://machinelearningmastery.com/linear-regression-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.1.1.html: https://machinelearningmastery.com/regression-metrics-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.1.2.html: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:45:24,793 -    none.1.3.html: https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/
+2021-05-16 19:45:24,794 -    none.1.4.html: https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/
+2021-05-16 19:45:24,794 -    none.1.5.html: https://machinelearningmastery.com/xgboost-for-regression/
+2021-05-16 19:45:24,794 -    none.1.6.html: https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/
+2021-05-16 19:45:24,794 -    none.1.7.html: https://machinelearningmastery.com/multi-output-regression-models-with-python/
+2021-05-16 19:45:24,794 -    none.1.8.html: https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/
+2021-05-16 19:45:24,794 -    none.1.9.html: https://machinelearningmastery.com/optimize-regression-models/
+2021-05-16 19:45:24,794 - Keyphrase: "variance" site:machinelearningmastery.com
+2021-05-16 19:45:24,794 -    none.2.0.html: https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/
+2021-05-16 19:45:24,794 -    none.2.1.html: https://machinelearningmastery.com/how-to-reduce-model-variance/
+2021-05-16 19:45:24,794 -    none.2.2.html: https://machinelearningmastery.com/calculate-the-bias-variance-trade-off/
+2021-05-16 19:45:24,794 -    none.2.3.html: https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/
+2021-05-16 19:45:24,794 -    none.2.4.html: https://machinelearningmastery.com/different-results-each-time-in-machine-learning/
+2021-05-16 19:45:24,794 -    none.2.5.html: https://machinelearningmastery.com/basic-data-cleaning-for-machine-learning/
+2021-05-16 19:45:24,794 -    none.2.6.html: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:45:24,794 -    none.2.7.html: https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/
+2021-05-16 19:45:24,794 -    none.2.8.html: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+2021-05-16 19:45:24,795 -    none.2.9.html: https://machinelearningmastery.com/what-are-probability-distributions/
+2021-05-16 19:45:24,795 - Keyphrase: "probability" site:machinelearningmastery.com
+2021-05-16 19:45:24,795 -    none.3.0.html: https://machinelearningmastery.com/probability-for-machine-learning/
+2021-05-16 19:45:24,795 -    none.3.1.html: https://machinelearningmastery.com/what-are-probability-distributions/
+2021-05-16 19:45:24,795 -    none.3.2.html: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+2021-05-16 19:45:24,795 -    none.3.3.html: https://machinelearningmastery.com/monte-carlo-sampling-for-probability/
+2021-05-16 19:45:24,795 -    none.3.4.html: https://machinelearningmastery.com/how-to-score-probability-predictions-in-python/
+2021-05-16 19:45:24,795 -    none.3.5.html: https://machinelearningmastery.com/discrete-probability-distributions-for-machine-learning/
+2021-05-16 19:45:24,795 -    none.3.6.html: https://machinelearningmastery.com/markov-chain-monte-carlo-for-probability/
+2021-05-16 19:45:24,795 -    none.3.7.html: https://machinelearningmastery.com/how-to-develop-and-evaluate-naive-classifier-strategies-using-probability/
+2021-05-16 19:45:24,795 -    none.3.8.html: https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/
+2021-05-16 19:45:24,795 -    none.3.9.html: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:45:24,795 - Keyphrase: "statistic" site:machinelearningmastery.com
+2021-05-16 19:45:24,795 -    none.4.0.html: https://machinelearningmastery.com/what-is-statistics/
+2021-05-16 19:45:24,795 -    none.4.1.html: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/
+2021-05-16 19:45:24,795 -    none.4.2.html: https://machinelearningmastery.com/statistical-hypothesis-tests/
+2021-05-16 19:45:24,795 -    none.4.3.html: https://machinelearningmastery.com/statistical-data-distributions/
+2021-05-16 19:45:24,796 -    none.4.4.html: https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/
+2021-05-16 19:45:24,796 -    none.4.5.html: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:45:24,796 -    none.4.6.html: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:45:24,796 -    none.4.7.html: https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
+2021-05-16 19:45:24,796 -    none.4.8.html: https://machinelearningmastery.com/statistics-books-for-machine-learning/
+2021-05-16 19:45:24,796 -    none.4.9.html: https://machinelearningmastery.com/estimation-statistics-for-machine-learning/
+2021-05-16 19:45:24,796 - Keyphrase: "correlation" site:machinelearningmastery.com
+2021-05-16 19:45:24,796 -    none.5.0.html: https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/
+2021-05-16 19:45:24,796 -    none.5.1.html: https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/
+2021-05-16 19:45:24,796 -    none.5.2.html: https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/
+2021-05-16 19:45:24,796 -    none.5.3.html: https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/
+2021-05-16 19:45:24,796 -    none.5.4.html: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/
+2021-05-16 19:45:24,796 -    none.5.5.html: https://machinelearningmastery.com/elastic-net-regression-in-python/
+2021-05-16 19:45:24,796 -    none.5.6.html: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:45:24,796 -    none.5.7.html: https://machinelearningmastery.com/perform-feature-selection-machine-learning-data-weka/
+2021-05-16 19:45:24,796 -    none.5.8.html: https://machinelearningmastery.com/feature-selection-machine-learning-python/
+2021-05-16 19:45:24,796 -    none.5.9.html: https://machinelearningmastery.com/chi-squared-test-for-machine-learning/
+2021-05-16 19:45:24,797 - Keyphrase: "histogram" site:machinelearningmastery.com
+2021-05-16 19:45:24,797 -    none.6.0.html: https://machinelearningmastery.com/seaborn-data-visualization-for-machine-learning/
+2021-05-16 19:45:24,797 -    none.6.1.html: https://machinelearningmastery.com/data-visualization-methods-in-python/
+2021-05-16 19:45:24,797 -    none.6.2.html: https://machinelearningmastery.com/probability-density-estimation/
+2021-05-16 19:45:24,797 -    none.6.3.html: https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/
+2021-05-16 19:45:24,797 -    none.6.4.html: https://machinelearningmastery.com/calculate-bootstrap-confidence-intervals-machine-learning-results-python/
+2021-05-16 19:45:24,797 -    none.6.5.html: https://machinelearningmastery.com/how-to-transform-data-to-fit-the-normal-distribution/
+2021-05-16 19:45:24,797 -    none.6.6.html: https://machinelearningmastery.com/empirical-distribution-function-in-python/
+2021-05-16 19:45:24,797 -    none.6.7.html: https://machinelearningmastery.com/quick-and-dirty-data-analysis-with-pandas/
+2021-05-16 19:45:24,797 -    none.6.8.html: https://machinelearningmastery.com/quantile-transforms-for-machine-learning/
+2021-05-16 19:45:24,797 -    none.6.9.html: https://machinelearningmastery.com/monte-carlo-sampling-for-probability/
+2021-05-16 19:45:24,797 - Keyphrase: "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:45:24,797 -    none.7.0.html: https://machinelearningmastery.com/statistical-hypothesis-tests/
+2021-05-16 19:45:24,797 -    none.7.1.html: https://machinelearningmastery.com/hypothesis-test-for-comparing-machine-learning-algorithms/
+2021-05-16 19:45:24,797 -    none.7.2.html: https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/
+2021-05-16 19:45:24,797 -    none.7.3.html: https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/
+2021-05-16 19:45:24,797 -    none.7.4.html: https://machinelearningmastery.com/what-is-a-hypothesis-in-machine-learning/
+2021-05-16 19:45:24,797 -    none.7.5.html: https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/
+2021-05-16 19:45:24,798 -    none.7.6.html: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+2021-05-16 19:45:24,798 -    none.7.7.html: https://machinelearningmastery.com/estimation-statistics-for-machine-learning/
+2021-05-16 19:45:24,798 -    none.7.8.html: https://machinelearningmastery.com/how-to-code-the-students-t-test-from-scratch-in-python/
+2021-05-16 19:45:24,798 -    none.7.9.html: https://machinelearningmastery.com/statistics_for_machine_learning/
+2021-05-16 19:45:24,798 - Keyphrase: "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:45:24,798 -    none.8.0.html: https://machinelearningmastery.com/joint-marginal-and-conditional-probability-for-machine-learning/
+2021-05-16 19:45:24,798 -    none.8.1.html: https://machinelearningmastery.com/bayes-theorem-for-machine-learning/
+2021-05-16 19:45:24,798 -    none.8.2.html: https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/
+2021-05-16 19:45:24,798 -    none.8.3.html: https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/
+2021-05-16 19:45:24,798 -    none.8.4.html: https://machinelearningmastery.com/probability-for-machine-learning/
+2021-05-16 19:45:24,798 -    none.8.5.html: https://machinelearningmastery.com/what-is-maximum-likelihood-estimation-in-machine-learning/
+2021-05-16 19:45:24,798 -    none.8.6.html: https://machinelearningmastery.com/maximum-a-posteriori-estimation/
+2021-05-16 19:45:24,798 -    none.8.7.html: https://machinelearningmastery.com/probability-density-estimation/
+2021-05-16 19:45:24,798 -    none.8.8.html: https://machinelearningmastery.com/naive-bayes-for-machine-learning/
+2021-05-16 19:45:24,798 -    none.8.9.html: https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/
+2021-05-16 19:45:24,798 - Keyphrase: "control group" site:machinelearningmastery.com
+2021-05-16 19:45:24,798 -    none.9.0.html: https://machinelearningmastery.com/confounding-variables-in-machine-learning/
+2021-05-16 19:45:24,799 -    none.9.1.html: https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/
+2021-05-16 19:45:24,799 -    none.9.2.html: https://machinelearningmastery.com/how-to-get-baseline-results-and-why-they-matter/
+2021-05-16 19:45:24,799 -    none.9.3.html: https://machinelearningmastery.com/clustering-algorithms-with-python/
+2021-05-16 19:45:24,799 -    none.9.4.html: https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/
+2021-05-16 19:45:24,799 -    none.9.5.html: https://machinelearningmastery.com/use-classification-machine-learning-algorithms-weka/
+2021-05-16 19:45:24,799 -    none.9.6.html: https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/
+2021-05-16 19:45:24,799 -    none.9.7.html: https://machinelearningmastery.com/simple-time-series-forecasting-models/
+2021-05-16 19:45:24,799 -    none.9.8.html: https://machinelearningmastery.com/k-fold-cross-validation/
+2021-05-16 19:45:24,799 -    none.9.9.html: https://machinelearningmastery.com/how-to-load-and-manipulate-images-for-deep-learning-in-python-with-pil-pillow/
+2021-05-16 19:45:24,799 - 
+
+
+2021-05-16 19:45:24,799 - Downloading and Preparing Online Resources
+2021-05-16 19:45:24,799 - Keyphrase: linear regression" site:machinelearningmastery.com
+2021-05-16 19:45:24,901 - Downloading resource https://machinelearningmastery.com/linear-regression-for-machine-learning/ -> pipeline/tmp_downloads/62.html
+2021-05-16 19:45:25,012 - Downloading resource https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/ -> pipeline/tmp_downloads/63.html
+2021-05-16 19:45:25,121 - Downloading resource https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/ -> pipeline/tmp_downloads/64.html
+2021-05-16 19:45:25,231 - Downloading resource https://machinelearningmastery.com/linear-regression-tutorial-using-gradient-descent-for-machine-learning/ -> pipeline/tmp_downloads/65.html
+2021-05-16 19:45:25,321 - Downloading resource https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/ -> pipeline/tmp_downloads/66.html
+2021-05-16 19:45:25,465 - Downloading resource https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/ -> pipeline/tmp_downloads/67.html
+2021-05-16 19:45:25,585 - Downloading resource https://machinelearningmastery.com/implement-linear-regression-stochastic-gradient-descent-scratch-python/ -> pipeline/tmp_downloads/68.html
+2021-05-16 19:45:25,706 - Downloading resource https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/ -> pipeline/tmp_downloads/69.html
+2021-05-16 19:45:25,825 - Downloading resource https://machinelearningmastery.com/optimize-regression-models/ -> pipeline/tmp_downloads/70.html
+2021-05-16 19:45:25,928 - Downloading resource https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/ -> pipeline/tmp_downloads/71.html
+2021-05-16 19:45:25,993 - Deducing pipeline/tmp_downloads/62.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:26,219 - Done Deducing
+2021-05-16 19:45:26,219 - Deducing pipeline/tmp_downloads/63.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:26,534 - Done Deducing
+2021-05-16 19:45:26,534 - Deducing pipeline/tmp_downloads/64.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:26,698 - Done Deducing
+2021-05-16 19:45:26,698 - Deducing pipeline/tmp_downloads/65.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:26,815 - Done Deducing
+2021-05-16 19:45:26,815 - Deducing pipeline/tmp_downloads/66.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:26,848 - Done Deducing
+2021-05-16 19:45:26,849 - Deducing pipeline/tmp_downloads/67.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:27,326 - Done Deducing
+2021-05-16 19:45:27,326 - Deducing pipeline/tmp_downloads/68.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:27,574 - Done Deducing
+2021-05-16 19:45:27,574 - Deducing pipeline/tmp_downloads/69.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:27,942 - Done Deducing
+2021-05-16 19:45:27,942 - Deducing pipeline/tmp_downloads/70.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:28,148 - Done Deducing
+2021-05-16 19:45:28,148 - Deducing pipeline/tmp_downloads/71.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:28,249 - Done Deducing
+2021-05-16 19:45:28,250 - Done building parsers.
+2021-05-16 19:45:28,250 - Keyphrase: "regression" site:machinelearningmastery.com
+2021-05-16 19:45:28,361 - Downloading resource https://machinelearningmastery.com/linear-regression-for-machine-learning/ -> pipeline/tmp_downloads/72.html
+2021-05-16 19:45:28,459 - Downloading resource https://machinelearningmastery.com/regression-metrics-for-machine-learning/ -> pipeline/tmp_downloads/73.html
+2021-05-16 19:45:28,581 - Downloading resource https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/ -> pipeline/tmp_downloads/74.html
+2021-05-16 19:45:28,682 - Downloading resource https://machinelearningmastery.com/solve-linear-regression-using-linear-algebra/ -> pipeline/tmp_downloads/75.html
+2021-05-16 19:45:28,795 - Downloading resource https://machinelearningmastery.com/robust-regression-for-machine-learning-in-python/ -> pipeline/tmp_downloads/76.html
+2021-05-16 19:45:28,897 - Downloading resource https://machinelearningmastery.com/xgboost-for-regression/ -> pipeline/tmp_downloads/77.html
+2021-05-16 19:45:29,028 - Downloading resource https://machinelearningmastery.com/use-regression-machine-learning-algorithms-weka/ -> pipeline/tmp_downloads/78.html
+2021-05-16 19:45:29,142 - Downloading resource https://machinelearningmastery.com/multi-output-regression-models-with-python/ -> pipeline/tmp_downloads/79.html
+2021-05-16 19:45:29,273 - Downloading resource https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/ -> pipeline/tmp_downloads/80.html
+2021-05-16 19:45:29,395 - Downloading resource https://machinelearningmastery.com/optimize-regression-models/ -> pipeline/tmp_downloads/81.html
+2021-05-16 19:45:29,396 - Deducing pipeline/tmp_downloads/72.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:29,564 - Done Deducing
+2021-05-16 19:45:29,564 - Deducing pipeline/tmp_downloads/73.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:29,668 - Done Deducing
+2021-05-16 19:45:29,668 - Deducing pipeline/tmp_downloads/74.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:29,830 - Done Deducing
+2021-05-16 19:45:29,830 - Deducing pipeline/tmp_downloads/75.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:30,129 - Done Deducing
+2021-05-16 19:45:30,129 - Deducing pipeline/tmp_downloads/76.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:30,374 - Done Deducing
+2021-05-16 19:45:30,375 - Deducing pipeline/tmp_downloads/77.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:30,509 - Done Deducing
+2021-05-16 19:45:30,509 - Deducing pipeline/tmp_downloads/78.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:30,654 - Done Deducing
+2021-05-16 19:45:30,654 - Deducing pipeline/tmp_downloads/79.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:30,959 - Done Deducing
+2021-05-16 19:45:30,959 - Deducing pipeline/tmp_downloads/80.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:32,098 - Done Deducing
+2021-05-16 19:45:32,098 - Deducing pipeline/tmp_downloads/81.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:32,306 - Done Deducing
+2021-05-16 19:45:32,306 - Done building parsers.
+2021-05-16 19:45:32,306 - Keyphrase: "variance" site:machinelearningmastery.com
+2021-05-16 19:45:32,419 - Downloading resource https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/ -> pipeline/tmp_downloads/82.html
+2021-05-16 19:45:32,523 - Downloading resource https://machinelearningmastery.com/how-to-reduce-model-variance/ -> pipeline/tmp_downloads/83.html
+2021-05-16 19:45:32,623 - Downloading resource https://machinelearningmastery.com/calculate-the-bias-variance-trade-off/ -> pipeline/tmp_downloads/84.html
+2021-05-16 19:45:32,729 - Downloading resource https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/ -> pipeline/tmp_downloads/85.html
+2021-05-16 19:45:32,830 - Downloading resource https://machinelearningmastery.com/different-results-each-time-in-machine-learning/ -> pipeline/tmp_downloads/86.html
+2021-05-16 19:45:32,949 - Downloading resource https://machinelearningmastery.com/basic-data-cleaning-for-machine-learning/ -> pipeline/tmp_downloads/87.html
+2021-05-16 19:45:33,068 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/ -> pipeline/tmp_downloads/88.html
+2021-05-16 19:45:33,171 - Downloading resource https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/ -> pipeline/tmp_downloads/89.html
+2021-05-16 19:45:33,332 - Downloading resource https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/ -> pipeline/tmp_downloads/90.html
+2021-05-16 19:45:33,421 - Downloading resource https://machinelearningmastery.com/what-are-probability-distributions/ -> pipeline/tmp_downloads/91.html
+2021-05-16 19:45:33,422 - Deducing pipeline/tmp_downloads/82.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:33,981 - Done Deducing
+2021-05-16 19:45:33,981 - Deducing pipeline/tmp_downloads/83.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,109 - Done Deducing
+2021-05-16 19:45:34,109 - Deducing pipeline/tmp_downloads/84.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,207 - Done Deducing
+2021-05-16 19:45:34,207 - Deducing pipeline/tmp_downloads/85.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,312 - Done Deducing
+2021-05-16 19:45:34,313 - Deducing pipeline/tmp_downloads/86.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,373 - Done Deducing
+2021-05-16 19:45:34,373 - Deducing pipeline/tmp_downloads/87.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,707 - Done Deducing
+2021-05-16 19:45:34,707 - Deducing pipeline/tmp_downloads/88.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,925 - Done Deducing
+2021-05-16 19:45:34,925 - Deducing pipeline/tmp_downloads/89.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:34,998 - Done Deducing
+2021-05-16 19:45:34,998 - Deducing pipeline/tmp_downloads/90.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:35,180 - Done Deducing
+2021-05-16 19:45:35,180 - Deducing pipeline/tmp_downloads/91.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:35,225 - Done Deducing
+2021-05-16 19:45:35,225 - Done building parsers.
+2021-05-16 19:45:35,225 - Keyphrase: "probability" site:machinelearningmastery.com
+2021-05-16 19:45:35,332 - Downloading resource https://machinelearningmastery.com/probability-for-machine-learning/ -> pipeline/tmp_downloads/92.html
+2021-05-16 19:45:35,431 - Downloading resource https://machinelearningmastery.com/what-are-probability-distributions/ -> pipeline/tmp_downloads/93.html
+2021-05-16 19:45:35,552 - Downloading resource https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/ -> pipeline/tmp_downloads/94.html
+2021-05-16 19:45:35,642 - Downloading resource https://machinelearningmastery.com/monte-carlo-sampling-for-probability/ -> pipeline/tmp_downloads/95.html
+2021-05-16 19:45:35,746 - Downloading resource https://machinelearningmastery.com/how-to-score-probability-predictions-in-python/ -> pipeline/tmp_downloads/96.html
+2021-05-16 19:45:35,848 - Downloading resource https://machinelearningmastery.com/discrete-probability-distributions-for-machine-learning/ -> pipeline/tmp_downloads/97.html
+2021-05-16 19:45:35,939 - Downloading resource https://machinelearningmastery.com/markov-chain-monte-carlo-for-probability/ -> pipeline/tmp_downloads/98.html
+2021-05-16 19:45:36,046 - Downloading resource https://machinelearningmastery.com/how-to-develop-and-evaluate-naive-classifier-strategies-using-probability/ -> pipeline/tmp_downloads/99.html
+2021-05-16 19:45:36,151 - Downloading resource https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/ -> pipeline/tmp_downloads/100.html
+2021-05-16 19:45:36,268 - Downloading resource https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/ -> pipeline/tmp_downloads/101.html
+2021-05-16 19:45:36,269 - Deducing pipeline/tmp_downloads/92.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:36,434 - Done Deducing
+2021-05-16 19:45:36,434 - Deducing pipeline/tmp_downloads/93.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:36,480 - Done Deducing
+2021-05-16 19:45:36,480 - Deducing pipeline/tmp_downloads/94.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:36,969 - Done Deducing
+2021-05-16 19:45:36,970 - Deducing pipeline/tmp_downloads/95.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,033 - Done Deducing
+2021-05-16 19:45:37,033 - Deducing pipeline/tmp_downloads/96.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,180 - Done Deducing
+2021-05-16 19:45:37,180 - Deducing pipeline/tmp_downloads/97.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,258 - Done Deducing
+2021-05-16 19:45:37,258 - Deducing pipeline/tmp_downloads/98.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,295 - Done Deducing
+2021-05-16 19:45:37,295 - Deducing pipeline/tmp_downloads/99.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,423 - Done Deducing
+2021-05-16 19:45:37,423 - Deducing pipeline/tmp_downloads/100.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,488 - Done Deducing
+2021-05-16 19:45:37,488 - Deducing pipeline/tmp_downloads/101.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:37,554 - Done Deducing
+2021-05-16 19:45:37,554 - Done building parsers.
+2021-05-16 19:45:37,554 - Keyphrase: "statistic" site:machinelearningmastery.com
+2021-05-16 19:45:37,647 - Downloading resource https://machinelearningmastery.com/what-is-statistics/ -> pipeline/tmp_downloads/102.html
+2021-05-16 19:45:37,768 - Downloading resource https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/ -> pipeline/tmp_downloads/103.html
+2021-05-16 19:45:37,877 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests/ -> pipeline/tmp_downloads/104.html
+2021-05-16 19:45:37,979 - Downloading resource https://machinelearningmastery.com/statistical-data-distributions/ -> pipeline/tmp_downloads/105.html
+2021-05-16 19:45:38,084 - Downloading resource https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/ -> pipeline/tmp_downloads/106.html
+2021-05-16 19:45:38,197 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/ -> pipeline/tmp_downloads/107.html
+2021-05-16 19:45:38,293 - Downloading resource https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/ -> pipeline/tmp_downloads/108.html
+2021-05-16 19:45:38,401 - Downloading resource https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/ -> pipeline/tmp_downloads/109.html
+2021-05-16 19:45:38,495 - Downloading resource https://machinelearningmastery.com/statistics-books-for-machine-learning/ -> pipeline/tmp_downloads/110.html
+2021-05-16 19:45:38,594 - Downloading resource https://machinelearningmastery.com/estimation-statistics-for-machine-learning/ -> pipeline/tmp_downloads/111.html
+2021-05-16 19:45:38,595 - Deducing pipeline/tmp_downloads/102.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:38,688 - Done Deducing
+2021-05-16 19:45:38,688 - Deducing pipeline/tmp_downloads/103.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,111 - Done Deducing
+2021-05-16 19:45:39,111 - Deducing pipeline/tmp_downloads/104.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,243 - Done Deducing
+2021-05-16 19:45:39,243 - Deducing pipeline/tmp_downloads/105.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,339 - Done Deducing
+2021-05-16 19:45:39,339 - Deducing pipeline/tmp_downloads/106.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,450 - Done Deducing
+2021-05-16 19:45:39,450 - Deducing pipeline/tmp_downloads/107.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,667 - Done Deducing
+2021-05-16 19:45:39,667 - Deducing pipeline/tmp_downloads/108.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,733 - Done Deducing
+2021-05-16 19:45:39,733 - Deducing pipeline/tmp_downloads/109.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,829 - Done Deducing
+2021-05-16 19:45:39,829 - Deducing pipeline/tmp_downloads/110.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:39,882 - Done Deducing
+2021-05-16 19:45:39,882 - Deducing pipeline/tmp_downloads/111.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:40,479 - Done Deducing
+2021-05-16 19:45:40,479 - Done building parsers.
+2021-05-16 19:45:40,479 - Keyphrase: "correlation" site:machinelearningmastery.com
+2021-05-16 19:45:40,611 - Downloading resource https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/ -> pipeline/tmp_downloads/112.html
+2021-05-16 19:45:40,721 - Downloading resource https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/ -> pipeline/tmp_downloads/113.html
+2021-05-16 19:45:40,823 - Downloading resource https://machinelearningmastery.com/introduction-to-expected-value-variance-and-covariance/ -> pipeline/tmp_downloads/114.html
+2021-05-16 19:45:40,943 - Downloading resource https://machinelearningmastery.com/simple-linear-regression-tutorial-for-machine-learning/ -> pipeline/tmp_downloads/115.html
+2021-05-16 19:45:41,074 - Downloading resource https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/ -> pipeline/tmp_downloads/116.html
+2021-05-16 19:45:41,185 - Downloading resource https://machinelearningmastery.com/elastic-net-regression-in-python/ -> pipeline/tmp_downloads/117.html
+2021-05-16 19:45:41,298 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/ -> pipeline/tmp_downloads/118.html
+2021-05-16 19:45:41,416 - Downloading resource https://machinelearningmastery.com/perform-feature-selection-machine-learning-data-weka/ -> pipeline/tmp_downloads/119.html
+2021-05-16 19:45:41,543 - Downloading resource https://machinelearningmastery.com/feature-selection-machine-learning-python/ -> pipeline/tmp_downloads/120.html
+2021-05-16 19:45:41,675 - Downloading resource https://machinelearningmastery.com/chi-squared-test-for-machine-learning/ -> pipeline/tmp_downloads/121.html
+2021-05-16 19:45:41,676 - Deducing pipeline/tmp_downloads/112.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:41,950 - Done Deducing
+2021-05-16 19:45:41,950 - Deducing pipeline/tmp_downloads/113.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:42,162 - Done Deducing
+2021-05-16 19:45:42,162 - Deducing pipeline/tmp_downloads/114.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:42,330 - Done Deducing
+2021-05-16 19:45:42,330 - Deducing pipeline/tmp_downloads/115.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:42,565 - Done Deducing
+2021-05-16 19:45:42,565 - Deducing pipeline/tmp_downloads/116.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:42,986 - Done Deducing
+2021-05-16 19:45:42,986 - Deducing pipeline/tmp_downloads/117.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:43,095 - Done Deducing
+2021-05-16 19:45:43,095 - Deducing pipeline/tmp_downloads/118.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:43,312 - Done Deducing
+2021-05-16 19:45:43,313 - Deducing pipeline/tmp_downloads/119.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:43,449 - Done Deducing
+2021-05-16 19:45:43,449 - Deducing pipeline/tmp_downloads/120.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:43,856 - Done Deducing
+2021-05-16 19:45:43,856 - Deducing pipeline/tmp_downloads/121.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:43,982 - Done Deducing
+2021-05-16 19:45:43,982 - Done building parsers.
+2021-05-16 19:45:43,982 - Keyphrase: "histogram" site:machinelearningmastery.com
+2021-05-16 19:45:44,097 - Downloading resource https://machinelearningmastery.com/seaborn-data-visualization-for-machine-learning/ -> pipeline/tmp_downloads/122.html
+2021-05-16 19:45:44,209 - Downloading resource https://machinelearningmastery.com/data-visualization-methods-in-python/ -> pipeline/tmp_downloads/123.html
+2021-05-16 19:45:44,319 - Downloading resource https://machinelearningmastery.com/probability-density-estimation/ -> pipeline/tmp_downloads/124.html
+2021-05-16 19:45:44,435 - Downloading resource https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/ -> pipeline/tmp_downloads/125.html
+2021-05-16 19:45:44,558 - Downloading resource https://machinelearningmastery.com/calculate-bootstrap-confidence-intervals-machine-learning-results-python/ -> pipeline/tmp_downloads/126.html
+2021-05-16 19:45:44,677 - Downloading resource https://machinelearningmastery.com/how-to-transform-data-to-fit-the-normal-distribution/ -> pipeline/tmp_downloads/127.html
+2021-05-16 19:45:44,777 - Downloading resource https://machinelearningmastery.com/empirical-distribution-function-in-python/ -> pipeline/tmp_downloads/128.html
+2021-05-16 19:45:44,879 - Downloading resource https://machinelearningmastery.com/quick-and-dirty-data-analysis-with-pandas/ -> pipeline/tmp_downloads/129.html
+2021-05-16 19:45:44,989 - Downloading resource https://machinelearningmastery.com/quantile-transforms-for-machine-learning/ -> pipeline/tmp_downloads/130.html
+2021-05-16 19:45:45,089 - Downloading resource https://machinelearningmastery.com/monte-carlo-sampling-for-probability/ -> pipeline/tmp_downloads/131.html
+2021-05-16 19:45:45,090 - Deducing pipeline/tmp_downloads/122.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:45,336 - Done Deducing
+2021-05-16 19:45:45,337 - Deducing pipeline/tmp_downloads/123.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,177 - Done Deducing
+2021-05-16 19:45:46,177 - Deducing pipeline/tmp_downloads/124.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,304 - Done Deducing
+2021-05-16 19:45:46,304 - Deducing pipeline/tmp_downloads/125.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,493 - Done Deducing
+2021-05-16 19:45:46,493 - Deducing pipeline/tmp_downloads/126.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,696 - Done Deducing
+2021-05-16 19:45:46,696 - Deducing pipeline/tmp_downloads/127.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,823 - Done Deducing
+2021-05-16 19:45:46,823 - Deducing pipeline/tmp_downloads/128.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,885 - Done Deducing
+2021-05-16 19:45:46,885 - Deducing pipeline/tmp_downloads/129.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:46,963 - Done Deducing
+2021-05-16 19:45:46,963 - Deducing pipeline/tmp_downloads/130.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:47,120 - Done Deducing
+2021-05-16 19:45:47,120 - Deducing pipeline/tmp_downloads/131.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:47,183 - Done Deducing
+2021-05-16 19:45:47,183 - Done building parsers.
+2021-05-16 19:45:47,184 - Keyphrase: "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:45:47,319 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests/ -> pipeline/tmp_downloads/132.html
+2021-05-16 19:45:47,442 - Downloading resource https://machinelearningmastery.com/hypothesis-test-for-comparing-machine-learning-algorithms/ -> pipeline/tmp_downloads/133.html
+2021-05-16 19:45:47,559 - Downloading resource https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/ -> pipeline/tmp_downloads/134.html
+2021-05-16 19:45:47,652 - Downloading resource https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/ -> pipeline/tmp_downloads/135.html
+2021-05-16 19:45:47,754 - Downloading resource https://machinelearningmastery.com/what-is-a-hypothesis-in-machine-learning/ -> pipeline/tmp_downloads/136.html
+2021-05-16 19:45:47,848 - Downloading resource https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/ -> pipeline/tmp_downloads/137.html
+2021-05-16 19:45:47,958 - Downloading resource https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/ -> pipeline/tmp_downloads/138.html
+2021-05-16 19:45:48,077 - Downloading resource https://machinelearningmastery.com/estimation-statistics-for-machine-learning/ -> pipeline/tmp_downloads/139.html
+2021-05-16 19:45:48,213 - Downloading resource https://machinelearningmastery.com/how-to-code-the-students-t-test-from-scratch-in-python/ -> pipeline/tmp_downloads/140.html
+2021-05-16 19:45:48,318 - Downloading resource https://machinelearningmastery.com/statistics_for_machine_learning/ -> pipeline/tmp_downloads/141.html
+2021-05-16 19:45:48,319 - Deducing pipeline/tmp_downloads/132.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:48,443 - Done Deducing
+2021-05-16 19:45:48,443 - Deducing pipeline/tmp_downloads/133.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:48,848 - Done Deducing
+2021-05-16 19:45:48,848 - Deducing pipeline/tmp_downloads/134.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,065 - Done Deducing
+2021-05-16 19:45:49,065 - Deducing pipeline/tmp_downloads/135.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,130 - Done Deducing
+2021-05-16 19:45:49,130 - Deducing pipeline/tmp_downloads/136.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,195 - Done Deducing
+2021-05-16 19:45:49,195 - Deducing pipeline/tmp_downloads/137.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,272 - Done Deducing
+2021-05-16 19:45:49,272 - Deducing pipeline/tmp_downloads/138.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,478 - Done Deducing
+2021-05-16 19:45:49,478 - Deducing pipeline/tmp_downloads/139.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,510 - Done Deducing
+2021-05-16 19:45:49,510 - Deducing pipeline/tmp_downloads/140.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,730 - Done Deducing
+2021-05-16 19:45:49,730 - Deducing pipeline/tmp_downloads/141.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:49,839 - Done Deducing
+2021-05-16 19:45:49,839 - Done building parsers.
+2021-05-16 19:45:49,839 - Keyphrase: "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:45:49,948 - Downloading resource https://machinelearningmastery.com/joint-marginal-and-conditional-probability-for-machine-learning/ -> pipeline/tmp_downloads/142.html
+2021-05-16 19:45:50,051 - Downloading resource https://machinelearningmastery.com/bayes-theorem-for-machine-learning/ -> pipeline/tmp_downloads/143.html
+2021-05-16 19:45:50,156 - Downloading resource https://machinelearningmastery.com/intuition-for-bayes-theorem-with-worked-examples/ -> pipeline/tmp_downloads/144.html
+2021-05-16 19:45:50,249 - Downloading resource https://machinelearningmastery.com/how-to-develop-an-intuition-for-probability-with-worked-examples/ -> pipeline/tmp_downloads/145.html
+2021-05-16 19:45:50,370 - Downloading resource https://machinelearningmastery.com/probability-for-machine-learning/ -> pipeline/tmp_downloads/146.html
+2021-05-16 19:45:50,463 - Downloading resource https://machinelearningmastery.com/what-is-maximum-likelihood-estimation-in-machine-learning/ -> pipeline/tmp_downloads/147.html
+2021-05-16 19:45:50,555 - Downloading resource https://machinelearningmastery.com/maximum-a-posteriori-estimation/ -> pipeline/tmp_downloads/148.html
+2021-05-16 19:45:50,684 - Downloading resource https://machinelearningmastery.com/probability-density-estimation/ -> pipeline/tmp_downloads/149.html
+2021-05-16 19:45:50,799 - Downloading resource https://machinelearningmastery.com/naive-bayes-for-machine-learning/ -> pipeline/tmp_downloads/150.html
+2021-05-16 19:45:50,895 - Downloading resource https://machinelearningmastery.com/linear-regression-with-maximum-likelihood-estimation/ -> pipeline/tmp_downloads/151.html
+2021-05-16 19:45:50,895 - Deducing pipeline/tmp_downloads/142.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:51,011 - Done Deducing
+2021-05-16 19:45:51,011 - Deducing pipeline/tmp_downloads/143.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:51,107 - Done Deducing
+2021-05-16 19:45:51,107 - Deducing pipeline/tmp_downloads/144.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:51,171 - Done Deducing
+2021-05-16 19:45:51,171 - Deducing pipeline/tmp_downloads/145.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:51,234 - Done Deducing
+2021-05-16 19:45:51,234 - Deducing pipeline/tmp_downloads/146.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,309 - Done Deducing
+2021-05-16 19:45:52,309 - Deducing pipeline/tmp_downloads/147.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,344 - Done Deducing
+2021-05-16 19:45:52,345 - Deducing pipeline/tmp_downloads/148.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,381 - Done Deducing
+2021-05-16 19:45:52,381 - Deducing pipeline/tmp_downloads/149.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,507 - Done Deducing
+2021-05-16 19:45:52,507 - Deducing pipeline/tmp_downloads/150.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,568 - Done Deducing
+2021-05-16 19:45:52,569 - Deducing pipeline/tmp_downloads/151.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:52,602 - Done Deducing
+2021-05-16 19:45:52,602 - Done building parsers.
+2021-05-16 19:45:52,602 - Keyphrase: "control group" site:machinelearningmastery.com
+2021-05-16 19:45:52,693 - Downloading resource https://machinelearningmastery.com/confounding-variables-in-machine-learning/ -> pipeline/tmp_downloads/152.html
+2021-05-16 19:45:52,814 - Downloading resource https://machinelearningmastery.com/how-to-control-the-speed-and-stability-of-training-neural-networks-with-gradient-descent-batch-size/ -> pipeline/tmp_downloads/153.html
+2021-05-16 19:45:52,930 - Downloading resource https://machinelearningmastery.com/how-to-get-baseline-results-and-why-they-matter/ -> pipeline/tmp_downloads/154.html
+2021-05-16 19:45:53,067 - Downloading resource https://machinelearningmastery.com/clustering-algorithms-with-python/ -> pipeline/tmp_downloads/155.html
+2021-05-16 19:45:53,174 - Downloading resource https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/ -> pipeline/tmp_downloads/156.html
+2021-05-16 19:45:53,281 - Downloading resource https://machinelearningmastery.com/use-classification-machine-learning-algorithms-weka/ -> pipeline/tmp_downloads/157.html
+2021-05-16 19:45:53,399 - Downloading resource https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/ -> pipeline/tmp_downloads/158.html
+2021-05-16 19:45:53,501 - Downloading resource https://machinelearningmastery.com/simple-time-series-forecasting-models/ -> pipeline/tmp_downloads/159.html
+2021-05-16 19:45:53,644 - Downloading resource https://machinelearningmastery.com/k-fold-cross-validation/ -> pipeline/tmp_downloads/160.html
+2021-05-16 19:45:53,765 - Downloading resource https://machinelearningmastery.com/how-to-load-and-manipulate-images-for-deep-learning-in-python-with-pil-pillow/ -> pipeline/tmp_downloads/161.html
+2021-05-16 19:45:53,765 - Deducing pipeline/tmp_downloads/152.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:53,834 - Done Deducing
+2021-05-16 19:45:53,834 - Deducing pipeline/tmp_downloads/153.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,096 - Done Deducing
+2021-05-16 19:45:54,096 - Deducing pipeline/tmp_downloads/154.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,153 - Done Deducing
+2021-05-16 19:45:54,153 - Deducing pipeline/tmp_downloads/155.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,390 - Done Deducing
+2021-05-16 19:45:54,390 - Deducing pipeline/tmp_downloads/156.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,580 - Done Deducing
+2021-05-16 19:45:54,580 - Deducing pipeline/tmp_downloads/157.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,684 - Done Deducing
+2021-05-16 19:45:54,684 - Deducing pipeline/tmp_downloads/158.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,773 - Done Deducing
+2021-05-16 19:45:54,774 - Deducing pipeline/tmp_downloads/159.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:54,913 - Done Deducing
+2021-05-16 19:45:54,913 - Deducing pipeline/tmp_downloads/160.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:55,263 - Done Deducing
+2021-05-16 19:45:55,263 - Deducing pipeline/tmp_downloads/161.html to be of type text/html which is file type FileType.HTML.
+2021-05-16 19:45:55,502 - Done Deducing
+2021-05-16 19:45:55,502 - Done building parsers.
+2021-05-16 19:45:55,502 - 
+
+
+2021-05-16 19:45:55,502 - Outputting Parsed Results
+2021-05-16 19:45:55,502 - Keyphrase: linear regression" site:machinelearningmastery.com
+2021-05-16 19:45:55,502 - Writing to pipeline/tmp_downloads/62.html.{csv, txt}
+2021-05-16 19:45:56,228 - Writing to pipeline/tmp_downloads/63.html.{csv, txt}
+2021-05-16 19:45:56,581 - Writing to pipeline/tmp_downloads/64.html.{csv, txt}
+2021-05-16 19:45:57,007 - Writing to pipeline/tmp_downloads/65.html.{csv, txt}
+2021-05-16 19:45:57,365 - Writing to pipeline/tmp_downloads/66.html.{csv, txt}
+2021-05-16 19:45:57,567 - Writing to pipeline/tmp_downloads/67.html.{csv, txt}
+2021-05-16 19:45:58,304 - Writing to pipeline/tmp_downloads/68.html.{csv, txt}
+2021-05-16 19:45:58,875 - Writing to pipeline/tmp_downloads/69.html.{csv, txt}
+2021-05-16 19:45:59,387 - Writing to pipeline/tmp_downloads/70.html.{csv, txt}
+2021-05-16 19:45:59,859 - Writing to pipeline/tmp_downloads/71.html.{csv, txt}
+2021-05-16 19:46:00,205 - Keyphrase: "regression" site:machinelearningmastery.com
+2021-05-16 19:46:00,205 - Writing to pipeline/tmp_downloads/72.html.{csv, txt}
+2021-05-16 19:46:00,569 - Writing to pipeline/tmp_downloads/73.html.{csv, txt}
+2021-05-16 19:46:00,896 - Writing to pipeline/tmp_downloads/74.html.{csv, txt}
+2021-05-16 19:46:01,331 - Writing to pipeline/tmp_downloads/75.html.{csv, txt}
+2021-05-16 19:46:01,689 - Writing to pipeline/tmp_downloads/76.html.{csv, txt}
+2021-05-16 19:46:02,211 - Writing to pipeline/tmp_downloads/77.html.{csv, txt}
+2021-05-16 19:46:02,580 - Writing to pipeline/tmp_downloads/78.html.{csv, txt}
+2021-05-16 19:46:02,930 - Writing to pipeline/tmp_downloads/79.html.{csv, txt}
+2021-05-16 19:46:03,619 - Writing to pipeline/tmp_downloads/80.html.{csv, txt}
+2021-05-16 19:46:05,690 - Writing to pipeline/tmp_downloads/81.html.{csv, txt}
+2021-05-16 19:46:06,161 - Keyphrase: "variance" site:machinelearningmastery.com
+2021-05-16 19:46:06,161 - Writing to pipeline/tmp_downloads/82.html.{csv, txt}
+2021-05-16 19:46:06,514 - Writing to pipeline/tmp_downloads/83.html.{csv, txt}
+2021-05-16 19:46:06,813 - Writing to pipeline/tmp_downloads/84.html.{csv, txt}
+2021-05-16 19:46:07,114 - Writing to pipeline/tmp_downloads/85.html.{csv, txt}
+2021-05-16 19:46:07,447 - Writing to pipeline/tmp_downloads/86.html.{csv, txt}
+2021-05-16 19:46:07,733 - Writing to pipeline/tmp_downloads/87.html.{csv, txt}
+2021-05-16 19:46:08,435 - Writing to pipeline/tmp_downloads/88.html.{csv, txt}
+2021-05-16 19:46:08,941 - Writing to pipeline/tmp_downloads/89.html.{csv, txt}
+2021-05-16 19:46:09,213 - Writing to pipeline/tmp_downloads/90.html.{csv, txt}
+2021-05-16 19:46:09,720 - Writing to pipeline/tmp_downloads/91.html.{csv, txt}
+2021-05-16 19:46:09,947 - Keyphrase: "probability" site:machinelearningmastery.com
+2021-05-16 19:46:09,947 - Writing to pipeline/tmp_downloads/92.html.{csv, txt}
+2021-05-16 19:46:10,401 - Writing to pipeline/tmp_downloads/93.html.{csv, txt}
+2021-05-16 19:46:10,629 - Writing to pipeline/tmp_downloads/94.html.{csv, txt}
+2021-05-16 19:46:10,906 - Writing to pipeline/tmp_downloads/95.html.{csv, txt}
+2021-05-16 19:46:11,180 - Writing to pipeline/tmp_downloads/96.html.{csv, txt}
+2021-05-16 19:46:11,579 - Writing to pipeline/tmp_downloads/97.html.{csv, txt}
+2021-05-16 19:46:11,857 - Writing to pipeline/tmp_downloads/98.html.{csv, txt}
+2021-05-16 19:46:12,082 - Writing to pipeline/tmp_downloads/99.html.{csv, txt}
+2021-05-16 19:46:12,462 - Writing to pipeline/tmp_downloads/100.html.{csv, txt}
+2021-05-16 19:46:12,710 - Writing to pipeline/tmp_downloads/101.html.{csv, txt}
+2021-05-16 19:46:12,971 - Keyphrase: "statistic" site:machinelearningmastery.com
+2021-05-16 19:46:12,972 - Writing to pipeline/tmp_downloads/102.html.{csv, txt}
+2021-05-16 19:46:13,197 - Writing to pipeline/tmp_downloads/103.html.{csv, txt}
+2021-05-16 19:46:14,081 - Writing to pipeline/tmp_downloads/104.html.{csv, txt}
+2021-05-16 19:46:14,362 - Writing to pipeline/tmp_downloads/105.html.{csv, txt}
+2021-05-16 19:46:14,658 - Writing to pipeline/tmp_downloads/106.html.{csv, txt}
+2021-05-16 19:46:14,984 - Writing to pipeline/tmp_downloads/107.html.{csv, txt}
+2021-05-16 19:46:15,488 - Writing to pipeline/tmp_downloads/108.html.{csv, txt}
+2021-05-16 19:46:15,755 - Writing to pipeline/tmp_downloads/109.html.{csv, txt}
+2021-05-16 19:46:16,095 - Writing to pipeline/tmp_downloads/110.html.{csv, txt}
+2021-05-16 19:46:16,348 - Writing to pipeline/tmp_downloads/111.html.{csv, txt}
+2021-05-16 19:46:16,556 - Keyphrase: "correlation" site:machinelearningmastery.com
+2021-05-16 19:46:16,556 - Writing to pipeline/tmp_downloads/112.html.{csv, txt}
+2021-05-16 19:46:17,062 - Writing to pipeline/tmp_downloads/113.html.{csv, txt}
+2021-05-16 19:46:17,500 - Writing to pipeline/tmp_downloads/114.html.{csv, txt}
+2021-05-16 19:46:17,851 - Writing to pipeline/tmp_downloads/115.html.{csv, txt}
+2021-05-16 19:46:18,288 - Writing to pipeline/tmp_downloads/116.html.{csv, txt}
+2021-05-16 19:46:19,172 - Writing to pipeline/tmp_downloads/117.html.{csv, txt}
+2021-05-16 19:46:19,495 - Writing to pipeline/tmp_downloads/118.html.{csv, txt}
+2021-05-16 19:46:19,997 - Writing to pipeline/tmp_downloads/119.html.{csv, txt}
+2021-05-16 19:46:20,413 - Writing to pipeline/tmp_downloads/120.html.{csv, txt}
+2021-05-16 19:46:21,702 - Writing to pipeline/tmp_downloads/121.html.{csv, txt}
+2021-05-16 19:46:22,072 - Keyphrase: "histogram" site:machinelearningmastery.com
+2021-05-16 19:46:22,072 - Writing to pipeline/tmp_downloads/122.html.{csv, txt}
+2021-05-16 19:46:22,523 - Writing to pipeline/tmp_downloads/123.html.{csv, txt}
+2021-05-16 19:46:22,853 - Writing to pipeline/tmp_downloads/124.html.{csv, txt}
+2021-05-16 19:46:23,249 - Writing to pipeline/tmp_downloads/125.html.{csv, txt}
+2021-05-16 19:46:23,755 - Writing to pipeline/tmp_downloads/126.html.{csv, txt}
+2021-05-16 19:46:24,294 - Writing to pipeline/tmp_downloads/127.html.{csv, txt}
+2021-05-16 19:46:24,685 - Writing to pipeline/tmp_downloads/128.html.{csv, txt}
+2021-05-16 19:46:24,928 - Writing to pipeline/tmp_downloads/129.html.{csv, txt}
+2021-05-16 19:46:25,209 - Writing to pipeline/tmp_downloads/130.html.{csv, txt}
+2021-05-16 19:46:25,616 - Writing to pipeline/tmp_downloads/131.html.{csv, txt}
+2021-05-16 19:46:25,891 - Keyphrase: "hypothesis testing" site:machinelearningmastery.com
+2021-05-16 19:46:25,891 - Writing to pipeline/tmp_downloads/132.html.{csv, txt}
+2021-05-16 19:46:26,175 - Writing to pipeline/tmp_downloads/133.html.{csv, txt}
+2021-05-16 19:46:26,910 - Writing to pipeline/tmp_downloads/134.html.{csv, txt}
+2021-05-16 19:46:27,415 - Writing to pipeline/tmp_downloads/135.html.{csv, txt}
+2021-05-16 19:46:27,676 - Writing to pipeline/tmp_downloads/136.html.{csv, txt}
+2021-05-16 19:46:27,924 - Writing to pipeline/tmp_downloads/137.html.{csv, txt}
+2021-05-16 19:46:28,213 - Writing to pipeline/tmp_downloads/138.html.{csv, txt}
+2021-05-16 19:46:28,660 - Writing to pipeline/tmp_downloads/139.html.{csv, txt}
+2021-05-16 19:46:28,866 - Writing to pipeline/tmp_downloads/140.html.{csv, txt}
+2021-05-16 19:46:29,386 - Writing to pipeline/tmp_downloads/141.html.{csv, txt}
+2021-05-16 19:46:29,859 - Keyphrase: "conditional probability" site:machinelearningmastery.com
+2021-05-16 19:46:29,859 - Writing to pipeline/tmp_downloads/142.html.{csv, txt}
+2021-05-16 19:46:30,125 - Writing to pipeline/tmp_downloads/143.html.{csv, txt}
+2021-05-16 19:46:30,483 - Writing to pipeline/tmp_downloads/144.html.{csv, txt}
+2021-05-16 19:46:30,732 - Writing to pipeline/tmp_downloads/145.html.{csv, txt}
+2021-05-16 19:46:31,011 - Writing to pipeline/tmp_downloads/146.html.{csv, txt}
+2021-05-16 19:46:31,468 - Writing to pipeline/tmp_downloads/147.html.{csv, txt}
+2021-05-16 19:46:31,677 - Writing to pipeline/tmp_downloads/148.html.{csv, txt}
+2021-05-16 19:46:31,893 - Writing to pipeline/tmp_downloads/149.html.{csv, txt}
+2021-05-16 19:46:32,291 - Writing to pipeline/tmp_downloads/150.html.{csv, txt}
+2021-05-16 19:46:32,554 - Writing to pipeline/tmp_downloads/151.html.{csv, txt}
+2021-05-16 19:46:32,763 - Keyphrase: "control group" site:machinelearningmastery.com
+2021-05-16 19:46:32,763 - Writing to pipeline/tmp_downloads/152.html.{csv, txt}
+2021-05-16 19:46:32,975 - Writing to pipeline/tmp_downloads/153.html.{csv, txt}
+2021-05-16 19:46:33,523 - Writing to pipeline/tmp_downloads/154.html.{csv, txt}
+2021-05-16 19:46:33,774 - Writing to pipeline/tmp_downloads/155.html.{csv, txt}
+2021-05-16 19:46:34,349 - Writing to pipeline/tmp_downloads/156.html.{csv, txt}
+2021-05-16 19:46:34,868 - Writing to pipeline/tmp_downloads/157.html.{csv, txt}
+2021-05-16 19:46:35,213 - Writing to pipeline/tmp_downloads/158.html.{csv, txt}
+2021-05-16 19:46:35,529 - Writing to pipeline/tmp_downloads/159.html.{csv, txt}
+2021-05-16 19:46:35,889 - Writing to pipeline/tmp_downloads/160.html.{csv, txt}
+2021-05-16 19:46:36,763 - Writing to pipeline/tmp_downloads/161.html.{csv, txt}
+2021-05-16 19:46:37,209 - Annotation file does not exist, creating a new one.
+2021-05-16 19:46:37,209 - 
+
+
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/80.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/142.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/89.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/115.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/104.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/147.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/158.html
+2021-05-16 19:46:37,210 - Deleting downloaded resource: pipeline/tmp_downloads/79.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/82.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/117.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/159.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/69.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/119.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/120.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/132.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/137.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/141.html
+2021-05-16 19:46:37,211 - Deleting downloaded resource: pipeline/tmp_downloads/100.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/74.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/62.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/64.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/92.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/128.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/134.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/103.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/75.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/78.html
+2021-05-16 19:46:37,212 - Deleting downloaded resource: pipeline/tmp_downloads/98.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/71.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/145.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/123.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/66.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/114.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/65.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/156.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/138.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/91.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/83.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/121.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/154.html
+2021-05-16 19:46:37,213 - Deleting downloaded resource: pipeline/tmp_downloads/161.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/85.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/63.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/76.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/144.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/97.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/125.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/143.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/84.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/157.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/72.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/129.html
+2021-05-16 19:46:37,214 - Deleting downloaded resource: pipeline/tmp_downloads/96.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/130.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/107.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/105.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/73.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/93.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/81.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/140.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/101.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/133.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/146.html
+2021-05-16 19:46:37,215 - Deleting downloaded resource: pipeline/tmp_downloads/151.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/139.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/136.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/86.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/150.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/67.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/106.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/70.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/95.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/153.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/109.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/127.html
+2021-05-16 19:46:37,216 - Deleting downloaded resource: pipeline/tmp_downloads/124.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/131.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/113.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/94.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/118.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/126.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/87.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/90.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/77.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/160.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/111.html
+2021-05-16 19:46:37,217 - Deleting downloaded resource: pipeline/tmp_downloads/135.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/110.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/112.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/122.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/102.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/116.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/68.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/155.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/88.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/152.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/149.html
+2021-05-16 19:46:37,218 - Deleting downloaded resource: pipeline/tmp_downloads/148.html
+2021-05-16 19:46:37,219 - Deleting downloaded resource: pipeline/tmp_downloads/99.html
+2021-05-16 19:46:37,219 - Deleting downloaded resource: pipeline/tmp_downloads/108.html
+2021-05-16 19:46:37,219 - ALL DONE :).

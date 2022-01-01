@@ -1,0 +1,135 @@
+How to Develop Elastic Net Regression Models in Python
+How to Develop Elastic Net Regression Models in Python
+Tutorial Overview
+Elastic Net Regression
+Example of Elastic Net Regression
+Tuning Elastic Net Hyperparameters
+Further Reading
+Summary
+Discover Fast Machine Learning in Python!
+Navigation
+Main Menu
+Books
+APIs
+Articles
+16 Responses to How to Develop Elastic Net Regression Models in Python
+Leave a Reply Click here to cancel reply.
+Elastic net
+Do you have any questions?
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Regression is a modeling task that involves predicting a numeric value given an input.
+Linear regression is the standard algorithm for regression that assumes a linear relationship between inputs and the target variable. An extension to linear regression involves adding penalties to the loss function during training that encourage simpler models that have smaller coefficient values. These extensions are referred to as regularized linear regression or penalized linear regression.
+Elastic net is a popular type of regularized linear regression that combines two popular penalties, specifically the L1 and L2 penalty functions.
+In this tutorial, you will discover how to develop Elastic Net regularized regression in Python.
+After completing this tutorial, you will know:
+Let’s get started.
+How to Develop Elastic Net Regression Models in PythonPhoto by Phil Dolby, some rights reserved.
+This tutorial is divided into three parts; they are:
+Linear regression refers to a model that assumes a linear relationship between input variables and the target variable.
+With a single input variable, this relationship is a line, and with higher dimensions, this relationship can be thought of as a hyperplane that connects the input variables to the target variable. The coefficients of the model are found via an optimization process that seeks to minimize the sum squared error between the predictions (yhat) and the expected target values (y).
+A problem with linear regression is that estimated coefficients of the model can become large, making the model sensitive to inputs and possibly unstable. This is particularly true for problems with few observations (samples) or more samples (n) than input predictors (p) or variables (so-called p >> n problems).
+One approach to addressing the stability of regression models is to change the loss function to include additional costs for a model that has large coefficients. Linear regression models that use these modified loss functions during training are referred to collectively as penalized linear regression.
+One popular penalty is to penalize a model based on the sum of the squared coefficient values. This is called an L2 penalty. An L2 penalty minimizes the size of all coefficients, although it prevents any coefficients from being removed from the model.
+Another popular penalty is to penalize a model based on the sum of the absolute coefficient values. This is called the L1 penalty. An L1 penalty minimizes the size of all coefficients and allows some coefficients to be minimized to the value zero, which removes the predictor from the model.
+Elastic net is a penalized linear regression model that includes both the L1 and L2 penalties during training.
+Using the terminology from “The Elements of Statistical Learning,” a hyperparameter “alpha” is provided to assign how much weight is given to each of the L1 and L2 penalties. Alpha is a value between 0 and 1 and is used to weight the contribution of the L1 penalty and one minus the alpha value is used to weight the L2 penalty.
+For example, an alpha of 0.5 would provide a 50 percent contribution of each penalty to the loss function. An alpha value of 0 gives all weight to the L2 penalty and a value of 1 gives all weight to the L1 penalty.
+The parameter alpha determines the mix of the penalties, and is often pre-chosen on qualitative grounds.
+— Page 663, The Elements of Statistical Learning, 2016.
+The benefit is that elastic net allows a balance of both penalties, which can result in better performance than a model with either one or the other penalty on some problems.
+Another hyperparameter is provided called “lambda” that controls the weighting of the sum of both penalties to the loss function. A default value of 1.0 is used to use the fully weighted penalty; a value of 0 excludes the penalty. Very small values of lambada, such as 1e-3 or smaller, are common.
+Now that we are familiar with elastic net penalized regression, let’s look at a worked example.
+In this section, we will demonstrate how to use the Elastic Net regression algorithm.
+First, let’s introduce a standard regression dataset. We will use the housing dataset.
+The housing dataset is a standard machine learning dataset comprising 506 rows of data with 13 numerical input variables and a numerical target variable.
+Using a test harness of repeated stratified 10-fold cross-validation with three repeats, a naive model can achieve a mean absolute error (MAE) of about 6.6. A top-performing model can achieve a MAE on this same test harness of about 1.9. This provides the bounds of expected performance on this dataset.
+The dataset involves predicting the house price given details of the house’s suburb in the American city of Boston.
+No need to download the dataset; we will download it automatically as part of our worked examples.
+The example below downloads and loads the dataset as a Pandas DataFrame and summarizes the shape of the dataset and the first five rows of data.
+Running the example confirms the 506 rows of data and 13 input variables and a single numeric target variable (14 in total).
+We can also see that all input variables are numeric.
+The scikit-learn Python machine learning library provides an implementation of the Elastic Net penalized regression algorithm via the ElasticNet class.
+Confusingly, the alpha hyperparameter can be set via the “l1_ratio” argument that controls the contribution of the L1 and L2 penalties and the lambda hyperparameter can be set via the “alpha” argument that controls the contribution of the sum of both penalties to the loss function.
+By default, an equal balance of 0.5 is used for “l1_ratio” and a full weighting of 1.0 is used for alpha.
+We can evaluate the Elastic Net model on the housing dataset using repeated 10-fold cross-validation and report the average mean absolute error (MAE) on the dataset.
+Running the example evaluates the Elastic Net algorithm on the housing dataset and reports the average MAE across the three repeats of 10-fold cross-validation.
+Your specific results may vary given the stochastic nature of the learning algorithm. Consider running the example a few times.
+In this case, we can see that the model achieved a MAE of about 3.682.
+We may decide to use the Elastic Net as our final model and make predictions on new data.
+This can be achieved by fitting the model on all available data and calling the predict() function, passing in a new row of data.
+We can demonstrate this with a complete example, listed below.
+Running the example fits the model and makes a prediction for the new rows of data.
+Next, we can look at configuring the model hyperparameters.
+How do we know that the default hyperparameters of alpha=1.0 and l1_ratio=0.5 are any good for our dataset?
+We don’t.
+Instead, it is good practice to test a suite of different configurations and discover what works best.
+One approach would be to gird search l1_ratio values between 0 and 1 with a 0.1 or 0.01 separation and alpha values from perhaps 1e-5 to 100 on a log-10 scale and discover what works best for a dataset.
+The example below demonstrates this using the GridSearchCV class with a grid of values we have defined.
+Running the example will evaluate each combination of configurations using repeated cross-validation.
+You might see some warnings that can be safely ignored, such as:
+Your specific results may vary given the stochastic nature of the learning algorithm. Try running the example a few times.
+In this case, we can see that we achieved slightly better results than the default 3.378 vs. 3.682. Ignore the sign; the library makes the MAE negative for optimization purposes.
+We can see that the model assigned an alpha weight of 0.01 to the penalty and focuses exclusively on the L2 penalty.
+The scikit-learn library also provides a built-in version of the algorithm that automatically finds good hyperparameters via the ElasticNetCV class.
+To use this class, it is first fit on the dataset, then used to make a prediction. It will automatically find appropriate hyperparameters.
+By default, the model will test 100 alpha values and use a default ratio. We can specify our own lists of values to test via the “l1_ratio” and “alphas” arguments, as we did with the manual grid search.
+The example below demonstrates this.
+Your specific results may vary given the stochastic nature of the learning algorithm. Try running the example a few times.
+Again, you might see some warnings that can be safely ignored, such as:
+In this case, we can see that an alpha of 0.0 was chosen, removing both penalties from the loss function.
+This is different from what we found via our manual grid search, perhaps due to the systematic way in which configurations were searched or selected.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to develop Elastic Net regularized regression in Python.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of scikit-learn code
+Learn how in my new Ebook: Machine Learning Mastery With Python
+Covers self-study tutorials and end-to-end projects like: Loading data, visualization, modeling, tuning, and much more...
+Skip the Academics. Just Results.
+Dear Dr Jason, Thank you again for your instructive tutorials.
+I have a question please on the MAE. Please bear with me.
+In correlation, the min and max correlation is between -1 and 1. We know the boundary of correlation. If the value is 0.85 there is a strong positive correlation. Likewise, a correlation of -0.85 is indicative of a strong negative correlation.
+In the MAE, we see a figure. There is no upper and lower bound in an MAE. Is there an ideal MAE?
+Thank you, Anthony of Sydney
+Yes, ideal MAE is 0.0 (zero error).
+A good MAE is relative to a naive model: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+Dear Dr Jason, Thank you for putting attention to the abovementioned page “how-to-know-if-a-model-has-good-performance:.
+From the topic, “…what we mean when we talk about model skill being relative, not absolute, it is relative to the skill of the baseline method….”
+That is you need to compare the MAE with the baseline model: that is you need to compare it to two models.
+Question: So what is the definition of’baseline’ model.
+Thank you, Anthony of Sydney
+The definition of baseline models for each problem type is listed here: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+For regression, predict the mean value, or use this: https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html
+Dear Dr Jason, Thank you Anthony of Sydney
+You’re welcome.
+Dear Dr Jason, Thank you again for the reply. I did some minor experimentation and research, and found a ‘hierarchy’ of linear regression
+Do all 1 to 4 and look for the maximum score Then if the regression model uses particular parameters the do either:
+Am I on the right track?
+Thank you, Anthony of Sydney
+Yes, although Elastic net can simulate all 4.
+Dear Dr Jason, Thank you again, Anthony of Sydney
+You’re welcome.
+Thank you very much for this great article. Can we use PCA and Standard Scaler while using ElasticNet?
+Thanks in advance
+Yes.
+hi jason, elasticnet can be applied to classification problem .
+No, it is a regression technique.
+How can I get the significance values of the coefficients? I understand I can get the coefficients themselves using model.coef_
+I’m trained in data science. My understanding is I need the coefficient value itself, the standard error, and the Degrees of Freedom. I think I can get the coefficient value, and the Degrees of Freedom, but how do I get the standard error?
+A complete answer would be nice.
+I actually use z whitened x predictor terms. So my standard errors should all be the same… but I don’t know how to extract them. Maybe it’s something like model.se_?
+You may have to use a different API to fit the model and develop an analysis, perhaps scipy.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Machine Learning with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

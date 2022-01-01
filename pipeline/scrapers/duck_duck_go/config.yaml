@@ -1,0 +1,5 @@
+name: "DuckDuckGo"
+params:
+    results_per_page: 10
+    domain: "https://duckduckgo.com"
+    search_bar_name: "q"

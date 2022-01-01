@@ -1,0 +1,209 @@
+A Gentle Introduction to Statistical Hypothesis Testing
+A Gentle Introduction to Statistical Hypothesis Testing
+Tutorial Overview
+Statistical Hypothesis Testing
+Statistical Test Interpretation
+Errors in Statistical Tests
+Examples of Hypothesis Tests
+Python Tutorials
+Extensions
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Interpret the p-value
+“Reject” vs “Failure to Reject”
+Common p-value Misinterpretations
+Interpret Critical Values
+Variable Distribution Type Tests (Gaussian)
+Variable Relationship Tests (correlation)
+Compare Sample Means (parametric)
+Compare Sample Means (nonparametric)
+Articles
+34 Responses to A Gentle Introduction to Statistical Hypothesis Testing
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Update May/2018
+Update Jun/2018
+Update Jun/2019
+Hypothesis 0 (H0)
+Hypothesis 1 (H1)
+If p-value > alpha
+If p-value <= alpha
+If test statistic < critical value
+If test statistic >= critical value
+false positive
+false negative
+Type I Error
+Type II Error
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on April 10, 2020
+Data must be interpreted in order to add meaning.
+We can interpret data by assuming a specific structure our outcome and use statistical methods to confirm or reject the assumption. The assumption is called a hypothesis and the statistical tests used for this purpose are called statistical hypothesis tests.
+Whenever we want to make claims about the distribution of data or whether one set of results are different from another set of results in applied machine learning, we must rely on statistical hypothesis tests.
+In this tutorial, you will discover statistical hypothesis testing and how to interpret and carefully state the results from statistical tests.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to Statistical Hypothesis TestsPhoto by Kevin Verbeem, some rights reserved.
+This tutorial is divided into five parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Data alone is not interesting. It is the interpretation of the data that we are really interested in.
+In statistics, when we wish to start asking questions about the data and interpret the results, we use statistical methods that provide a confidence or likelihood about the answers. In general, this class of methods is called statistical hypothesis testing, or significance tests.
+The term “hypothesis” may make you think about science, where we investigate a hypothesis. This is along the right track.
+In statistics, a hypothesis test calculates some quantity under a given assumption. The result of the test allows us to interpret whether the assumption holds or whether the assumption has been violated.
+Two concrete examples that we will use a lot in machine learning are:
+The assumption of a statistical test is called the null hypothesis, or hypothesis 0 (H0 for short). It is often called the default assumption, or the assumption that nothing has changed.
+A violation of the test’s assumption is often called the first hypothesis, hypothesis 1 or H1 for short. H1 is really a short hand for “some other hypothesis,” as all we know is that the evidence suggests that the H0 can be rejected.
+Before we can reject or fail to reject the null hypothesis, we must interpret the result of the test.
+The results of a statistical hypothesis test must be interpreted for us to start making claims.
+This is a point that may cause a lot of confusion for beginners and experienced practitioners alike.
+There are two common forms that a result from a statistical hypothesis test may take, and they must be interpreted in different ways. They are the p-value and critical values.
+We describe a finding as statistically significant by interpreting the p-value.
+For example, we may perform a normality test on a data sample and find that it is unlikely that sample of data deviates from a Gaussian distribution, failing to reject the null hypothesis.
+A statistical hypothesis test may return a value called p or the p-value. This is a quantity that we can use to interpret or quantify the result of the test and either reject or fail to reject the null hypothesis. This is done by comparing the p-value to a threshold value chosen beforehand called the significance level.
+The significance level is often referred to by the Greek lower case letter alpha.
+A common value used for alpha is 5% or 0.05. A smaller alpha value suggests a more robust interpretation of the null hypothesis, such as 1% or 0.1%.
+The p-value is compared to the pre-chosen alpha value. A result is statistically significant when the p-value is less than alpha. This signifies a change was detected: that the default hypothesis can be rejected.
+For example, if we were performing a test of whether a data sample was normal and we calculated a p-value of .07, we could state something like:
+The test found that the data sample was normal, failing to reject the null hypothesis at a 5% significance level.
+The significance level can be inverted by subtracting it from 1 to give a confidence level of the hypothesis given the observed sample data.
+Therefore, statements such as the following can also be made:
+The test found that the data was normal, failing to reject the null hypothesis at a 95% confidence level.
+The p-value is probabilistic.
+This means that when we interpret the result of a statistical test, we do not know what is true or false, only what is likely.
+Rejecting the null hypothesis means that there is sufficient statistical evidence that the null hypothesis does not look likely. Otherwise, it means that there is not sufficient statistical evidence to reject the null hypothesis.
+We may think about the statistical test in terms of the dichotomy of rejecting and accepting the null hypothesis. The danger is that if we say that we “accept” the null hypothesis, the language suggests that the null hypothesis is true. Instead, it is safer to say that we “fail to reject” the null hypothesis, as in, there is insufficient statistical evidence to reject it.
+When reading “reject” vs “fail to reject” for the first time, it is confusing to beginners. You can think of it as “reject” vs “accept” in your mind, as long as you remind yourself that the result is probabilistic and that even an “accepted” null hypothesis still has a small probability of being wrong.
+This section highlights some common misinterpretations of the p-value in the results of statistical tests.
+The interpretation of the p-value does not mean that the null hypothesis is true or false.
+It does mean that we have chosen to reject or fail to reject the null hypothesis at a specific statistical significance level based on empirical evidence and the chosen statistical test.
+You are limited to making probabilistic claims, not crisp binary or true/false claims about the result.
+A common misunderstanding is that the p-value is a probability of the null hypothesis being true or false given the data.
+In probability, this would be written as follows:
+This is incorrect.
+Instead, the p-value can be thought of as the probability of the data given the pre-specified assumption embedded in the statistical test.
+Again, using probability notation, this would be written as:
+It allows us to reason about whether or not the data fits the hypothesis. Not the other way around.
+The p-value is a measure of how likely the data sample would be observed if the null hypothesis were true.
+It does not mean that you can re-sample your domain or tune your data sample and re-run the statistical test until you achieve a desired result.
+It also does not mean that you can choose your p-value after you run the test.
+This is called p-hacking or hill climbing and will mean that the result you present will be fragile and not representative. In science, this is at best unethical, and at worst fraud.
+Some tests do not return a p-value.
+Instead, they might return a list of critical values and their associated significance levels, as well as a test statistic.
+These are usually nonparametric or distribution-free statistical hypothesis tests.
+The choice of returning a p-value or a list of critical values is really an implementation choice.
+The results are interpreted in a similar way. Instead of comparing a single p-value to a pre-specified significance level, the test statistic is compared to the critical value at a chosen significance level.
+Again, the meaning of the result is similar in that the chosen significance level is a probabilistic decision on rejection or fail to reject the base assumption of the test given the data.
+Results are presented in the same way as with a p-value, as either significance level or confidence level. For example, if a normality test was calculated and the test statistic was compared to the critical value at the 5% significance level, results could be stated as:
+The test found that the data sample was normal, failing to reject the null hypothesis at a 5% significance level.
+Or:
+The test found that the data was normal, failing to reject the null hypothesis at a 95% confidence level.
+The interpretation of a statistical hypothesis test is probabilistic.
+That means that the evidence of the test may suggest an outcome and be mistaken.
+For example, if alpha was 5%, it suggests that (at most) 1 time in 20 that the null hypothesis would be mistakenly rejected or failed to be rejected because of the statistical noise in the data sample.
+Given a small p-value (reject the null hypothesis) either means that the null hypothesis false (we got it right) or it is true and some rare and unlikely event has been observed (we made a mistake). If this type of error is made, it is called a false positive. We falsely believe the rejection of the null hypothesis.
+Alternately, given a large p-value (fail to reject the null hypothesis), it may mean that the null hypothesis is true (we got it right) or that the null hypothesis is false and some unlikely event occurred (we made a mistake). If this type of error is made, it is called a false negative. We falsely believe the null hypothesis or assumption of the statistical test.
+Each of these two types of error has a specific name.
+All statistical hypothesis tests have a chance of making either of these types of errors. False findings or false disoveries are more than possible; they are probable.
+Ideally, we want to choose a significance level that minimizes the likelihood of one of these errors. E.g. a very small significance level. Although significance levels such as 0.05 and 0.01 are common in many fields of science, harder sciences, such as physics, are more aggressive.
+It is common to use a significance level of 3 * 10^-7 or 0.0000003, often referred to as 5-sigma. This means that the finding was due to chance with a probability of 1 in 3.5 million independent repeats of the experiments. To use a threshold like this may require a much large data sample.
+Nevertheless, these types of errors are always present and must be kept in mind when presenting and interpreting the results of statistical tests. It is also a reason why it is important to have findings independently verified.
+There are many types of statistical hypothesis tests.
+This section lists some common examples of statistical hypothesis tests and the types of problems that they are used to address:
+For example Python code on how to use each of these tests, see the next section.
+This section provides links to Python tutorials on statistical hypothesis testing:
+Examples of many tests:
+Variable distribution tests:
+Evaluating variable relationships:
+Comparing sample means:
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered statistical hypothesis testing and how to interpret and carefully state the results from statistical tests.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Can one accept a hypothesis? I thought its just reject or fail to reject.
+Yes, the null hypothesis can be accepted, although it does not mean it is true.
+The use of “fail to reject” instead of “accept” is used to help remind you that we don’t know what is true, we just have evidence of a probabilistic finding.
+It really depends on who you ask. Some statisticians are extremely strong-minded on this that you never use the word “accept” when concluding an experiment. I think the consensus is from the statistics community is that you never “accept” it.
+Agreed. We do not accept, but fail to reject.
+For beginners, the dichotomy of “reject” vs “fail to reject” is super confusing.
+As long as the beginner acknowledges that the result is probabilistic, that we do not know truth, then then can think “accept”/”reject” in their head and get on with things.
+Note, I updated the post and added a section on this topic to make things clearer. I don’t want a bunch of angry statisticians banging down my door 🙂
+This is quite elucidatory it is interesting I will like to read more many many thanks
+Thanks.
+Hmm, i think that the following phrases should be inverted:
+If p-value > alpha: Accept the null hypothesis. If p-value If p-value > alpha: Do not accept the null hypothesis (i.e. reject the null hypothesis). If p-value < alpha: Accept the null hypothesis.
+I don’t think so. Why do you say that?
+A small p-value (<=0.05) indicates that there is strong evidence to reject the null hypothesis.
+Another great article Mr. Brownlee. I really like that you mention that the interpretation of the p-value does not mean the null hypothesis is true or false. I believe that often gets forgotten!
+Under the section: Interpret the p-value
+I think the following sentence fragment has an extra word
+For example, we may find perform a normality test on a data sample and find that it is unlikely
+I think you want
+For example, we may perform a normality test on a data sample and find that it is unlikely
+Thanks, fixed.
+Can test hypothesis test (p value ) with excel??
+I’m sure you can. Sorry, I don’t know how.
+Dear Dr Jason, Have you encountered situations where if you reject the null hypothesis, there is a chance of accepting it. Conversely if you accept the null hypothesis there is a chance that it is rejected?
+In other words what to do if you encounter false positives or false negatives. See https://en.wikipedia.org/wiki/Type_I_and_type_II_errors.
+Thank you, Anthony of Belfield
+The p-value is a probability, so there is always a chance of an error, specifically a finding that is a statistical fluke but not representative.
+In the past, if I am skeptical of the results of an experimental result, I will:
+– Repeat the experiment many times to see if we had a fluke – Increase the sample sizes to improve the robustness of the finding. – Use the result anyway.
+It takes a lot of discipline to design experiments sufficiently well to trust the results. To care about your reputation and trust your reputation on the results. Real scientists are rare. Real science is hard.
+“For example, if alpha was 5%, it suggests that (at most) 1 time in 20 that the null hypothesis would be mistakenly rejected or failed to be rejected because of the statistical noise in the data sample.”
+This is partly incorrect. While an alpha of 5% does limit the probability of type I errors (false positive) it does not affect type II errors in the same way. The statement of “mistakenly failing to reject” (false negative) H0 in at most one of 20 times does not hold at the specified significance level alpha.
+In the case of type II errors you are interested in controlling beta. For reference see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2996198/#!po=87.9310 (α,β,AND POWER)
+Thanks for sharing.
+> A smaller alpha value suggests a more robust interpretation of the null hypothesis Can you explain please what is meant by “More robust interpretation”? Does it mean that we need more investigation in such cases with smaller alpha?
+A more likely outcome.
+Very useful
+Thanks.
+Exactly in which phase the Hypothesis Testing is used? During data gathering or cleaning or model creation or accuracy calculation? Suppose we fail to reject null Hypothesis, then what is the next step in creating model? Can you give a real time example where Hypothesis Testing is done while creating model in Machine learning.
+It is mainly used in model selection, e.g. is the difference between these models/configs significant or not.
+Hi Jason,
+I feel that going through a concrete example (as you often do in your other posts) will enhance this already excellent post’s readability further with an a higher confidence level, 🙂
+Thanks, you can work through some examples here: https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/
+Hey Jason,
+For checking if variances are equal in two groups, we use F-test where we compare s1^2/s2^2 to a F-distribution which has degrees of freedom equal to s1 and s2, where s1^2 and s2^2 are estimated variances of the two distribution.
+I guess we can also do s1^2 -s2^2 and compare it to a chi-squared distribution and it will be chi-square test. I guess we don’t do it because of Neyman-Pearson Lemma which says that likelihood test is most powerful and here F-test is LR test.
+However, I don’t understand why we don’t we test (s1^2-s2^2)/(s2^2) as we do while testing significance for subsets of coefficients in multiple linear regression. Why do we subtract 1 from likelihood ratio in multiple linear regression whereas here we do not. What drives the design of a test-statistic?
+I really need help in understanding this. I have searched the entire net. I could not find any answer to this.
+Thanks in Advance
+Sorry, I don’t have tutorials on comparing variances, I hope to cover it in the future.
+Hi Jason. I need your help in understanding this technical detail. Why this contradiction is there in design of two statistics.
+What do you mean exactly? Can you elaborate?
+Hi Jason, I believe there is a typo in the link above. The text “How to Calculate Parametric Statistical Hypothesis Tests in Python” appears twice both when talking about Parametric and Non-Parametric links. Thanks for the awesome website! Yoni
+Thanks Yoni, fixed!
+Hi Jason! You do not have an idea of how much your articles have helped me to learn about Python, Machine Learning and Statistics, thank you so much for writing them… Just an observation:
+Where it says:
+If p-value > alpha: Fail to reject the null hypothesis (i.e. not signifiant result). it should says:
+If p-value > alpha: Fail to reject the null hypothesis (i.e. not signifiCant result).
+I know it’s a minor thing, but your wonderful articles deserve to be error free… Thanks again José
+Thanks!
+Fixed.
+I think the Type 2 error is true negative, not false negative!!
+Type II is false negative: https://en.wikipedia.org/wiki/Type_I_and_type_II_errors
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

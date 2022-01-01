@@ -1,0 +1,7 @@
+name: "Yake"
+params:
+  num_keyphrases: 30
+  max_ngram_size: 3
+  deduplication_thresold: 0.9
+  deduplication_algo: "seqm"
+  window_size: 1

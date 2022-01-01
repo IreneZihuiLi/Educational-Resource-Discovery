@@ -1,0 +1,211 @@
+Why Do I Get Different Results Each Time in Machine Learning?
+Why Do I Get Different Results Each Time in Machine Learning?
+Tutorial Overview
+1. Help, I’m Getting Different Results!?
+2. Differences Caused by Training Data
+3. Differences Caused by Learning Algorithm
+4. Differences Caused by Evaluation Procedure
+5. Differences Caused by Platform
+Further Reading
+Summary
+Navigation
+Main Menu
+What Should I Do?
+What Should I Do?
+What Should I Do?
+What Should I Do?
+Related Tutorials
+32 Responses to Why Do I Get Different Results Each Time in Machine Learning?
+Leave a Reply Click here to cancel reply.
+Are you getting different results for your machine learning algorithm?
+It’s not your fault
+Algorithm
+Model
+Supervised Learning
+Machine Learning Model
+Did I miss a possible cause of a difference in results?
+Variance
+High Variance
+Low Variance
+Am I right?
+Stochastic does not mean random
+system architecture
+operating system
+underlying math libraries
+Python version
+library version
+Do you have any questions?
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 27, 2020
+Are you getting different results for your machine learning algorithm?
+Perhaps your results differ from a tutorial and you want to understand why.
+Perhaps your model is making different predictions each time it is trained, even when it is trained on the same data set each time.
+This is to be expected and might even be a feature of the algorithm, not a bug.
+In this tutorial, you will discover why you can expect different results when using machine learning algorithms.
+After completing this tutorial, you will know:
+Let’s get started.
+Why Do I Get Different Results Each Time in Machine Learning?Photo by Bonnie Moreland, some rights reserved.
+This tutorial is divided into five parts; they are:
+Don’t panic. Machine learning algorithms or models can give different results.
+It’s not your fault. In fact, it is often a feature, not a bug.
+We will clearly specify and explain the problem you are having.
+First, let’s get a handle on the basics.
+In applied machine learning, we run a machine learning “algorithm” on a dataset to get a machine learning “model.” The model can then be evaluated on data not used during training or used to make predictions on new data, also not seen during training.
+For more on the difference between machine learning algorithms and models, see the tutorial:
+Supervised machine learning means we have examples (rows) with input and output variables (columns). We cannot write code to predict outputs given inputs because it is too hard, so we use machine learning algorithms to learn how to predict outputs from inputs given historical examples.
+This is called function approximation, and we are learning or searching for a function that maps inputs to outputs on our specific prediction task in such a way that it has skill, meaning the performance of the mapping is better than random and ideally better than all other algorithms and algorithm configurations we have tried.
+In this sense, a machine learning model is a program we intend to use for some project or application; it just so happens that the program was learned from examples (using an algorithm) rather than written explicitly with if-statements and such. It’s a type of automatic programming.
+Unlike the programming that we may be used to, the programs may not be entirely deterministic.
+The machine learning models may be different each time they are trained. In turn, the models may make different predictions, and when evaluated, may have a different level of error or accuracy.
+There are at least four cases where you will get different results; they are:
+Let’s take a closer look at each in turn.
+Did I miss a possible cause of a difference in results? Let me know in the comments below.
+You will get different results when you run the same algorithm on different data.
+This is referred to as the variance of the machine learning algorithm. You may have heard of it in the context of the bias-variance trade-off.
+The variance is a measure of how sensitive the algorithm is to the specific data used during training.
+A more sensitive algorithm has a larger variance, which will result in more difference in the model, and in turn, the predictions made and evaluation of the model. Conversely, a less sensitive algorithm has a smaller variance and will result in less difference in the resulting model with different training data, and in turn, less difference in the resulting predictions and model evaluation.
+For more on the variance and the bias-variance trade-off, see the tutorial:
+All useful machine learning algorithms will have some variance, and some of the most effective algorithms will have a high variance.
+Algorithms with a high variance often require more training data than those algorithms with less variance. This is intuitive if we consider the model approximating a mapping function from inputs and outputs and the law of large numbers.
+Nevertheless, when you train a machine learning algorithm on different training data, you will get a different model that has different behavior. This means different training data will give models that make different predictions and have a different estimate of performance (e.g. error or accuracy).
+The amount of difference in the results will be related to how different the training data is for each model, and the variance of the specific model and model configuration you have chosen.
+You can often reduce the variance of the model by changing a hyperparameter of the algorithm.
+For example, the k in k-nearest neighbors controls the variance of the algorithm, where small values like k=1 result in high variance and large values like k=21 result in low variance.
+You can reduce the variance by changing the algorithm. For example, simpler algorithms like linear regression and logistic regression have a lower variance than other types of algorithms.
+You can also lower the variance with a high variance algorithm by increasing the size of the training dataset, meaning you may need to collect more data.
+You can get different results when you run the same algorithm on the same data due to the nature of the learning algorithm.
+This is the most likely reason that you’re reading this tutorial.
+You run the same code on the same dataset and get a model that makes different predictions or has a different performance each time, and you think it’s a bug or something. Am I right?
+It’s not a bug, it’s a feature.
+Some machine learning algorithms are deterministic. Just like the programming that you’re used to. That means, when the algorithm is given the same dataset, it learns the same model every time. An example is a linear regression or logistic regression algorithm.
+Some algorithms are not deterministic; instead, they are stochastic. This means that their behavior incorporates elements of randomness.
+Stochastic does not mean random. Stochastic machine learning algorithms are not learning a random model. They are learning a model conditional on the historical data you have provided. Instead, the specific small decisions made by the algorithm during the learning process can vary randomly.
+The impact is that each time the stochastic machine learning algorithm is run on the same data, it learns a slightly different model. In turn, the model may make slightly different predictions, and when evaluated using error or accuracy, may have a slightly different performance.
+For more on stochastic and what it means in machine learning, see the tutorial:
+Adding randomness to some of the decisions made by an algorithm can improve performance on hard problems. Learning a supervised learning mapping function with a limited sample of data from the domain is a very hard problem.
+Finding a good or best mapping function for a dataset is a type of search problem. We test different algorithms and test algorithm configurations that define the shape of the search space and give us a starting point in the search space. We then run the algorithms, which then navigate the search space to a single model.
+Adding randomness can help avoid the good solutions and help find the really good and great solutions in the search space. They allow the model to escape local optima or deceptive local optima where the learning algorithm might get such, and help find better solutions, even a global optima.
+For more on thinking about supervised learning as a search problem, see the tutorial:
+An example of an algorithm that uses randomness during learning is a neural network. It uses randomness in two ways:
+Neural networks (deep learning) are a stochastic machine learning algorithm. The random initial weights allow the model to try learning from a different starting point in the search space each algorithm run and allow the learning algorithm to “break symmetry” during learning. The random shuffle of examples during training ensures that each gradient estimate and weight update is slightly different.
+For more on the stochastic nature of neural networks, see the tutorial:
+Another example is ensemble machine learning algorithms that are stochastic, such as bagging.
+Randomness is used in the sampling procedure of the training dataset that ensures a different decision tree is prepared for each contributing member in the ensemble. In ensemble learning, this is called ensemble diversity and is an approach to simulating independent predictions from a single training dataset.
+For more on the stochastic nature of bagging ensembles, see the tutorial:
+The randomness used by learning algorithms can be controlled.
+For example, you set the seed used by the pseudorandom number generator to ensure that each time the algorithm is run, it gets the same randomness.
+For more on random number generators and setting fixing the seed, see the tutorial:
+This can be a good approach for tutorials, but not a good approach in practice. It leads to questions like:
+There is no best seed for a stochastic machine learning algorithm. You are fighting the nature of the algorithm, forcing stochastic learning to be deterministic.
+You could make a case that the final model is fit using a fixed seed to ensure the same model is created from the same data before being used in production prior to any pre-deployment system testing. Nevertheless, as soon as the training dataset changes, the model will change.
+A better approach is to embrace the stochastic nature of machine learning algorithms.
+Consider that there is not a single model for your dataset. Instead, there is a stochastic process (the algorithm pipeline) that can generate models for your problem.
+For more on this, see the tutorial:
+You can then summarize the performance of these models — of the algorithm pipeline — as a distribution with mean expected error or accuracy and a standard deviation.
+You can then ensure you achieve the average performance of the models by fitting multiple final models on your dataset and averaging their predictions when you need to make a prediction on new data.
+For more on the ensemble approach to final models, see the tutorial:
+You can get different results when running the same algorithm with the same data due to the evaluation procedure.
+The two most common evaluation procedures are a train-test split and k-fold cross-validation.
+A train-test split involves randomly assigning rows to either be used to train the model or evaluate the model to meet a predefined train or test set size.
+For more on the train-test split, see the tutorial:
+The k-fold cross-validation procedure involves dividing a dataset into k non-overlapping partitions and using one fold as the test set and all other folds as the training set. A model is fit on the training set and evaluated on the holdout fold and this process is repeated k times, giving each fold an opportunity to be used as the holdout fold.
+For more on k-fold cross-validation, see the tutorial:
+Both of these model evaluation procedures are stochastic.
+Again, this does not mean that they are random; it means that small decisions made in the process involve randomness. Specifically, the choice of which rows are assigned to a given subset of the data.
+This use of randomness is a feature, not a bug.
+The use of randomness, in this case, allows the resampling to approximate an estimate of model performance that is independent of the specific data sample drawn from the domain. This approximation is biased because we only have a small sample of data to work with rather than the complete set of possible observations.
+Performance estimates provide an idea of the expected or average capability of the model when making predictions in the domain on data not seen during training. Regardless of the specific rows of data used to train or test the model, at least ideally.
+For more on the more general topic of statistical sampling, see the tutorial:
+As such, each evaluation of a deterministic machine learning algorithm, like a linear regression or a logistic regression, can give a different estimate of error or accuracy.
+The solution in this case is much like the case for stochastic learning algorithms.
+The seed for the pseudorandom number generator can be fixed or the randomness of the procedure can be embraced.
+Unlike stochastic learning algorithms, both solutions are quite reasonable.
+If a large number of machine learning algorithms and algorithm configurations are being evaluated systematically on a predictive modeling task, it can be a good idea to fix the random seed of the evaluation procedure. Any value will do.
+The idea is that each candidate solution (each algorithm or configuration) will be evaluated in an identical manner. This ensures an apples-to-apples comparison. It also allows for the use of paired statistical hypothesis tests later, if needed, to check if differences between algorithms are statistically significant.
+Embracing the randomness can also be appropriate. This involves repeating the evaluation procedure many times and reporting a summary of the distribution of performance scores, such as the mean and standard deviation.
+Perhaps the least biased approach to repeated evaluation would be to use repeated k-fold cross-validation, such as three repeats with 10 folds (3×10), which is common, or five repeats with two folds (5×2), which is commonly used when comparing algorithms with statistical hypothesis tests.
+For a gentle introduction to using statistical hypothesis tests for comparing algoritms, see the tutorial:
+For a tutorial on comparing mean algorithm performance with a hypothesis test, see the tutorial:
+You can get different results when running the same algorithm on the same data on different computers.
+This can happen even if you fix the random number seed to address the stochastic nature of the learning algorithm and evaluation procedure.
+The cause in this case is the platform or development environment used to run the example, and the results are often different in minor ways, but not always.
+This includes:
+Machine learning algorithms are a type of numerical computation.
+This means that they typically involve a lot of math with floating point values. Differences in aspects, such as the architecture and operating system, can result in differences in round errors, which can compound with the number of calculations performed to give very different results.
+Additionally, differences in the version of libraries can mean the fixing of bugs and the changing of functionality that too can result in different results.
+Additionally, this also explains why you will get different results for the same algorithm on the same machine implemented by different languages, such as R and Python. Small differences in the implementation and/or differences in the underlying math libraries used will cause differences in the resulting model and predictions made by that model.
+This does not mean that the platform itself can be treated as a hyperparameter and tuned for a predictive modeling problem.
+Instead, it means that the platform is an important factor when evaluating machine learning algorithms and should be fixed or fully described to ensure full reproducibility when moving from development to production, or in reporting performance in academic studies.
+One approach might be to use virtualization, such as docker or a virtual machine instance to ensure the environment is kept constant, if full reproducibility is critical to a project.
+Honestly, the effect is often very small in practice (at least in my limited experience) as long as major software versions are a good or close enough match.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered why you can expect different results when using machine learning algorithms.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Is the sentence in sec 3: Differences Caused by Learning Algorithm
+“Adding randomness can help avoid the good solutions and help find the really good and great solutions in the search space.”
+Do we mean “good solutions” = local optimums. And
+Do we mean “really good and great solution = global optimum
+or something fishy in the sentence and we need to read it as:
+Adding randomness can help avoid the “bad” solutions and help find the really good and great solutions in the search space.
+which one is the right thing, little confused, help please.
+Yes, that is one interpretation. Another is deceptive optima vs less deceptive and better optima.
+In sec: 4. Differences Caused by Evaluation Procedure
+“This approximation is biased because we only have a small sample of data to work with rather than the complete set of possible observations.”
+In supervised learning if we can have complete set of possible observations (population), I think there is no need of modeling at all. hope I am right.
+Correct, there would be no need to predict anything as you already had access to all the data. This is never the case in practice.
+How may can using a different platform change the results ? Example :- In a liner regression model how can the answer be changed from 6 to 8 When I use different operating systems or python versions or sklearn versions
+Actually it has never happened to me before !
+Many reasons, for example:
+Differences caused by machine/CPU precision and rounding errors. Differences caused by different underlying math library versions (e.g. BLAS). Differences caused by different higher-level library versions (Python, scikit-learn).
+Regarding the numeric error. I am coming out from embedded programming world and I prevented a lot using floating point due to perforamnce issues, however, I learned that some compilers has the ability to specify how to format the floating point numbers, like relaxed or IEEE notation (refer to IAR compilers)
+I am not sure if same approach could be used in Python, if so, then this issue would be certainly mitigated. I am just wondering the time to train libraries.
+Excellent point Marcelo, thanks for sharing!
+I listed the library version/hardware cause out of necessity for covering my bases, but I don’t expect it in practice. If it is a cause, the effect would be slight.
+Hi Jason,
+I’d like to ask a question about randomness of stochastic learning algorithms. How different can be the result between the runs of the same algorithm pipeline? My problem is one CNN model – if I run the training procedure e.g. five times, in most cases I’ll get satisfactory models results on my training and validation sets (AUC ~90%). However, there are usually 1-2 cases when the model doesn’t want to learn at all, and after 100 epochs my AUC metric is still oscillating around 50%. What can be the reason, how could I solve such problem? Is it reasonable and legitimate to omit the models that didn’t learn at all, and just focus on these working well?
+Thanks a lot for your help, your website is really the mine of information!
+No limit, depends on the model and data.
+Quantify the variance with repeated experiences and report mean/stdev.
+Omitting models selectively is invalid.
+Hello, great article!
+I developed a meta-model for identifying potential antibiotics and I screened 100k compounds. I noticed that each time I fit the meta-model I get different predict probabilities and different compounds. Is this caused by the randomness in each individual model?
+Thanks!
+Probably the stochastic nature of the learning algorithm in the meta model.
+I developed a convolutional neural network and each time I run it the result comes different, but, when I run a forecast multiple times and take the average prediction, the outcome is pretty good. Does my way of escaping the local minima makes sense or is it just a coincidence
+This is not escaping a local minima, it is reducing the variance of the prediction – as described in the above tutorial.
+Thanks a lot for all your insights and your shared science. I am training various classification models (multi-class, with dense, lstm, conv and resnet) on time series. It worked reasonnably well (even not equally well). I recently decided to upgrade the GPU of my computer from RTX 2060S (8GB memory) to the brand new RTX 3090 (24GB memory). The improvement in terms of speed is fantastic (more than twice as fast)… but the result is dramatic as the model doesn’t discriminate anything anymore, (and with more complex models, the reproducibiliy achieved with the seed is gone :-O) Everything is exactly unchanged, but the GPU… Is there a way to handle this issue, while keeping the improved speed. Thanks in advance for your help. Best, Jean
+Fascinating. I have not heard of that before.
+Perhaps try some of the ideas here: https://machinelearningmastery.com/reproducible-results-neural-networks-keras/
+Hi, I am using AWS DeepAR forecasting algorithm to forecast credit card sales for multiple brands. I am getting different results each time i try to reproduce it. i hope you can provide any solution. Thanks in advance.
+Yes, see the above tutorial on exactly this issue and choose a solution that is most appropriate to your project.
+I am using k-means clustering algorithm for intrusion detection on nsl-kdd dataset. I tried different seed number for each run and it gives different results. I think a proper initialization of k-means is crucial for obtaining a good final solution. Ok, now I already know the seed number which gives good accuracy i.e. small error by try and error. Here, when I say try and error, first I set seed number, then run the algorithm and calculate the accuracy and again set another different seed number run the algorithm and calculate the accuracy and repeat this for a number of runs with different seed number for each run and lastly selected the seed number that gave best accuracy. Is it advisable(acceptable) if I use this seed in my k-means algorithm parameter setting as a seed number? If I use the same algorithm and this seed number and run on another dataset, I got bad result (less accuracy). But by repeating the above procedure for this dataset as well I got different seed number that gives good accuracy.
+What do you mean by “accuracy” in clustering?
+Perhaps control for the variance of your model by fitting multiple final models and ensemble their results – e.g. perhaps probabilistic cluster membership across the models.
+Thank you for response Jason when I say accuracy the quality of clustering result. The dataset I used is labeled dataset. First class attribute(label) is removed and stored as array, then k-means cluster the dataset without class and lastly how many instances with the same class are clustered into the same cluster will be calculated. k-means in WEKA is in this manner.
+Thanks for sharing.
+Thanks for the tips.
+When averaging over runs with different seeds; should we report the averaged measure for dev set or for test set?
+I saw this approach in multiple papers.
+Test set.
+Hi Jason Every time I run my model I get different hyperparameter values when I’m trying to combat overfiting using RandomSearchCv. How can I choose the ultimate model to predict on the unseen test data then?
+Use one set of hyperparameters that appears to work well.
+thanks jason
+You’re welcome.
+Hi dear jason. I train the Mask rcnn for my dataset and I got the value of the loss function 1.20 for 2 epochs and Network training time is very long for each epoch is about 3hours. is it reasonable result?
+This is a common question that I answer here: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+How can I see the full function composition that is created/learned at the end of training in supervised learning for say a classification algorithm?
+It depends on the algorithm. For most algorithms it is not feasible (e.g. pages and pages of decision trees or pages and pages of weights).
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The EBook Catalog is where you'll find the Really Good stuff.
+>> See What's Inside
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

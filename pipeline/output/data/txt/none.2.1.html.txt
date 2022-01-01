@@ -1,0 +1,241 @@
+How to Reduce Variance in a Final Machine Learning Model
+How to Reduce Variance in a Final Machine Learning Model
+Final Model
+Bias and Variance
+The Problem of Variance in Final Models
+Measure Variance in the Final Model
+Reduce Variance of an Estimate
+Reduce Variance of a Final Model
+Fragile Thinking
+Further Reading
+Summary
+Get a Handle on Modern Ensemble Learning!
+Navigation
+Main Menu
+Want to Get Started With Ensemble Learning?
+1. Ensemble Predictions from Final Models
+2. Ensemble Parameters from Final Models
+3. Increase Training Dataset Size
+40 Responses to How to Reduce Variance in a Final Machine Learning Model
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Bias
+Variance
+Measure Algorithm Variance
+Measure Training Data Variance
+Why not fix the random seed?
+Why not use early stopping?
+self-study tutorials
+full working code
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on April 27, 2021
+A final machine learning model is one trained on all available data and is then used to make predictions on new data.
+A problem with most final models is that they suffer variance in their predictions.
+This means that each time you fit a model, you get a slightly different set of parameters that in turn will make slightly different predictions. Sometimes more and sometimes less skillful than what you expected.
+This can be frustrating, especially when you are looking to deploy a model into an operational environment.
+In this post, you will discover how to think about model variance in a final model and techniques that you can use to reduce the variance in predictions from a final model.
+After reading this post, you will know:
+Kick-start your project with my new book Ensemble Learning Algorithms With Python, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Reduce Variance in a Final Machine Learning ModelPhoto by Kirt Edblom, some rights reserved.
+Once you have discovered which model and model hyperparameters result in the best skill on your dataset, you’re ready to prepare a final model.
+A final model is trained on all available data, e.g. the training and the test sets.
+It is the model that you will use to make predictions on new data were you do not know the outcome.
+The final model is the outcome of your applied machine learning project.
+To learn more about preparing a final model, see the post:
+The bias-variance trade-off is a conceptual idea in applied machine learning to help understand the sources of error in models.
+The bias-variance tradeoff is a conceptual tool to think about these sources of error and how they are always kept in balance.
+More bias in an algorithm means that there is less variance, and the reverse is also true.
+You can learn more about the bias-variance tradeoff in this post:
+You can control this balance.
+Many machine learning algorithms have hyperparameters that directly or indirectly allow you to control the bias-variance tradeoff.
+For example, the k in k-nearest neighbors is one example. A small k results in predictions with high variance and low bias. A large k results in predictions with a small variance and a large bias.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Most final models have a problem: they suffer from variance.
+Each time a model is trained by an algorithm with high variance, you will get a slightly different result.
+The slightly different model in turn will make slightly different predictions, for better or worse.
+This is a problem with training a final model as we are required to use the model to make predictions on real data where we do not know the answer and we want those predictions to as good as possible.
+We want to the best possible version of the model that we can get.
+We want the variance to play out in our favor.
+If we can’t achieve that, at least we want the variance to not fall against us when making predictions.
+There are two common sources of variance in a final model:
+The first type we introduced above.
+The second type impacts those algorithms that harness randomness during learning.
+Three common examples include:
+You can measure both types of variance in your specific model using your training data.
+Often, the combined variance is estimated by running repeated k-fold cross-validation on a training dataset then calculating the variance or standard deviation of the model skill.
+If we want to reduce the amount of variance in a prediction, we must add bias.
+Consider the case of a simple statistical estimate of a population parameter, such as estimating the mean from a small random sample of data.
+A single estimate of the mean will have high variance and low bias.
+This is intuitive because if we repeated this process 30 times and calculated the standard deviation of the estimated mean values, we would see a large spread.
+The solutions for reducing the variance are also intuitive.
+Repeat the estimate on many different small samples of data from the domain and calculate the mean of the estimates, leaning on the central limit theorem.
+The mean of the estimated means will have a lower variance. We have increased the bias by assuming that the average of the estimates will be a more accurate estimate than a single estimate.
+Another approach would be to dramatically increase the size of the data sample on which we estimate the population mean, leaning on the law of large numbers.
+The principles used to reduce the variance for a population statistic can also be used to reduce the variance of a final model.
+We must add bias.
+Depending on the specific form of the final model (e.g. tree, weights, etc.) you can get creative with this idea.
+Below are three approaches that you may want to try.
+If possible, I recommend designing a test harness to experiment and discover an approach that works best or makes the most sense for your specific data set and machine learning algorithm.
+Instead of fitting a single final model, you can fit multiple final models.
+Together, the group of final models may be used as an ensemble.
+For a given input, each model in the ensemble makes a prediction and the final output prediction is taken as the average of the predictions of the models.
+A sensitivity analysis can be used to measure the impact of ensemble size on prediction variance.
+As above, multiple final models can be created instead of a single final model.
+Instead of calculating the mean of the predictions from the final models, a single final model can be constructed as an ensemble of the parameters of the group of final models.
+This would only make sense in cases where each model has the same number of parameters, such as neural network weights or regression coefficients.
+For example, consider a linear regression model with three coefficients [b0, b1, b2]. We could fit a group of linear regression models and calculate a final b0 as the average of b0 parameters in each model, and repeat this process for b1 and b2.
+Again, a sensitivity analysis can be used to measure the impact of ensemble size on prediction variance.
+Leaning on the law of large numbers, perhaps the simplest approach to reduce the model variance is to fit the model on more training data.
+In those cases where more data is not readily available, perhaps data augmentation methods can be used instead.
+A sensitivity analysis of training dataset size to prediction variance is recommended to find the point of diminishing returns.
+There are approaches to preparing a final model that aim to get the variance in the final model to work for you rather than against you.
+The commonality in these approaches is that they seek a single best final model.
+Two examples include:
+I would argue that these approaches and others like them are fragile.
+Perhaps you can gamble and aim for the variance to play-out in your favor. This might be a good approach for machine learning competitions where there is no real downside to losing the gamble.
+I won’t.
+I think it’s safer to aim for the best average performance and limit the downside.
+I think that the trick with navigating the bias-variance tradeoff for a final model is to think in samples, not in terms of single models. To optimize for average model performance.
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered how to think about model variance in a final model and techniques that you can use to reduce the variance in predictions from a final model.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of python code
+Discover how in my new Ebook: Ensemble Learning Algorithms With Python
+It provides self-study tutorials with full working code on: Stacking, Voting, Boosting, Bagging, Blending, Super Learner, and much more...
+Hi Jason,
+In the paragraph:
+Why not use early stopping? You could check the skill of the model against a holdout set during training and stop training when the skill of the model on the hold set starts to degrade.
+Do you mean: ‘… against a validation set …when the skill of the model on the validation set starts to degrade.’ ?
+To the best of my knowledge, the hold out set should be kept untouched for final evaluation.
+Best, Elie
+Yes, one and the same.
+Elie is right. Early stopping should be done on the validation set, which is separate from the hold out (test) set. Unless you don’t care to estimate generalization performance because your goal is to deploy the model, not evaluate it, then you may choose not to have a hold out set.
+Agreed.
+I often use the test set as the validation dataset for brevity, more here: https://machinelearningmastery.com/faq/single-faq/why-do-you-use-the-test-dataset-as-the-validation-dataset
+Love these Lessons and examples. Wish I could find an “Instructor led Course” in the USA (?)
+I’m sure there are thousands of such courses.
+Do Bayesian ML models have less variance ?
+Than what?
+Than the regular ML models which use point estimates for parameters (weights).
+A great article again. Thank you so much.
+Would you like to give us an easy example to explain your whole ideas explicitly? Because we need to make several decisions during training the final model and making predictions in the real world. I want to learn how you make decisions when you do a real project.
+I strongly agree with your opinion on “a final model is to think in samples, not in terms of single models” A single best model is too risky for the real problems.
+It really depends on the problem. I try to provide frameworks to help you make these decisions on your specific dataset.
+I read your blog for the first time and I guess I became a fan of you. In the section “Ensemble Parameters from Final Models” when using neural networks, how can I use this approach. Do I need to train multiple neural networks having same size and average their weight values? Will it improve the performance in terms of generalization?
+Thanks in advance.
+Correct.
+It will improve the stability of the forecast via an increase to the bias. It may or may not positively impact generalization – my feeling is that it is orthogonal.
+For lack of a better phrase, this seems a little fishy to me. While I certainly am on board that this averaging method makes a lot of sense for straightforward regression, it seems like this would not work for neural networks.
+I guess I’m a little worried that different trained models (even with the same architecture) could have learned vastly different representations of the input data in the “latent space.” Even in a simple fully connected feed forward network, wouldn’t it be possible for the nodes in one network to be a permuted version of nodes in the other? Then averaging these weight values would not make sense?
+The way I’m thinking about it seems like I’m misunderstanding- just a simple average of the weights. Would you be able to elaborate on what you meant, or point me to another resource?
+It works well in practice, perhaps try it and see.
+A good starting point is here: https://machinelearningmastery.com/model-averaging-ensemble-for-deep-learning-neural-networks/
+Is
+“I think it’s safer to limit the aim for the best average performance and limit the downside.”
+meant to say
+“I think it’s safer to aim for the best average performance and limit the downside.”
+Thanks! Fixed.
+Is the variance here is similar to the variance that we learn in statistics?
+Yes, there is a spread to the predictions made by models trained on the same data.
+Hi Jason,
+Thank you for the nice blog posts. If you don’t mind, would you be able to clarify the following doubt I have in my mind?
+Variance in this blog is about a single model trained on a fixed dataset (final dataset). Training the model with the same dataset somewhat yields non-deterministic parameters (different estimations of the unknown target function), hence when used to create predictions, predictions from different models (trained on same dataset) are quantitatively different, measured by the “variance of the model”. In other words, this blog post is about the stability of training a final model that is less prone to randomness in data/model architecture.
+In your other blog post: gentle intro to bias-variance tradeoff, variance here describes the amount that the target function will change if different training data was used. Different learned target functions will yield different predictions, and this is measured by the variance.
+The two variances are somewhat a measurement of differences in predictions (by the different approximations of the target function). However, in this post, models are trained on the same dataset, whereas the bias-variance tradeoff blog post describes training over different datasets.
+My question is how does the concept of overfitting fit within these two definitions of variance? Do they both apply? In the case of training on different train datasets yielding different approximations of the target functions, I could describe overfitting here as the model picking up noise and ‘overfitting’ to the specific data points. In the case of this post, can I describe it the same way?
+Thank you very much once again!
+Hmmm, great summary and good question.
+Not sure that overfitting fits into the discussion, it feels like an orthogonal idea, e.g. fitting statistical noise in training data – but still another approximation of the target function – just a poor approximation.
+Am I missing something that you can see?
+Hi Jason,
+“1. Ensemble Predictions from Final Models” and
+“For a given input, each model in the ensemble makes a prediction and the final output prediction is taken as the average of the predictions of the models.”
+If I trained a model n times with the same training data and the same parameters then I will get n trained versions of the model.
+Why not choose the trained version that performs best (has the lowest error on the test data set) as the “final model” for using it to perform the predictions? I think that it should deliver better prediction results than using the average of the predictions of the models in the ensamble.
+Thank you in advance!
+Because you won’t know in the case where each model is trained on all available data.
+Hi Jason,
+“If we want to reduce the amount of variance in a prediction, we must add bias.” I don’t understand why is this statement true. Making improvements on the model could reduce both variance and bias, isn’t it?
+Thank you
+Not necessarily, as the stochastic nature of the learning algorithm may cause it to converge to one of many different “solutions”.
+We must address the bias/variance trade-off in the choice of final model, if variance is sufficient large, which it is for neural nets.
+Dear Jason,
+Thank you for all your interesting posts!
+I started by reading your previous post “How to Train a Final Machine Learning Model” and everything was very clear to me: you use e.g. cross-validation to come up with a specific type of model (e.g. linear regression/k-nn etc.), hyper parameters, features (e.g. specific data preparation or simply which are the best features to be used, etc.) to select the “final model” that gives you the lowest error/highest accuracy. You also said that we should fit this model with all our dataset and we should not be worried that the performance of the model trained on all of the data is different with respect to our previous evaluation during cross-validation because “If well designed, the performance measures you calculate using train-test or k-fold cross validation suitably describe how well the finalized model trained on all available historical data will perform in general”.
+In this post you are talking about a problem related to such a “final model”, right? I am not sure about it because as I understood the final model is trained on the entire dataset (the original one) but then in the post you wrote that “ A problem with most final models is that they suffer variance in their predictions. This means that each time you fit a model, you get a slightly different set of parameters that in turn will make slightly different predictions.”
+1. At the beginning I though that you would fit the final model only once with the entire dataset but here you are referring to “each time” meaning that you are fitting it several times, and if it is the case with what? Always with the entire dataset? Or parts of it?
+2. The previous answer would be important also for this question I have related to the section “Measure Variance in the Final Model”. I agree with you about the two possible sources of variance but still I cannot understand why you are evaluating it in the final model: you could have done it in principle while doing the cross-validation to find the final model, because in this case you are dividing your entire dataset into folds where you can compute the variance/standard deviation of the model skills, already. In this way you would have selected, perhaps, the model with a low variance/standard deviation of its skills.
+3. Finally in a previous answer you gave, you said that the overfitting concept was not properly related to this post, but when you said that one of the source of variance of the final model is the noise in the training data, don’t are you referring exactly at the concept of overfitting, since the model is fitting also the noise and thus the final outputs would be different? Why and how overfitting is not related to all this?
+Thank you in advance for your time!
+Correct.
+Yes, if performance of the final model is really important we can also choose to worry about it. That is the basis of this post.
+1. Yes, we can fit many final models and average their performance to make a prediction in order to reduce the variance of the prediction. E.g. our final model becomes an ensemble of final models.
+2. Ideally you would have this sorted prior to the “final” model, e.g. you would have measured and countered the variance of the model as part of your design. Many don’t though – hence the post.
+3. I see. It could be relevant, but ideally we are past that at “final model” stage and are only concerned with variance from the noise in the data impacting a model that does not easily overfit.
+I hope that helps.
+I go a lot more into this in the “better predictions” section here: https://machinelearningmastery.com/start-here/#better
+Hi Jason.
+Thanks for this great article. A short question (maybe somewhat off topic with respect to this article): In the beginning you mention that the final model is trained on the whole dataset (i.ex. training and validation set). Now Iam wondering how one would train the final model with keras “ReduceOnPlateau” callback when there is no validation set left. Normally I would monitor the validation loss and reduce the learning rate depending on that. Should I monitor the training loss instead during final model training?
+Thanks in advance,
+kind regards,
+Michael
+You will need to use a hold out validation set for your early stopping criteria.
+I’m not sure I agree/understand this statement:
+“The mean of the estimated means will have a lower variance. We have increased the bias by assuming that the average of the estimates will be a more accurate estimate than a single estimate.”
+Mathematically (ignoring irreducible error) Err(x) = E(x^2) = Var(x) + E[x]^2 | x = y-y(predicted)
+Thus as you increase the sample size n->n+1 yes the variance should go down but the squared mean error value should increase in the sample space. If the avg of estimate is more accurate then wouldn’t that imply the distance between avg of the estimate and the observed value decreasing and thus the L2 mean norm distance also going down implying reduced bias?
+Hi Jason,
+Was just wondering whether the ensemble learning algorithm “bagging”:
+– Reduces variance due to the training data
+OR
+– Reduces variance due to the algorithm
+Could you possibly give an explanation as to why?
+Thanks in advance!
+Reduces variance by averaging many different models that make different predictions and errors.
+Hi Jason,
+Thanks for the reply. Just a couple follow up questions:
+So if I have the following two “models/systems”:
+a) A base classifier (with high variance)
+b) A bagged ensemble of the same base classifier
+And I keep the random seed constant for (a) and measure the variance of (a) due to training data noise (by repeating the evaluation of the algorithm on different samples of training data, but with a constant seed).
+And then for (b), I keep the random seed constant (for all models within the bagged ensemble) and measure the variance of (b) due to training data noise (again, by repeating the evaluation of the system on different samples of training data, but with a constant seed)
+Would I get the exact same variance due to the training data noise for both systems (a) and (b)?
+Also, how would you keep the random seed constant for all the models within the bagged ensemble (for example, for a bagged ensemble of neural networks as shown in your “How to Create a Bagging Ensemble of Deep Learning Models in Keras” tutorial (linked below)).
+https://machinelearningmastery.com/how-to-create-a-random-split-cross-validation-and-bagging-ensemble-for-deep-learning-in-keras/
+Thanks in advance!
+Yes, something like that. Or more simply:
+Hold the learning algorithm constant and vary the data vs hold the data constant and vary the learning algorithm.
+Bagging allows you to specify the seed used for randomness used during learning.
+Hi Jason,
+Thank you very much for your always helpful blogs posted to help people understand ML more.
+I agree with you that navigating the bias-variance tradeoff for a final model is to think in samples, not in terms of single models. And in your another posted blog “Embrace Randomness in Machine Learning”, you listed 5 Randomness in machine learning, in which only the 3rd one is in the algorithm, others are all from data. But I seldom see you give an example to reduce variance by repeating the evaluation of the algorithm with different data order or to say using varied random seed. Do you think it is more important than other randomness from data to reduce variance?
+Hope to get your reply!
+You’re welcome.
+Varying the training dataset results in bagging ensembles.
+For a final model, we may use bagging, but then we still only have one dataset and we can control for randomness in learning by fitting multiple final models and averaging their prediction.
+I am saying that randomness of learning is a superset of randomness in data given the limit on data. Counter the latter then the former in that order.
+Thank you very much for your reply!
+I think I got it.
+You’re welcome.
+On “2. Ensemble Parameters from Final Models”. I am not sure the linear regression example works here. But maybe I have an error in my logic. A linear regression model usually has a convex (ie unique) analytical solution. So if we estimated a linear regression m times on the exact same dataset, we would get the exact same regression coefficients, every single time. That is, we have no inherent randomness in our linear regression model that we can exploit via this sort of ensembling.
+We could apply ensembling with linear regression if we varied the sample in our training set. This would lead us to different regression weights that we can average over.
+However, I think the way it is stated right now, it is not necessarily correct. Perhaps I am thinking about this in the wrong way. Would be good to discuss.
+Apart from that, I love this article! Big fan of all your posts!
+Yes, there are many types of ensemble.
+I guess the base assumption is that there is a source of variance to begin with, such as a stochastic learning algorithm. Agreed, linear regression does not suffer this problem and would require variance to be sourced elsewhere, such as random samples of the training data.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Ensemble Learning With Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,XGBoost for Regression,https://machinelearningmastery.com/xgboost-for-regression/,2,4,14,0,130,146,19.822,11.536,2894,4.554,3.688,0.256,3.9,10.187,3.11,111,0,0,machinelearningmastery,com/xgboost-for-regression,com,2

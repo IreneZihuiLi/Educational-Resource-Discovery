@@ -1,0 +1,631 @@
+A Gentle Introduction to k-fold Cross-Validation
+A Gentle Introduction to k-fold Cross-Validation
+Tutorial Overview
+k-Fold Cross-Validation
+Configuration of k
+Worked Example
+Cross-Validation API
+Variations on Cross-Validation
+Extensions
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Related Tutorials
+Books
+API
+Articles
+268 Responses to A Gentle Introduction to k-fold Cross-Validation
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated Jul/2020
+Representative
+k=10
+k=n
+Model1
+Model2
+Model3
+Train/Test Split
+LOOCV
+Stratified
+Repeated
+Nested
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 3, 2020
+Cross-validation is a statistical method used to estimate the skill of machine learning models.
+It is commonly used in applied machine learning to compare and select a model for a given predictive modeling problem because it is easy to understand, easy to implement, and results in skill estimates that generally have a lower bias than other methods.
+In this tutorial, you will discover a gentle introduction to the k-fold cross-validation procedure for estimating the skill of machine learning models.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to k-fold Cross-ValidationPhoto by Jon Baldock, some rights reserved.
+This tutorial is divided into 5 parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample.
+The procedure has a single parameter called k that refers to the number of groups that a given data sample is to be split into. As such, the procedure is often called k-fold cross-validation. When a specific value for k is chosen, it may be used in place of k in the reference to the model, such as k=10 becoming 10-fold cross-validation.
+Cross-validation is primarily used in applied machine learning to estimate the skill of a machine learning model on unseen data. That is, to use a limited sample in order to estimate how the model is expected to perform in general when used to make predictions on data not used during the training of the model.
+It is a popular method because it is simple to understand and because it generally results in a less biased or less optimistic estimate of the model skill than other methods, such as a simple train/test split.
+The general procedure is as follows:
+Importantly, each observation in the data sample is assigned to an individual group and stays in that group for the duration of the procedure. This means that each sample is given the opportunity to be used in the hold out set 1 time and used to train the model k-1 times.
+This approach involves randomly dividing the set of observations into k groups, or folds, of approximately equal size. The first fold is treated as a validation set, and the method is fit on the remaining k − 1 folds.
+— Page 181, An Introduction to Statistical Learning, 2013.
+It is also important that any preparation of the data prior to fitting the model occur on the CV-assigned training dataset within the loop rather than on the broader data set. This also applies to any tuning of hyperparameters. A failure to perform these operations within the loop may result in data leakage and an optimistic estimate of the model skill.
+Despite the best efforts of statistical methodologists, users frequently invalidate their results by inadvertently peeking at the test data.
+— Page 708, Artificial Intelligence: A Modern Approach (3rd Edition), 2009.
+The results of a k-fold cross-validation run are often summarized with the mean of the model skill scores. It is also good practice to include a measure of the variance of the skill scores, such as the standard deviation or standard error.
+The k value must be chosen carefully for your data sample.
+A poorly chosen value for k may result in a mis-representative idea of the skill of the model, such as a score with a high variance (that may change a lot based on the data used to fit the model), or a high bias, (such as an overestimate of the skill of the model).
+Three common tactics for choosing a value for k are as follows:
+The choice of k is usually 5 or 10, but there is no formal rule. As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. As this difference decreases, the bias of the technique becomes smaller
+— Page 70, Applied Predictive Modeling, 2013.
+A value of k=10 is very common in the field of applied machine learning, and is recommend if you are struggling to choose a value for your dataset.
+To summarize, there is a bias-variance trade-off associated with the choice of k in k-fold cross-validation. Typically, given these considerations, one performs k-fold cross-validation using k = 5 or k = 10, as these values have been shown empirically to yield test error rate estimates that suffer neither from excessively high bias nor from very high variance.
+— Page 184, An Introduction to Statistical Learning, 2013.
+If a value for k is chosen that does not evenly split the data sample, then one group will contain a remainder of the examples. It is preferable to split the data sample into k groups with the same number of samples, such that the sample of model skill scores are all equivalent.
+For more on how to configure k-fold cross-validation, see the tutorial:
+To make the cross-validation procedure concrete, let’s look at a worked example.
+Imagine we have a data sample with 6 observations:
+The first step is to pick a value for k in order to determine the number of folds used to split the data. Here, we will use a value of k=3. That means we will shuffle the data and then split the data into 3 groups. Because we have 6 observations, each group will have an equal number of 2 observations.
+For example:
+We can then make use of the sample, such as to evaluate the skill of a machine learning algorithm.
+Three models are trained and evaluated with each fold given a chance to be the held out test set.
+For example:
+The models are then discarded after they are evaluated as they have served their purpose.
+The skill scores are collected for each model and summarized for use.
+We do not have to implement k-fold cross-validation manually. The scikit-learn library provides an implementation that will split a given data sample up.
+The KFold() scikit-learn class can be used. It takes as arguments the number of splits, whether or not to shuffle the sample, and the seed for the pseudorandom number generator used prior to the shuffle.
+For example, we can create an instance that splits a dataset into 3 folds, shuffles prior to the split, and uses a value of 1 for the pseudorandom number generator.
+The split() function can then be called on the class where the data sample is provided as an argument. Called repeatedly, the split will return each group of train and test sets. Specifically, arrays are returned containing the indexes into the original data sample of observations to use for train and test sets on each iteration.
+For example, we can enumerate the splits of the indices for a data sample using the created KFold instance as follows:
+We can tie all of this together with our small dataset used in the worked example of the prior section.
+Running the example prints the specific observations chosen for each train and test set. The indices are used directly on the original data array to retrieve the observation values.
+Usefully, the k-fold cross validation implementation in scikit-learn is provided as a component operation within broader methods, such as grid-searching model hyperparameters and scoring a model on a dataset.
+Nevertheless, the KFold class can be used directly in order to split up a dataset prior to modeling such that all models will use the same data splits. This is especially helpful if you are working with very large data samples. The use of the same splits across algorithms can have benefits for statistical tests that you may wish to perform on the data later.
+There are a number of variations on the k-fold cross validation procedure.
+Three commonly used variations are as follows:
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered a gentle introduction to the k-fold cross-validation procedure for estimating the skill of machine learning models.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Hi Jason
+Nice gentle tutorial you have made there! I have a more technical question; Can you comment on why the error estimate obtained through k-fold-cross-validation is almost unbiased? with an emphasis on why.
+I have had a hard time finding literature describing why. It is my understanding that everyone comments on the bias/variance trade-off when asked about the almost unbiased feature of k-fold-cross-validation.
+Thanks.
+Good question.
+We repeat the model evaluation process multiple times (instead of one time) and calculate the mean skill. The mean estimate of any parameter is less biased than a one-shot estimate. There is still some bias though.
+The cost is we get variance on this estimate, so it’s good to report both mean and variance or mean and stdev of the score.
+when i validate my model with cross validation i can see every time i get new result from my model. My sample size is 325. can you explain why it is happened and what is the solution?
+Yes, this is to be expected. We report the average performance of the model on the dataset.
+This may also help: https://machinelearningmastery.com/faq/single-faq/why-do-i-get-different-results-each-time-i-run-the-code
+thanks, i tried to make reasult one at the same time of run , using stratified k fold, is this true and what is the best value of random state and how select it?
+This is a common question that I answer here: https://machinelearningmastery.com/faq/single-faq/what-value-should-i-set-for-the-random-number-seed
+Another possible extension: stratified cross-validation for regression. It is not directly implemented in Scikit-learn, and there is discussion if it worth implementing or not: https://github.com/scikit-learn/scikit-learn/issues/4757 but this is exactly what I need in my work. I do it like this:
+How to make code formatting here?
+You can use PRE HTML tags. I formatted your code for you.
+Do you have a tutorial about python for machine learning; that include all python basics needed for machine learning?
+Yes many, perhaps start here: https://machinelearningmastery.com/start-here/#python
+Thanks for sharing!
+Should be used k cross-validation in deep learning?
+It can be for small networks/datasets.
+Often it is too slow.
+Dear Jason,
+Thanks for this insight ,especially the worked example section. It’s very helpful to understand the fundamentals. However, I have a basic question which I didn’t understand completely. If we throw away all the models that we learn from every group (3 models in your example shown), what would be the final model to predict unseen /test data?
+Is it something like:
+We are using cross-validation only to choose the right hyper-parameter for a model? say K for KNN. 1. We fix a value of K;train and cross-validate to get three different models with different parameters (/coefficients like Y=3x+2; Y=2x+3; Y=2.5X+3 = just some random values) 2. Every model has its own error rate. Average them out to get a mean error rate for that hyper-parameter setup / values 3. Try with other values of Hyper-parameters (step 1 and 2 repetitively for all set of hyper-parameter values)
+4. Choose the hyper-parameter set with the least average error 5. Train the whole training data set (without any validation split this time) with new value of hyper-parameter and get the new model [Y=2.75X+2.5 for eg.,] 6. Use this as a model to predict the new / unseen / test data. Loss value would be the final error from this model
+Is this the way? or May be I understood it completely wrong.
+Sorry for this naive question as I’m quite new or just a started. Thanks for your understanding 🙂
+I explain how to develop a final model here: https://machinelearningmastery.com/train-final-machine-learning-model/
+Hi, I am working on a project and I have 200,000 observations and am a little confused between test set and crossvalidation. 1. I split this dataset into training, which has 70% of the observations and testing which has the remaining 30% of the observations. 2. I am running Rweka to create a decision tree model on the training dataset and then utilize this model to make predictions on the test data set. 3. My confusion matrix will give me the actual test class vs predicted class to evaluate the model. Is this correct? 4. Do I need to evaluate the weka classifer on the training data set and when I do this should I use cross-validation? Or is this not necessary because I have a test set and I already plan to see the confusion matrix here to assess performance?I am a little confused here. Anything you can do to help will be appreciated. Thanks
+Generally, you must choose an appropriate model evaluation strategy for your dataset.
+One approach is to use a train/test set. Another is to use k-fold cross-validation on all the dataset.
+If you are not sure, then perhaps use k-fold cross-validation.
+Also, this may help: https://machinelearningmastery.com/estimate-performance-machine-learning-algorithms-weka/
+Sir, Is it possible to split the entire dataset into train and test sample and then apply k-fold-cross-validation on the train dataset and evaluate the performance on test dataset.
+I have 2500 data sample. First I split it into 2000 for training and 500 for testing. Then I applied 10-fold on training dataset and I evaluate the performance avg. Then I fit into test sample. I just want to know wheather it is a right way or not.
+You can, but why?
+Dear Chan,
+Your question is so interesting, and I have a concern like you, but I did not found the best answer. I think you have the answer to your question, would you mind if you help me to explain it.
+Thank you so much Regards
+awesome article..very useful…
+I’m glad it helped.
+What is the difference between cross validation and repeated cross validation?
+Repeated cross-validation repeats the cross-validation procedure with different splits of data (folds) each repeat.
+if loocv is done it increase the size of k as datasets increase size .what would u say abt this. when to use loocv on data. what is use of pseudo random number generator.
+In turn it increases the number of models to fit and the time it will take to evaluate.
+The choice of random numbers does not matter as long as you are consistent in your experiment.
+hi,
+1. can u plz provide me a code for implementing the k-fold cross validation in R ?
+2. do we have to do cross validation on complete data set or only on the training dataset after splitting into training and testing dataset?
+Here is an example in R: http://machinelearningmastery.com/evaluate-machine-learning-algorithms-with-r/
+It is your choice how to estimate the skill of a model on unseen data.
+Hello,
+Thank you for the great tutorial. I have one question regarding the cross validation for the data sets of dynamic processes. How one could do cross validation in this case? Assume we have 10 experiments where the state of the system is the quantity which is changing in time (initial value problem). I am not sure here one should shuffle the data or not. Shall I take the whole one experiment as a set for cross validation or choose a part of every experiment for that purpose? every experiment contain different features which control the state of the system. When I want to validate I would like to to take the initial state of the system and with the vector of features to propagate the state in time. This is exactly what I need in practice.
+Could you please provide me your comments on that. I hope I am clear abot my issue. Thanks.
+You could use walk-forward validation: https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/
+Hi Jason, Firstly, your tutorials are excellent and very helpful. Thank you so much! I have a question related to the use of k-fold cross-validation (k-fold CV) in testing the validity of a neural network model (how well it performs for new data). I’m afraid there is some confusion in this field as k-fold CV appears to be required for justifying any results. So far I understand we can use k-fold CV to find optimal parameters while defining the network (as accuracy for train and test data will tell when it is over or under fitting) and we can make the choices that ensure good performance. Once we made these choices we can run the algorithm for the entire training data and we generate a model. This model has to be then tested for new data (validation set and training set). My question is: on how many new data sets has this model to be tested din order to be considered useful? Since we have a model, using again k-fold CV does not help (we do not look for a new model). I my understanding the k-fold CV testing is mainly for the algorithm/method optimization while the final model should be only tested on new data. Is this correct? if so, should I split the test data into smaller sets, and use these as multiple tests, or using just the one test data set is enough?
+Many thanks, Tamara
+Often we split the training dataset into train and validation and use the validation to tune hyperparameters.
+Perhaps this post will help: https://machinelearningmastery.com/difference-test-validation-datasets/
+Hi jason , thanks for a nice blog
+my dataset size is 6000 (image data). how do we know which type of cross validation should use (simply train test split or k- fold cross validation) .
+Start with 10-folds.
+Good morning!
+I am an Economics Student at University of São Paulo and I am researching about Backtesting, Stress Test and Validation Models to Credit Risk. Thus, would you help me answering some questions? I researching how to create a good procedure to validate prediction models that tries to forecast default behavior of the agents. Thereby, suppose a log-odds logit model of Default Probability that uses some explanatory variables as GDP, Official Interest Rates, etc. In order to evaluate it, I calculate the stability and the backtesting, using part of my data not used in the estimation with this purpose. In the backtesting case, I use a forecast, based on the regression of relevant variables to perceive if my model is corresponding to the forecast that has interval of confidence to evaluate if they are in or out. Furthermore, I evaluate the signal of the parameters to verify if it is beavering according to the economic sense. After reading some papers, including your publication here and a Basel one (“Sound Practices for Backtesting Counterparty Credit Risk Models”), I have some doubts.
+1) Do a pattern backtesting procedure lead completely about the overfitting issue? If not, which the recommendations to solve it? 2) What are the issues not covered by a pattern backtesting procedure and we should pay attention using another metrics to lead with them? 3) Could you indicate some paper or document that explains about Back-pricing, conception introduced by “Sound Practices for Backtesting Counterparty Credit Risk Models”? I have not found another document and I had not understood their explanation. “A bank can carry out additional validation work to support the quality of its models by carrying out back-pricing. Back-pricing, which is similar to backtesting, is a quantitative comparison of model predictions with realizations, but based on re-running current models on historical market data. In order to make meaningful statements about the performance of the model, the historical data need to be divided into distinct calibration and verification data sets for each initialization date, with the model calibrated using the calibration data set before the initialization date and the forecasts after initialization tested on the verification data sets. This type of analysis helps to inform the effectiveness of model remediation, ie by demonstrating that a change to the model made in light of recent experience would have improved past and present performance. An appropriate back-pricing allows extending the backtesting data set into the past.”
+Thus, I appreciate your attention and help.
+The best regards.
+Too much for one comment, sorry. One small question at a time please.
+You can get started with back-testing procedures for time series forecasting here: https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/
+Hi Jason, I’m using k-fold with regularized linear regression (Ridge) with the objective to determine the optimial regularization parameter.
+For each regularization parameter, I do k-fold CV to compute the CV error.
+I then select the regularization parmeter that achieves the lowest CV error.
+However, in k-fold when I use ‘shuffle=True’ AND no ‘random_state’ in k-fold, the optimal regularization parameter changes each time I run the program.
+kf=KFold(n_splits=n_kfolds, shuffle=True)
+If I use a random state or ‘shuffle = False’, the results are always the same.
+Question: Do you feel this is normal behavior and any recommendations.
+note: Predictions are really good, just looking for general discussion.
+Thanks.
+Yes, it might be a good idea to repeat each experiment to counter the variance of the model.
+Going even one step further, you might even want to use statistical tests to help determine whether “better” is real or noise. I have tutorials on this under the topic of statistics I believe.
+Hi Jason,
+thank you for the great tutorial. It helped me a lot to understand cross-validation better. There is one concept I am still unsure about and I was hoping you could answer this for me please.
+When I do feature selection before cross validation then my error will be biased because I chose the features based on training and testing set (data leakage). Therefore, I believe I have to do feature selection inside the cross validation loop with only the training data and then test my model on the test data.
+So my question is when I end up with different predictors for the different folds, should I choose the predictors that occured the majority of the time? And after that, should I do cross validation for this model with the same predictors? So, do k-fold cv with my final model where every predictor is the same for the different folds? And then use this estimate to be my cv error?
+It would be really great if you could help me out. Thanks again for the article and keep up the great work.
+Thanks.
+Correct. Yes, you will get different features, and perhaps you can take the average across the findings from each fold.
+Alternately, you can use one hold out dataset to choose features, and a separate set for estimating model performance/tuning.
+It comes down to how much data you have to “spend” and how much leakage/bias you can handle. We almost never have enough data to be pure.
+Thanks, Jason. I guess statistics is not as black and white as a discipline like mathematics. A lot of different ways to deal with problems and no one best solution exists. This makes it so challenging I feel. A lot of experience is required to deal with all these unique data sets.
+Yes, the best way to get good is to practice, like programming, driving, and everything else we want to do in life.
+for which purpose we calculate the standard deviation from any data set.
+In what context?
+Thank you for explaining the fundamentals of CV. I am working with repeated (50x) 5-fold cross validation, but I am trying to figure out which statistical test I can use in order to compare two datasets. Can you help me? Or is that out of the scope of this blog?
+Yes, see this post: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+Hi Jason ,
+What is the difference between Kfold and Stratified K fold?
+Kfold uses random split of the into k folds. Stratified tries to maintain the same distribution of the target variable when randomly selecting examples for each fold.
+Thanks for this post!
+Can we split the data by ourselves and then train some data and test the remaining? For example, my data is on cricket and i want to train the data based on two splits i.e. 0-6 overs and 7-15 overs, and test the 16-20 overs data in a 20 overs match. Is it rational? If yes how can we do this within R?
+Yes. You can use the caret library to do that.
+You can get started with caret in R here: https://machinelearningmastery.com/start-here/#r
+Hi Jason! Good article!
+What should we do when not all parts are equal? Say we have 5 5 5 5 6 or 7 7 7 8 or 9 9 9 9 8
+Should we skip the biggest/least one? Should we apply weighting somehow? Do the same as if it had the same size?
+Thank you.
+Try to make each fold equal, but if they are mostly equal, that is okay.
+Very Good article. Simple and easy to understand!
+Thanks, I’m glad it helped.
+Hi Jason Thanks for this post ! How to evaluate the overall accuracy of learning classifiers in K folds cross validation ? I think that Accuracy = (sum of accuracy in each folds )/K; This is true or false ?
+Yes, the average of the accuracy scores of the model as calculated across the test folds.
+Hello Jason,
+One of the best tutorials on CV that I have found. But there is still something I don’t get. What is the point of doing all this if in the end you just discard the models? I’ve been having a lot of problems with this, because I find different information in different places:
+* In some tutorials, it is said that you use always the same model for training and validation iteratively, keeping a test set independent for when you finish training with CV, so you can check if your model is good. * In other tutorials, it is said that you create one independent model on each iteration, and then you keep the one that gave you the best test results. But if this is the case, then why would I want to calculate the average of the accuracy scores, if I only care about the best one.
+Hope you can help me, I am really having some trouble with all of this.
+We discard the models because CV is only used to estimate the performance of the model.
+Once we have the estimate and we want to use the model, we fit a final model and start using it: https://machinelearningmastery.com/train-final-machine-learning-model/
+I have question on selecting data when it comes to multiple linear regression in the form, y = B0 + B1X1 +B2X2 Say, Y (response) = dataset 0 (i.e 3,4,5,6,7,8) X1 (predictor)= dataset 1 (i.e 1,5,7,9,4,5) X2(predictor) = datset 2 (i.e 7,4,6,-2,1,3)
+Do you take all the data into account and divide into k groups, Ie [3,4],[5,6],[7,8],[1,5],[7,9],[4,5],[7,4],[6,-2],[1,3]
+Or just one dataset at time, such as, Y and corresponding values x1 I.e [3,4] to [1,5] ….. Y and corresponding values x2
+Or is it some other way you select the data? Thanks
+Good question, you cannot use k-fold cross validation for time series.
+Instead, you can use walk-forward validation, more here: https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/
+Dear Dr Jason, In a similar vein, can you use the ‘simpler’ train test and split for time series.
+Thank you, Anthony of Sydney
+That would be invalid as the train_test_split() would shuffle the examples.
+See this: https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/
+Dear Dr Jason, Thank you for that. It is appreciated. Anthony of Sydney
+No problem.
+Your articles are the best. Every time I have a doubt machinelearningmastery solves it for me. Thanks a lot 🙂
+Thanks!
+Good explanation sir, ty 🙂 I have some clarity missing regarding the application of K-Fold CV for finidng – how many knots, where to place knots in case of piecewise polynomials / Regression Splines. Can u pls explain.
+Sorry, I don’t have a tutorial on “regression splines”.
+thx 4 d reply sir, in order to choose a best-fit degree of the polynomial, how K-Fold CV can be applied, pls explain Sir, thanks in adv 🙂
+I recommend a grid search over different model configurations, this is unrelated to k-fold cross validation, although CV could be used for each configuration tested.
+Hi Jason, many thanks for the tutorial. It clarified many things for me, however, I am newbei in this fied. My question is how many times we can do a CV for a model? For example is it reseanable to repeat 100 times 10-fold CV for our model? I really appreciate any hint that can help me out. Thanks!
+We repeat the CV process to account for the variance of the model itself, e.g. due to a stochastic learning algorithm like SGD.
+Often a few repeats is sufficient, e.g 10, no more than 30.
+Many Thanks for the reply Jason. I am still confused. when we are using 10-fold CV. It means that we partitioned our data randomely in 10 equal subsamples and then we keep one subsample for test and use others (9 subsamples) for train. So in this case only for 10 times we can get different results because there are just 10 different options to be kept for test and others to be used for train. I mean after 10 times the way of arranging the data for train and test will be the same as one the previous states, right?! So, what is the advantage of repeating the process more than 10 times? Please help me out of this confusion. Thanks!
+Some algorithms will produce different results on the same dataset due to the stochastic nature of the learning algorithm. Stochastic gradient descent is an example.
+This will introduce additional variance in the estimate of model performance that can be countered by repeating the evaluation more times.
+Many thanks Jason!!
+Hi Jason, A quick question, if you decide to gather performance metrics from instances not used to train the model recurring to an evaluation scheme based on training-testing splits. Which fold-based evaluation scheme is more adequate? Why?
+If you are unsure what to use, the default should be 10 fold cross validation.
+Why is that?
+It has proven effective as a default in terms of a balance between bias and variance of the estimated model performance.
+This was established decades ago too, and has stood the test of time well.
+Hello sir, i want to get the result of 10 fold cross validation on my training data in terms of accuracy score. I performed grid search to find the hyperparameters of classifier and used cv value =10 in grid search function.i got the optimised parameters value and also the best score in terms of accuracy through grid search results. a) is that accuracy (obtained by grid search) can be considered as the result of 10 fold cross validation? b) if not, then should i use cross_val_score( ) to get the mean accuracy of 10 fold? c) Also, while passing classifier in cross_val_score ( ) should i use optimised parameters of classifiers?
+You can report the score from CV if you want.
+I would prefer a standalone final evaluation on a hold out dataset or CV to confirm the finding.
+Yes, you should configure the final classifier with the best found parameters.
+Ok thanks sir
+I have. A query whuch is not relates to I told
+Lets say classifier 1 is final classifier with optimized hyperparameters that m going to test on dataset A. Classifier 1 is trained on feature vectors of size 20.
+Now I want to test on A again but this time with reduced features just to check impact of different features.
+In this way I want to present the results on test set A with classifier trained on full feature set 20 nd same classifier trained on reduced feature set.
+So should I use the same optimized hyperparameters with the classifier to be trained on reduced feature set?
+Good question.
+I recommend varying one thing in a comparison, e.g. just the features and use the same data and model.
+Alternately, you can vary one thing, the features, then use the same “process” of tuning each model for each subset of features.
+Both are reasonable.
+Ok so if I go with first option…that means test data should be same nd classifier used for testing with original nd reduced features should be same with same optimized hyperparameters. ?
+I have only one confusion: Let’s say classifier is svm with c=10 ( obtained by grid search on train data). Now I ttrain svm with c=10 on entire taining set with feature vectors of size 20 andthen evalute it on test set T
+Now what i want is to evaluate same svm on same set T but on feature of size 15
+So this time should I use c =10 again with svm or should I again perform grid search to get a new c value?
+It is your choice, as long as you are consistent in methodology between the two things being compared.
+For an imbalanced dataset with 0.7 positive class and 0.3 negative class. How do you do a cross-validation while preserving 50% positive and 50% negative samples in the train and test sets?
+Perhaps use stratified cross validation?
+Hi Jason, I have the same problem.
+I want to do model selection before testing the model, and my data is imbalanced. I first use stratified k-fold cross validation to make sure I have minority class in the test folds. Then, I perform model selection and choose a model with minimum cross validation error. The problem is that the test folds have already been used in model selection, so how can I test the model on new data as there is not test set?
+Can I used nested cross validation for my problem as follows: 1. Use 3-fold CV 2. Perform hyperparameter tuning 3. Select the hyperparameters based on the minimum error on the validation folds 4. Tune the machine learning algorithms with the selected hyperparameters 5. Use stratified 10-fold CV 6. The out-of-fold predictions are treated as the test\unseen data
+Or the following solution:
+1. Use stratified train/test split 2. Use stratified 10-fold CV on train set 3. Tune hyperparameter 4. Train again on all train data with the selected hyperparameters 5. Evaluate the train models on the test set.
+Thanks
+No need for step 5 as you already have evaluated the model on the hyperparameters.
+Step 2 and 4 are the same.
+Perhaps you want to use nested cv: https://machinelearningmastery.com/nested-cross-validation-for-machine-learning-with-python/
+The mean result from the stratified k-fold cv can be used to compare and select a model.
+Perhaps I don’t understand the problem?
+really, its quite worthy
+Thanks.
+Nice Tutorial!!! Enjoyed It !! can you provide me the Matlab code for K-Fold Cross validation Thank You
+I do not have any matlab code, sorry.
+I don’t really understand what you mean by
+> Train/Test Split: Taken to one extreme, k may be set to 1 such that a single train/test split is created to evaluate the model.
+… if k=1, then you are not dividing your data into parts: There is only one part.
+Could you explain what you mean? Note also, that sklearn.model_selection.kfold does not accept k=1 as an input
+You are right, k=2 is the smallest we can do.
+I have updated the post, thanks!
+Does ‘scikit-learn train_test_split’ consider values of features and targets when shuffling and spliting the dataset?
+Thank you
+Yes.
+Thank you Jason 🙂 I’m BIG fan of yours. Best!
+Thanks.
+Jason sir, this K-fold CV tutorial is very helpful to me. Thank you so much !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+You’re welcome, I’m glad it helped.
+Hi, thanks for this introduction,
+I’m working on very small dataset ( 31 data) with 107 features. I have to apply features selection. For that I use XGBOOST and RFECV and other techniques.
+I have one question :
+Do I have to first split my dataset into 80% train and 20% test and apply an k-fold cross validation onto the train part and verify with the 20% remaining ? Or, do k-fold cross-validation without any split before ?
+It might be a good idea to perform feature selection within each fold of the k-fold cross validation – e.g. test the procedure for selecting features rather than a specific set of features.
+Thanks, but if I want to show that a specific set of features remains the best. How can I do that ? I have to repeat n times a k-fold cv with a technique of selection and a different random seed. Then I compare all the arrays of features selected in the n loop with the score ( accuracy or F1) And so on for the other techniques ?
+Sounds like a reasonable approach.
+Remember, we cannot know what is best, only gather evidence for what is good relative to other methods we test.
+I have been working on 10fold cross validation.In the predicted labels(Logistic Regression classifier),I am getting like this: 0.32460216486734716 -1.6753312636704334 1.811621906115853 0.19109397406265038 -2.11867198332618 -1.4679812760800461 0.02600304205260273 -2.0000670438930332 I dnt know how to tackle with negative and non binary values.Please help.
+What is the problem exactly?
+Hello, I Have two questions: 1. I have a dataset, I used k=5 and 10 but some times I found there was a large difference in the R2, MAE and RMSE (i.e. for K=10, R=0.8 – MAE=3.5 – RMSE=6.5 , for K=5, R=0.62 – MAE=4.8 – RMSE=9.4) what is the reason of that difference? In other words, how to select the correct K which provide me reliable results? I know that there might a difference in using K=5 and 10 but m=not large one.
+2. If the dataset contains 8 independent variables, four of them are binary variables (0/1) for regression problem, How can I use cross validation to ensure that each fold contains 0 and for each binary variable? Because if this does not happen, Rstudio gives me warning that there is misleading results.
+Thanks in advance, R.Aser
+Hello Jason, Do you need me to describe more to understand my point
+Good questions.
+Choosing a good K is hard. If in doubt, use 10. If you have the time, perhaps evaluate descriptive statistics of the data with different size K and find a point at which statistical significance tests report a difference in distribution – it is crude but might be a useful start.
+Perhaps you can use stratified cross validation that focuses not only on the target, but on input variables as well?
+I hope that helps.
+Hello Jason,
+I split this post as BACK GROUND & QUESTION Section.
+BACK GROUND : I am performing Binary Classification task using LSTM’s. (either 0 or 1) Data_size (205, 100, 4) [Out of 205 samples 110 belongs to class 0 & 95 belongs to Class1]
+train_test_split : (train : 85 % & test : 15 % , random_seed = 7) Fixed train data shape = (174,100,6) Fixed test Data = (31,100,6)
+Step 1: – MODEL TRAINING I train the model (No random_seed weight intialization (like no numpy seed or tf seed) ) 1.1) Model Structure picture link : https://imgur.com/2IljyvE 1.2) Plot the Acc & Loss graph (both train & Validate) – Picture Link : https://imgur.com/IduKcUp – No Overfitting 1.3) Prediction result : using trained model : 3 out of 31 testing data were wrong. (91 % correct prediction)
+Step 2 : – MULTIPLE TIMES RUN Used For loop and trained the model 5 times to see behavior of the model based on your post (https://machinelearningmastery.com/diagnose-overfitting-underfitting-lstm-models/)
+2.1) for i in range(5) : # run 5 times with same model structure – Plot the Acc & Loss graph (Picture Link :https://imgur.com/WNH6m9F) – RESULT : It follows a pattern (found behavior of the model)
+Step 3: – K FOLD CROSS VALIDATION (CV) Performed K fold CV (Fold – 7 ) (random seed = 7) (merged train + test data = original data (205,100,6)) 3.1) Picture link : https://imgur.com/cZfR1wJ 3.2) Some folds results in Over fitting 3.3) Every fold the acc value calculated and mean acc value is 79.46 % (+/- 5.60 %) (I followed your post : https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/)
+QUESTIONS ONLY ABOUT CROSS VALIDATION : 1. On cross validation results, more number of Over fitted model/graphs found,
+a) What can I understood from CV results ? improper hyper parameters ? b) Std. deviation of +/- 6% is huge or it is normal ? c)How can I relate my trained model result (Step:1) with CV results (Step: 3) ? I understand how it works but can I use initial trained model as a final model since my prediction is 90 % correct ? d) I reduced LSTM units size and performed K fold CV again. Picture link : https://imgur.com/UsU3zso (Less Overfit models) Mean Acc & Std : 79% +/- 3.91 Based on Std dev, whether i should fix with this hyper parameter in model ? e) My friend suggested me to go for LOOCV, but will that make any difference ?
+Way too much going on there, sorry, I cannot follow or invest the time to figure it out.
+Are you able to boil your problem down to one brief question?
+I trained my LSTM binary classification model and gets prediction accuracy of 90 %. No over fitting occurs. (https://imgur.com/IduKcUp)
+But when I do K fold CV (K = 7), I can found over fitting models in those 7 folds. What can i understood from over fitting in CV models ? (https://imgur.com/cZfR1wJ)
+On CV results, i get the mean accuracy of 79.5 % & Std. deviation of +/- 6%. Is there any limit, if my mean acc value should be > than some %, is considered as a good performing model where the hyper parameters chosen is the best ?
+I reduced LSTM units size and performed K fold CV again. Results : Mean Acc & Std : 79% +/- 3.91 (https://imgur.com/UsU3zso – Less Overfit models) Since my Std dev is low compared to previous model, whether i should fix with this hyper parameter in model ?
+My friend suggested me to go for LOOCV, but will that make any difference instead K fold CV ?
+In practice, k-fold cross validation is a bad idea for sequence data/LSTMs, instead, you must use walk-forward validation: https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/
+Perhaps the datasets used in k-fold cross validation are smaller and less representative and in turn result in overfitting?
+Model performance is always relative: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+LOOCV sounds like a good idea if you have the resources.
+thanks for your reply. I understood your post related to walk-forward validation.But I am confused, whether it can be applied for my Data set. (Since I am performing classification)
+Overview about my Dataset : X.shape= (205,100,4) and Y.shape = (205,)
+In X, each sample/sequence is of shape (100, 4), whereas each row in 100 rows corresponds to 100 milli sec.(10 sec for 1 sample) Out of 210 samples, 110 samples belongs to class 0 & 95 Samples belongs to class 1.
+Model Structure : https://imgur.com/2IljyvE Model : https://imgur.com/tdfxf3l Note : Used TimeDistributed Wrapper around Dense layer so that my model gets trained for each 100 ms corresponds to respective class for every sample/sequence.
+My aim is to predict early the Class, If i input, test data of shape (10,60,4) – (10 samples, 60 (6 seconds), 4 features) whether it belongs to class 0 or 1.
+In that case, how can I approach Walk forward validation
+Yes, this would be a time series classification task which can be evaluated with walk forward validation.
+I give examples of time series classification here that you can use as a starting point: https://machinelearningmastery.com/start-here/#deep_learning_time_series
+Good day Jason,
+Thank you for all of your tutorials, they are very clear and helpful.
+Which method for calculating R2 for the evaluation of the test set is appropriate?
+I ask because it seems that the caret package in R defaults to R2 = cor(obs, pred)^2, but I thought 1 – sum((obs – pred)^2) / sum((obs – mean)^2) was most appropriate. Both methods give the same result on the full data set, but I am getting different results when I use them on the test sets (higher R2 for cor()^2).
+I’m using the caret package to cross validate a predictive linear model that I have built. I’m using train function with trainControl method = repeatedcv and the summary default of RMSE and Rsquared. I get high R2 when I cross validate using caret, but a lower value when I manually create folds and test them.
+Any insight or direction would be greatly appreciate.
+Thank you
+Perhaps this will help: https://en.wikipedia.org/wiki/Coefficient_of_determination
+Hii Jason
+Very nice and clear tutorial on K-fold validation.
+I have one doubt. Let’s say we are implementing a K-fold cv on K’-NN algorithm. Since we will be using the cv dataset to determine the best value of K’ and then use test dataset to determine the accuracy of the model, How do you think we should split our dataset? Can you please explain with an example.
+A good default is 10 folds.
+Hey Jason, It’s a great tutorial, but I have just one question what do you exactly mean by the following statement in this article.
+“It is also important that any preparation of the data prior to fitting the model occur on the CV-assigned training dataset within the loop rather than on the broader data set. This also applies to any tuning of hyperparameters.”
+It means that you must be careful not to use information from the whole dataset to prepare the data or tune the hyperparameters.
+It suggests only using the training dataset from each fit/fold to figure out how to prepare the train/test sets and tune the model. This is to avoid data leakage: https://machinelearningmastery.com/data-leakage-machine-learning/
+Hi, and thanks for this clear post for a practical implementation of k-fold validation. Btw thanks for your answers on other posts 😉
+I have a general question regarding this topic: it seems that all existing method take continuous portions of the training and test set, instead of mixing both.
+To be more clear on an example, assume we have 1000 samples, and we split in 0:799 for the training set, and 800:999 for the test set.
+Wouldn’t it be better to mix the indexes? For instance [0,5,10,..,995] for the test set and all other indexes for the training set. In the case for instance of chronological data, it makes more sense as no sample is biased towards a particular time.
+Great question!
+Typically we shuffle the data first, then split it up. It has the same effect.
+Hi, How can I get the Accuracy of each model (1,2,3) after CV?
+You can iterate each fold and for each fold fit a model no the train set and make predictions on the test set and then calculate a score for the predictions – then print that score.
+Sir could you plz explain a working example on SVM classifier? thanks
+Sure, see this: https://machinelearningmastery.com/support-vector-machines-for-machine-learning/
+Hi Jason,
+I have growth, climate data sets of crop and i want to do ML prediction model to predict yield. I want to use Regression because i want to know the value and not classification. Here I ask you how can I make label for Yield? any link, tips?
+After doing labelling which step do I need to follow to do the Regression model? any link, tips would really help.
+Regards Amora
+I recommend using this tutorial as a template: https://machinelearningmastery.com/spot-check-regression-machine-learning-algorithms-python-scikit-learn/
+Dear Dr Jason, I had a go with a larger data set of size 100, with 10 folds. Adapting from your above example:
+In sum, the original data size was 100. There are 10 folds with the 10 elements in each test array.
+My question: * How can I vary the length of the train and test. For example I would like 10 test folds, but the train length is 0.66666, and test length = 0.3333
+Thank you, Anthony of Sydney
+It does not work that way.
+k-fold CV requires you divide your dataset into k equal or mostly equally sized parts.
+Dear Dr Jason, When you say that “….k-fold CV requires you divide your dataset into k equal or mostly equally sized parts…..” means:
+* applying the primary school maths that you find the number of folds must be a factor of the number of datapoints. So if you had 63 datapoints, the number of folds must be 3, 7, 9, 21. Similarly if you had 100 datapoints, the number of folds must be 2, 4, 5, 10, 20, 25, 50.
+*What about prime number of datapoints of which to divide into folds? Eg 71 data points.
+* accordingly, the number of test points is then = no. of datapoints/no. of folds.
+* it follows that the number of training points = total number of datapoints – no of test points.
+Thank you Anthony of Sydney
+Dear Dr Jason, I did an experiment with prime and non prime numbers and it appears that if a number does not factor into the number of datapoints, then the number of test points are.
+The code to replicate is adapted from the above demo code:
+Conclusion I did a few experiments with the number of datapoints being prime and non-prime where the number of test data points is:
+If follows that the number of train data points is:
+Thank you, Anthony of Sydney
+Yes, it does not have to be perfectly even, just as even as possible, i.e. one fold might have one more or one fewer examples.
+Hi Jason,
+If no model selection nor hyperparameter tuning that needs to be done. Does that mean it is not necessary to apply cross-validation?
+Thanks in advance.
+Regards, Kelvin
+Yes, to estimate how performance changes with the data, e.g. the model variance.
+For binary classifier models when we want the class to be balanced during training, should we maintain separate KFold() objects for each label in the class to ensure that each fold is balanced or is it enough to balance the dataset as a whole and let the folds be randomly sampled?
+No, use a stratified version of k-fold cross validation.
+For example: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html
+Hi, Jason,
+Nice introduction! I’ve been using the k-fold for a long time, even in scientific publications, but I still don’t feel I have a good understanding about testing its statistical significance.
+First, how many times should we shuffle and do the whole things, i.e., how many “repetitions” are enough? Let’s say we have 100 samples. Would 50 or 200 repetitions be enough for a 10-fold CV?
+Second, say we get a p=84% correct rate after the 200 repetitions. How do I tell if this number is “statistically significant”? I typically use a confidence-interval test to get the CI = +-1.960*sqrt( p(1-p)/n ). I am never sure if I used the correct n here, which I set as the number of samples (i.e., 100), not the number of repetitions.
+I see a lot of “comparing two k-fold models” online, but not the test of a single model alone.
+Thank you so much!
+There are no good answers. Enough to capture the variance/improve the estimate of the population mean.
+I like 3 to 10 repetitions, 30 to 100 if I have the time (I rarely do).
+Re statistical tests for cross-validation and comparing algorithms, see this: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+Hi Jason,
+” It is also important that any preparation of the data prior to fitting the model occur on the CV-assigned training dataset within the loop rather than on the broader data set. This also applies to any tuning of hyperparameters. A failure to perform these operations within the loop may result in data leakage and an optimistic estimate of the model skill. ”
+This particular line says that any data preparation, let’s say data cleansing, feature engineering and other tasks should not be done before the cross-validation and instead be done inside the cross-validation.
+Can you take some time to explain that.
+Yes.
+Consider scaling. If you scale using all data, it uses knowledge of the min/max or mean/stdev of data in the test set not seen during training.
+You can discover more on the topic here: https://machinelearningmastery.com/data-leakage-machine-learning/
+what is the utility of using KFold and StratifiedKFold?
+Faster, simpler, appropriate for regression instead of regression.
+Hi Jason,
+Thank you for all of your tutorials, they are very clear and helpful.
+Is that more meanfull to split first all data in training and test set, for after processing a CV on only training data? What is the best approch ? CV on all data or just training data ?
+You’re welcome.
+There is no best approach, you need to find an approach that makes sense for your project.
+I think this will help: https://machinelearningmastery.com/difference-test-validation-datasets/
+Thanks from France 😉
+You’re welcome from Australia!
+Hi Jason,
+Thanks a lot for your precise explanation.
+I have a query.How can we do cross validation in case of multi label classification?
+Thanks
+Sure.
+if the dataset is unbalanced , what is the procedure during the use of 10 fold cross validation?
+Use stratified cross-validation.
+If you are using data sampling on the training set, use it within each fold of the CV via a pipeline.
+Hi, can 10 fold cross-validation be applicable to DNA sequence data for cancer analysis?
+Probably.
+Can I ask why is the standard deviation is an important factor when it comes to evaluate k-fold cross validation?
+It summarizes the expected variance in the performance of the model.
+Please, I have a question regarding Cross-validation and GridSearchCV. (This question is already asked by itisha March 28, 2019 at 6:36 pm, but i did not anderstand your answer) I have a small dataset, and i can not devide it on test/validation/traing sets. I decided to make a coross-validation to estimate the performance of model based on SVM classifier. My question is what are the hyper-parameters to use during this Corss-validation ? Can I execute GridSearchCV and report the results of the best corss-validation perormance (CV with best hyper-parameters) as the final Cross-validation results.
+Yes, you can use grid search within the cross-validation, this is called nested cross validation and allows you to evaluate a tuned version of your model.
+Thank you very much for your answer, I understand now.
+You’re welcome.
+Thank you for this article! Its amazing, yet 1 question stil remains in mind and want to clear my confusion. If i use 10- fold CV on training dataset, then that training dataset is divided into 10 sets , so now i have 10 iterations for training model on 9-fold of data and test on 1fold data in every iteration right? Apart from this we have test data which we splitted before training the model to test on right!
+If i am right in above querry then , if we apply k-fold on entire dataset would that benefit us more or less, just a question!
+Thank You!
+You’re welcome!
+No, typically we would use cross-validation or a train-test split. Not both. Yes, cross-validation is used on the entire dataset, if the dataset is modest/small in size.
+If we have a ton of data, we might first split into train/test, then use CV on the train set, and either tune the chosen model or perform a final validation on the test set.
+Just one clarification – In cross validation, as given one data set (train or test) is divided into 10 folds (as example). Then 9 folds are used to train and 1 fold to test which is part of data set given earlier. And, this process repeats where each of these 10 folds become part of test once. So, with this above understanding, only one data set is used which is given as input to K Fold and not both. Please clarify as in above answer it specifies that both sets (train and test) are used.
+Correct.
+Hii Jason,
+It was very good article. I have a doubt about k-fold cross validation. Please help me out. I am confused over usage of k-fold cross validation. Is it used to compare two different algorithmic models like SVM and Random forest or is it used for comparison between same algorithm with different hyperparameters ?
+Thanks!
+Both.
+It is extremely useful article and one of best article I have read on cross validation. I have doubt on how cross validation actually works and need your help to clarify. In 10-fold cross-validation where we need to select between 3 different values of one parameter (please note parameter is one but possible values are 3 from which we need to select) then how does this 10 fold cross validation works in this case …how many models are trained and evaluated? Will it be 10 models or 3 models or 30 models?
+And, second part of doubt is that will these above models be trained and as well as evaluated on portion of training set only? Right?
+Requesting you to help clarity both parts.
+Thanks.
+In this case, we us CV on each config and compare the mean of each run. Yes, 3 * 10-fold cv is 30 models. All of which are discarded at the end.
+Each model is trained on the training folds and tested on the test folds as the folds are enumerated.
+A big thanks to you. You are genius and we can learn lot from you. One clarification in this again – just wanted to share that parameter in above problem statement asked by me is 1 only (let us say cp parameter) which has possible values 0.1, 0.2, 0.3 and then we need to choose best possible values of cp to be used using cross-validation. So, in this case, Will number of models be not 10. I had understanding that in each iteration of 10 fold cross validation, we will build model using 9 folds of data and then validate this model on 10th fold (the fold of data which is not used in training for that iteration) for all 3 possible cp values. So, model created in each iteration will be one but tested 3 times for each possible cp value (0.1, 0.2 and 0.3). Or will it be 3 models each iteration and hence resulting 30 models in total for 10 fold cross validation. Requesting you to help clarify.
+So to “best describes how 10-fold cross-validation works when selecting between 3 different values (i.e. 0.1, 0.2 or 0.3) of cp parameter?” using below statement
+“X” models are created on subset of training set and evaluated on “Y”
+What will be values of X and Y?
+What will be X – 10 or 30 What will be Y – “test set” or “portion of training set”
+Assumption here is that before cross validation, data is split into train and test data and cross validation is done on training set. So, considering this assumption please help that what will be value of Y in above statement.
+Each configuration is evaluated (3) and the evaluation of each configuration uses cross-validation (10). The evaluation of each configuration is a separate process.
+Thanks but can you please help in clarifying ..the question which is asked in my course is that given this scenario (as explained above), how many models it will be generated? And, where this model be evaluated – will these be evaluated on portion of training set or testing set as part of cross validation? The problem statement also confirms that testing set is carved out separately before initiating cross validation and Cross validation is run on training set. So, considering this please help in clarifying. .
+Perhaps talk to your teacher directly about your homework. You’ve paid them after all…
+Further to add to this, my understanding is that
+“30 models are created on subset of training set and evaluated on portion of training set” Is this correct understanding or will it be “30 models are created on subset of training set and evaluated on testing set” where testing set is separate set carved out before cross validation starts and cross validation is done on training set,
+Hi Jason Brownlee, I split my data into 80% for training and 20% for testing (unseen data). And, I use trainning data to train, and compare machine learning models and use K-fold CV through training model. Finally, I use selected model to check the accuracy on the testing data (unseen data, 20% of data). Could you please explain if I have done right or wrong?
+Thank you.
+X. C Nguyen
+It is not about right and wrong, instead, you have chosen a different approach.
+If it works for you, go for it.
+Hello Jason, I am a little confused. I split my data into training and testing datasets. Is it possible to train a model by cross-validation and then apply the model for testing data? All I saw on the internet was for the whole dataset. example: cross_val_score (model, X, y, cv=4, scoring=”neg_mean_squared_error”) or cross_val_predict (model, X, y, cv=4, scoring=”neg_mean_squared_error”)
+But I want to make a model from the training dataset and then apply for the test dataset. I do not know how to code in python: All I want is: CV = ?(model, X_train, y_train, cv=4, scoring=”neg_mean_squared_error”) then prediction = CV.predict(X_test)
+Is it possible for this? If yes, what should I write instead of “?”? Or is there any way to reach my goal? It would be much appreciated if you help me out.
+Both approaches evaluate the model when making predictions on unseen data.
+Once we have the estimates, we discard the models, fit the model on all available data and start using it to make predictions.
+I did not get exactly. I want to test the model on a particular dataset. Is there any example on the website that guides me
+Yes many, perhaps start here: https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
+I would like to know two thing: 1. From fold to fold are weights are preserved (updates in previous fold) or weights are initialized randomly in each fold? 2. If I want to save the best model of certain fold what to do?
+Each fold we train an entirely new model and at the end of the fold we discard the model.
+No need to save the best model as we are only estimating the performance of the modeling pipeline. Once we know how well it performs, we can compare it to other models/pipelines, choose one, then fit it on all available data and start using it.
+As There are 7 empirical performance measurement models, can k-fold CV be applied for selection of optimal performance measurement model. If yes, then how?
+We cannot know the optimal model or how to select it for a given predictive modeling problem.
+The best we can do is to use robust methods and try to discover the best performing model in a reliable way given the time we have.
+Respected Sir, I like to know that if we have three performance measurement models like- Balance Scorecard, Key Performance Indicators (KPI) model and Capability Maturity Model (CMM) , so can k-fold CV be used for selection among these models? If yes, then How? Plz guide me in this regard.
+I recommend selecting one metric and using that to select a model.
+respected sir,
+plz, brief about it, that how i proceed
+Can stratified k fold cross validation be helpful in dealing imbalance data?
+Yes, it is required: https://machinelearningmastery.com/cross-validation-for-imbalanced-classification/
+Thanks a lot.
+You’re welcome.
+Hey very interesting article.
+I ‘d like to ask if you think that k-fold cross validation can be used for AB testing.
+Lets say I have an 80/20 AB test, could I split the 80 on 4 random 20s and then form 5th dataset as the average of those 4 datasets and compare my variant with it?
+Is there something wrong with this approach?
+Thank you.
+No, they are different methods for different problems.
+cv estimates model skill when making predictions on data not seen during training.
+a/b tests estimate a binomial or multinomial probability distributions via sampling.
+Dear Jason,
+I made a manual 5 fold cross-validation because my methodology is different. Thus, I have individual R square values for each fold. I just wanted to ask can I take the average of R squared values from each fold.
+Yes.
+Thank you so much for your reply.
+But, I could not explain this to myself. I have searched this and there is a lot of confusion. It is said that the overall R2 or RMSE is not equal to the average of the folds results.
+Not sure why that would be the case.
+Hi,
+Thanks for your article.
+I have a Lidar bathymetry data set in the shallow water. I would like to use the Cross-validation for my model.
+Please guide me in that step by step.
+Thanks.
+Perhaps you can use the code in tutorial as a starting point and adapt it for your data.
+Hello Jason! First of all, thanks for this explanation, it was very helpful, especially for the new people in the subject, like me :).
+I am working with a dataset with 900 samples and I would like to apply 10-fold cross-validation but I don’t know if it is a strategy only for a train and validation splits or how should I handle 3 splits? I am aware in a paper the results should be reported over the test set and I was thinking in apply only KFolds only to train and validation and regular hold out to get the test split. Could you please give me any advice about best practices when in a paper use this KFolds CV approach?
+Thanks!
+It is a good practice to use 10 splits and report the mean and standard deviation of your performance metric calculated on each test set.
+Hi Jason, Thanks for the tutorial. When I try out the code in your tutorial, I used the below code :
+data = [0.1,0.2,0.3,0.4,0.5,0.6] kfold = KFold(n_splits=3, shuffle= True, random_state= 1)
+for trn_idx, tst_idx in kfold.split(data): print(‘Training Index : {}, Test Index : {}’.format(trn_idx,tst_idx))
+Now how do I use trn_idx and tst.idx to split the original data?
+When I try : train_data = data[trn_idx] test_data = data[tst_idx]
+I get the below error:
+————————————————————————— TypeError Traceback (most recent call last) in —-> 1 train_data = data[trn_idx] 2 test_data = data[tst_idx]
+TypeError: only integer scalar arrays can be converted to a scalar index
+Sorry to hear that, this may help: https://machinelearningmastery.com/faq/single-faq/why-does-the-code-in-the-tutorial-not-work-for-me
+Jason – You’ve posted a range of well written, easily digestible articles in the ML arena which I have found quite useful. Thank you for excellent work…
+– Eric
+Thanks Eric!
+What’s up, after reading this awesome paragraph i am also glad to share my know-how here with friends.
+Thanks.
+Thank you for your content.
+Does k-fold cross validation in conjunction with GridSearchCV replace the traditional model.fit() when training a model? And how a proper GridSearchCV should be performed? I mean, if I want to perform a GridSearch of the batch_size+neurons+learning_rate+dropout_rates, should I mix all those together at same time?
+Cross-validation is only used to estimate the performance of the model.
+You can use a “grid search” as the model, in which case it will find the best config for you automatically.
+Yes, you can tune multiple hyperparameters at once, but it can be very slow.
+Suppose I’m evaluating my results based on accuracy(need of the client). After comparing my CV accuracy and training set accuracy I find that my model is overfitting. I performed Randomsearch CV and obtained the best hyperparameters. Using these best hyperparameters the training accuracy decreases but the new CV accuracy improves very little(2%). My question is have I been able to solve the problem of overfitting? Another question is that the best hyperparameters that I’m choosing are choosen using the process of CV(Randomsearch CV). Are these effective when I’m using them on the trainnig data ?
+You can overcome overfitting in this case by using a robust test harness and choosing the best model based on average out of sample predictive skill.
+Don’t choose a model or model hyperparameters based on skill on the training dataset, it is not the goal of the project.
+Then on what basis should I choose a model or model hyperparametrs? The learner for which the hyperparameter is tunned what should be it’s evaluation criteria?
+k-fold cross-validation allows you to estimate model/config performance when used to make a prediction on new data.
+Choose a model based on mean skill from k-fold cross-validation, ideally repeated+stratified k-fold cross-validation for classification, repeated k-fold cross-validation for regression, nested/double k-fold cross-validation for hyperparameter tuning.
+I cannot use the test set as I’m still unsure whether my learner has combat the problem of overfitting.
+Combatting overfitting is only a practical issue for algorithms that learn incrementally, like neural networks and boosting ensembles.
+thank you Jason
+No problem.
+Let say if i have 1000 images in my dataset and my train test split is 80/10 and i choose k=10 how it will perform 10 folds ? will it repeat its data in folds ?
+You use train/test OR cross-validation, not both.
+Data is not repeated in folds.
+thank you Jason, for this article, it’s possible with a dataset to iterate 100 iteration with k-fold= 5
+What do you mean 100 iterations?
+thank for your explanation. but, can i ask something?
+I used the accuracy scores from some sample results from KFold. For example, I use n_split = 5, then use each sample to find out the predicted value and calculate its accuracy.
+From this accuracy value I get one less good sample. What should I do with this sample data?
+Sorry, I don’t understand. Perhaps you can rephrase your question?
+Hi, I’m not sure if this is the best page to ask, but if I have an n-example set and a k-fold, how many classifiers are we training?
+It will train k classifiers.
+After we estimate the performance of the model from the mean of the results, all classifiers are discarded.
+Thanks for the nice tutorial, Jason. I have one question.
+When performing cross validation, is it important to separate a portion of your dataset as your test dataset to evaluate the performance of your model later, or is it sufficient to have just the results as the mean and variance of the model skill scores obtained during the cross-validation process?
+Once again, thanks for the article.
+Using CV alone is often sufficient.
+Sir, I have 1000 data, I split it into 80% (training dataset) 20% (test dataset). Then I will use the training dataset to perform 10-fold validations where internally it will further split the training dataset into 10% (8% from 1000) validation data and 90% (72% from 1000) training data and rotate each fold and based on generated accuracy I will select my model (model selection). Once model is selected, I will test it with the held-out 20% test data (20% from 1000).
+Is the approach correct…
+You can evaluate models anyway you like, as long as you trust the results.
+Hey, I came across many websites where they mention k=n has high variance when compared with k=10 or for any other value of k, could you give an explanation for that?
+I would expect low variance, see this: https://machinelearningmastery.com/loocv-for-evaluating-machine-learning-algorithms/
+https://machinelearningmastery.com/how-to-configure-k-fold-cross-validation/ From the error plot in this tutorial the variance seems to be increasing as we increase the number of folds. We know that lower k values would give a high bias, so high k values would give a lower bias. If the higher k values give both low bias and variance, then what is stopping us from using LOOCV other than the fact that it is computationally expensive.
+Maybe, maybe not. In that post we are plotting the min/max not the IQR or stdev.
+The relationship might not be so linear.
+Hi, thanks for this tutorial. I know I’m late to the party, but I’m struggling to understand the scores that cross-validation gives me. For a certain model run on my dataset, I get the following scores: [0.93625769, 0.89561599, 1.07315671, 0.69597903, 0.62485697, 1.67434609, 1.3102791, 1.42337181, 0.80694321, 1.15642967]
+Mean score with depth = 2: 1.0597236282939932 Mean absolute error: 0.4903895091309324
+I just want to know, how do I know if this is a good score or not?
+Thanks again.
+You’re welcome.
+Great question! A good score is relative to the score achieved by a naive model, more here: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+Hi Jason, First of all thank you for this post. I have a question. When model finish training, is it test images with last model (e.g. 1000 epochs training and model for 1000. epoch) or is it test with best model (e.g. train with 1000 epochs but best model at 978. epoch)?
+You’re welcome.
+No the model is fit (all epochs) on the train folds and test on the hold out folds, and repeated allowing each fold to be used as the held out fold.
+I think you misunderstood me. Let’s assume I train model with 5-fold cross validation and model trained 1000 epochs for each fold. For each fold save best model (for example; according to minimum loss) and best model at 978. epochs not 1000. epochs. And when training is finished for first fold, evaluate model with test images of first fold. At this time, testing stage is made by 1000. epochs model (last model) or 978. epochs model (best model)?
+if you are using early stopping with cv, then yes, performance on each fold will be calculated whenever early stopping stopped training or saved the best model.
+I have an extra question. When I made 10-k cross validation , it gets interrupted at the 6th or 7th fold. When I change epochs or batch size, it continues. Is this due to lack of resources (GPU, CPU, etc.) or something else?
+This sounds specific to your machine. Perhaps you can debug the cause.
+what is mean of this … plz explain Importantly, each observation in the data sample is assigned to an individual group and stays in that group for the duration of the procedure. This means that each sample is given the opportunity to be used in the hold out set 1 time and used to train the model k-1 times.
+It means that each row of data belongs to one fold. That the algorithm operates on folds of data rather than rows of data.
+Hi Jason,
+Thanks for this! I have one question for you. Is that ok to do the k-fold cross validation on the same dataset that we used to train the model?
+A bit of context: I am using cox regression model and I used my whole dataset tp train the model and now I wanna use k-fold cross validation on that dataset to check the skill of the model…is that ok? or should i have a separate unseen test data?
+No, in k-fold cross-validation, the model is fit on the training folds and evaluated on the hold out fold, repeated k times for different folds.
+After finding loss on every model in k-folds on test dataset. how to find loss and sd ans accuracy of model
+Sorry, I don’t understand your question, can you please rephrase or elaborate?
+i got different losses for models in k fold . i asking how to find final loss and standard deviation value from that and also accuracy?
+You can evaluate your model on the hold out test set and calculate loss and accuracy for each fold, then calculate mean and stdev of the population of scores.
+This will help you get started: https://machinelearningmastery.com/evaluate-skill-deep-learning-models/
+This has an example: https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-from-scratch-for-mnist-handwritten-digit-classification/
+thanks
+After 3 days of studying k-fold-cross validation for a multi layer perceptron, I wonder, why I cant find any answer on the fellowing problem:
+I have k different learning sets. Let j be the number of the learning set, where the j-th fold is the validation set.
+Do I calculate , only focussing on learning set 1, all final weights going through lots of iterations and epochs and then check the validation-accuracy on fold 1 of the network, and then doing the same for all learning sets, receiving k accuracy values? If so, why do I average all these accuracy values, having DIFFERENT weights??? For every learning set I get a different multi layer perceptron at the end of all calculated epochs. And, which weights do I finally take????? The ones established by learning set 1 or k or the average???
+Great questions.
+Yes, each of the k folds gets a turn to be used as a test set while all other folds are used as train. The train can be further split into train and val if you like for tuning or whatever.
+Model skill is reported as the mean performance on all the test sets.
+All models are then discarded once you have an estimate. You fit a final model on all data and start making predictions on new data.
+I do not understand this quote: “The choice of k is usually 5 or 10, but there is no formal rule. As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. As this difference decreases, the bias of the technique becomes smaller.” Can you please define “resampling subsets”? Are they the folds?
+It means the data after it is split up. E.g. the actual rows used to train the model and test the model for a given split.
+In fact don’t the differences get bigger?
+No, it is referring to all rows you have vs the size of the rows to train the model.
+if k=n-1 (all data except one row) then then difference between a training set and the entire dataset is 1.
+I have no questions! I would just like to thank you for summarizing so many imporant topics!!!
+You’re very welcome!
+Thank you for your information… How would I have to deal with ROC analysis in case of a K-fold cross val? Should I compute the curve each time and then average the k outcomes at the end? Thank you!
+Generally you don’t, you would use a train/test split to estimate a roc curve.
+Hi, what is k-fold accuracy? Is it the same?
+Perhaps it is the mean accuracy calculated from k-fold cross-validation.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,207 @@
+How to Develop an Intuition for Probability With Worked Examples
+How to Develop an Intuition for Probability With Worked Examples
+Overview
+Birthday Problem
+Boy or Girl Problem
+Monty Hall Problem
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+Want to Learn Probability for Machine Learning
+Books
+Articles
+10 Responses to How to Develop an Intuition for Probability With Worked Examples
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated Dec/2020
+Problem
+Case 1
+Case 2
+And this would be incorrect.
+Case 1
+case 2
+Problem
+This is incorrect.
+This is incorrect and is the cause of the error.
+They should always switch.
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on December 21, 2020
+Probability calculations are frustratingly unintuitive.
+Our brains are too eager to take shortcuts and get the wrong answer, instead of thinking through a problem and calculating the probability correctly.
+To make this issue obvious and aid in developing intuition, it can be useful to work through classical problems from applied probability. These problems, such as the birthday problem, boy or girl problem, and the Monty Hall problem trick us with the incorrect intuitive answer and require a careful application of the rules of marginal, conditional, and joint probability in order to arrive at the correct solution.
+In this post, you will discover how to develop an intuition for probability by working through classical thought-provoking problems.
+After reading this post, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Develop an Intuition for Probability With Worked ExamplesPhoto by Bernal Saborio, some rights reserved.
+This tutorial is divided into three parts; they are:
+A classic example of applied probability involves calculating the probability of two people having the same birthday.
+It is a classic example because the result does not match our intuition. As such, it is sometimes called the birthday paradox.
+The problem can be generally stated as:
+Problem: How many people are required so that any two people in the group have the same birthday with at least a 50-50 chance?
+There are no tricks to this problem; it involves simply calculating the marginal probability.
+It is assumed that the probability of a randomly selected person having a birthday on any given day of the year (excluding leap years) is uniformly distributed across the days of the year, e.g. 1/365 or about 0.273%.
+Our intuition might leap to an answer and assume that we might need at least as many people as there are days in the year, e.g. 365. Our intuition likely fails because we are thinking about ourselves and other people matching our own birthday. That is, we are thinking about how many people are needed for another person born on the same day as you. That is a different question.
+Instead, to calculate the solution, we can think about comparing pairs of people within a group and the probability of a given pair being born on the same day. This unlocks the calculation required.
+The number of pairwise comparisons within a group (excluding comparing each person with themselves) is calculated as follows:
+For example, if we have a group of five people, we would be doing 10 pairwise comparisons among the group to check if they have the same birthday, which is more opportunity for a hit than we might expect. Importantly, the number of comparisons within the group increases exponentially with the size of the group.
+One more step is required. It is easier to calculate the inverse of the problem. That is, the probability that two people in a group do not have the same birthday. We can then invert the final result to give the desired probability, for example:
+We can see why calculating the probability of non-matching birthdays is easy with an example with a small group, in this case, three people.
+People can be added to the group one-by-one. Each time a person is added to the group, it decreases the number of available days where there is no birthday in the year, decreasing the number of available days by one. For example 365 days, 364 days, etc.
+Additionally, the probability of a non-match for a given additional person added to the group must be combined with the prior calculated probabilities before it. For example P(n=2) * P(n=3), etc.
+This gives the following, calculating the probability of no matching birthdays with a group size of three:
+Inverting this gives about 0.820% of a matching birthday among a group of three people.
+Stepping through this, the first person has a birthday, which reduces the number of candidate days for the rest of the group from 365 to 364 unused days (i.e. days without a birthday). For the second person, we calculate the probability of a conflicting birthday as 364 safe days from 365 days in the year or about a (364/365) 99.72% probability of not having the same birthday. We now subtract the second person’s birthday from the number of available days to give 363. The probability of the third person of not having a matching birthday is then given as 363/365 multiplied by the prior probability to give about 99.18%
+This calculation can get tedious for large groups, therefore we might want to automate it.
+The example below calculates the probabilities for group sizes from two to 30.
+Running the example first prints the group size, then the available days divided by the total days in the year, then the probability of no matching birthdays in the group followed by the complement or the probability of two people having a birthday in the group.
+The result is surprising, showing that only 23 people are required to give more than a 50% chance of two people having a birthday on the same day.
+More surprising is that with 30 people, this increases to a 70% probability. It’s surprising because 20 to 30 people is about the average class size in school, a number of people for which we all have an intuition (if we attended school).
+If the group size is increased to around 60 people, then the probability of two people in the group having the same birthday is above 99%!
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Another classic example of applied probability is the case of calculating the probability of whether a baby is a boy or girl.
+The probability of whether a given baby is a boy or a girl with no additional information is 50%. This may or may not be true in reality, but let’s assume it for the case of this useful illustration of probability.
+As soon as more information is included, the probability calculation changes, and this trips up even people versed in math and probability.
+A popular example is called the “two-child problem” that involves being given information about a family with two children and estimating the sex of one child. If the problem is not stated precisely, it can lead to misunderstanding, and in turn, two different ways of calculating the probability. This is the challenge of using natural language instead of notation, and in this case is referred to as the “boy or girl paradox.”
+Let’s look at two precisely stated examples.
+Case 1: A woman has two children and the oldest is a boy. What is the probability of this woman having two sons?
+Consider a table of the unconditional probabilities.
+Our intuition suggests that the probability that the other child is a boy is 0.5 or 50%.
+Alternately, our intuition might suggest the probability of a family with two boys is 1/4 (e.g. a probability of 0.25) for the four possible combinations of boys and girls for a two-child family.
+We can explore this by enumerating all possible combinations that include the information given:
+The intuition is that the additional information makes some cases impossible.
+There would be four outcomes, but the information given reduces the domain to 2 possible outcomes (older child is a boy).
+Indeed, only one of the two outcomes can be boy-boy, therefore the probability is 1/2 or (0.5) 50%.
+Let’s look at a second very similar case.
+Case 2: A woman has two children and one of them is a boy. What is the probability of this woman having two sons?
+Our intuition leaps to the same conclusion. At least mine did.
+And this would be incorrect.
+For example, 1/2 for a boy as the second child being a boy. Another leap might be 1/4 for the case of boy-boy out of all possible cases of having two children.
+To find out why, again, let’s enumerate all possible combinations:
+Again, the intuition is that the additional information makes some cases impossible.
+There would be four outcomes, but the information given reduces the domain to three possible outcomes (one child is a boy). One of the three cases is boy-boy, therefore the probability is 1/3 or about 33.33%.
+We have more information in Case 1, which allows us to narrow down the domain of possible outcomes and give a result that matches our intuition.
+Case 2 looks very similar, but in fact, it includes less information. We have no idea as to whether the older or younger child is a boy, therefore the domain of possible outcomes is larger, resulting in a non-intuitive answer.
+We can also approach the problem using a calculation of conditional probability.
+In Case 1, we can state the problem as: what is the probability of a random family having two boys (e.g. a sequence of boy-boy) given that the oldest child is known to be a boy.
+The probability of one event given the presence of another event is called the conditional probability and it can be calculated using the following formula:
+Here, we can take event A as “2 boys” and event B as “oldest is a boy”.
+We can then restate the calculation of the conditional probability using our terms:
+It is helpful to look at the events in terms of the specific outcomes in terms of a sequence of children born in the family.
+For example, the events can be defined in terms of sequences of boys and girls, as follows:
+The events {girl-girl} and {boy-girl} are impossible given the information given, i.e. that the oldest child is a boy.
+Looking at the definition of our events this way, we can see that the numerator P(“2 boys” and “oldest is a boy”) of the conditional probability calculation contains some redundancy. Specifically that the event “2 boys” is a subset of the event “oldest is a boy”.
+This is a special case in conditional probability, e.g. P(A and B) when event A is a subset of event B.
+In this special case, P(A and B) can be simplified to P(A).
+This can trip up beginners, but we often say if A is a subset of B that A implies the occurrence of B. That is if A occurs, B is certain or has a probability of 1.0.
+Therefore, we can therefore simplify the numerator to just the probability of “2 boys”:
+We can now restate the calculation of the conditional probability using this simplification:
+We can take what we know from the table of unconditional probabilities above and substitute these terms.
+For example, the probability of “2 boys” (e.g. “boy-boy”) is 1/4. The probability of “oldest is a boy” is the probability of “boy-boy” which is 1/4 plus the probability of “girl-boy” which is also 1/4 which equals 2/4.
+Therefore:
+Or numerically instead of fractions:
+In case 2, we can state the problem as: what is the probability of a random family having two boys given one of the children is known to be a boy.
+The calculation of conditional probability again is:
+Here, we can take event A as “2 boys” and event B as “at least 1 boy”:
+We can then restate the calculation of the conditional probability using our terms:
+We can see some redundancy in this calculation, specifically with the numerator P(“2 boys” and “at least 1 boy”).
+The event “at least 1 boy” is more general than “2 boys”, or put another way, “2 boys” is a subset of the event “at least 1 boy”.
+Given a rule of conditional probability:
+We can simplify the numerator to “2 boys”.
+Now, we can restate the calculation.
+The table of unconditional probabilities above can then be used to substitute specific values into the calculation.
+For example, the probability of “2 boys” (e.g. boy-boy) is 1/4. The probability of “at least 1 boy” is the probability of “boy-boy” plus the probability of “boy-girl” plus the probability of “girl-boy”.
+Therefore:
+Or numerically instead of fractions:
+Note, a version of this calculation is provided on Page 96 of Probability: For the Enthusiastic Beginner.
+This is a useful illustration of how we might overcome our incorrect intuitions and achieve the correct answer by enumerating the possible cases and how we might achieve the same ends calculating the conditional probability.
+A final classical problem in applied probability is called the game show problem, or the Monty Hall problem.
+It is based on a real game show called “Let’s Make a Deal” and named for the host of the show.
+The problem can be described generally as follows:
+Problem: The contestant is given a choice of three doors. Behind one is a car, behind the other two are goats. Once a door is chosen, the host, who knows where the car is, opens another door, which has a goat, and asks the contestant if they wish to keep their choice or change to the other unopened door.
+It is another classical problem because the solution is not intuitive and in the past has caused great confusion and debate.
+Intuition for the problem says that there is a 1 in 3 or 33% chance of picking the car initially, and this becomes 1/2 or 50% once the host opens a door to reveal a goat.
+This is incorrect.
+We can start by enumerating all combinations and listing the unconditional probabilities. Assume the three doors and the user randomly selects a door, e.g. door 1.
+At this stage, there is a 1/3 probability of a car, matching our intuition so far.
+Then, the host opens another door with a goat, in this case, door 2.
+The opened door was not selected randomly; instead, it was selected with information about where the car is not.
+Our intuition suggests we remove the second case from the table and update the probability to 1/2 for each remaining case.
+This is incorrect and is the cause of the error.
+We can summarize our intuitive conditional probabilities for this scenario as follows:
+This would be correct if the contestant did not make a choice before the host opened a door, e.g. if the host opening a door was independent.
+The trick comes because the contestant made a choice before the host opened a door and this is useful information. It means the host could not open the chosen door (door1) or open a door with a car behind it. The host’s choice was dependent upon the first choice of the contestant and then constrained.
+Instead, we must calculate the probability of switching or not switching, regardless of which door the host opens.
+Let’s look at a table of outcomes given the choice of door 1 and staying or switching.
+We can see that 2/3 cases of switching result in winning a car (first two rows), and that 1/3 gives the car if we stay (final row).
+The contestant has a 2/3 or 66.66% probability of winning the car if they switch.
+They should always switch.
+We have solved it by enumerating and counting.
+Another approach to solving this problem is to calculate the joint probability of the host opening doors to test the stay-versus-switch decision under both cases, in order to maximize the probability of the desired outcome.
+For example, given that the contestant has chosen door 1, we can calculate the probability of the host opening door 3 if door 1 has the car as follows:
+We can then calculate the joint probability of door 2 having the car and the host opening door 3. This is different because if door 2 contains the car, the host can only open door 3; it has a probability of 1.0, a certainty.
+Having chosen door 1 and the host opening door 3, the probability is higher that the car is behind door 2 (about 33%) than door 1 (about 16%). We should switch.
+In this case, we should switch to door 2.
+Alternately, we can model the choice of the host opening door 2, which has the same structure of probabilities:
+Again, having chosen door 1 and the host opening door 2, the probability is higher that the car is behind door 3 (about 33%) than door 1 (about 16%). We should switch.
+If we are seeking to maximize these probabilities, then the best strategy is to switch.
+Again, in this example, we have seen how we can overcome our faulty intuitions and solve the problem both by enumerating the cases and by using conditional probability.
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered how to develop an intuition for probability by working through classical thought-provoking problems.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+Hi Jason, great work – again. I was just wondering whether you may have a typo there:
+In case 1, we know that the oldest child, or second part of the outcome, is a boy, therefore we can state the problem as follows:
+P(boy-boy | {boy-boy or girl-boy}) We can calculate the conditional probability as follows:
+= P(boy-boy and {boy-boy or girl-boy}) / P({boy-boy or girl-boy}) (<- this line) = P(boy-boy) / P({boy-boy or girl-boy}) = 1/4 / 2/4 = 0.25 / 0.5 = 0.5
+Is this " and {boy-boy or girl-boy}" not too much? because this would mean P(A|B) = (P(A,B) AND P(B)) / P(B) = P(A,B) / P(B)
+or am I wrong?
+It could be clearer, thanks for the note.
+We are solving:
+– P (A | B) = P(A and B) / P(B)
+Where
+A = boy-boy B = {boy-boy or girl-boy}
+Yes, I think it just confused me a bit as I wasn’t taking the additional information also in the math into account. Thus, that A = {boy-boy} and not = {boy-boy,boy-girl} due to the additional information given in the context…
+Yeah, I should have used BB/GG symbols to be clearer!
+In this case, P (A | B) = P(A and B) / P(B) We are solving:
+– P (A | B) = P(A and B) / P(B)
+Where
+A = boy-boy B = {boy-boy or girl-boy}
+How did P(A) only appear onto the next step? where did “and B” disappear?
+Good question, this is a rule of conditional probability:
+– P(A and B) = P(A), if event A is a subset of event B.
+I have updated the example to explain this better.
+Hey Jason, great work! Had a question though, how is the comparisons calculation used in figuring out the first problem? It doesn’t appear to be used in the final calculation unless I’m missing something…
+Good question.
+It is not used, it is just to give you an idea of what is going on.
+Sorry for the confusion.
+In calculating ,P(boy-boy | {boy-boy or girl-boy or boy-girl})
+since P(boy-boy) = 1/4 P({boy-boy or girl-boy or boy-girl }) = 1/4 + 1/4 + 1/4 = 3/4
+Then, wouldn’t the answer be this P(boy-boy | {boy-boy or girl-boy or boy-girl}) / P({boy-boy or girl-boy or boy-girl }) = (1/4 * 3/4)/ (3/4) = 1/4 =0.25
+I am not sure how did it end up with 0.333
+Good question, I have updated the example to be more clear.
+I might revisit it again, I think I can make it ever clearer.
+Update: okay, I have updated it heavily and added the important detail about events that are subset in conditional probability.
+Let me know if it helps.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,A Gentle Introduction to Statistical Hypothesis Testing,https://machinelearningmastery.com/statistical-hypothesis-tests/,2,4,14,0,164,197,19.548,13.626,3851,4.358,3.457,0.201,4.969,14.056,2.207,133,0,0,machinelearningmastery,com/statistical-hypothesis-tests,com,2

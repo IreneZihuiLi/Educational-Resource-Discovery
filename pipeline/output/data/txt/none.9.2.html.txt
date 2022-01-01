@@ -1,0 +1,134 @@
+How To Get Baseline Results And Why They Matter
+How To Get Baseline Results And Why They Matter
+Finding Data You Can Model
+A Useful Point For Comparison
+Calculate a Baseline Result
+Compare Results to the Baseline
+Action Steps
+Navigation
+Main Menu
+38 Responses to How To Get Baseline Results And Why They Matter
+Leave a Reply Click here to cancel reply.
+Classification
+Regression
+Optimization
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on June 27, 2017
+In my courses and guides, I teach the preparation of a baseline result before diving into spot checking algorithms.
+A student of mine recently asked:
+If a baseline is not calculated for a problem, will it make the results of other algorithms questionable?
+He went on to ask:
+If other algorithms do not give better accuracy than the baseline, what lesson should we take from it? Does it indicate that the data set does not have prediction capability?
+These are great questions, they get to the heart of why we create a baseline in the first place and the filtering power it provides.
+In this post, you will learn why we create a baseline prediction result, how to create a baseline in general and for specific problem types, and how you can use it to inform you on the data you have available and the algorithms you are using.
+Baseline Machine Learning ResultsPhoto by tracy the astonishing, some rights reserved
+When you are practicing machine learning, each problem is unique. You very likely have not seen it before and you cannot know what algorithms to use, what data attributes will be useful or even whether the problem can be effectively modeled.
+I personally find this the most exciting time.
+If you are in this situation, you are very likely collecting the data together yourself from disparate sources and selecting attributes that you think might be valuable. Feature selection and feature engineering will be required.
+During this process, you need to get some idea that the problem that you are iteratively trying to define and gather data for provides a useful base for making predictions.
+You need to spot check algorithms on the problem to see if you have a useful basis for modeling your prediction problem. But how do you know the results are any good?
+You need a basis for comparison of results. You need a meaningful reference point to which to compare.
+Once you start collecting results from different machine learning algorithms, a baseline result can tell you whether a change is adding value.
+It is so simple, yet so powerful. Once you have a baseline, you can add or change the data attributes, the algorithms you are trying or the parameters of the algorithms, and know whether you have improved your approach or solution to the problem.
+There are common ways that you can use to calculate a baseline result.
+A baseline result is the simplest possible prediction. For some problems, this may be a random result, and in others in may be the most common prediction.
+It can be a valuable use of your time to brainstorm all of the simplest possible results that you can test for your problem, and then go ahead and evaluate them. The results can be a very effective filtering method. If more advanced modeling methods cannot outperform simple central tendencies then you know you have work to do, most likely better defining or reframing the problem.
+The accuracy score you use matters. You must select the accuracy score you plan to use before you calculate your baseline. The score must be related and inform the question you set out to answer by working on the problem in the first place.
+If you are working on a classification problem, you may want to look at the Kappa statistic, which gives you an accuracy score that is normalized by the baseline. The baseline accuracy is 0 and scores above zero show an improvement over the baseline.
+It is OK if your baseline is a poor result. It may indicate a particular difficulty with the problem or it may mean that your algorithms have a lot of room for improvement.
+It does matter if you cannot get an accuracy better than your baseline. It suggests that the problem may be difficult.
+You may need to collect more or different data from which to model. You may need to look into using different and perhaps more powerful machine learning algorithms or algorithm configurations. Ultimately, after rounds of these types of changes, you may have a problem that is resistant to prediction and may need to be re-framed.
+Your action step for this post is to start investigating your next data problem with a baseline from which you can compare all results.
+If you are already working on a problem, include a baseline result and use that to interpret all other results.
+Share your results, what is your problem and what baseline are you using?
+hello, i would like to seek for your help, i currently hybridize to different algorithm to handle data security in cryptography. my code works perfectly as i want. But i do not know how to compare the hbride algorithm and each of the algorihm i combine because i would like to present the comparative result in tabular form of graphycal form. thanks for your assistance
+Sorry, I don’t know about the hbrige algorithm.
+Best of luck with your algorithm comparison.
+This is good, but I think you meant “disparate sources” rather than “desperate sources” 🙂
+Thanks, fixed.
+Sorry, but I still does not understand how to get the baseline. I am working with emotion classifications. I have 2 classes: stress and disgust. I am using two different target functions: 1) stimulus used to elicit the emotion and 2) survey responses of individuals. For the former, I have balanced class, but the latter my class are imbalanced (120 for stress and 87 for disgust). How can I compute the baseline? thanks,
+What is the problem exactly?
+Is it common to use the current state-of-the-art as the baseline?
+Generally baseline methods are very simple, like the zero rule algorithm (mean or mode outcome).
+For each group, your baseline would be to predict the most frequent class. For example predicting stress for each sample would give you 120 correct predictions and 87 incorrect predictions. You can compute the accuracy using those numbers. The idea is to see if you can build a model that is better than this base prediction
+Right on!
+Hi, I have ratings from three Time points, I decided to use the first time point as a baseline in a logistic regression. I used the rating change between time 2 and 3 as the predictor of my categorical DV.
+how should I report the results of the regression? If I wanted to look at the overall model evaluation, which likelihood ratio tests should I report?
+I don’t follow sorry. I don’t feel like I can give you useful advice.
+Perhaps discuss with your research advisor.
+Hi, I have a question. You write: “Classification: If you have a classification problem, you can select the class that has the most observations and use that class as the result for all predictions.”. I have 955 instances, male or female. The distribution is not equal. There are 495 females and 460 men. Would this give me a baseline of (495/955)*100 = 51.83. So, a baseline of 52% for predicting gender. Is this correct?
+Thanks in advance.
+Correct Bram!
+Hi Jason,
+Let’s say that we are dealing with a Fraud detection test. Then, there are other measures important (I guess sensitivity for example, because we really want to capture the people that commit fraud).
+If the classes are like this: -> Fraud YES (3%) -> Fraud NO (97%)
+Then the “majority” class make no sense as baseline (it is then 97%). So what can we use a baseline in this kind of situations? Or is it still the 97%.
+Thanks a lot!
+Predicting NO for everything is a good baseline model to beat.
+Accuracy is useless on this problem, F1, Kappa, logloss and similar would be better measures.
+In addition, in your problem, there is imbalanced dataset issue. You might want to use SMOTE to tackle this issue
+Great suggestion.
+Of the test set or train set you calculate the baseline? I can use the same technique for multiclass problems ?
+Panos, I was wondering the same thing.
+Jason, can you please clarify if baseline is calculated on the training or testing set? Thanks!
+Baseline in performance is calculated on a hold out test set.
+Hello Sir,
+Let say probability of any crime is 1%. Using accuracy as a metric, what would be a good choice for a baseline accuracy score that the new model would want to outperform?
+Thanks in advanced
+Accuracy would be a bad metric, see this post: https://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/
+Hi Jason,
+I am new to data science and is using R.
+I am working on classification problem i.e target variable is Loan Staus in Y and N.
+The training data set has this target variable but test data set does not have. The evaluation metric is Accuracy.
+I will follow the approach as below:
+1) data pre processing and feature engineering on train and test data set. 2) then combining the train and test 3) then spilt the combined data into train and test 4) build the model and check accuracy on spilted test data set.
+Now my question is..
+A) how to deal with missing target variable in test data set.
+B) if I go by imputing it with mode(Y in this case) of train data traget variable then it gives me 81:19 prop.table in combined data set. Will it not give rise to imbalanced data set problem.
+C) Does doing so will not create a chance of overfitting.
+D) how to use random generator that u described above.
+Kindly reply ASAP…
+I would recommend developing and evaluating models with the training dataset, choose a final model and make predictions on the test dataset.
+Here the test dataset is not really a test dataset, it is “unknown” data for which to must make a prediction.
+I’m tackling a prediction problem from a different perspective previously researchers used classification to predict tweets credibility but in my case i’m using regression. Since i’m the first one to do so i’m unable to find a baseline to which i can compare the viability of my model.
+I tested a variety of linear and non-linear regression models and found that random forest yielded the best results with an out of bag score of 89%.
+However, i can not find a way to create a baseline that would enable me to validate my model.
+so my question is how to create a baseline for random forest and with what metric would i compare the results (R-square, RMSE, OOB)
+A baseline is calculated as the results from a naive forecast, learn more here: https://machinelearningmastery.com/faq/single-faq/how-to-know-if-a-model-has-good-performance
+I’ve been scouring your entire website while working on a class project. Thanks for the incredibly helpful practical recommendations and clear explanations. Didn’t want to wait till after finishing my project to say your site is the single most helpful resource I’ve found online.
+Thanks, I’m glad to hear that the tutorials are useful!
+How do you write a discussion section on a baseline survey. A hypothesis is non existent in a baseline study…right? The data has been analyzed. I am just confuse about the hypothesis part in the discussion section. PLEASE HELP!!!
+The baseline is a naive method, it makes one very simple assumption.
+As a hypothesis, it should be the simplest possible explanation of how to map inputs to outputs.
+Does that help?
+Hi Jason,
+I have a multi-class problem where each input sample X (with 252 dimensions) could belong to one of 89 classes.
+The dataset does have class-imbalance, I think one of the classes (let’s call it class K) makes up ~5% of all the samples. Does this mean my baseline would be to guess ‘K’ every time, and get a baseline accuracy of 5%?
+I tried using a neural network with no hidden layers, and a softmax activation on the output. The layout was a 252 -> 89 dense layer (with softmax). This produced an accuracy of ~77% when trained for around 50 epochs.
+I was wondering if guessing ‘K’ makes sense as a baseline, or if I should use the single-layer NN with softmax?
+Many thanks for your time!
+I think accuracy would not be a good choice for your dataset. You might want to consider cross entropy, F1 score, or other alternate measures.
+Hi Jason,
+Thanks for the post!
+I have a question regarding on which dataset the baseline will be computed. For example, if I train a model on a dataset, I will need to divide the dataset into train and test sets. Then, the model performance, say a Mean Absolute Error, can be calculated on either train or test set. However, in order to make a fair comparison with the baseline, the performance metric of the baseline needs to be computed on the same dataset. This brings the question of is it ok to have baseline MAE of the training set and baseline MAE of the test set separately?
+Or else, maybe the MAE baseline can be evaluated on the whole original dataset, and the trained model should be used to predict the whole dataset another time to get a comparable MAE.
+Thanks,
+Baseline is on the test set, it is the evaluation of model skill and the point of comparison with other methods.
+Thanks for your reply. This sounds reasonable!
+Best, Tho.
+How do we calculate R2 for base line model when we have multiple independent variables and a dependent variable?
+As this is a regression problem I took central tendency mean
+If you are predicting multiple different variables, you can score each variable separately.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The EBook Catalog is where you'll find the Really Good stuff.
+>> See What's Inside
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

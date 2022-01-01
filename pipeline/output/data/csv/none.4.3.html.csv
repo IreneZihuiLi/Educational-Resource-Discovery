@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,A Gentle Introduction to Statistical Data Distributions,https://machinelearningmastery.com/statistical-data-distributions/,2,4,20,0,124,143,22.112,10.715,3162,4.675,3.704,0.203,4.918,15.542,2.657,92,0,0,machinelearningmastery,com/statistical-data-distributions,com,2

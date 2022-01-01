@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,Linear Regression for Machine Learning,https://machinelearningmastery.com/linear-regression-for-machine-learning/,2,4,17,0,216,283,20.611,18.546,5832,4.323,3.996,0.2,4.993,15.966,2.846,198,0,0,machinelearningmastery,com/linear-regression-for-machine-learning,com,2

@@ -1,0 +1,703 @@
+Statistics for Machine Learning (7-Day Mini-Course)
+Statistics for Machine Learning (7-Day Mini-Course)
+Who Is This Crash-Course For?
+Crash-Course Overview
+Lesson 01: Statistics and Machine Learning
+Lesson 02: Introduction to Statistics
+Lesson 03: Gaussian Distribution and Descriptive Stats
+Lesson 04: Correlation Between Variables
+Lesson 05: Statistical Hypothesis Tests
+Lesson 06: Estimation Statistics
+Lesson 07: Nonparametric Statistics
+The End!
+(Look How Far You Have Come)
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Statistics for Machine Learning Crash Course.
+Need help with Statistics for Machine Learning?
+1. Statistics in Data Preparation
+2. Statistics in Model Evaluation
+3. Statistics in Model Selection
+4. Statistics in Model Presentation
+5. Statistics in Prediction
+Your Task
+Your Task
+Your Task
+Your Task
+Your Task
+Your Task
+Your Task
+273 Responses to Statistics for Machine Learning (7-Day Mini-Course)
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Lesson 01
+Lesson 02
+Lesson 03
+Lesson 04
+Lesson 05
+Lesson 06
+Lesson 07
+Descriptive Statistics
+Inferential Statistics
+Mean
+Variance
+standard deviation
+Positive Correlation
+Neutral Correlation
+Negative Correlation
+Hypothesis 0 (H0)
+Hypothesis 1 (H1)
+Effect Size
+Interval Estimation
+Meta-Analysis
+Tolerance Interval
+Confidence Interval
+Prediction Interval
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 8, 2019
+Statistics is a field of mathematics that is universally agreed to be a prerequisite for a deeper understanding of machine learning.
+Although statistics is a large field with many esoteric theories and findings, the nuts and bolts tools and notations taken from the field are required for machine learning practitioners. With a solid foundation of what statistics is, it is possible to focus on just the good or relevant parts.
+In this crash course, you will discover how you can get started and confidently read and implement statistical methods used in machine learning with Python in seven days.
+This is a big and important post. You might want to bookmark it.
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Statistics for Machine Learning (7-Day Mini-Course)Photo by Graham Cook, some rights reserved.
+Before we get started, let’s make sure you are in the right place.
+This course is for developers that may know some applied machine learning. Maybe you know how to work through a predictive modeling problem end-to-end, or at least most of the main steps, with popular tools.
+The lessons in this course do assume a few things about you, such as:
+You do NOT need to know:
+This crash course will take you from a developer that knows a little machine learning to a developer who can navigate the basics of statistical methods.
+Note: This crash course assumes you have a working Python3 SciPy environment with at least NumPy installed. If you need help with your environment, you can follow the step-by-step tutorial here:
+This crash course is broken down into seven lessons.
+You could complete one lesson per day (recommended) or complete all of the lessons in one day (hardcore). It really depends on the time you have available and your level of enthusiasm.
+Below is a list of the seven lessons that will get you started and productive with statistics for machine learning in Python:
+Each lesson could take you 60 seconds or up to 30 minutes. Take your time and complete the lessons at your own pace. Ask questions and even post results in the comments below.
+The lessons expect you to go off and find out how to do things. I will give you hints, but part of the point of each lesson is to force you to learn where to go to look for help on and about the statistical methods and the NumPy API and the best-of-breed tools in Python (hint: I have all of the answers directly on this blog; use the search box).
+Post your results in the comments; I’ll cheer you on!
+Hang in there; don’t give up.
+Note: This is just a crash course. For a lot more detail and fleshed-out tutorials, see my book on the topic titled “Statistical Methods for Machine Learning.”
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+In this lesson, you will discover the five reasons why a machine learning practitioner should deepen their understanding of statistics.
+Statistical methods are required in the preparation of train and test data for your machine learning model.
+This includes techniques for:
+And much more.
+A basic understanding of data distributions, descriptive statistics, and data visualization is required to help you identify the methods to choose when performing these tasks.
+Statistical methods are required when evaluating the skill of a machine learning model on data not seen during training.
+This includes techniques for:
+Resampling techniques such as k-fold cross-validation are often well understood by machine learning practitioners, but the rationale for why this method is required is not.
+Statistical methods are required when selecting a final model or model configuration to use for a predictive modeling problem.
+These include techniques for:
+This might include the use of statistical hypothesis tests.
+Statistical methods are required when presenting the skill of a final model to stakeholders.
+This includes techniques for:
+This might include estimation statistics such as confidence intervals.
+Statistical methods are required when making a prediction with a finalized model on new data.
+This includes techniques for:
+This might include estimation statistics such as prediction intervals.
+For this lesson, you must list three reasons why you personally want to learn statistics.
+Post your answer in the comments below. I would love to see what you come up with.
+In the next lesson, you will discover a concise definition of statistics.
+In this lesson, you will discover a concise definition of statistics.
+Statistics is a required prerequisite for most books and courses on applied machine learning. But what exactly is statistics?
+Statistics is a subfield of mathematics. It refers to a collection of methods for working with data and using data to answer questions.
+It is because the field is comprised of a grab bag of methods for working with data that it can seem large and amorphous to beginners. It can be hard to see the line between methods that belong to statistics and methods that belong to other fields of study.
+When it comes to the statistical tools that we use in practice, it can be helpful to divide the field of statistics into two large groups of methods: descriptive statistics for summarizing data, and inferential statistics for drawing conclusions from samples of data.
+For this lesson, you must list three methods that can be used for each descriptive and inferential statistics.
+Post your answer in the comments below. I would love to see what you discover.
+In the next lesson, you will discover the Gaussian distribution and how to calculate summary statistics.
+In this lesson, you will discover the Gaussian distribution for data and how to calculate simple descriptive statistics.
+A sample of data is a snapshot from a broader population of all possible observations that could be taken from a domain or generated by a process.
+Interestingly, many observations fit a common pattern or distribution called the normal distribution, or more formally, the Gaussian distribution. It is the bell-shaped distribution that you may be familiar with.
+A lot is known about the Gaussian distribution, and as such, there are whole sub-fields of statistics and statistical methods that can be used with Gaussian data.
+Any Gaussian distribution, and in turn any data sample drawn from a Gaussian distribution, can be summarized with just two parameters:
+The units of the mean are the same as the units of the distribution, although the units of the variance are squared, and therefore harder to interpret. A popular alternative to the variance parameter is the standard deviation, which is simply the square root of the variance, returning the units to be the same as those of the distribution.
+The mean, variance, and standard deviation can be calculated directly on data samples in NumPy.
+The example below generates a sample of 100 random numbers drawn from a Gaussian distribution with a known mean of 50 and a standard deviation of 5 and calculates the summary statistics.
+Run the example and compare the estimated mean and standard deviation from the expected values.
+For this lesson, you must implement the calculation of one descriptive statistic from scratch in Python, such as the calculation of a sample mean.
+Post your answer in the comments below. I would love to see what you discover.
+In the next lesson, you will discover how to quantify the relationship between two variables.
+In this lesson, you will discover how to calculate a correlation coefficient to quantify the relationship between two variables.
+Variables in a dataset may be related for lots of reasons.
+It can be useful in data analysis and modeling to better understand the relationships between variables. The statistical relationship between two variables is referred to as their correlation.
+A correlation could be positive, meaning both variables move in the same direction, or negative, meaning that when one variable’s value increases, the other variables’ values decrease.
+The performance of some algorithms can deteriorate if two or more variables are tightly related, called multicollinearity. An example is linear regression, where one of the offending correlated variables should be removed in order to improve the skill of the model.
+We can quantify the relationship between samples of two variables using a statistical method called Pearson’s correlation coefficient, named for the developer of the method, Karl Pearson.
+The pearsonr() NumPy function can be used to calculate the Pearson’s correlation coefficient for samples of two variables.
+The complete example is listed below showing the calculation where one variable is dependent upon the second.
+Run the example and review the calculated correlation coefficient.
+For this lesson, you must load a standard machine learning dataset and calculate the correlation between each pair of numerical variables.
+Post your answer in the comments below. I would love to see what you discover.
+In the next lesson, you will discover statistical hypothesis tests.
+In this lesson, you will discover statistical hypothesis tests and how to compare two samples.
+Data must be interpreted in order to add meaning. We can interpret data by assuming a specific structure our outcome and use statistical methods to confirm or reject the assumption.
+The assumption is called a hypothesis and the statistical tests used for this purpose are called statistical hypothesis tests.
+The assumption of a statistical test is called the null hypothesis, or hypothesis zero (H0 for short). It is often called the default assumption, or the assumption that nothing has changed. A violation of the test’s assumption is often called the first hypothesis, hypothesis one, or H1 for short.
+We can interpret the result of a statistical hypothesis test using a p-value.
+The p-value is the probability of observing the data, given the null hypothesis is true.
+A large probability means that the H0 or default assumption is likely. A small value, such as below 5% (o.05) suggests that it is not likely and that we can reject H0 in favor of H1, or that something is likely to be different (e.g. a significant result).
+A widely used statistical hypothesis test is the Student’s t-test for comparing the mean values from two independent samples.
+The default assumption is that there is no difference between the samples, whereas a rejection of this assumption suggests some significant difference. The tests assumes that both samples were drawn from a Gaussian distribution and have the same variance.
+The Student’s t-test can be implemented in Python via the ttest_ind() SciPy function.
+Below is an example of calculating and interpreting the Student’s t-test for two data samples that are known to be different.
+Run the code and review the calculated statistic and interpretation of the p-value.
+For this lesson, you must list three other statistical hypothesis tests that can be used to check for differences between samples.
+Post your answer in the comments below. I would love to see what you discover.
+In the next lesson, you will discover estimation statistics as an alternative to statistical hypothesis testing.
+In this lesson, you will discover estimation statistics that may be used as an alternative to statistical hypothesis tests.
+Statistical hypothesis tests can be used to indicate whether the difference between two samples is due to random chance, but cannot comment on the size of the difference.
+A group of methods referred to as “new statistics” are seeing increased use instead of or in addition to p-values in order to quantify the magnitude of effects and the amount of uncertainty for estimated values. This group of statistical methods is referred to as estimation statistics.
+Estimation statistics is a term to describe three main classes of methods. The three main classes of methods include:
+Of the three, perhaps the most useful methods in applied machine learning are interval estimation.
+There are three main types of intervals. They are:
+A simple way to calculate a confidence interval for a classification algorithm is to calculate the binomial proportion confidence interval, which can provide an interval around a model’s estimated accuracy or error.
+This can be implemented in Python using the confint() Statsmodels function.
+The function takes the count of successes (or failures), the total number of trials, and the significance level as arguments and returns the lower and upper bound of the confidence interval.
+The example below demonstrates this function in a hypothetical case where a model made 88 correct predictions out of a dataset with 100 instances and we are interested in the 95% confidence interval (provided to the function as a significance of 0.05).
+Run the example and review the confidence interval on the estimated accuracy.
+For this lesson, you must list two methods for calculating the effect size in applied machine learning and when they might be useful.
+As a hint, consider one for the relationship between variables and one for the difference between samples.
+Post your answer in the comments below. I would love to see what you discover.
+In the next lesson, you will discover nonparametric statistical methods.
+In this lesson, you will discover statistical methods that may be used when your data does not come from a Gaussian distribution.
+A large portion of the field of statistics and statistical methods is dedicated to data where the distribution is known.
+Data in which the distribution is unknown or cannot be easily identified is called nonparametric.
+In the case where you are working with nonparametric data, specialized nonparametric statistical methods can be used that discard all information about the distribution. As such, these methods are often referred to as distribution-free methods.
+Before a nonparametric statistical method can be applied, the data must be converted into a rank format. As such, statistical methods that expect data in rank format are sometimes called rank statistics, such as rank correlation and rank statistical hypothesis tests. Ranking data is exactly as its name suggests.
+The procedure is as follows:
+A widely used nonparametric statistical hypothesis test for checking for a difference between two independent samples is the Mann-Whitney U test, named for Henry Mann and Donald Whitney.
+It is the nonparametric equivalent of the Student’s t-test but does not assume that the data is drawn from a Gaussian distribution.
+The test can be implemented in Python via the mannwhitneyu() SciPy function.
+The example below demonstrates the test on two data samples drawn from a uniform distribution known to be different.
+Run the example and review the calculated statistics and interpretation of the p-value.
+For this lesson, you must list three additional nonparametric statistical methods.
+Post your answer in the comments below. I would love to see what you discover.
+This was the final lesson in the mini-course.
+You made it. Well done!
+Take a moment and look back at how far you have come.
+You discovered:
+This is just the beginning of your journey with statistics for machine learning. Keep practicing and developing your skills.
+Take the next step and check out my book on Statistical Methods for Machine Learning.
+How did you do with the mini-course? Did you enjoy this crash course?
+Do you have any questions? Were there any sticking points? Let me know. Leave a comment below.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Why not R ?
+Great question, I explain why here: http://machinelearningmastery.com/python-growing-platform-applied-machine-learning/
+thank you very much
+You’re welcome.
+Thank you very much !
+I am also looking for a lotto 35 \ 48 random number generator code.
+Lotto cannot be predicted: https://machinelearningmastery.com/faq/single-faq/can-i-use-machine-learning-to-predict-the-lottery
+To understand how the ML algorithms work behind the scenes.
+To understand how ML works. To be able to work through the tutorials effectively. And to have confidence in getting my hands dirty on ML
+Great!
+To understand how to the Machine Learning algorithms work behind the scenes.
+Descriptive – Median, Standard Deviation, Mode Inferential – AUC, Kappa-Statistics Test, Confusion Matrix, F-1 Score
+Hey Aradhika.. Thanks for the valuable input. Could you let me know the URL for the course. I am unable to access the same.
+This page is the course.
+Inspired. Thank you for the deep description with practical codes. I really learnt a lot. Appreciate your work.
+I’m glad it helped.
+Why I want to learn statistics: – I’d like to understand what I’m doing while training a model and whether it makes sense: bias, assumptions, that matters a lot; – I’d like to understand the difference between classical statistical and bayesian methods; – I’d like to learn to compare models in more detail than just by looking at accuracy figures.
+Thanks Nadya!
+@ Jason: I am unable to access the link for the mini course. Could you let me know the correct URL.
+Would really appreciate it!
+What link?
+Hey Jason, seems like the link to get access course is broken. After putting in my email address the download button doesn’t do anything and just keeps my cursor spinning.
+Sorry to hear that, perhaps try refreshing your browser and try again? Or try a different browser?
+Can we also check correlation among input features using statistical hypothesis test?
+Sure.
+I would like to learn statistics to deepen my understanding of ML and have a fair background on statistics
+Great, you’re in the right place!
+Hello Jason, In response of task of lesson 02, I found: – as descriptive statistics normal (or Gaussian), binomial and Poisson distributions. – as inferential methods we have ANOVA, t-tests and regression analysis. Is it correct?
+Nice!
+Hi Jason, I did the task of lesson 03 and here’s my code to calculate from scratch a sample mean.
+Hope that’s the task you asked for.
+Nice work!
+Hi Jason, I used local iris dataset for the task of lesson 4. Bellow is my code to calculate correlation between each pair of sepal and petal variables
+Well done!
+Hi Jason, In replay to lesson 5 task, I found as statistical hypothesis test the following method:
+– The Wald test (also called the Wald Chi-Squared Test) is a way to find out if explanatory variables in a model are sognificant. “Significant” means that they add something to the model; variables that add nothing can be deleted without affecting the model in any meaningful way.
+– The Kolmogorov-Smirnov Goodness of Fit Test (K-S test) compares your data with a known distribution and lets you know if they have the same distribution.
+– Granger causality test is a way to investigate causality between two variables in a time series
+Well done!
+Hi Jason, For lesson 6 task I found that there are more than 70 effect size measures mainly grouped into two groups: – correlation family or measures of association, a.k.a r family. E.g: Pearson’s r or correlation coefficient to measure correlation between dependent variables. Eta-squared to describe the ratio of variance within dependent variables.
+– difference family or difference between groups, a.k.a d family. The computation resembles to t-test statistic without being affected by the sample size. Which is not the case of t-test statistic. E.g: Cohen’s d defined as the difference between two means for two independent samples divided by standard deviation for the data.
+Nice work!
+Hi Jason, The three additional nonparametric statistical methods, in reply to lesson 7 task, that I found are:
+Anderson-Darling test: tests whether a sample is drawn from a giving distribution
+Cochran’s Q: tests whether k treatments in randomized block designs with 0/1 outcomes have the identical effects
+Kendall’s tau: measures statistical dependence between two variables
+Thanks.
+Thanks to you Jason. I really enjoyed your mini course. It give me the quick introduction that I look for to that field. Thanks again.
+Thanks.
+I have done all the basic Machine Learning and Deep Learning from Andrew Ng’s courses, but now I’ve got an internship and it is more focusing on data analytics and getting insights from the dataset. Hence I want to learn the statistics.
+Thanks!
+1) I have a specific business problem I’d like to solve that involves ML and I know statistics is important for this (not just because you said so, Jason). 2) I’ve always found statistics dry due to the way its taught in classrooms, with little context and requiring a lot of procedural memorization. I’m encouraged to learn a deeper understanding will give me the opportunity to solve a relevant problem, increasing my motivation to learn more. 3) I want to be able to better speak the language of data for business intelligence reasons
+Thanks Sean.
+Such a beautiful article. Thanks jason for helping the machine learning community.
+Thanks, I’m glad it helped.
+Day1 task: list three reasons why you personally want to learn statistics.
+1) I am interested in learning machine learning and its implementation in the real-world scenarios
+2) As you mentioned in 1st day, how the statistic is used in all phases of machine learning
+3) Only knowing ML algorithms is not enough, according to me statistics is also important to get useful insights from data.
+Thanks!
+3 Reasons that made me want to learn statistics:
+1. I currently have a deep learning project for an internship. Statistics are essential for machine learning and machine learning is essential for deep learning. See how it goes? ;D
+2. I study computer science, learning what statistics is all about (in general) will help me broaden my mind in other scientific fields out of programming.
+3. I currently suck at math, learning a subset field of math will gradually make me one step better at them.
+Thanks Floris!
+I will like to this book or a down load
+You can learn more about the book here: https://machinelearningmastery.com/statistics_for_machine_learning/
+1. I have to prepare model presentation to stackholders 2. I need to sell sw solution that include machine learning models 3. I’m an engineer
+Thanks!
+Answer to your lesson 2. Descriptive: frequency, central tendency, variation.. Inferential: Variance (ANOVA), Analysis of Covariance (ANCOVA), regression analysis
+Nice work!
+Answer to your lesson 3 (i hope this is right):
+Nice!
+Hi Jason, this is the core of code for your question number 4 (i only include the final calculation considering in datas al the informations already structured.
+Nice work.
+Jason, my answer for lesson 05: Z-test that use sample and population mean and sample and population standard variation to verify the null Hipothesys, is the sample mean the same than the population mean?
+Anova compare differences between three or ore sample. Null hipothesys is all smaple means are equal
+Chi square test compare categorical variables and if a sample match a population. Null hipothesys is variable a and b are independent (a sample match a population)
+Nice work.
+Task for lesson 06:
+There are two types of statistics that describe the size of an effect.
+The first type is standardized, this type remove the units of the variables in the effect.
+The second type is simple and describe the size of the effect, but remain in the original units of the variables.
+Comparing the mean temperature under two different conditions.
+The simple effect size would be the difference in the mean temperature in degrees Celsius.
+The standardized effect size statistic would divide that mean difference by the standard deviation.
+So if you have two conditions for temperature simple effect size would result in the mean temperature in condition 1 is 23 degres higher than in condition 2. Standardized effect size would result in the mean temperature in condition 1 is 1.8 standard variation higher than in condition 2.
+I hope this is the correct
+Thanks.
+Lesson 07:
+1) Kruskal–Wallis test of the hypothesis that several samples are from the same population. This test is a multisample generalization of the two-sample Wilcoxon (Mann–Whitney) rank-sum test.
+2) Cusum graphs the cumulative sum (cusum) of a binary (0/1) variable, yvar, against a (usually) continuous variable, xvar.
+3) Trend test performs a nonparametric test for trend across ordered groups
+There any many others methods. Thanks for this course that has been very useful for me. I was searching for something that helps me to understand basic for machine learning
+Very well done, thanks for posting all of your answers!
+Lesson 1:
+1) I have always had some curiosity on AI and how it work.
+2) Machine learning has such a big field for its uses.
+3) This is one of the fields of computer science that I like the most.
+4) Knowing that there are some things you can really predict with certain amount of accurary is something that I would definitely want to know (bonus)
+Nice work!
+Lesson 2:
+Descriptive statistics:
+* Dispersion * Standard Deviation * Kurtosis and Skewness
+Inferentia statistics:
+* Analysis of Covariance (Ancova) * Factor Analysis * Cluster Analysis
+Well done!
+I am interested in learning statistics as I was always fascinated by how statistics can be made use of in machine learning.
+Thanks!
+Descriptive Statistics:
+1. Mean, median, mode 2. Skewness and kurtosis 3. Variance and standard deviation
+Inferential Statistics:
+1. Estimation 1. Maximum likelihood estimation 2. Density estimation 2. Hypothesis testing 3. Confidence intervals
+Well done!
+Hi Jason, thanks for spreading the knowledge. Day 1: 1. I like to work across different disciplines and stat is the crux to understanding or discover insights from any data. for one descriptive stat, central tendency and much more 2. to understand data interpretability at depth. As stat is the interpretive language of understanding data. 4. understand to apply right method to the right kind of data.
+Thanks for sharing!
+#Lesson 2 #For this lesson, you must implement the calculation of one descriptive statistic from scratch in #Python, such as the calculation of a sample mean.
+#I applied this sample with Iris dataset:
+import numpy as np import math from sklearn import datasets iris = datasets.load_iris()
+#Attributes #1. sepal length in cm #2. sepal width in cm #3. petal length in cm #4. petal width in cm
+X = iris.data print(X.size) print(X.shape)
+#column 0..all lines sepal_lenghts = X[: , 0]
+print(sepal_lenghts.size) print(sepal_lenghts.shape)
+#same thing was done above sepal_width = X[:,1] petal_lenght = X[:,2] petal_width = X[:,3]
+#Calculate the mean, variance and standard deviation “by hand”! ————-## #Mean “by hand” ——————-## def mean_by_hand(data): i_arr_summation = 0 for x in np.nditer(data): i_arr_summation += x
+size_data = data.size mean_data = i_arr_summation / size_data return mean_data
+#Variance “by hand” ——————————————————-### def variance_by_hand(data, mean_data, n_data): sum_var = 0 for x in np.nditer(data): i_var = x – mean_data #variance (xi – mi) i_var *= i_var # ^2 sum_var += i_var #summation variance = (1/n_data) * sum_var return variance
+#Standard deviation “by hand”. Are you serious?! ————————–#### def standard_dev_by_hand(variance): standard_dev = math.sqrt(variance) #or variance**0.5 return standard_dev
+#Calling the functions to calculate mean, var and std ———–############## #Mean ————————————————#### mean_sepal_lenghts = mean_by_hand(sepal_lenghts) print(“mean sepal_lenght:”, mean_sepal_lenghts) print(“NUMPY mean sepal_lenght:”, np.mean(sepal_lenghts))
+#Variance ————————————————#### n_sepal_lenghts = sepal_lenghts.size var_sepal_lenghts = variance_by_hand(sepal_lenghts, mean_sepal_lenghts, n_sepal_lenghts) print(“var sepal_lenght:”, var_sepal_lenghts) print(“NUMPY var sepal_lenght:”, np.var(sepal_lenghts))
+#Standard deviation————————————–#### std_sepal_lengths = standard_dev_by_hand(var_sepal_lenghts) print(“std sepal_lenght:”, std_sepal_lengths) print(“NUMPY std sepal_lenght:”, np.std(sepal_lenghts))
+Corrected: #Lesson 03: Gaussian Distribution and Descriptive Stats
+Nice work!
+#lesson 4: Correlation between variables #I applied this sample in Iris dataset, specifically in atts sepal_lenght and sepal_width to #discover if they are correlated or not
+import numpy as np from sklearn import datasets iris = datasets.load_iris()
+# calculate correlation coefficient from numpy.random import seed from numpy.random import randn from scipy.stats import pearsonr
+#Attributes #1. sepal length in cm #2. sepal width in cm #3. petal length in cm #4. petal width in cm
+X = iris.data print(X.size) print(X.shape)
+#column 0..all lines sepal_lenghts = X[: , 0] sepal_width = X[:,1]
+print(sepal_lenghts) type(sepal_lenghts) print(sepal_lenghts.shape) print(sepal_lenghts.size)
+print(sepal_width) type(sepal_width) print(sepal_width.shape) print(sepal_width.size)
+# calculate Pearson’s correlation corr, p = pearsonr(sepal_lenghts, sepal_width)
+# display the correlation: in this case, NEGATIVE CORRELATION print(‘Pearsons correlation: %.3f’ % corr)
+Thanks for sharing!
+Hi! #Lesson 1 List three reasons why you personally want to learn statistics? 1- recently I understand, machine learning based on estimation and Probabilities. this encourage me to learn statistic. 2- Statistics give me insight for better understanding data. 3- Machine learning solve the real problem in the world, and in real problem are based on Statistic.
+Nice work!
+Hi Lesson1 : 1. I am interested to learn the underlying statistics in Machine Learning 2. It helps me to become good data scientist 3. Even if new models come up in ml, the stats doesn’t change so I can upgrade myself easily.
+Thanks for sharing!
+Hi Jason, Lesson1: List 3 reasons why you personally want to learn statistics 1. I’m always looking for new, easy to follow, yet comprehensive statistics exercise 2. I’m interested in learning about Machine Learning with examples 3. Hopefully i can apply some aspect of it towards my dissertation in geosciences. Thank you,
+Well done!
+Hi Jason
+Lesson #1
+I want to make a better link between statistics and ML.
+I have already recently followed a MOOC on Statistics with R (a post about my personal usage of statistics and R as a result of this course in http://questioneurope.blogspot.com) and I wand to complete the course with yours.
+Kind regards, Dominique
+Thanks for sharing.
+Hi Jason,
+Lesson #2
+Descriptive statistics methods : a) Spearman correlation: for non Gaussian b) Fisher test: to obtain the odd ratio c) Chi2 test: for observations of large size.
+Inferential statistics methods: a) multiple linear regression b) logistic regression c) Principal Component Analysis (PCA)
+Kind regards, Dominique
+Well done!
+Hi Jason,
+Lesson #3
+# calculate summary stats from numpy import mean from numpy import var from numpy import std
+# create a simple list mylist=[1,2,3,4,5,6,7,8,9,10]
+# calculate statistics print(‘Mean: %.3f’ % mean(mylist)) print(‘Variance: %.3f’ % var(mylist)) print(‘Standard Deviation: %.3f’ % std(mylist))
+Question: how do you insert the nice snippet of code in the comment?
+Thanks, Dominique
+Well done!
+You can use the PRE html tag.
+Dear Jason,
+Lesson #4 Correlation.
+I am using the red wine quality dataset.
+The results for correlation are:
+Pearsons correlation between quality and alcohol is: 0.476 Pearsons correlation between quality and sulphates is: 0.251 Pearsons correlation between quality and chlorides is: -0.129
+The code is below:
+Well done!
+Hi Jason,
+Lesson #5 Statistical Hypothesis Tests.
+List three other statistical hypothesis tests that can be used to check for differences between samples:
+Mann-Whitney (Wilcoxon) test: compare two means from two samples which are independent or paired. in R language: Wilcox.test() Fisher test : is a way to test if the observed frequencies on two samples are identical. Only for sample of small size. This test is a way to know the odd-ratio. In R: fisher.test() For the samples of big sizes, the chi-2 test can be used. In R: chisel.test()
+Nice work.
+Hi Jason,
+Lesson #6 Estimation statistics
+For the relationship between variables: Pearson or R2 (coefficient of determination)
+For the difference between samples: Cohen’s , odds ratio (OR) or Relative Risk (RR) ratio. OR and RR can be computed by the function twoby2 in R.
+Thank you very much Dominique
+Well done!
+Hi Jason,
+Lesson #7: non parametric statistical method
+3 examples of non parametric statistical method: a) Spearman: if any of the variables is in a normal law b) MCNemar: need observations at different epochs on the same candidates c) Kaplan-Meier used for survival estimation
+Kind regards,
+Dominique
+Well done!
+I would like to learn statistics because it will help me improve my data preparation and model evaluation skills.
+Thanks!
+Lesson #2: Descriptive Statistics methods: Measures of central tendency, and Measures of spread. Inferential Statistics methods: Estimation of the parameter(s), and testing of statistical hypotheses.
+Nice work.
+Lesson #3:
+Well done, great use of modern string formatting!
+Lesson #4:
+Great progress!
+I have finished the Day01 course. and the reasons why I need to study statistics for ML are: 1. To understand the various concepts such as Distribution of data, how it varies with the data, how the distribution changes with the data. 2. To understand ML Concepts better. 3. To gain knowledge about theses concepts.
+Well done.
+Lesson #5 Another 3 statistical hypothesis tests are: – Z-Test; – ANOVA; and – Chi-Square Test.
+Well done!
+Lesson #6 Two of the methods for calculating the effect size: – Pearson r correlation; and – Cohen’s d effect size.
+Great work!
+Lesson #7: 3 other nonparametric statistical methods: – Wilcoxon Signed-Rank Test; – Kruskal-Wallis H Test; and – Friedman Test.
+Excellent.
+Lesson #2 Descriptive statistics Central tendency Skewness Correlation
+Inferential Statistics Statistical significance Confidence intervals Hypothesis Testing
+Nice work!
+I am trying to learn the ML from different channel and and my finding statistics conceptual knowledge is at very low level.
+1. I want to enhance my stats learning skill using this course. 2. Time matters to me a lot and so the course duration as mentioned by you matters a lot 3. Concept clarity and connecting back to real world challenges is very important and your commitment in course description brings me here..
+Thank you!
+Hi Jason,
+Thank you for this course focusing on statistics in ML. When you talk about calculate correlations between variables, I have two questions:
+1. I understand multicollinearity damage some algorithms’ performance, like linear regression. I wonder does multicollinearity also badly influence non-linear algorithms? 2. A more practical question, when we detect some variables are highly correlated, what should we do? For each pair of correlated variables, usually which one we should consider delete? Do we have some standard to remove multicollinearity?
+Thank you in advance!
+You’re welcome.
+Depends on the algorithm. Sometimes yes, generally, no.
+Try removing redundant inputs and compare model performance on raw vs transformed data. PCA is a super easy way to do this.
+Thank you for your answer Jason. To follow up your second answer: for example, by calculating person correlation coefficients, I found multiple variables are highly correlated each other, how can I determinate which one(s) are the redundant ones and keep the representative one? Also for PCA, do you mean using PCA to deduce the dimension and turn the variables to principle components? Thanks!
+Yes, I believe the common approach it to score the correlation of each variable with all others and remove a subset of the most correlated. I don’t have a worked example.
+Yes, PCA will create a projection of the dataset with linear dependencies removed.
+Thank you Jason, it is very helpful.
+You’re welcome.
+Hi Jason,
+Thank you for your probability course, I found it is very useful to help me understand ML algorithms. You mentioned two metrics: log loss and Brier score, and I understand that we can use them instead of Accuracy when we output probability in the classification problem. I have two questions regarding them:
+1. I wonder for classification problems, when should we output class labels (use accuracy as metric) and when should we output class probability (then use log loss and Brier score as metric)? You mentioned that the probability can provide additional nuance for the predictions, do you mean this way is better?
+2. What are the differences between log loss and Brier score from the application point of view?
+Thank you very much in advance!
+You’re welcome, I’m happy to hear that.
+Good question – the problem requirements or project goal will dictate what to predict, e.g. labels or probability. If not, it might be a fake/toy/practice problem and you can make it up.
+Probability is not better, it is different. It shares uncertainty which is useful in some domains and not in others.
+The difference is here: https://machinelearningmastery.com/probability-metrics-for-imbalanced-classification/
+Great questions!
+Thank you Jason, very helpful like always!
+You’re welcome.
+Hi Jason, what does fake/toy/practice problem mean?
+Not a real problem – e.g. you are just using it to learn and there are no project stakeholders concerned with the success/failure of the project.
+I want to learn data science so for that statistics is an important pillar or part to be an expert with
+Thanks!
+Lesson 1: 1. I am getting a good vibe and understanding of ML. Want to explore it properly 2. Stats is what i feel is very much imp from job perspective also 3. Your platform has helped me several times and will also help me in better understanding the future concepts of stats
+Thanks.
+Lesson 1
+1. There had been number of statistical formulas in data pre-processing and for building models and evaluation. Such formulas are spread across everywhere through out data mining and machine learning that pushed me to look into statistics and take this mini-course. 2. I like to understand and measure data distribution as each kind of distribution changes the nature of the problem we handle. I hope statistics will help to quantify and measure few interesting features of distributions. 3. Like to go in depth on statistic understand them better.
+Nice work!
+Lesson 2
+1. Descriptive Methods: Mean, Median, Mode, Range, Frequency describing the shape , center and spread.
+2. Inferential Methods: Hypothesis testing, t-test, ANOVA, F-test, Correlation (chi-square)
+Great work.
+I want to learn statistics because, 1. I’ve recently gained interest in Data Science and statistics seems to be a big part 2. it will help me understand and implement the correct ML models 3. it will make me more confident, knowing the dataset in its entirety
+Thanks!
+Descriptive Statistics is used to summarize data and represent it with a single value. Some common descriptive statistics tools are -> mean, standard deviation and variance.
+Inferential Statistics is used to study the data and reach a conclusion. Methods that help in obtaining inferences are -> correlation, hypothesis testing (Z, t, F tests), ANOVA
+Nice work!
+#Day 3!
+import numpy as np from numpy.random import seed from numpy.random import randn
+seed(1) def calc_mean(data): return sum(data)/len(data)
+data_set = 5 * randn(10000) + 50 data_mean = calc_mean(data_set) print(“%.4f” % data_mean)
+#Also it is very commendable how you reply to every single comment. It’s very kind of you.
+Well done!
+#I didn’t know what standard dataset meant so I picked up the Titanic Survival dataset on #Kaggel
+import pandas as pd import numpy as np from scipy.stats import pearsonr
+data_set = pd.read_csv(“train.csv”)
+print(data_set.head())
+survived = data_set[‘Survived’] #value represents whether the passenger survived the #sinking of Titanic. This is the target variable
+pclass = data_set[‘Pclass’] #the class of ticket bought sibsp = data_set[‘SibSp’] #number of siblings parch = data_set[‘Parch’] #number of parental figures
+corr_coeff, p = pearsonr(survived, pclass) print(“Correation between Survived and Pclass: %.4f” % corr_coeff)
+corr_coeff, p = pearsonr(survived, sibsp) print(“Correation between Survived and sibsp: %.4f” % corr_coeff)
+corr_coeff, p = pearsonr(survived, parch) print(“Correation between Survived and parch: %.4f” % corr_coeff)
+#Only survived and parch had a positive correlation, 0.0816
+Well done!
+#Day 5
+Other tests for hypothesis testing:
+1. Z-test : Similar to the t-test but used when sample size is greater than 30 2. Chi-square test : It is used to perform hypothesis testing on categorical data 3. ANOVA : If we are comparing more than 2 means/sample parameters, ANOVA is used
+Well done!
+Going through you very helpful article about estimation statistics and calculating effect size, methods to find effect size are,
+1. Calculating Pearson’s coefficient of correlation 2. Cohen’s d
+Nice!
+Final day, day 7!
+Nonparametric statistical methods can be divided into two categories,
+1. Calculating correlation based on ranks: Spearman’s correlation coefficient; Kendall’s correlation coefficient 2. Comparing sample means: Mann-Whitney’s U test; Kruskal-Wallis H test
+Jason, I just want to thank you a lot for this course. I’m gonna keep building on this and become a great data scientist. Thanks a lot.
+Well done!
+Lesson 2: descriptive statistic: mean, median, variance, histogram, scatter-plot inferential statistic: significance, hypothesis testing, confidence interval, clustering
+Well done!
+Hi Jason I’m learning so much with your blog. Answering the lesson2. Descriptive methods are: mean, mode, Standard deviation. Inferential methods are: Hypothesis tests, confidence interval, regression analysis. Is it correct? Thanks and Regards
+Nice!
+Hi Jason,
+Lesson 3: “from scratch”
+# 17.06.2020/na # without error handling! import numpy as np zahlen = [float(element) for element in input(“Type the values (comma delimited):”).split(“,”)] print(“Values :”,zahlen) print(“Mean :”,np.mean(zahlen)) print(“Variance:”,np.var(zahlen)) mean_s = np.sum(zahlen)/len(zahlen) print(“Mean from scratch :”, mean_s ) var_s = np.sum((zahlen – mean_s)**2)/len(zahlen) print(“Variance from scratch:”, var_s)
+Thanks Béla
+Well done!
+Hello Jason – Thanks for your efforts. Day 1 – 3 reasons why this Course on Statistics 1. I feel that to do a good job at Data Analysis – Statistics is a must 2. While I am confident on the rest of the stuff – Statistics is my weak point. Need to improve. The problem is I have read boring books on Statistics – with the Mathematics Wiz in mind. I am looking at some thing that is Crisp, to the point and ML Focussed. 3. I feel you are doing a good job based on my reviews and hence want to give this a shot!.
+Regards,
+Well done!
+Day 2: Descriptive Statistics – Mean, Mode, Variance Inferential Statistics – z score, Regression, T Tests
+Nice work!
+1) I want to learn ML and for ML statistic is important. 2) I am a BI developer and I want to upgrade my skill. 3) for solving business ML problem, So I want to learn Statistics.
+Thanks!
+data [58.12172682 46.94121793 47.35914124 … 44.92928092 49.68651887 42.81065054] Mean: 50.049 Variance: 24.939 Standard Deviation: 4.994
+This is what I got out of Lesson 3 (Delayed. Catching up). Thanks.
+Nice work!
+For Day 4 got this Pearsons correlation: 0.888
+Well done.
+Day 5: • One Sample Z Test • TI 83 • Chi square test
+Hypothesis Testing – other methods
+Well done.
+Hi Jason, Day 4:
+from pandas import read_csv # load dataset dataset = read_csv(‘pollution.csv’, header=0, index_col=0) # correlation Pearson ccc = dataset[[‘pollution’,’wnd_spd’,’press’,’temp’,’dew’]].corr(method=’pearson’) print(‘ccc:’,ccc)
+ccc: pollution wnd_spd press temp dew pollution 1.000000 -0.234362 -0.045544 -0.090798 0.157585 wnd_spd -0.234362 1.000000 0.185380 -0.154902 -0.296720 press -0.045544 0.185380 1.000000 -0.827205 -0.778737 temp -0.090798 -0.154902 -0.827205 1.000000 0.824432 dew 0.157585 -0.296720 -0.778737 0.824432 1.000000
+Well done!
+Hi Jason, Day 5:
+other statistical hypothesis tests:
+Dean&Dixon Q-Test Grubbs’s Test (outliers) F-Test (variance) Wilcoxon-Test Kolmogorow-Smirnow-Test Chi-Square-Test
+Great work!
+its very nice book very effective in machine learning beginner
+Thank you!
+Hi Jason, Day 6:
+effect size:
+Correlation between two variables (Pearson r)
+Differnce between two means (Cohen’s d)
+Nice work!
+Hi Jason, Day 7:
+Nonparametric:
+Median Test Skew Test Levene Test
+Nice work!
+Hi Sir, Day 1 1. I want to learn ML deeply so for me statistics is important. 2. In dealing with big data, to gain insights i think statistics plays an important role. 3. Also in data science and data analytics, statistics is more important I think.
+Thank you.
+Thanks!
+Hi Sir, Day 2
+For Descriptive statistics – Mean, Median and Mode For Inferential statistics – Confidence interval, T-test and Linear regression analysis
+Thank you
+Nice work!
+My reasons to learn statistics
+Visualization and exploratory analysis. I want to choose the best tools to clearly describe my conclusions visually to a universal audience.
+I want to ensure my data is perfectly prepared for my intended model. I need normalization techniques, feature engineering and more statistical methods!
+I also want to learn more about sampling techniques and uses because this has a vast field of application.
+Thanks!
+Descriptive Mean, correlation, standard deviation
+Inferential T test, Z-score, regression analysis
+Well done!
+Great work!
+hello sir, Day 5
+1. F-Test 2. Analysis of Variance 3. Chi-square Test
+Thank you.
+Well done.
+Pearson Correlation Coefficient
+## Real world example import pandas as pd from scipy.stats import pearsonr import matplotlib.pyplot as plt
+# Load data covid_data = pd.read_csv(‘us-counties.csv’)
+# Explore the raw data print(covid_data.head()) print(“\nColumns:”, len(covid_data.columns)) print(“Rows:”, len(covid_data)) print(‘\n’, covid_data.describe())
+# Calculate Pearson’s correlation corr, p = pearsonr(covid_data[‘cases’], covid_data[‘deaths’]) print(“\nPearson’s correlation:”, corr)
+# Plot cases vs deaths fig_covid, ax_covid = plt.subplots() ax_covid.plot(covid_data[‘cases’], covid_data[‘deaths’], ‘r.’)
+Well done!
+Hi sir, Day 6 1. Pearson’s correlation coefficient 2. Cohen’s d Thank you
+Well done!
+Hi Sir, Day 7,
+1. Spearman’s rank-order correlation 2. Wilcoxon Signed-Rank Test 3. Chi-Square Test
+Thank you.
+Well done!
+Day 5, Statistical Hypothesis Tests
+Pearson’s Correlation Coefficient Analysis of Variance D’Agostino’s K^2 Test
+Nice work!
+Edit on my last comment
+Remove Pearson’s Correlation Coefficient from the list –
+Add Chi-squared Test
+Day 6, Estimation Statistics
+R^2, Coefficient of Determination. Useful in machine learning as a performance metric. R^2 value close to zero indicates poor model performance, and R^2 value close to one indicates good performance.
+Cohen’s d. Useful in explaining the different about the mean of two normally distributed datasets. It is phrased in terms of the standard deviation.
+Well done!
+Day 7, Nonparametric Statistics
+Quantile regression Kruskal-Wallis Friedman test
+Great work!
+Hi Jason,
+1. Statistics in Data Preparation 2. Statistics in Model Evaluation 3. Statistics in Model Selection 4. Statistics in Model Presentation 5. Statistics in Prediction
+I want to learn all the above five techniques. Actually, one of my Ph. D friends in US is working in some projects on Computational Biology (e.g. on Cancer Research and COVID-19). He has sound knowledge of Mathematics as he is a Ph.D in Physics. But he is not very comfortable in Programming and ML. So he asked me if I can help him in data analysis and prediction.
+I, on the other hand, have proficiency in programming (C, C++, Java and basic Python). I am learning ML which, I think, requires good skill of linear algebra, multivariate calculus and statistics. I learned these maths during my 3-year degree course in college during 1968-1971. So I have to refresh that maths skill, particularly with reference to ML.
+Looking forward to get guidance from you.
+Amal
+Well done!
+That sounds great. I’m here to help if you have any questions.
+lesson 1 Reasons I want to learn statistics:
+1. I am new to ML techniques and algorithms and they are either fully borrowed from or heavily rely on statistics. 2. It will surely help me brush up my skills in statistics. 3. It has applications in other fields also, so fair deal to learn.
+Thanks!
+Hello Jason
+Task for Lesson 1:
+1. To get a deeper understanding the working of Machine Learning techniques.
+2. Gain more knowledge.
+3. To understand when to use which statistical test and why, during data analysis pipeline.
+Well done!
+Day 2: Introduction to Statistics
+Descriptive Statistics: Mean , Variance , Median
+Inferential Statistics: ANOVA, chi-square and t-test.
+Well done!
+Thank you and again thank you, for such useful environment for people who are interested and want to learn more in details in this field.
+3 reason ‘Why I am interested in this course’:
+I am a AI researcher and working on different projects with real world data. We receive data. 1-We have to see should we use regression or classification? Should we use deep learning? 2- Are our samples size enough? Or what is minimum sample size in our case? 3-Then we have to select the best model. So I need to compare different standard model (e.g. regression models). Apply cross_val_score and compare their MAE,MSE,RMSE.
+Then there comes some issues such as if my samples size is 12 then I cannot use ‘r2’ score (because 12 is an small size). In such case I want to know if/how can I solve sample size problem? What details and points should I consider in order to find the best model. And what are statistics that helps me to choose the best way of resembling for my problem.
+seems more than 3 reasons;)
+Thanks in advance
+Thanks for sharing!
+Dear Jason
+Why I am Interested in this learning.
+1. To get a deeper understanding and get a brief explanation on machine learning statistical test.
+2. To understand how each algorithm work in predictive analytics
+3. To understand how to select the best model and validate the model.
+Thanks!
+Day 1:
+I am always working with data within my field of specialty:
+I want to learn statistics for:
+1. Prepare, validate and describe the data for analysis and modeling. 2. Checking the difference of the results. 3. Building a prediction model and variability of the results.
+Thanks!
+1. To understand, ML based on estimation and Probabilities. This encourage me to learn statistic. 2. Statistics give me insight for better understanding data. 3. ML solve the real problem in the world, and in real problems are based on Statistic.
+Nice work!
+Lesson #1
+1. To understand how to decide if an algorithm beats the current gold standard. 2. To help me learn to use machine learning approaches and understand how to test them. 3. Practice at programming!
+Well done!
+Lesson #2
+Descriptive statistics: a) Mean b) Standard deviation c) Standard Error
+Inferential statistics methods: a) Z score b) logistic regression c) T tests
+Great work.
+3 reasons: 1. Interpretation of charts is just not possible without learning these facts 2. Model selection based on input data is difficult 3. Not able to proceed in Machine Learning
+Well done!
+Lesson #1
+1. To find out why “Lies, damned lies, and statistics” is inaccurate(https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics); 2. To attempt try to understand how precision can be brought to imprecision; 3. For Joy.
+Nice!
+#Lesson 2
+Descriptive Stats: 1. Measures of central tendency – Mode, Mean, Median 2. Graphical methods, Histograms, Boxplots, Scatter Diagrams 3. Measures of variability and data spread
+Inferential Stats: 1. Determine a method from inferring from a sample to a population 2. Hypothesis Testing 3. Parameter estimation
+Well done.
+Lesson #3
+import numpy as np
+np.random.seed(29) sample = np.random.randint(100, size=1000)
+mean = sum(sample)/len(sample) var = sum((x-mean)**2 for x in sample)/len(sample)
+print( f’mean={mean}, variance={var}’) print( f’np.mean={np.mean(sample)}, np.variance={np.var(sample)}’)
+Nice work!
+#Lesson 04
+import pandas as pd
+wine_df = pd.read_csv(‘winequality-white.csv’, sep=’;’) wine_df.corr(method=’pearson’)
+Well done!
+#Lesson 5
+1. Shapiro-Wilk Test – Variable Distribution Type Tests (Gaussian) 2. Chi-Squared Test – Variable Relationship Tests (correlation) 3. Mann-Whitney U Test – Compare Sample Means (nonparametric)
+Nice work!
+#Lesson 6
+Effect size is a statistic that measures the strength of the relationship between two variables on a numeric scale.
+1. Pearson r correlation: 2. Standardized means difference
+Well done!
+#Lesson 7
+1. Anderson–Darling test 2. Cochran’s Q
+Great work!
+Data preparation Model evaluation Model selection
+Nice work.
+Lesson 3
+Used the wine dataset too. Code below…
+from numpy import mean import pandas as pd
+df = pd.read_csv(“wine.csv”) print(mean(df[“Alcohol”]))
+Well done!
+Hello Hason,
+I have read a bunch of your articles on machine learning. They are a great help to me in both understanding the basic concepts and implementing ML experiments.
+Here I would like to list names of 5 non-parametric tests: 1. Wilcoxon signed-rank test 2. Kruskal-Wallis H-test 3. Ansari-Bradley test 4. Bartlett’s test 5. Mood’s two-sample test
+Great work!
+I like to know the concept of the ML before start it. I think this lesson will help me to achieve this
+Thanks.
+Hello Jason, Thank you for the fascinating course. Day1: 1- One of human’s innate desires is to take control of his/her environment. This will not be possible without the knowledge of statistics. I think the most reliable tool to understand nature is statistics. 2- Statistics provide me with a pipeline to translate my understanding of biology to a practical model. 3- Realizing the vital role of data collection and predictive models (e.g. global warming), I’ve found statistics the most essential skill to have. 4- I think statistics and logic are the birds of same feather and logical reasoning is a technic that everyone uses in daily life.
+Well done!
+Lesson #1
+1. To understand ML 2. To advance mathematical knowledge 3. To become a better data engineer
+Great work!
+I need statistics for the following results 1. Understand the data am collecting 2. Am enroll on a phd program and i have to build a model and do some predictions 3. Become a data scientist
+Well done!
+Descriptive Statistics: 1.Visualizing the data through Histogram, bar chart, 2. Calculation of frequencies 3. Evaluation of samples and population means Inferential 1. Testing hypothesis 2. Analyzing samples 3. Parameter estimation
+Great work!
+Hi Jason,
+Three reasons why I want to learn statistics
+1. It is the very basic necessity to understand Machine Learning. 2. Your way of teaching is precise and unique which evokes more interest in Machine Learning. 3. I am moving from Database to Data Science, and I need this as this is the corner stone.
+Thank you.
+Well done!
+Lesson 02: Introduction to Statistics
+1. Methods in Descriptive Statistics a) the distribution b) the central tendency c) the dispersion 2. Methods in Inferential Statistics a) Hypothesis Testing b) Confidence Intervals c) Comparison of Means
+Nice work!
+Lesson 03: Gaussian Distribution and Descriptive Stats:
+from numpy.random import randn from numpy import mean data = randn(10000) ave=sum(data)/len(data) print(‘Mean: %.10f’ % ave)
+Well done.
+Lesson 04: Correlation Between Variables
+Method1: Using pearson correlation on the dataset from pandas import read_csv from scipy.stats import pearsonr # load dataset url = ‘https://raw.githubusercontent.com/jbrownlee/Datasets/master/housing.csv’ housingDf = read_csv(url, header=None) housingDf.corr(method=’pearson’)
+If we want to build from scratch: l=housingDf.shape[1] Matrix = [[0 for x in range(l)] for y in range(l)] for i in range(0,l): for j in range(0,l): data1=housingDf[i] data2=housingDf[j] corr, p = pearsonr(data1, data2) Matrix[i][j] = “{:.6f}”.format(corr)
+Matrix
+Well done.
+Analysis of variance Test( ANOVA): To check if the means of two or more groups are significantly different from each other One sample t-test: The mean of a single group is compared with a given mean. Paired T-Test: Test for difference between two variables from the same population
+Nice work!
+Lesson 06: Estimation Statistics
+The two methods for calculating the effect size in applied machine learning are 1. Association. The degree to which two samples change together. 2. Difference. The degree to which two samples are different. https://machinelearningmastery.com/estimation-statistics-for-machine-learning/
+Well done.
+Lesson 07: Nonparametric Statistics
+Three additional non parametric statistical methods are: 1. Wilcoxon Signed-Rank Test. 2. Kruskal-Wallis H Test. 3. Friedman Test.
+Well done!
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

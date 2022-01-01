@@ -1,0 +1,141 @@
+Discrete Probability Distributions for Machine Learning
+Discrete Probability Distributions for Machine Learning
+Tutorial Overview
+Discrete Probability Distributions
+Bernoulli Distribution
+Binomial Distribution
+Multinoulli Distribution
+Multinomial Distribution
+Further Reading
+Summary
+Get a Handle on Probability for Machine Learning!
+Navigation
+Main Menu
+Want to Learn Probability for Machine Learning
+Books
+API
+Articles
+12 Responses to Discrete Probability Distributions for Machine Learning
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Update Oct/2020
+Binary Random Variable
+Categorical Random Variable
+PMF
+CDF
+PPF
+Binary Random Variable
+Sequence of a Binary Random Variable
+Categorical Random Variable
+Sequence of a Categorical Random Variable
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on October 6, 2020
+The probability for a discrete random variable can be summarized with a discrete probability distribution.
+Discrete probability distributions are used in machine learning, most notably in the modeling of binary and multi-class classification problems, but also in evaluating the performance for binary classification models, such as the calculation of confidence intervals, and in the modeling of the distribution of words in text for natural language processing.
+Knowledge of discrete probability distributions is also required in the choice of activation functions in the output layer of deep learning neural networks for classification tasks and selecting an appropriate loss function.
+Discrete probability distributions play an important role in applied machine learning and there are a few distributions that a practitioner must know about.
+In this tutorial, you will discover discrete probability distributions used in machine learning.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Probability for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Discrete Probability Distributions for Machine LearningPhoto by John Fowler, some rights reserved.
+This tutorial is divided into five parts; they are:
+A random variable is the quantity produced by a random process.
+A discrete random variable is a random variable that can have one of a finite set of specific outcomes. The two types of discrete random variables most commonly used in machine learning are binary and categorical.
+A binary random variable is a discrete random variable where the finite set of outcomes is in {0, 1}. A categorical random variable is a discrete random variable where the finite set of outcomes is in {1, 2, …, K}, where K is the total number of unique outcomes.
+Each outcome or event for a discrete random variable has a probability.
+The relationship between the events for a discrete random variable and their probabilities is called the discrete probability distribution and is summarized by a probability mass function, or PMF for short.
+For outcomes that can be ordered, the probability of an event equal to or less than a given value is defined by the cumulative distribution function, or CDF for short. The inverse of the CDF is called the percentage-point function and will give the discrete outcome that is less than or equal to a probability.
+There are many common discrete probability distributions.
+The most common are the Bernoulli and Multinoulli distributions for binary and categorical discrete random variables respectively, and the Binomial and Multinomial distributions that generalize each to multiple independent trials.
+In the following sections, we will take a closer look at each of these distributions in turn.
+There are additional discrete probability distributions that you may want to explore, including the Poisson Distribution and the Discrete Uniform Distribution.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+The Bernoulli distribution is a discrete probability distribution that covers a case where an event will have a binary outcome as either a 0 or 1.
+A “Bernoulli trial” is an experiment or case where the outcome follows a Bernoulli distribution. The distribution and the trial are named after the Swiss mathematician Jacob Bernoulli.
+Some common examples of Bernoulli trials include:
+A common example of a Bernoulli trial in machine learning might be a binary classification of a single example as the first class (0) or the second class (1).
+The distribution can be summarized by a single variable p that defines the probability of an outcome 1. Given this parameter, the probability for each event can be calculated as follows:
+In the case of flipping a fair coin, the value of p would be 0.5, giving a 50% probability of each outcome.
+The repetition of multiple independent Bernoulli trials is called a Bernoulli process.
+The outcomes of a Bernoulli process will follow a Binomial distribution. As such, the Bernoulli distribution would be a Binomial distribution with a single trial.
+Some common examples of Bernoulli processes include:
+The performance of a machine learning algorithm on a binary classification problem can be analyzed as a Bernoulli process, where the prediction by the model on an example from a test set is a Bernoulli trial (correct or incorrect).
+The Binomial distribution summarizes the number of successes in a given number of Bernoulli trials k, with a given probability of success for each trial p.
+We can demonstrate this with a Bernoulli process where the probability of success is 30% or P(x=1) = 0.3 and the total number of trials is 100 (k=100).
+We can simulate the Bernoulli process with randomly generated cases and count the number of successes over the given number of trials. This can be achieved via the binomial() NumPy function. This function takes the total number of trials and probability of success as arguments and returns the number of successful outcomes across the trials for one simulation.
+We would expect that 30 cases out of 100 would be successful given the chosen parameters (k * p or 100 * 0.3).
+A different random sequence of 100 trials will result each time the code is run, so your specific results will differ. Try running the example a few times.
+In this case, we can see that we get slightly less than the expected 30 successful trials.
+We can calculate the moments of this distribution, specifically the expected value or mean and the variance using the binom.stats() SciPy function.
+Running the example reports the expected value of the distribution, which is 30, as we would expect, as well as the variance of 21, which if we calculate the square root, gives us the standard deviation of about 4.5.
+We can use the probability mass function to calculate the likelihood of different numbers of successful outcomes for a sequence of trials, such as 10, 20, 30, to 100.
+We would expect 30 successful outcomes to have the highest probability.
+Running the example defines the binomial distribution and calculates the probability for each number of successful outcomes in [10, 100] in groups of 10.
+The probabilities are multiplied by 100 to give percentages, and we can see that 30 successful outcomes has the highest probability at about 8.6%.
+Given the probability of success is 30% for one trial, we would expect that a probability of 50 or fewer successes out of 100 trials to be close to 100%. We can calculate this with the cumulative distribution function, demonstrated below.
+Running the example prints each number of successes in [10, 100] in groups of 10 and the probability of achieving that many success or less over 100 trials.
+As expected, after 50 successes or less covers 99.999% of the successes expected to happen in this distribution.
+The Multinoulli distribution, also called the categorical distribution, covers the case where an event will have one of K possible outcomes.
+It is a generalization of the Bernoulli distribution from a binary variable to a categorical variable, where the number of cases K for the Bernoulli distribution is set to 2, K=2.
+A common example that follows a Multinoulli distribution is:
+A common example of a Multinoulli distribution in machine learning might be a multi-class classification of a single example into one of K classes, e.g. one of three different species of the iris flower.
+The distribution can be summarized with K variables from p1 to pK, each defining the probability of a given categorical outcome from 1 to K, and where all probabilities sum to 1.0.
+In the case of a single roll of a die, the probabilities for each value would be 1/6, or about 0.166 or about 16.6%.
+The repetition of multiple independent Multinoulli trials will follow a multinomial distribution.
+The multinomial distribution is a generalization of the binomial distribution for a discrete variable with K outcomes.
+An example of a multinomial process includes a sequence of independent dice rolls.
+A common example of the multinomial distribution is the occurrence counts of words in a text document, from the field of natural language processing.
+A multinomial distribution is summarized by a discrete random variable with K outcomes, a probability for each outcome from p1 to pK, and k successive trials.
+We can demonstrate this with a small example with 3 categories (K=3) with equal probability (p=33.33%) and 100 trials.
+Firstly, we can use the multinomial() NumPy function to simulate 100 independent trials and summarize the number of times that the event resulted in each of the given categories. The function takes both the number of trials and the probabilities for each category as a list.
+The complete example is listed below.
+We would expect each category to have about 33 events.
+Running the example reports each case and the number of events.
+A different random sequence of 100 trials will result each time the code is run, so your specific results will differ. Try running the example a few times.
+In this case, we see a spread of cases as high as 37 and as low as 30.
+We might expect the idealized case of 100 trials to result in 33, 33, and 34 cases for events 1, 2 and 3 respectively.
+We can calculate the probability of this specific combination occurring in practice using the probability mass function or multinomial.pmf() SciPy function.
+The complete example is listed below.
+Running the example reports the probability of less than 1% for the idealized number of cases of [33, 33, 34] for each event type.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered discrete probability distributions used in machine learning.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Develop Your Understanding of Probability ...with just a few lines of python code
+Discover how in my new Ebook: Probability for Machine Learning
+It provides self-study tutorials and end-to-end projects on: Bayes Theorem, Bayesian Optimization, Distributions, Maximum Likelihood, Cross-Entropy, Calibrating Models and much more...
+Finally Harness Uncertainty in Your Projects Skip the Academics. Just Results.
+These lessons are comprehensive, I love it. I have background in probability, this may be the reason for easy comprehension. So far, am able to follow but am trying to run the python codes using Jupiter notebook on anakonda. Am yet to launch the notebook.
+I was able to run the codes using Jupiter notebook. The results were similar. Thanks.
+Nice work!
+Thanks!
+Perhaps try running the example on the command line, here’s how: https://machinelearningmastery.com/faq/single-faq/how-do-i-run-a-script-from-the-command-line
+Thanks
+You’re welcome!
+Hi Jason,
+If I am correct, isn’t there a typo for the formulas given under the Multinoulli Distribution section?
+The distribution can be summarized with p **(K)** variables from p1 to pK, each defining the probability of a given categorical outcome from 1 to K, and where all probabilities sum to 1.0.
+P(x=1) = p1 P(x=2) = p1 **(p2)** P(x=3) = p3 … P(x=K) = pK
+Thanks!
+I don’t follow, what do you think the error is exactly?
+Its clearly a typo
+I see now. Thanks, fixed!
+Hi, will it be possible to compute multinomial distribution of dependent discrete variable which depends on n independent continuous variables in a dataset?
+Not sure what you’re asking sorry, sounds like a joint probability distribution – which we cannot calculate because we don’t have access to all combinations of events.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Probability for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

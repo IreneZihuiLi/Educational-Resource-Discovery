@@ -1,0 +1,154 @@
+How to Calculate Parametric Statistical Hypothesis Tests in Python
+How to Calculate Parametric Statistical Hypothesis Tests in Python
+Tutorial Overview
+Parametric Statistical Significance Tests
+Test Data
+Student’s t-Test
+Paired Student’s t-Test
+Analysis of Variance Test
+Repeated Measures ANOVA Test
+Extensions
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Books
+API
+Articles
+17 Responses to How to Calculate Parametric Statistical Hypothesis Tests in Python
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated May/2018
+p <= alpha
+p > alpha
+Fail to Reject H0
+Reject H0
+Fail to Reject H0
+Reject H0
+Fail to Reject H0
+Reject H0
+Fail to Reject H0
+Reject H0
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 8, 2019
+Parametric statistical methods often mean those methods that assume the data samples have a Gaussian distribution.
+in applied machine learning, we need to compare data samples, specifically the mean of the samples. Perhaps to see if one technique performs better than another on one or more datasets. To quantify this question and interpret the results, we can use parametric hypothesis testing methods such as the Student’s t-test and ANOVA.
+In this tutorial, you will discover parametric statistical significance tests that quantify the difference between the means of two or more samples of data.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Introduction to Use Parametric Statistical Significance Tests in PythonPhoto by nestor ferraro, some rights reserved.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Parametric statistical tests assume that a data sample was drawn from a specific population distribution.
+They often refer to statistical tests that assume the Gaussian distribution. Because it is so common for data to fit this distribution, parametric statistical methods are more commonly used.
+A typical question we may have about two or more samples of data is whether they have the same distribution. Parametric statistical significance tests are those statistical methods that assume data comes from the same Gaussian distribution, that is a data distribution with the same mean and standard deviation: the parameters of the distribution.
+In general, each test calculates a test statistic that must be interpreted with some background in statistics and a deeper knowledge of the statistical test itself. Tests also return a p-value that can be used to interpret the result of the test. The p-value can be thought of as the probability of observing the two data samples given the base assumption (null hypothesis) that the two samples were drawn from a population with the same distribution.
+The p-value can be interpreted in the context of a chosen significance level called alpha. A common value for alpha is 5%, or 0.05. If the p-value is below the significance level, then the test says there is enough evidence to reject the null hypothesis and that the samples were likely drawn from populations with differing distributions.
+Before we look at specific parametric significance tests, let’s first define a test dataset that we can use to demonstrate each test.
+We will generate two samples drawn from different distributions. Each sample will be drawn from a Gaussian distribution.
+We will use the randn() NumPy function to generate a sample of 100 Gaussian random numbers in each sample with a mean of 0 and a standard deviation of 1. Observations in the first sample are scaled to have a mean of 50 and a standard deviation of 5. Observations in the second sample are scaled to have a mean of 51 and a standard deviation of 5.
+We expect the statistical tests to discover that the samples were drawn from differing distributions, although the small sample size of 100 observations per sample will add some noise to this decision.
+The complete code example is listed below.
+Running the example generates the data samples, then calculates and prints the mean and standard deviation for each sample, confirming their different distribution.
+The Student’s t-test is a statistical hypothesis test that two independent data samples known to have a Gaussian distribution, have the same Gaussian distribution, named for William Gosset, who used the pseudonym “Student“.
+One of the most commonly used t tests is the independent samples t test. You use this test when you want to compare the means of two independent samples on a given variable.
+— Page 93, Statistics in Plain English, Third Edition, 2010.
+The assumption or null hypothesis of the test is that the means of two populations are equal. A rejection of this hypothesis indicates that there is sufficient evidence that the means of the populations are different, and in turn that the distributions are not equal.
+The Student’s t-test is available in Python via the ttest_ind() SciPy function. The function takes two data samples as arguments and returns the calculated statistic and p-value.
+We can demonstrate the Student’s t-test on the test problem with the expectation that the test discovers the difference in distribution between the two independent samples. The complete code example is listed below.
+Running the example calculates the Student’s t-test on the generated data samples and prints the statistic and p-value.
+The interpretation of the statistic finds that the sample means are different, with a significance of at least 5%.
+We may wish to compare the means between two data samples that are related in some way.
+For example, the data samples may represent two independent measures or evaluations of the same object. These data samples are repeated or dependent and are referred to as paired samples or repeated measures.
+Because the samples are not independent, we cannot use the Student’s t-test. Instead, we must use a modified version of the test that corrects for the fact that the data samples are dependent, called the paired Student’s t-test.
+A dependent samples t test is also used to compare two means on a single dependent variable. Unlike the independent samples test, however, a dependent samples t test is used to compare the means of a single sample or of two matched or paired samples.
+— Page 94, Statistics in Plain English, Third Edition, 2010.
+The test is simplified because it no longer assumes that there is variation between the observations, that observations were made in pairs, before and after a treatment on the same subject or subjects.
+The default assumption, or null hypothesis of the test, is that there is no difference in the means between the samples. The rejection of the null hypothesis indicates that there is enough evidence that the sample means are different.
+The paired Student’s t-test can be implemented in Python using the ttest_rel() SciPy function. As with the unpaired version, the function takes two data samples as arguments and returns the calculated statistic and p-value.
+We can demonstrate the paired Student’s t-test on the test dataset. Although the samples are independent, not paired, we can pretend for the sake of the demonstration that the observations are paired and calculate the statistic.
+The complete example is listed below.
+Running the example calculates and prints the test statistic and p-value. The interpretation of the result suggests that the samples have different means and therefore different distributions.
+There are sometimes situations where we may have multiple independent data samples.
+We can perform the Student’s t-test pairwise on each combination of the data samples to get an idea of which samples have different means. This can be onerous if we are only interested in whether all samples have the same distribution or not.
+To answer this question, we can use the analysis of variance test, or ANOVA for short. ANOVA is a statistical test that assumes that the mean across 2 or more groups are equal. If the evidence suggests that this is not the case, the null hypothesis is rejected and at least one data sample has a different distribution.
+Importantly, the test can only comment on whether all samples are the same or not; it cannot quantify which samples differ or by how much.
+The purpose of a one-way analysis of variance (one-way ANOVA) is to compare the means of two or more groups (the independent variable) on one dependent variable to see if the group means are significantly different from each other.
+— Page 105, Statistics in Plain English, Third Edition, 2010.
+The test requires that the data samples are a Gaussian distribution, that the samples are independent, and that all data samples have the same standard deviation.
+The ANOVA test can be performed in Python using the f_oneway() SciPy function. The function takes two or more data samples as arguments and returns the test statistic and f-value.
+We can modify our test problem to have two samples with the same mean and a third sample with a slightly different mean. We would then expect the test to discover that at least one sample has a different distribution.
+The complete example is listed below.
+Running the example calculates and prints the test statistic and the p-value.
+The interpretation of the p-value correctly rejects the null hypothesis indicating that one or more sample means differ.
+We may have multiple data samples that are related or dependent in some way.
+For example, we may repeat the same measurements on a subject at different time periods. In this case, the samples will no longer be independent; instead we will have multiple paired samples.
+We could repeat the pairwise Student’s t-test multiple times. Alternately, we can use a single test to check if all of the samples have the same mean. A variation of the ANOVA test can be used, modified to test across more than 2 samples. This test is called the repeated measures ANOVA test.
+The default assumption or null hypothesis is that all paired samples have the same mean, and therefore the same distribution. If the samples suggest that this is not the case, then the null hypothesis is rejected and one or more of the paired samples have a different mean.
+Repeated-measures ANOVA has a number of advantages over paired t tests, however. First, with repeated-measures ANOVA, we can examine differences on a dependent variable that has been measured at more than two time points, whereas with an independent t test we can only compare scores on a dependent variable from two time points.
+— Page 131, Statistics in Plain English, Third Edition, 2010.
+Unfortunately, at the time of writing, there is no version of the repeated measures ANOVA test available in SciPy. Hopefully this test will be added soon.
+I mention this test for completeness in case you require it on your project and are able to seek and find an alternate implementation.
+This section lists some ideas for extending the tutorial that you may wish to explore.
+If you explore any of these extensions, I’d love to know.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered parametric statistical significance tests that quantify the difference between the means of two or more samples of data.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Thanks for your wonderful, insightful posts. I always find them super useful and well structured. Concerning the repeated measures ANOVA, there is Python package called pyvttbl that does it. It is only for Python 2 and unfortunately the code is not actively maintained. Still works and here is a tutorial doing the repeated measures ANOVA: https://www.marsja.se/repeated-measures-anova-using-python/
+Great, thanks for the tip.
+Thank you very much, this article is really helpful. Could you please clarify how the statistic can be interpreted?
+Does the value -2.262 imply that the means of the two populations differ by 2.262?
+Because in the example they are only meant to differ by 1?
+Thanks
+As far as I know, we cannot understand the statistic directly as you suggest.
+It is a vale from a specific distribution (e.g. Student’s t) that can be compared to critical values in order to interpret the test.
+Hi Jason,
+Thanks for this nice post!
+In the ANOVA code snippet, wouldn’t it be better to write:
+stat, f_value = f_oneway(data1, data2, data3)
+instead of:
+stat, p = f_oneway(data1, data2, data3)
+Best, Elie
+Why? The function returns the statistic and the p-value: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html
+Hi Jason! Nice post.
+I have a question: can we switch the questions in the hypotheses like-
+Fail to Reject H0: Sample distributions are not equal. Reject H0: Sample distributions are equal.
+Why do you want to change the interpretation of the test?
+You could change the test itself if you wish.
+Hi Jason. Let me clarify a bit. Say, I have two sets of precision numbers that I have got from two datasets. Now, I would like to see if the difference between the sets is significant or no. What would be my H0 and H1? And what would be my reason to set H0 and H1 as such? Is there a norm to set they hypotheses this way?
+If you want to check if there is a relationship between the variables, you can use correlation tests like Pearson’s correlation coefficient.
+If you want to check if the distributions differ (e.g. their means) you can use difference tests like Student’s t test.
+You do not set the H0/H1, the test makes these assumptions (e.g. H0 that there is no correlation or no difference).
+Hi Jason,
+i have accuracy on different sample with 4 different classification method i want to quantify which classification better or by how much. or any classification approach for 1st classification method is how much better than the rest 3.
+This post will give you some ideas on methods to use: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+Hello Jason,
+Thanks for your post. I have treated and untreated samples data at different time point. I want to create a graph with statistical significance indicated on the graph. Can you please help on it?
+What problem are you having exactly?
+for X, Y, Z if paired t-test for X and Y is “fail to reject” ———->1 and the paired t-test for X and Z is “fail to reject” ——–>2
+on the other hand, the paired t-test for Y and Z is “reject” ——->3
+Does this means that there is a problem in the value of X or Y or Z?
+It might suggest your data samples are too small to make useful inferences?
+you are right the data size is actually very small. Thank you
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

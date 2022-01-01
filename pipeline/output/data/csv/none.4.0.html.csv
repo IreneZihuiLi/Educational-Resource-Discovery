@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,What is Statistics (and why is it important in machine learning)?,https://machinelearningmastery.com/what-is-statistics/,2,4,14,0,97,118,17.788,10.708,2099,4.613,3.785,0.279,3.582,8.01,2.144,112,0,0,machinelearningmastery,com/what-is-statistics,com,2

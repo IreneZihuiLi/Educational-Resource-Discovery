@@ -1,0 +1,120 @@
+What is Statistics (and why is it important in machine learning)?
+What is Statistics (and why is it important in machine learning)?
+Statistics is Required Prerequisite
+Why Learn Statistics?
+What is Statistics?
+Further Reading
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Descriptive Statistics
+Inferential Statistics
+Books
+Articles
+23 Responses to What is Statistics (and why is it important in machine learning)?
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 8, 2019
+Statistics is a collection of tools that you can use to get answers to important questions about data.
+You can use descriptive statistical methods to transform raw observations into information that you can understand and share. You can use inferential statistical methods to reason from small samples of data to whole domains.
+In this post, you will discover clearly why statistics is important in general and for machine learning and generally the types of methods that are available.
+After reading this post, you will know:
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+A Gentle Introduction to StatisticsPhoto by Mike Sutherland, some rights reserved.
+Machine learning and statistics are two tightly related fields of study. So much so that statisticians refer to machine learning as “applied statistics” or “statistical learning” rather than the computer-science-centric name.
+Machine learning is almost universally presented to beginners assuming that the reader has some background in statistics. We can make this concrete with a few cherry picked examples.
+Take a look at this quote from the beginning of a popular applied machine learning book titled “Applied Predictive Modeling“:
+… the reader should have some knowledge of basic statistics, including variance, correlation, simple linear regression, and basic hypothesis testing (e.g. p-values and test statistics).
+— Page vii, Applied Predictive Modeling, 2013
+Here’s another example from the popular “Introduction to Statistical Learning” book:
+We expect that the reader will have had at least one elementary course in statistics.
+— Page 9, An Introduction to Statistical Learning with Applications in R, 2013.
+Even when statistics is not a prerequisite, some primitive prior knowledge is required as can be seen in this quote from the widely read “Programming Collective Intelligence“:
+… this book does not assume you have any prior knowledge of […] or statistics. […] but having some knowledge of trigonometry and basic statistics will help you understand the algorithms.
+— Page xiii, Programming Collective Intelligence: Building Smart Web 2.0 Applications, 2007.
+In order to be able to understand machine learning, some basic understanding of statistics is required.
+To see why this is the case, we must first understand why we need the field of statistics in the first place.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Raw observations alone are data, but they are not information or knowledge.
+Data raises questions, such as:
+Although they appear simple, these questions must be answered in order to turn raw observations into information that we can use and share.
+Beyond raw data, we may design experiments in order to collect observations. From these experimental results we may have more sophisticated questions, such as:
+Questions of this type are important. The results matter to the project, to stakeholders, and to effective decision making.
+Statistical methods are required to find answers to the questions that we have about data.
+We can see that in order to both understand the data used to train a machine learning model and to interpret the results of testing different machine learning models, that statistical methods are required.
+This is just the tip of the iceberg as each step in a predictive modeling project will require the use of a statistical method.
+Statistics is a subfield of mathematics.
+It refers to a collection of methods for working with data and using data to answer questions.
+Statistics is the art of making numerical conjectures about puzzling questions. […] The methods were developed over several hundred years by people who were looking for answers to their questions.
+— Page xiii, Statistics, Fourth Edition, 2007.
+It is because the field is comprised of a grab bag of methods for working with data that it can seem large and amorphous to beginners. It can be hard to see the line between methods that belong to statistics and methods that belong to other fields of study. Often a technique can be both a classical method from statistics and a modern algorithm used for feature selection or modeling.
+Although a working knowledge of statistics does not require deep theoretical knowledge, some important and easy-to-digest theorems from the relationship between statistics and probability can provide a valuable foundation.
+Two examples include the law of large numbers and the central limit theorem; the first aids in understanding why bigger samples are often better and the second provides a foundation for how we can compare the expected values between samples (e.g mean values).
+When it comes to the statistical tools that we use in practice, it can be helpful to divide the field of statistics into two large groups of methods: descriptive statistics for summarizing data and inferential statistics for drawing conclusions from samples of data.
+Statistics allow researchers to collect information, or data, from a large number of people and then summarize their typical experience. […] Statistics are also used to reach conclusions about general differences between groups. […] Statistics can also be used to see if scores on two variables are related and to make predictions.
+Pages ix-x, Statistics in Plain English, Third Edition, 2010.
+Descriptive statistics refer to methods for summarizing raw observations into information that we can understand and share.
+Commonly, we think of descriptive statistics as the calculation of statistical values on samples of data in order to summarize properties of the sample of data, such as the common expected value (e.g. the mean or median) and the spread of the data (e.g. the variance or standard deviation).
+Descriptive statistics may also cover graphical methods that can be used to visualize samples of data. Charts and graphics can provide a useful qualitative understanding of both the shape or distribution of observations as well as how variables may relate to each other.
+Inferential statistics is a fancy name for methods that aid in quantifying properties of the domain or population from a smaller set of obtained observations called a sample.
+Commonly, we think of inferential statistics as the estimation of quantities from the population distribution, such as the expected value or the amount of spread.
+More sophisticated statistical inference tools can be used to quantify the likelihood of observing data samples given an assumption. These are often referred to as tools for statistical hypothesis testing, where the base assumption of a test is called the null hypothesis.
+There are many examples of inferential statistical methods given the range of hypothesises we may assume and the constraints we may impose on the data in order to increase the power or likelihood that the finding of the test is correct.
+This section provides more resources on the topic if you are looking to go deeper.
+In this post, you discovered clearly why statistics is important in general and for machine learning, and generally the types of methods that are available.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Hi If dataset is tall. Then how do we sample it? I mean what methods are used for sample selection. Regards
+By tall, I guess you mean many rows. You can randomly select rows as a sub-sample.
+Yes i mean largw number of rows. But how may i get samples of good quality to represent data in majority. Which method to be used
+Often descriptive statistics can be used to confirm that a data sample is representative of the population.
+Hypothesis tests can confirm these findings.
+I think Khan use Central Limit Theorem by taking different sample means of rows…
+How can we collaborate these statistic skills with programming and apply them for solving the real world problems, most probably for machine learning and AI problems?
+Good question, here are 10 examples: https://machinelearningmastery.com/statistical-methods-in-an-applied-machine-learning-project/
+Hi,
+1) Is descriptive statistics and EDA are same? 2) How descriptive statistics used in applied machine learning? 3) How inferential statistics used in applied machine learning?
+Thank you
+EDA is a process that can use descriptive stats.
+Descriptive stats can inform how to better prepare data for modeling, perhaps.
+ML is applied inference. We are building inductive models.
+What is normal distribution How is it related to sample size and representative sample
+This post will help: https://machinelearningmastery.com/statistical-data-distributions/
+Thank you. Is it safe to say, a normal distribution shows a representative sample of the population?
+No. A sample may or may not be normal and may or may not be representative.
+I understand a sample may or may not be normal or representative but if it is normal, would that be representative.
+Thank you.
+I would not make that claim. It could be normal, but underpowered and therefore not representative.
+do classifier depends on mode mean and median if yes then how and why, how these statistics help us in selection of classifier.
+It depends on the algorithm. Some do.
+if a dataset has four columns each column has its own mean value… how will we get just one mean for the whole dataset
+You don’t.
+What are you trying to achieve exactly?
+if my data set is arranged in 4 columns …. all i want is an overall one mean value for the whole dataset not 4 mean values for four columns.
+If all columns measure the same thing, then perhaps stack them into one column and calculate the mean.
+If not, calculating the mean across columns is invalid and would not have any meaning.
+Please do not make me enter email more than once. Though you are in business, please make it professional. Make it clean and avoid junk.
+I offer many (17+) different mini-courses on a range of topics. I need some gate on each so you don’t get overwhelmed.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

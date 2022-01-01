@@ -1,0 +1,51 @@
+linear regression" site:machinelearningmastery.com, 10
+"regression" site:machinelearningmastery.com, 10
+"variance" site:machinelearningmastery.com, 10
+"probability" site:machinelearningmastery.com, 10
+"statistic" site:machinelearningmastery.com, 10
+"correlation" site:machinelearningmastery.com, 10
+"histogram" site:machinelearningmastery.com, 10
+"hypothesis testing" site:machinelearningmastery.com, 10
+"conditional probability" site:machinelearningmastery.com, 10
+"control group" site:machinelearningmastery.com, 10
+"binomial" site:machinelearningmastery.com, 10
+"statistical power" site:machinelearningmastery.com, 10
+"discrete" site:machinelearningmastery.com, 10
+"test statistic" site:machinelearningmastery.com, 10
+"mean squared error" site:machinelearningmastery.com, 10
+"sample variance" site:machinelearningmastery.com, 10
+"bootstrap" site:machinelearningmastery.com, 10
+"heteroscedasticity" site:machinelearningmastery.com, 10
+"random variable" site:machinelearningmastery.com, 10
+"regression analysis" site:machinelearningmastery.com, 10
+"sample mean" site:machinelearningmastery.com, 10
+"confidence interval" site:machinelearningmastery.com, 10
+"standard deviation" site:machinelearningmastery.com, 10
+"method of moments" site:machinelearningmastery.com, 10
+"z-score" site:machinelearningmastery.com, 10
+"introduction" site:machinelearningmastery.com, 10
+"sampling distributions" site:machinelearningmastery.com, 10
+"multinomial distribution" site:machinelearningmastery.com, 10
+"hypergeometric distribution" site:machinelearningmastery.com, 10
+"geometric mean" site:machinelearningmastery.com, 10
+"point estimation" site:machinelearningmastery.com, 10
+"algorithms" site:machinelearningmastery.com, 10
+"econometrics" site:machinelearningmastery.com, 10
+"null hypothesis" site:machinelearningmastery.com, 10
+"sexual selection" site:machinelearningmastery.com, 10
+"factor analysis" site:machinelearningmastery.com, 10
+"cointegration" site:machinelearningmastery.com, 10
+"stationarity" site:machinelearningmastery.com, 10
+"estimation" site:machinelearningmastery.com, 10
+"probability density" site:machinelearningmastery.com, 10
+"grouped data" site:machinelearningmastery.com, 10
+"degrees of freedom" site:machinelearningmastery.com, 10
+"engineering" site:machinelearningmastery.com, 10
+"scatter plots" site:machinelearningmastery.com, 10
+"case-control study" site:machinelearningmastery.com, 10
+"continuous data" site:machinelearningmastery.com, 10
+"prediction interval" site:machinelearningmastery.com, 10
+"geometric" site:machinelearningmastery.com, 10
+"statisticians" site:machinelearningmastery.com, 10
+"arithmetic" site:machinelearningmastery.com, 10
+"resampling" site:machinelearningmastery.com, 10

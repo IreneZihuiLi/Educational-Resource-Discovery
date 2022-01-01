@@ -1,0 +1,155 @@
+Understand Your Machine Learning Data With Descriptive Statistics in Python
+Understand Your Machine Learning Data With Descriptive Statistics in Python
+Python Recipes To Understand Your Machine Learning Data
+More Recipes
+Tips To Remember
+Summary
+Discover Fast Machine Learning in Python!
+Navigation
+Main Menu
+Need help with Machine Learning in Python?
+1. Peek at Your Data
+2. Dimensions of Your Data
+3. Data Type For Each Attribute
+4. Descriptive Statistics
+5. Class Distribution (Classification Only)
+6. Correlation Between Attributes
+7. Skew of Univariate Distributions
+Action Step
+35 Responses to Understand Your Machine Learning Data With Descriptive Statistics in Python
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Update Mar/2018
+Review the numbers
+Ask why
+Write down ideas
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on December 11, 2019
+You must understand your data in order to get the best results.
+In this post you will discover 7 recipes that you can use in Python to learn more about your machine learning data.
+Kick-start your project with my new book Machine Learning Mastery With Python, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Understand Your Machine Learning Data With Descriptive Statistics in PythonPhoto by passer-by, some rights reserved.
+This section lists 7 recipes that you can use to better understand your machine learning data.
+Each recipe is demonstrated by loading the Pima Indians Diabetes classification dataset.
+Open your python interactive environment and try each recipe out in turn.
+Take my free 2-week email course and discover data prep, algorithms and more (with code).
+Click to sign-up now and also get a free PDF Ebook version of the course.
+Start Your FREE Mini-Course Now!
+There is no substitute for looking at the raw data.
+Looking at the raw data can reveal insights that you cannot get any other way. It can also plant seeds that may later grow into ideas on how to better preprocess and handle the data for machine learning tasks.
+You can review the first 20 rows of your data using the head() function on the Pandas DataFrame.
+You can see that the first column lists the row number, which is handy for referencing a specific observation.
+You must have a very good handle on how much data you have, both in terms of rows and columns.
+You can review the shape and size of your dataset by printing the shape property on the Pandas DataFrame.
+The results are listed in rows then columns. You can see that the dataset has 768 rows and 9 columns.
+The type of each attribute is important.
+Strings may need to be converted to floating point values or integers to represent categorical or ordinal values.
+You can get an idea of the types of attributes by peeking at the raw data, as above. You can also list the data types used by the DataFrame to characterize each attribute using the dtypes property.
+You can see that most of the attributes are integers and that mass and pedi are floating point values.
+Descriptive statistics can give you great insight into the shape of each attribute.
+Often you can create more summaries than you have time to review. The describe() function on the Pandas DataFrame lists 8 statistical properties of each attribute:
+You can see that you do get a lot of data. You will note some calls to pandas.set_option() in the recipe to change the precision of the numbers and the preferred width of the output. This is to make it more readable for this example.
+When describing your data this way, it is worth taking some time and reviewing observations from the results. This might include the presence of “NA” values for missing data or surprising distributions for attributes.
+On classification problems you need to know how balanced the class values are.
+Highly imbalanced problems (a lot more observations for one class than another) are common and may need special handling in the data preparation stage of your project.
+You can quickly get an idea of the distribution of the class attribute in Pandas.
+You can see that there are nearly double the number of observations with class 0 (no onset of diabetes) than there are with class 1 (onset of diabetes).
+Correlation refers to the relationship between two variables and how they may or may not change together.
+The most common method for calculating correlation is Pearson’s Correlation Coefficient, that assumes a normal distribution of the attributes involved. A correlation of -1 or 1 shows a full negative or positive correlation respectively. Whereas a value of 0 shows no correlation at all.
+Some machine learning algorithms like linear and logistic regression can suffer poor performance if there are highly correlated attributes in your dataset. As such, it is a good idea to review all of the pair-wise correlations of the attributes in your dataset. You can use the corr() function on the Pandas DataFrame to calculate a correlation matrix.
+The matrix lists all attributes across the top and down the side, to give correlation between all pairs of attributes (twice, because the matrix is symmetrical). You can see the diagonal line through the matrix from the top left to bottom right corners of the matrix shows perfect correlation of each attribute with itself.
+Skew refers to a distribution that is assumed Gaussian (normal or bell curve) that is shifted or squashed in one direction or another.
+Many machine learning algorithms assume a Gaussian distribution. Knowing that an attribute has a skew may allow you to perform data preparation to correct the skew and later improve the accuracy of your models.
+You can calculate the skew of each attribute using the skew() function on the Pandas DataFrame.
+The skew result show a positive (right) or negative (left) skew. Values closer to zero show less skew.
+This was just a selection of the most useful summaries and descriptive statistics that you can use on your machine learning data for classification and regression.
+There are many other statistics that you could calculate.
+Is there a specific statistic that you like to calculate and review when you start working on a new data set? Leave a comment and let me know.
+This section gives you some tips to remember when reviewing your data using summary statistics.
+In this post you discovered the importance of describing your dataset before you start work on your machine learning project.
+You discovered 7 different ways to summarize your dataset using Python and Pandas:
+Do you have any questions about Python, Pandas or the recipes in this post? Leave a comment and ask your question, I will do my best to answer it.
+...with just a few lines of scikit-learn code
+Learn how in my new Ebook: Machine Learning Mastery With Python
+Covers self-study tutorials and end-to-end projects like: Loading data, visualization, modeling, tuning, and much more...
+Skip the Academics. Just Results.
+Excellent write-up. I definitely appreciate this site. Continue the good work!
+Thanks M. Willson, I’m glad you found it useful.
+Hi Jason .
+Thankyou for the explanation .
+it is very clear and well understood many things from the article .
+Perhaps i have a doubt in understand the purpose of each step as like what message it is conveying with respect to the data. for example ” Descriptive Statistics” give some many output with respect to the data but what do i understand from that.
+Seeking for some clarification on the same.
+We are understanding the univariate distribution of each feature.
+This can help in data preparation and algorithm selection.
+sir can you please explain how it help us in algorithm selection ?
+E.g. a gaussian distribution may suggest a linear model. A skewed Gaussian may suggest a power transform. Outliers if present can be removed. Exponential distribution could be power transformed. Discrete integer values may suggest decision trees, different units may suggest scaling prior to knn and weighted sum algorithms, Etc.
+Hey Jason, amazingly concise and effective post, as always.
+Any suggestions on how to do exploratory analysis with binary features?
+Please don’t stop your work, it’s immensely helpful. 🙂
+Thanks, glad to hear it Neeraj.
+A good start with binary and categorical variables is to look at proportions by level.
+“Is there a specific statistic that you like to calculate and review when you start working on a new data set?”
+> in addition to the descriptive stats given by .describe(), I like to calculate: – median – 95%-ile
+oops. 50th percentile is median. already given by “.describe()”
+Nice!
+Hi, I want to thank you for your useful and well explained articles, specially this one.. But I would like to ask you about imbalanced data and resampling effectiveness if you don’t mind.
+Well, as you have stated in your other article, in some cases the imbalance is so natural because like in my case where I have mainly 2 classes with this data distribution (A: 6418, B: 81) the class B is a rare phenomena that we are looking to understand its reasons.
+I’m more interested in class B, but I’m afraid that resampling changed a lot in my dada since I noticed a change in correlation after applying an undersampling for class A and oversampling for B to get 1000:1000 samples in final dataset.
+total correlation of my 6 features with the target feature passed from 0.14 to 0.67 which I find somehow artificial and not realistic.
+If you can help me understand this, I will be so grateful. And thanks for the wonderful website 🙂
+I have some ideas for handling imbalanced data in this post that might help as a start: https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/
+I am building a linear regression model and using the dataset which is a CSV file of some numbers of 13 columns and 5299 rows. I am following your tutorials and applied the skew function and correlation but it showing an empty array and also in the data types section,it shows object for whole 13 columns. Please help
+Perhaps try posting your code and data to stackoverflow?
+Hi Jason! Loved the blog post! You structured it very well. Thanks for all the guidance.
+I have a small question. As you mentioned in the data types section, many Machine Learning algorithms take numerical attributes as input. Any specific reason for why they do that??
+Not really, more of an engineering reason so the same APIs can be used for many algorithms.
+Many algorithms don’t care about data types in principle, e.g. decision trees, knn, etc.
+Dear Sir,
+I am a new member to Python. I am lucky to find out this website and start learning with this. I just have a small practice myself based on your above lesson as follow (I try to load the data with numpy.loadtxt):
+import pandas import numpy names = [‘preg’, ‘plas’, ‘pres’, ‘skin’, ‘test’, ‘mass’, ‘pedi’, ‘age’, ‘class’] dataset = numpy.loadtxt(“pima-indians-diabetes.csv”, delimiter=”,”) description = dataset.dtypes() print(description)
+However, there is an error and I don’t know how to correct. “AttributeError: ‘numpy.ndarray’ object has no attribute ‘dtypes’ ”
+Please help. Thank you.
+Looks like you have mixed up a Numpy data loading example with a pandas exploration example.
+You can laod the data as a DataFrame via pandas or change your loaded numpy array to a dataframe in order to call dtypes()
+Thank you so much. You are right. The problem is solved now.
+Glad to hear it.
+U r Awesome… Thanks a lot
+Thanks!
+Hello,
+I have data about a project, I did use the skew method, but some number go to 20+ en some numbers stay at 0.5. What does that really mean?
+I use no classification. I use a score between 0 – 10. Are this still good method to use? Or have someone an idea about that? Please help..
+Greetzzz…
+Perhaps try model with and without some scaling/transforms and see if it matters based on model skill.
+Hi Jason,
+i like your way of teaching as always.
+Could you advise some codes to make the correlation more visualized? By the number itself, i guess it is hard to read. But as far as i know, there are some heat-map we could utilize.
+Thanks for your help in advance.
+Yes, you can use a scatter plot matrix of each pair of variables.
+your analysis good! What if I want to know details regarding features? where DESCR is used?
+Sorry, what do you mean exactly, can you elaborate please?
+What is DESCR? description?
+All good thanks a lot
+Great.
+thank you jason for your posr i wonder if you couid help me i’m trying to build a random forest model i used panadas to read a csv dataset after splitting the data set into y and x i’m trying to print x columns but i have this error
+AttributeError: ‘numpy.ndarray’ object has no attribute ‘columns’
+It looks like you are trying to call .columns on a numpy array. You cannot.
+Perhaps try the same code with a dataframe of your data.
+Very good write up, clearly explains. Can you add few plots like scatter, histogram etc too?
+Thanks.
+For plots, see this tutorial: https://machinelearningmastery.com/data-visualization-methods-in-python/
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Machine Learning with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,How to Use Optimization Algorithms to Manually Fit Regression Models,https://machinelearningmastery.com/optimize-regression-models/,2,4,13,0,107,127,20.488,9.156,2602,4.672,3.128,0.192,5.204,14.15,1.537,79,0,0,machinelearningmastery,com/optimize-regression-models,com,2

@@ -1,0 +1,4 @@
+name: "BertNer"
+params:
+  num_keyphrases: 30
+  min_keyphrase_len: 3

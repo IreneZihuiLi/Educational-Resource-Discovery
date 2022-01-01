@@ -1,0 +1,155 @@
+Statistics Books for Machine Learning
+Statistics Books for Machine Learning
+Overview
+Popular Science
+(Softer) Statistics Textbooks
+Statistical Research Methods
+Summary
+Get a Handle on Statistics for Machine Learning!
+Navigation
+Main Menu
+Need help with Statistics for Machine Learning?
+Naked Statistics: Stripping the Dread from the Data
+The Drunkard’s Walk: How Randomness Rules Our Lives
+The Signal and the Noise: Why So Many Predictions Fail – but Some Don’t
+All of Statistics: A Concise Course in Statistical Inference
+Statistics in Plain English
+Practical Statistics for Data Scientists: 50 Essential Concepts
+Empirical Methods for Artificial Intelligence
+Statistical Research Methods: A Guide for Non-Statisticians
+Statistics for Experimenters: Design, Innovation, and Discovery
+28 Responses to Statistics Books for Machine Learning
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+self-study tutorials
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 14, 2020
+Statistical methods are used at each step in an applied machine learning project.
+This means it is important to have a strong grasp of the fundamentals of the key findings from statistics and a working knowledge of relevant statistical methods.
+Unfortunately, statistics is not covered in many computer science and software engineering degree programs. Even if it is, it may be taught in a bottom-up, theory-first manner, making it unclear which parts are relevant on a given project.
+In this post, you will discover some top introductory books to statistics that I recommend if you are looking to jump-start your understanding of applied statistics.
+I own copies of all of these books, but I don’t recommend you buy and read them all. As a start, pick one book, but then really read it.
+Kick-start your project with my new book Statistics for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Statistics Books for Machine LearningPhoto by Luis Rogelio HM, some rights reserved.
+This section is divided into 3 parts; they are:
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+Popular science books on statistics are those books that wrap up the important findings from statistics, like the normal distribution and the central limit theorem in stories and anecdotes.
+Do not overlook these types of books.
+I read them all the time even though I’ve pawed through statistics textbooks. The reasons I recommend them are:
+They will help show you why a working knowledge of statistics is important in a way that you will be able to connect to your specific needs in applied machine learning.
+There are many great popular science books on statistics; the three I would recommend are:
+Naked Statistics – Stripping the Dread from the Data
+Written by Charles Wheelan.
+For those who slept through Stats 101, this book is a lifesaver. Wheelan strips away the arcane and technical details and focuses on the underlying intuition that drives statistical analysis. He clarifies key concepts such as inference, correlation, and regression analysis, reveals how biased or careless parties can manipulate or misrepresent data, and shows us how brilliant and creative researchers are exploiting the valuable data from natural experiments to tackle thorny questions.
+The Drunkard’s Walk – How Randomness Rules Our Lives
+Written by Leonard Mlodinow.
+With the born storyteller’s command of narrative and imaginative approach, Leonard Mlodinow vividly demonstrates how our lives are profoundly informed by chance and randomness and how everything from wine ratings and corporate success to school grades and political polls are less reliable than we believe.
+The Signal and the Noise- Why So Many Predictions Fail – but Some Don’t
+Written by Nate Silver.
+Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data. Most predictions fail, often at great cost to society, because most of us have a poor understanding of probability and uncertainty. Both experts and laypeople mistake more confident predictions for more accurate ones. But overconfidence is often the reason for failure. If our appreciation of uncertainty improves, our predictions can get better too. This is the “prediction paradox”: The more humility we have about our ability to make predictions, the more successful we can be in planning for the future.
+Do you have a favorite popular science book on statistics? Let me know in the comments below.
+You need a solid reference text.
+A textbook contains the theory, the explanations, and the equations for the methods you need to know.
+Do not read these books cover to cover; rather, once you know what you need, dip into these books to learn about those methods.
+In this section, I have included a mixture of books including (in order) a proper statistics textbook, a text for those with a non-math background, and a book for those with a programming background.
+Pick one book that suits your background.
+All of Statistics- A Concise Course in Statistical Inference
+Written by Larry Wasserman.
+The book includes modern topics like non-parametric curve estimation, bootstrapping, and classification, topics that are usually relegated to follow-up courses. The reader is presumed to know calculus and a little linear algebra. No previous knowledge of probability and statistics is required. Statistics, data mining, and machine learning are all concerned with collecting and analysing data.
+Statistics in Plain English
+Written by Timothy C. Urdan.
+This introductory textbook provides an inexpensive, brief overview of statistics to help readers gain a better understanding of how statistics work and how to interpret them correctly. Each chapter describes a different statistical technique, ranging from basic concepts like central tendency and describing distributions to more advanced concepts such as t tests, regression, repeated measures ANOVA, and factor analysis. Each chapter begins with a short description of the statistic and when it should be used. This is followed by a more in-depth explanation of how the statistic works. Finally, each chapter ends with an example of the statistic in use, and a sample of how the results of analyses using the statistic might be written up for publication. A glossary of statistical terms and symbols is also included. Using the author’s own data and examples from published research and the popular media, the book is a straightforward and accessible guide to statistics.
+Practical Statistics for Data Scientists- 50 Essential Concepts
+Written by Peter Bruce and Andrew Bruce (Author)
+Statistical methods are a key part of of data science, yet very few data scientists have any formal statistics training. Courses and books on basic statistics rarely cover the topic from a data science perspective. This practical guide explains how to apply various statistical methods to data science, tells you how to avoid their misuse, and gives you advice on what’s important and what’s not.
+Many data science resources incorporate statistical methods but lack a deeper statistical perspective. If you’re familiar with the R programming language, and have some exposure to statistics, this quick reference bridges the gap in an accessible, readable format.
+What is your favorite statistics textbook? Let me know in the comments below.
+Once you have the foundations under control, you need to know what statistical methods to use in different circumstances.
+A lot of applied machine learning involves designing and executing experiments, and statistical methods are required for effectively designing those experiments and interpreting the results.
+This means that you require a solid grasp of statistical methods in research context.
+This section provides a few key books on this topic.
+It is hard to find good books on this topic that are not too theoretical or focused on the proprietary SPSS software platform. The first book is highly recommend and general, the second uses the free R platform, and the last is a classic textbook on the topic.
+Empirical Methods for Artificial Intelligence
+Written by Paul R. Cohen.
+Computer science and artificial intelligence in particular have no curriculum in research methods, as other sciences do. This book presents empirical methods for studying complex computer programs: exploratory tools to help find patterns in data, experiment designs and hypothesis-testing tools to help data speak convincingly, and modeling tools to help explain data. Although many of these techniques are statistical, the book discusses statistics in the context of the broader empirical enterprise. The first three chapters introduce empirical questions, exploratory data analysis, and experiment design. The blunt interrogation of statistical hypothesis testing is postponed until chapters 4 and 5, which present classical parametric methods and computer-intensive (Monte Carlo) resampling methods, respectively. This is one of few books to present these new, flexible resampling techniques in an accurate, accessible manner.
+Statistical Research Methods- A Guide for Non-Statisticians
+Written by Roy Sabo and Edward Boone.
+This textbook will help graduate students in non-statistics disciplines, advanced undergraduate researchers, and research faculty in the health sciences to learn, use and communicate results from many commonly used statistical methods. The material covered, and the manner in which it is presented, describe the entire data analysis process from hypothesis generation to writing the results in a manuscript. Chapters cover, among other topics: one and two-sample proportions, multi-category data, one and two-sample means, analysis of variance, and regression. Throughout the text, the authors explain statistical procedures and concepts using a non-statistical language. This accessible approach is complete with real-world examples and sample write-ups for the Methods and Results sections of scholarly papers. The text also allows for the concurrent use of the programming language R, which is an open-source program created, maintained and updated by the statistical community. R is freely available and easy to download.
+Statistics for Experimenters- Design, Innovation, and Discovery
+Written by George E. P. Box,‎ J. Stuart Hunter, and,‎ William G. Hunter.
+Rewritten and updated, this new edition of Statistics for Experimenters adopts the same approaches as the landmark First Edition by teaching with examples, readily understood graphics, and the appropriate use of computers. Catalyzing innovation, problem solving, and discovery, the Second Edition provides experimenters with the scientific and statistical tools needed to maximize the knowledge gained from research data, illustrating how these tools may best be utilized during all stages of the investigative process. The authors’ practical approach starts with a problem that needs to be solved and then examines the appropriate statistical methods of design and analysis.
+Do you have a favorite book on statistical research methods? Let me know in the comments below?
+You need to have a grounding in statistics to be effective at applied machine learning.
+This grounding does not have to come first, but it needs to happen some time on your journey.
+I think your path through statistics should start with a book, but really must involve a lot of practice. It is an applied field. I recommend developing code examples for every key concept that you learn along the way
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+Have you read any great books on statistics? Let me know in the comments below.
+...by writing lines of code in python
+Discover how in my new Ebook: Statistical Methods for Machine Learning
+It provides self-study tutorials on topics like: Hypothesis Tests, Correlation, Nonparametric Stats, Resampling, and much more...
+Skip the Academics. Just Results.
+Thanks for the recommendations, I haven’t heard of Cohen’s book before, seems very interesting.
+Some time ago I was looking for a “second course” Statistics textbook and I found these two very promising:
+Modern Mathematical Statistics with Applications: https://amzn.to/2KF3PXO
+Introductory Statistics and Analytics: https://amzn.to/2rpDMvf
+Great recommendations, thanks!
+are you bald?
+No.
+Thanks for the recommendations. Here is another one, which I found very useful. It is recommended in the Statistics online course from Duke University on Coursera.
+https://drive.google.com/file/d/0B-DHaDEbiOGkc1RycUtIcUtIelE/view
+Thanks!
+I audited this specialization on Coursera (for free) and thought it was quite well done. I’d recommend it too if you’re looking for an intro course.
+The associated textbook OpenStats is free as well.
+Nate Silver’s “groundbreaking work” includes his horrible predictions before and during the US presidential elections. Just saying.
+The book is a fun read. Ignore the politics.
+His predictions were also the most accurate of any because polling errors are a thing.
+Silver was limited a mean while most “data scientists” like to pretend they’re dealing with Mu.
+That people can’t or don’t know how to avoid bashing the statistical aspects of political models tells me that most “data scientistsl have lack the ability to use accurately use the output of an abacus, let alone parse the usefulness of hierarchical modeling
+Howdy Jason?
+I guess you know the book ‘Think Stats’ with lots of Python code 🙂
+https://www.amazon.com/Think-Stats-Exploratory-Data-Analysis/dp/1491907339/ref=sr_1_1?ie=UTF8&qid=1525863731&sr=8-1&keywords=think+stats
+I have not read it, have you? What are your thoughts?
+For stats + Python = it’s great.
+The book is freely available as a PDF by the publisher. Judge yourself:
+http://greenteapress.com/thinkstats2/thinkstats2.pdf
+Thanks for sharing.
+Hey Jason,
+How does Think Stats compare to your Statistical Methods for Machine Learning?
+Some overlap, style differences, I guess my book is more tutorial focuses, think stats is more small recipe focused.
+In the “Popular Science” category, I thought “The Lady Tasting Tea” was a pretty interesting read about the history of statistics.
+I’d be interested in a version of this page for Calculus and Linear Algebra – I’ve forgotten so much from both of those, it feels like I probably just need to start over.
+I’ve not heard of that, thanks!
+Here’s linear algebra: https://machinelearningmastery.com/resources-for-linear-algebra-in-machine-learning/
+I hope to cover calculus in the future.
+Here’s another good text that great for beginners:
+Mathematical Statistics with Applications 7th edition by Dennis Wackerly
+https://www.cengage.com/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811
+Great, thanks for sharing!
+Thank you for the recommendation. I was looking for stats book recommendation and your expert review was exactly what I needed!
+I’m glad it helped.
+Jason, when is your Statistics ebook gonna be out?
+This month I hope.
+Hey Jason, I am starting to learn R now although I perform data science using Python as a language. Nevertheless, I find that R is more complete when it comes to statistical analysis which is an important part of data science. Nevertheless, I wanted to ask you if you have any reference for statistical analysis with Python. Most of this books use R as a language and since I am starting to learn R now, it will take me some time to have a deep understanding of R syntax. Thanks for the help Jason, I’ve been reading your articles over a year now and it helped me in my journey towards data science specially when I found complex mathematical algorithms. Your way of explaining is simple and concise!
+Thanks.
+Yes, I am writing a book on stats with python for ml right now. Should be out later this month.
+Hey Jason
+Thanks for putting this list together. Various sources have mentioned this course in stats as a pre-requisite in ML.
+How is it different from above mentioned topics?
+https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about
+Thanks
+Sorry, I don’t know about that course.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Statistics for Machine Learning EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

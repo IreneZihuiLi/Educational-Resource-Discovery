@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,10 Clustering Algorithms With Python,https://machinelearningmastery.com/clustering-algorithms-with-python/,2,4,25,0,322,371,17.623,11.366,6538,4.596,4.466,0.186,5.372,18.873,2.371,276,1,0,machinelearningmastery,com/clustering-algorithms-with-python,com,2

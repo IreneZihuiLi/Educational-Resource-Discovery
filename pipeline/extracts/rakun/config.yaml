@@ -1,0 +1,14 @@
+name: "Rakun"
+params:
+  distance_threshold: 2
+  distance_method: "editdistance"
+  num_keywords: 10
+  pair_diff_length: 2
+  bigram_count_threshold: 2
+  max_similar: 3
+  max_occurrence: 3
+  num_keyphrases: 30
+  num_tokens:
+    - 1
+    - 2
+    - 3

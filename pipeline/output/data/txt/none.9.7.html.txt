@@ -1,0 +1,136 @@
+Simple Time Series Forecasting Models to Test So That You Don't Fool Yourself
+Simple Time Series Forecasting Models to Test So That You Don’t Fool Yourself
+Overview
+Monthly Car Sales Dataset
+Experimental Test Setup
+Optimized Persistence Forecast
+Expanding Window Forecast
+Rolling Window Forecast
+Summary
+Want to Develop Time Series Forecasts with Python?
+Navigation
+Main Menu
+10 Responses to Simple Time Series Forecasting Models to Test So That You Don’t Fool Yourself
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated Apr/2019
+Updated Aug/2019
+Monthly Car Sales Dataset
+Test Setup
+Persistence Forecast
+Expanding Window Forecast
+Rolling Window Forecast
+self-study tutorials
+end-to-end projects
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on August 28, 2019
+It is important to establish a strong baseline of performance on a time series forecasting problem and to not fool yourself into thinking that sophisticated methods are skillful, when in fact they are not.
+This requires that you evaluate a suite of standard naive, or simple, time series forecasting models to get an idea of the worst acceptable performance on the problem for more sophisticated models to beat.
+Applying these simple models can also uncover new ideas about more advanced methods that may result in better performance.
+In this tutorial, you will discover how to implement and automate three standard baseline time series forecasting methods on a real world dataset.
+Specifically, you will learn:
+This is an important topic and highly recommended for any time series forecasting project.
+Kick-start your project with my new book Time Series Forecasting With Python, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+This tutorial is broken down into the following 5 parts:
+An up-to-date Python SciPy environment is used, including Python 2 or 3, Pandas, Numpy, and Matplotlib.
+In this tutorial, we will use the Monthly Car Sales dataset.
+This dataset describes the number of car sales in Quebec, Canada between 1960 and 1968.
+The units are a count of the number of sales and there are 108 observations. The source data is credited to Abraham and Ledolter (1983).
+Download the dataset and save it into your current working directory with the filename “car-sales.csv“. Note, you may need to delete the footer information from the file.
+The code below loads the dataset as a Pandas Series object.
+Running the example prints the first 5 rows of data.
+A line plot of the data is also provided.
+Monthly Car Sales Dataset Line Plot
+It is important to evaluate time series forecasting models consistently.
+In this section, we will define how we will evaluate the three forecast models in this tutorial.
+First, we will hold the last two years of data back and evaluate forecasts on this data. Given the data is monthly, this means that the last 24 observations will be used as test data.
+We will use a walk-forward validation method to evaluate model performance. This means that each time step in the test dataset will be enumerated, a model constructed on history data, and the forecast compared to the expected value. The observation will then be added to the training dataset and the process repeated.
+Walk-forward validation is a realistic way to evaluate time series forecast models as one would expect models to be updated as new observations are made available.
+Finally, forecasts will be evaluated using root mean squared error or RMSE. The benefit of RMSE is that it penalizes large errors and the scores are in the same units as the forecast values (car sales per month).
+In summary, the test harness involves:
+The persistence forecast involves using the previous observation to predict the next time step.
+For this reason, the approach is often called the naive forecast.
+Why stop with using the previous observation? In this section, we will look at automating the persistence forecast and evaluate the use of any arbitrary prior time step to predict the next time step.
+We will explore using each of the prior 24 months of point observations in a persistence model. Each configuration will be evaluated using the test harness and RMSE scores collected. We will then display the scores and graph the relationship between the persisted time step and the model skill.
+The complete example is listed below.
+Running the example prints the RMSE for each persisted point observation.
+A plot of the persisted value (t-n) to model skill (RMSE) is also created.
+From the results, it is clear that persisting the observation from 12 months ago or 24 months ago is a great starting point on this dataset.
+The best result achieved involved persisting the result from t-12 with an RMSE of 1997.732 car sales.
+This is an obvious result, but also very useful.
+We would expect that a forecast model that is some weighted combination of the observations at t-12, t-24, t-36 and so on would be a powerful starting point.
+It also points out that the naive t-1 persistence would have been a less desirable starting point on this dataset.
+Persisted Observation to RMSE on the Monthly Car Sales Dataset
+We can use the t-12 model to make a prediction and plot it against the test data.
+The complete example is listed below.
+Running the example plots the test dataset (blue) against the predicted values (orange).
+Line Plot of Predicted Values vs Test Dataset for the t-12 Persistence Model
+You can learn more about the persistence model for time series forecasting in the post:
+An expanding window refers to a model that calculates a statistic on all available historic data and uses that to make a forecast.
+It is an expanding window because it grows as more real observations are collected.
+Two good starting point statistics to calculate are the mean and the median historical observation.
+The example below uses the expanding window mean as the forecast.
+Running the example prints the RMSE evaluation of the approach.
+We can also repeat the same experiment with the median of the historical observations. The complete example is listed below.
+Again, running the example prints the skill of the model.
+We can see that on this problem the historical mean produced a better result than the median, but both were worse models than using the optimized persistence values.
+We can plot the mean expanding window predictions against the test dataset to get a feeling for how the forecast actually looks in context.
+The complete example is listed below.
+The plot shows what a poor forecast looks like and how it does not follow the movements of the data at all, other than a slight rising trend.
+Line Plot of Predicted Values vs Test Dataset for the Mean Expanding Window Model
+You can see more examples of expanding window statistics in the post:
+A rolling window model involves calculating a statistic on a fixed contiguous block of prior observations and using it as a forecast.
+It is much like the expanding window, but the window size remains fixed and counts backwards from the most recent observation.
+It may be more useful on time series problems where recent lag values are more predictive than older lag values.
+We will automatically check different rolling window sizes from 1 to 24 months (2 years) and start by calculating the mean observation and using that as a forecast. The complete example is listed below.
+Running the example prints the rolling window size and RMSE for each configuration.
+A line plot of window size to error is also created.
+The results suggest that a rolling window of w=13 was best with an RMSE of 3,901 monthly car sales.
+Line Plot of Rolling Window Size to RMSE for a Mean Forecast on the Monthly Car Sales Dataset
+We can repeat this experiment with the median statistic.
+The complete example is listed below.
+Running the example again prints the window size and RMSE for each configuration.
+A plot of the window size and RMSE is again created.
+Here, we can see that best results were achieved with a window size of w=1 with an RMSE of 3947.200 monthly car sales, which was essentially a t-1 persistence model.
+The results were generally worse than optimized persistence, but better than the expanding window model. We could imagine better results with a weighted combination of window observations, this idea leads to using linear models such as AR and ARIMA.
+Line Plot of Rolling Window Size to RMSE for a Median Forecast on the Monthly Car Sales Dataset
+Again, we can plot the predictions from the better model (mean rolling window with w=13) against the actual observations to get a feeling for how the forecast looks in context.
+The complete example is listed below.
+Running the code creates the line plot of observations (blue) compared to the predicted values (orange).
+We can see that the model better follows the level of the data, but again does not follow the actual up and down movements.
+Line Plot of Predicted Values vs Test Dataset for the Mean w=13 Rolling Window Model
+You can see more examples of rolling window statistics in the post:
+In this tutorial, you discovered the importance of calculating the worst acceptable performance on a time series forecasting problem and methods that you can use to ensure you are not fooling yourself with more sophisticated methods.
+Specifically, you learned:
+Do you have any questions about baseline forecasting methods, or about this post? Ask your questions in the comments and I will do my best to answer.
+Discover how in my new Ebook: Introduction to Time Series Forecasting With Python
+It covers self-study tutorials and end-to-end projects on topics like: Loading data, visualization, modeling, algorithm tuning, and much more...
+Skip the Academics. Just Results.
+zero comments? for such an informative, well-written and essential post? a travesty.
+Thanks.
+What’s the right way to select the testing split size? All I’ve found is that typically you choose 20% of the data, as a general formula.
+There is no best way. The test set must be representative.
+Perhaps try different sizes and compare results. Perhaps talk to domain experts for your data.
+used these methods for my thesis research. Thanks for this beautiful post.
+Well done!
+Hi! This is such a great post!
+I’m having a bit of trouble understanding Python codes, though. In the first Python codes under the Optimized Persistence Forecast how is yhat computed?
+Is it the mean of the past values of p (persistence values)?
+Thank you so much
+No, it just finds the best negative offset (-1, -2, -3, …) to use for a persistence model.
+Do these models predict future time steps beyond the data set? Or are they predicting the window of the held back data?
+You can use them any way you like.
+We always evaluate models based on the skill of their predictions on data not seen during training.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Time Series with Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

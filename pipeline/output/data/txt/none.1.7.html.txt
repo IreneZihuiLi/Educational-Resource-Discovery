@@ -1,0 +1,456 @@
+How to Develop Multi-Output Regression Models with Python
+How to Develop Multi-Output Regression Models with Python
+Tutorial Overview
+Problem of Multioutput Regression
+Inherently Multioutput Regression Algorithms
+Wrapper Multioutput Regression Algorithms
+Direct Multioutput Regression
+Chained Multioutput Regression
+Further Reading
+Summary
+Get a Handle on Modern Ensemble Learning!
+Navigation
+Main Menu
+Want to Get Started With Ensemble Learning?
+Check Scikit-Learn Version
+Multioutput Regression Test Problem
+Linear Regression for Multioutput Regression
+k-Nearest Neighbors for Multioutput Regression
+Decision Tree for Multioutput Regression
+Evaluate Multioutput Regression With Cross-Validation
+APIs
+146 Responses to How to Develop Multi-Output Regression Models with Python
+Leave a Reply Click here to cancel reply.
+Kick-start your project
+Updated Aug/2020
+Regression
+Multioutput Regression
+Problem Input
+Problem Output
+Note
+Problem 1
+Problem 2
+Problem 3
+Direct Multioutput
+Chained Multioutput
+Note
+Problem 1
+Problem 2
+Problem 3
+Note
+Do you have any questions?
+self-study tutorials
+full working code
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on April 27, 2021
+Multioutput regression are regression problems that involve predicting two or more numerical values given an input example.
+An example might be to predict a coordinate given an input, e.g. predicting x and y values. Another example would be multi-step time series forecasting that involves predicting multiple future time series of a given variable.
+Many machine learning algorithms are designed for predicting a single numeric value, referred to simply as regression. Some algorithms do support multioutput regression inherently, such as linear regression and decision trees. There are also special workaround models that can be used to wrap and use those algorithms that do not natively support predicting multiple outputs.
+In this tutorial, you will discover how to develop machine learning models for multioutput regression.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Ensemble Learning Algorithms With Python, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+How to Develop Multioutput Regression Models in PythonPhoto by a_terracini, some rights reserved.
+This tutorial is divided into five parts; they are:
+Regression refers to a predictive modeling problem that involves predicting a numerical value.
+For example, predicting a size, weight, amount, number of sales, and number of clicks are regression problems. Typically, a single numeric value is predicted given input variables.
+Some regression problems require the prediction of two or more numeric values. For example, predicting an x and y coordinate.
+These problems are referred to as multiple-output regression, or multioutput regression.
+In multioutput regression, typically the outputs are dependent upon the input and upon each other. This means that often the outputs are not independent of each other and may require a model that predicts both outputs together or each output contingent upon the other outputs.
+Multi-step time series forecasting may be considered a type of multiple-output regression where a sequence of future values are predicted and each predicted value is dependent upon the prior values in the sequence.
+There are a number of strategies for handling multioutput regression and we will explore some of them in this tutorial.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+First, confirm that you have a modern version of the scikit-learn library installed.
+This is important because some of the models we will explore in this tutorial require a modern version of the library.
+You can check the version of the library with the following code example:
+Running the example will print the version of the library.
+At the time of writing, this is about version 0.22. You need to be using this version of scikit-learn or higher.
+We can define a test problem that we can use to demonstrate the different modeling strategies.
+We will use the make_regression() function to create a test dataset for multiple-output regression. We will generate 1,000 examples with 10 input features, five of which will be redundant and five that will be informative. The problem will require the prediction of two numeric values.
+The example below generates the dataset and summarizes the shape.
+Running the example creates the dataset and summarizes the shape of the input and output elements of the dataset for modeling, confirming the chosen configuration.
+Next, let’s look at modeling this problem directly.
+Some regression machine learning algorithms support multiple outputs directly.
+This includes most of the popular machine learning algorithms implemented in the scikit-learn library, such as:
+Let’s look at a few examples to make this concrete.
+The example below fits a linear regression model on the multioutput regression dataset, then makes a single prediction with the fit model.
+Running the example fits the model and then makes a prediction for one input, confirming that the model predicted two required values.
+The example below fits a k-nearest neighbors model on the multioutput regression dataset, then makes a single prediction with the fit model.
+Running the example fits the model and then makes a prediction for one input, confirming that the model predicted two required values.
+The example below fits a decision tree model on the multioutput regression dataset, then makes a single prediction with the fit model.
+Running the example fits the model and then makes a prediction for one input, confirming that the model predicted two required values.
+We may want to evaluate a multioutput regression using k-fold cross-validation.
+This can be achieved in the same way as evaluating any other machine learning model.
+We will fit and evaluate a DecisionTreeRegressor model on the test problem using 10-fold cross-validation with three repeats. We will use the mean absolute error (MAE) performance metric as the score.
+The complete example is listed below.
+Running the example evaluates the performance of the decision tree model for multioutput regression on the test problem. The mean and standard deviation of the MAE is reported calculated across all folds and all repeats.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+Importantly, error is reported across both output variables, rather than separate error scores for each output variable.
+Not all regression algorithms support multioutput regression.
+One example is the support vector machine, although for regression, it is referred to as support vector regression, or SVR.
+This algorithm does not support multiple outputs for a regression problem and will raise an error. We can demonstrate this with an example, listed below.
+Running the example reports an error message indicating that the model does not support multioutput regression.
+A workaround for using regression models designed for predicting one value for multioutput regression is to divide the multioutput regression problem into multiple sub-problems.
+The most obvious way to do this is to split a multioutput regression problem into multiple single-output regression problems.
+For example, if a multioutput regression problem required the prediction of three values y1, y2 and y3 given an input X, then this could be partitioned into three single-output regression problems:
+There are two main approaches to implementing this technique.
+The first approach involves developing a separate regression model for each output value to be predicted. We can think of this as a direct approach, as each target value is modeled directly.
+The second approach is an extension of the first method except the models are organized into a chain. The prediction from the first model is taken as part of the input to the second model, and the process of output-to-input dependency repeats along the chain of models.
+Let’s take a closer look at each of these techniques in turn.
+The direct approach to multioutput regression involves dividing the regression problem into a separate problem for each target variable to be predicted.
+This assumes that the outputs are independent of each other, which might not be a correct assumption. Nevertheless, this approach can provide surprisingly effective predictions on a range of problems and may be worth trying, at least as a performance baseline.
+For example, the outputs for your problem may, in fact, be mostly independent, if not completely independent, and this strategy can help you find out.
+This approach is supported by the MultiOutputRegressor class that takes a regression model as an argument. It will then create one instance of the provided model for each output in the problem.
+The example below demonstrates how we can first create a single-output regression model then use the MultiOutputRegressor class to wrap the regression model and add support for multioutput regression.
+We can demonstrate this strategy with a worked example on our synthetic multioutput regression problem.
+The example below demonstrates evaluating the MultiOutputRegressor class with linear SVR using repeated k-fold cross-validation and reporting the average mean absolute error (MAE) across all folds and repeats.
+The complete example is listed below.
+Running the example reports the mean and standard deviation MAE of the direct wrapper model.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the Linear SVR model wrapped by the direct multioutput regression strategy achieved a MAE of about 0.419.
+We can also use the direct multioutput regression wrapper as a final model and make predictions on new data.
+First, the model is fit on all available data, then the predict() function can be called to make predictions on new data.
+The example below demonstrates this on our synthetic multioutput regression dataset.
+Running the example fits the direct wrapper model on the entire dataset and is then used to make a prediction on a new row of data, as we might when using the model in an application.
+Now that we are familiar with using the direct multioutput regression wrapper, let’s look at the chained method.
+Another approach to using single-output regression models for multioutput regression is to create a linear sequence of models.
+The first model in the sequence uses the input and predicts one output; the second model uses the input and the output from the first model to make a prediction; the third model uses the input and output from the first two models to make a prediction, and so on.
+For example, if a multioutput regression problem required the prediction of three values y1, y2 and y3 given an input X, then this could be partitioned into three dependent single-output regression problems as follows:
+This can be achieved using the RegressorChain class in the scikit-learn library.
+The order of the models may be based on the order of the outputs in the dataset (the default) or specified via the “order” argument. For example, order=[0,1] would first predict the oth output, then the 1st output, whereas an order=[1,0] would first predict the last output variable and then the first output variable in our test problem.
+The example below demonstrates how we can first create a single-output regression model then use the RegressorChain class to wrap the regression model and add support for multioutput regression.
+We can demonstrate this strategy with a worked example on our synthetic multioutput regression problem.
+The example below demonstrates evaluating the RegressorChain class with linear SVR using repeated k-fold cross-validation and reporting the average mean absolute error (MAE) across all folds and repeats.
+The complete example is listed below.
+Running the example reports the mean and standard deviation MAE of the chained wrapper model. Note that you may see a ConvergenceWarning when running the example, which can be safely ignored.
+Note: Your results may vary given the stochastic nature of the algorithm or evaluation procedure, or differences in numerical precision. Consider running the example a few times and compare the average outcome.
+In this case, we can see that the Linear SVR model wrapped by the chained multioutput regression strategy achieved a MAE of about 0.643.
+We can also use the chained multioutput regression wrapper as a final model and make predictions on new data.
+First, the model is fit on all available data, then the predict() function can be called to make predictions on new data.
+The example below demonstrates this on our synthetic multioutput regression dataset.
+Running the example fits the chained wrapper model on the entire dataset and is then used to make a prediction on a new row of data, as we might when using the model in an application.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered how to develop machine learning models for multioutput regression.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of python code
+Discover how in my new Ebook: Ensemble Learning Algorithms With Python
+It provides self-study tutorials with full working code on: Stacking, Voting, Boosting, Bagging, Blending, Super Learner, and much more...
+Thank you for this post. I was not aware that scikit-learn had those wrapper classes. That is very handy.
+Thanks for show how to use them in a very clear straightforward way.
+You’re welcome.
+Sereasly interested.
+Thanks.
+It is just amazing. Thank you
+You’re very welcome!
+Hi Dr. Jason,
+Thanks for the meaningful tutorial article, it helps me a lot.
+I just tested and found all of the code works well in sklearn 0.20, so we don’t necessarily need to update to 0.22 or higher.
+Thanks again for the excellent article, looking forward to the next one.
+Thanks, great tip!
+Hi Dr. Brownlee,
+Thanks for the excellent work!
+I have a question, can the wrapped model (either using MultiOutputRegressor or RegressorChain ) work with cross_val_score function? I tested the following code and found the score is 0.0, is there anything wrong with that?
+from numpy import absolute from numpy import mean from numpy import std from sklearn.datasets import make_regression from sklearn.multioutput import MultiOutputRegressor from sklearn.svm import LinearSVR from sklearn.model_selection import cross_val_score from sklearn.model_selection import RepeatedKFold # create datasets X, y = make_regression(n_samples=1000, n_features=10, n_informative=5, n_targets=2, random_state=1) # define model model = LinearSVR() wrapper = MultiOutputRegressor(model) # evaluate model cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1) n_scores = cross_val_score(wrapper, X, y, scoring=’neg_mean_absolute_error’, cv=cv, n_jobs=-1, error_score=’raise’) # summarize performance n_scores = absolute(n_scores) print(‘Result: %.3f (%.3f)’ % (mean(n_scores), std(n_scores)))
+Thank you in advance!
+Yes.
+A score of 0 means perfect predictions.
+Thanks for a really good and pedagogical tutorial. Fits my need exactly! 🙂
+Thanks, I’m very happy to hear that!
+Hi Jason!
+Excellent tutorial. Is it possible to apply a Transformed Target Regressor with this multi-output regression models?
+Thanks in advance!
+Probably. You might have to experiment to confirm it works as expected.
+Hi Jason,
+Thanks a lot for this tutorial. It suits my need perfectly. I have a question regarding the correlation among different Y variables. Do the KNN or Random Forest models automatically consider the correlation among different Y while predicting? If they do that, is there any documentation on how it is done? I tried to look for it online, but found nothing. Could you please guide me to some resources? Thanks
+You’re welcome.
+No, but some algorithms are not bothered by colinear inputs (ensembles of trees I think), and some are (linear models).
+Thanks for this very interesting tutorial. I have a question for some cases where we have for example about 500 inputs and 200 outputs. Does this Multi-Output Regression way work with such problems?(In fact I have a about 20 features and 500 input points that are extracted form scan-1 and 200 output points from scan-2.)
+You’re welcome.
+Perhaps develop a quick prototype and see if the methods are appropriate and effective?
+Thanks for your reply:), the problem is my current data is not completely ready and I have to wait, so I was also thinking about Deep-learning methods such as convolution, but I have to do some research on it. Do you have any suggestion for such types of problems? It is something like image processing because it the input data and the output data are points that are extracted from scan(images).
+If the input data are images, then CNNs would be a good method to explore.
+Actually input data are digits that are extracted from images. But as the number of my sample data are limited (about 30 samples) I cannot use CNNs. And I decided to convert one image into about 500 points/digits. Can you please let me know your opinion?
+Test a suite of data preparations and models and discover what works best for your dataset.
+This is great. But i have a question on the metrics of these. Based on your test, which one would you say provided the best prediction?
+It depends on your dataset.
+You must use controlled experiments to discover what works best on your project.
+Why not simply use a neural network with multiple neurons in output layer or build a multi-target decision tree and let the model figure out patterns instead of us (the modelers) having to decide whether or not the outputs are correlated/ordered? If there’s a strong rationale for ordered outputs, then RegressorChain might be a good option.
+PS: I believe by default sklearn’s decision trees are amenable to this as per this post https://stackoverflow.com/questions/46062774/does-scikit-learns-decisiontreeregressor-do-true-multi-output-regression
+You can use a neural net, but we cannot know which model will best for a given dataset, so we must test many different methods and select the simplest well performing model.
+Jason your tutorials is simply amazing. I love them! Congrats for this awesome material.
+Thanks!
+It seems wrapper method doesn’t work on some ensemble, I tried this:
+model = GradientBoostingRegressor(ExtraTreesRegressor()) wrapper = MultiOutputRegressor(model) wrapper.fit(x,y)
+it said “TypeError: unsupported format string passed to ExtraTreesRegressor.__format__”
+But it works on AdaBoostRegressor.
+Anyway, this is a good tutorial, and it gave many ideas to my final year project, thank you Jason!
+You’re welcome.
+Interesting.
+I believe ensembles of trees support multi-output regression directly – e.g. not wrapper required.
+Thank you very much !! I was looking for something like this and was unable to find ways for multi output predictions other than the four you mentioned ,now i did .
+You’re welcome!
+Thank you
+Also i wanted to ask a question:
+I have coordinates in table (in time series) like a ,b,c->d b,c,d->e and so on where each point is in the form of [lat, long] So this is where I wanted to use a multiple regression output And I want to calculate error as well , which error metric would you suggest be best? I wanted to use MAPE but it has the form like diff/actual… where actual is of the form ([lat, long)] so I cant divide it with a list, it needs a single value. Any suggestions?
+You’re welcome.
+I recommend choosing a metric that best captures the goals of the project for you and project stakeholders. Also, perhaps check the literature to see what others have done on the same type of problem before you.
+If you are unsure MAE and RMSE are a great place to start.
+Very helpful!
+When using Chained models using wrapper class, can we use separate models and then wrap them all to fit?
+What do you mean exactly? Perhaps you can elaborate.
+Thanks for this tutorial which I used in conjunction with the eBook.
+Can I ask – i am working on a multi-input/multioutput problem, with 3 sets of input (each set with 7 different variables with >10000 values). I have one output set (8 variables) for the combined 3 input sets.
+What’s the best way to import/organise this data (vectors/arrays?) at the beginning of the process to make it easy to use with scripts?
+Well, generally sklearn expects input as a vector of rows and columns. So working with data in that form might be easier for you.
+Really good post. It really helps me a lot. I have two questions: For Linear Regression for Multioutput in scikit-learn, when call fit(X, y). It is actually fit Separate Model for Each Output. Am I right?
+Second question, I am using kernel_ridge linear regression(RBF kernel). I use cross validation to choose 2 hyper-parameter- alpha: the parameter for L2 regulazation, and gamma:the parameter for RBF kernel. When I call
+kr = GridSearchCV(KernelRidge(kernel=’rbf’, gamma=0.1), param_grid={“alpha”: np.logspace(-2, 0, 10), “gamma”: np.logspace(-2, 0, 10)}, scoring=’neg_mean_squared_error’)
+It fit Separate Model for each output ,but the Separate models share the same ‘alpha’ and ‘gamma’ in each CV parameter search?
+Thanks!
+Yes, MultiOutputRegressor fits a separate model for each target as described in the tutorial.
+Correct, they will both use the same hyperparameters. If this is not desirable, you can fit separate models manually.
+Thanks for your reply. Also I found Gaussian process regression model in scikit learn- GaussianProcessRegressor- support mutioutput. Is the model actually model each outhput dimension as a single gaussian process regression problem?
+Perhaps check the documentation for the model.
+Thanks for such useful tutorial. I am going to use GridSearchCV inorder to improve the results but I get error:
+from sklearn.model_selection import GridSearchCV modelchain4grid = LinearSVR(max_iter=10000) wrapper4grid = RegressorChain(modelchain4grid) tuned_parameters = [{‘C’: [1,3,5,7,9,11,13,15,17,19,21]}] grid = GridSearchCV(wrapper4grid, tuned_parameters,scoring = ‘neg_mean_squared_error’) grid_result = grid.fit(X_train, Y_train) print(grid_result)
+I get this error: ValueError: Invalid parameter C for estimator RegressorChain(base_estimator=LinearSVR(
+Could you please let me know where is my issue?
+Thanks in advance
+I believe you may need to specify the C parameter as sub-parameter of the regressor chain model.
+I don’t know the syntax offhand, perhaps RegressorChain__C, but perhaps check the scikit-learn documentation for grid searching composite models.
+Thanks. That is “base_estimator__C” and I used then the folowing code:
+wrapper4grid = RegressorChain(modelchain4grid) print(wrapper4grid.get_params()) svr = GridSearchCV(wrapper4grid, cv=5, param_grid={“base_estimator__C”: [1e0, 1e1, 1e2, 1e3]}, scoring=’accuracy’) grid_result = svr.fit(X_train, Y_train)
+But it does not support multioutput and gave me the following error:
+continuous-multioutput is not supported
+Could you please let me know if there is a good way to tune the parameters in multioutput regression?
+Thanks in advace
+Just a correction in scoring (scoring = ‘neg_mean_squared_error’), fixed it.
+The complete working code for multi-input-ouptut is:
+modelchain4grid = LinearSVR(max_iter=10000) wrapper4grid = RegressorChain(modelchain4grid) #print(wrapper4grid.get_params()) svr = GridSearchCV(wrapper4grid, cv=5, param_grid={“base_estimator__C”: [1e0, 1e1, 1e2, 1e3]}, scoring = ‘neg_mean_squared_error’) grid_result = svr.fit(X_train, Y_train)
+a = grid_result.best_score_ b = grid_result.best_params_ c = grid_result.cv_results_[‘mean_test_score’] d = grid_result.best_estimator_ print(a) print(b) print(c) print(d) means = grid_result.cv_results_[‘mean_test_score’] stds = grid_result.cv_results_[‘std_test_score’] params = grid_result.cv_results_[‘params’]
+for mean, stdev, param in zip(means, stds, params): print(“%f” % mean) print(“%f” % stdev) print(“%r” % param)
+Well done!
+You may have to grid search manually, e.g. with some for loops.
+Thanks Jason,
+I have further worked on RegressionChain and tried to setup a pipeline to fit and predict new data as follows:
+model = Pipeline([(‘sc’, StandardScaler()),(‘pca’, PCA(n_components=10)),(‘SVRchain’, RegressorChain(LinearSVR(max_iter=1000)))]) model.fit(X_train, Y_train) print(model.fit) predictions= model.predict(X_test) print(predictions)
+But the predictions are different from when I do not use this Pipeline and do the StandardScaler and PCA first and then fit the model (not using Pipleline).
+Is there something that I have missed or we cannot set up sucha Pipleline for RegressorChain(LinearSVR)? The Pipeline itself is a kind if estimator that may conflict with the based estimator of RegressionChain that is LinearSVR?
+Thanks in advance
+Good question.
+I would recommend using a pipeline for the estimator within the regression train.
+Thank but I did not get you can you show in an code example please?
+Do you mean something like this:
+# create pipeline estimators = [] estimators.append((‘standardize’, StandardScaler())) estimators.append((‘pca’, PCA(n_components=10))) estimators.append((‘LSVR’, LinearSVR(max_iter=1000))) model = RegressorChain(Pipeline(estimators)) model.fit(X_train, Y_train) test = model.predict(X_test) print(test)
+If you meant something like the above mentioned code then it also does not give the right answer. Could you please let me know your feedback?
+Yes, that is what I was thinking, does it work as expected?
+I hope that you meant the following way (that I tried it and it gives the expected result):
+pipe4estimator = Pipeline([(‘sc’, StandardScaler()),(‘pca’, PCA(n_components=10)),(‘SCRChain’, RegressorChain(LinearSVR(max_iter=1000))]) sc_y = StandardScaler() y_train_std = sc_y.fit_transform(Y_train) pipe4estimator.fit(X_train, y_train_std) y_train_pred = sc_y.inverse_transform(pipe4estimator.predict(X_train)) y_test_pred = sc_y.inverse_transform(pipe4estimator.predict(X_test)) print(y_test_pred)
+If this is what I meant then we can result that: Seting up a pipeline for RegressorChain(LinearSVR()), needs extra standardScaler outof the pipeline after train and prediction steps. Right?
+Well done!
+No, the pipeline knows how to prepare data fed into it after it is fit on training data.
+Really great post, Jason! I have read many of your articles and appreciate your to the point discussions. I have a question.
+Say, we are trying to learn a model for multi output regression. And, I would like to add ‘relatively’ more importance to learning one of the dimensions of the output vector.
+Do you have any suggestions for this situation? As far as I can think of, we can try to add more weight to that dimension while calculating the loss. But, I will have to add another hyperparameter that will control the weight for that dimension.
+Is there any other way you can think of?
+Hmmm, you could design a model where the loss is calculated across the output vector and give more penalty to one output than the others. It might be easer with a neural net in that sense.
+Or train separate models and use different loss functions for each, with a strong penalty for the one that is more important.
+Thank you for this artical.
+I have a question about the attribute in Condensed Nearest Neighbor Method. The sample_indices are the indices, which are filtered out? Or they are the indices, which should stay.
+We don’t cover CNN in this tutorial, are you referring to the algorithm generally or a specific implementation?
+e.g. this may help: https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.CondensedNearestNeighbour.html
+Hi Jason. Is it possible to perform variable selection in RegressorChain and see the important variables for each step? For exemple with Lasso ?
+Perhaps, you may need to experiment.
+Jason to the rescue. Again! Thank you.
+You’re welcome Paul.
+Hi…I would like to know if we can also use LSTM model to predict multioutput
+Yes, there are many examples on the blog, perhaps start here: https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/
+Thank you Jason for the very clear explanation on multi output multi input regression. I have a follow-up question. How do I find out what the coefficients are in a multi-input multi output model? I am asking because I have a few data sets that are similar but sources from different years. I’m trying to see how the coefficients change over years.
+You’re welcome!
+If you use a linear model, you can access the coefficients of the model directly via the “coef_” attribute, more details here: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+Once again, thank you Jason. I also read from earlier comments that a multi-output regression is actually just a series of independent linear regressions. Does that mean that, for 3 outputs and 3 inputs, the model is simply: Y1= w1.x1 + w2.x2 + w3.x3 + intercept1 Y2= w4.x1 + w5.x2 + w6.x3 + intercept2 Y3= w7.x1 + w8.x2 + w9.x3 + intercept3
+… where w1-w9 are the coefficients that we can print from coef_.
+And the r2 is the average of r2 of the 3 equations?
+Yes, something like that.
+Thank you for the tutorial and your efforts.
+I have an inquiry, Is the prediction depends on the number of samples? and does standardization is needed to avoid that?
+The prediction depends on all aspects of the dataset, it’s preparation and the model configuration.
+Standardization is required for some algorithms and datasets. Perhaps try it and see if it improves model performance.
+Helpful examples, thank you. Do you have any examples of a custom loss function that could penalize the summation of resulting y’s in addition to individual rmse or r2. For example, i have sales of three stores and some inputs. However i know the sum of their sales and can feed this number as well as an input. How can I ensure the resulting 3 sales forecast will sum to the number I believe it to be? Its unusual because I know the resulting sum but I’m interested in forecasting the contributions to the sum. Hope that makes some sense and you have a suggestion. Thx!
+I don’t have an example of a loss function as you describe, but the example of a custom RMSE metric in this tutorial can be adapted for your needs: https://machinelearningmastery.com/custom-metrics-deep-learning-keras-python/
+Thx for the pointer. Can you use keras backend with sklearn.multioutput? I’m don’t understand how that would work this.
+Also is there a way to extract feature importance from an XGB model used in wrapper? I other words can I get the n model’s most important features? I haven’t figured out how to access or even if this information is actually retained.
+figured out how to access feature importance right after i posted this:
+wrapper.estimators_[n].feature_importances_
+in case useful for anyone else. n being the index of the model you are interested in.
+Still don’t understand how keras.backend would interact with this. Or is using the backend math not applicable to this example?
+Nice!
+Maybe, no need though as the models do the same thing different ways.
+Yes, you can retrieve feature importances from a fit XGB model I believe. I recommend checking the API to see the name of the attribute on the object.
+Thanks for the lucid example.
+Can we put different regression or classifier in sequence in wrapper function? For example, first dependent variable predicted with linear regression and the next one with ridge regression ?
+wrapper = RegressorChain(Linearregresson(), Ridgerregression(), order=[1,0])
+No. See the API documentation here: https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.RegressorChain.html
+Thanks a lot for sharing. I was looking for a solution for my MIMO problem. I am glad I found this.
+You’re welcome!
+Hi ,
+In topics to be covered its mentioned “Random Forest for Multioutput Regression” but I don’t see it in the article.
+Pardon me if I overlooked something…I am a beginner searching for that…
+regards, Jyo
+Sorry, I must have deleted that example.
+Here it is:
+hi Jason,
+I have run all models on my data.
+I have one input and many target variables.i have normalized all variables to have values between and 1.
+In that one of the target variables has only 4 values.I mean it can have any of the four values.
+But when I run the model ,the target variable is having many values …and so when I do renormalization ,I don’t see whole number values for that variable.
+Is this behaviour expected?
+Please help.
+Perhaps. I don’t understand the problem you’re having, sorry.
+Jason,
+Let me take your Boston housing data as example.
+In that the variable RAD has values 1 to 8 and 24.These are the only 9 values it has. But when I run multiregression, and suppose RAD is one of the target variables..can it happen that the outcome has a value other than these numbers(1:8 and 24?)
+When I normalize entire data set to have only to range from 0 to 1 and run the model ,and do scaleback on the predictions ,I see multiple values on a variable which is supposed to have only 4 values actually.
+So I am not understanding where I went wrong.Please help…
+You can invert the transform on predicted values and round to the desired precision.
+Hi Jason,
+To make it more clear,I have multi target variables and in that I have few that are categorical and few that are continuous.
+So if I am trying any of the above regression techniques ,the target variables that have categorical structure are also getting float values…should i make the predicted values to whole numbers by rounding off?
+Perhaps try one model per variable? Perhaps try post-processing the output? Perhaps try a mutli-output neural net model with a separate loss per output?
+jason,
+i was asked to do on ML only.What do u mean by postprocessing the output….
+E.g. scale, round, etc. the output of the model, interpret it for your application.
+We should normalize entire dataset before using any regressor for multiple targets?. For single target, usually normalizing only X appears to be more common.
+No, fit the transform on the training dataset, then apply to the train and test sets.
+This is to avoid data leakage: https://machinelearningmastery.com/data-preparation-without-data-leakage/
+Thank you for clarifying. I was going through your other post: https://machinelearningmastery.com/feature-selection-for-regression-data/
+The feature selection doesn’t work for multiple targets, any idea if there is a way to do the same for y with shape (n, 2)
+Thank you
+Perhaps operate on each target separately.
+Hi Jason,
+I have the variable in label encoded format(not strings ,numerical itself),i can’t further one hot encode it because the columns bloat in my case.
+I normalized ..so all the data is is 0-1 range .
+Ran the models.
+Now to interpret output I am having the float numbers on the categorical which I can’t accet and so trying to get integers.
+Can I apply ceiling if it is below 0.5 and floor above 0.5 of a number?
+Will this be correct approach?
+You can invert the scaling of the target using the same object that you used to scale the variable in the first place. e.g. call inverse_transform()
+But that will not guarantee me integer values of predicted values ,right?
+It will be consistent, then you can round the result.
+Also how can I decide whether to go with one model per variable or all variables in single model?
+Choose the approach that results in the best performance for your chosen metric/test harness.
+You Jason are a genius!!!! Tried to code out a similar problem, but was stuck at it. And then came along this article!!. I would highly suggest you to link this article with Time Series Forecasting articles, as it has great resemblance with multi-step head forecasting (of course with suitable changes) problems.
+No, just a simple human.
+Thanks. Yes, you can use it for multi-step forecasting, e.g. the “direct” approach listed here: https://machinelearningmastery.com/multi-step-time-series-forecasting/
+Hi, Jason,
+do all inherent multioutput regression algorithms you mentioned (LinearRegression, KNeighborsRegressor, …) take into account dependencies between the outputs?
+Many thanks in advance.
+Best regards John
+No, I don’t believe so.
+Is there a possibility to do that?
+Hi Jason,
+I have already existing data and I dont want to use make regression. But with my dataset I am not able to use the rest of your function. How can I do that ?
+Sorry, I don’t understand your question – perhaps you can rephrase?
+Hi Jason,
+Long question sorry, but sort of confused…
+If I am attempting to use regressor chain to forecast out 24 future values (hourly data, or one day look ahead)
+Does the order matter much?
+For example, if I want 24 future values would I always need to use: 0 through 23 on order?
+chain_regr = RegressorChain(model, order=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23])
+OR should I just experiment?
+I also get a little confused on how many leading and lagging variables to use on the series_to_supervised function but I think you always teach just to keep experimenting to check results…
+Sounds like a great project!
+Probably keep the order linear, but experiment to confirm.
+Same with number of inputs, experiment the input sequence length to discover what works best.
+Hi Jason,
+One other item I still cant wrap my head around is the train test split with more than one X variable. So if I am forecasting out 24 samples (one day look ahead) that I was talking about previously. What would be my target variable (y) and explainer variables? For example my data coming back from the series_to_supervised function looks like this:
+train = series_to_supervised(data,11,14)
+var1(t-14) var1(t-13) var1(t-12) … var1(t+8) var1(t+9) var1(t+10) 0 NaN NaN NaN … -0.524479 -0.618750 -0.707683 1 NaN NaN NaN … -0.618750 -0.707683 -0.806900 2 NaN NaN NaN … -0.707683 -0.806900 -0.873959 3 NaN NaN NaN … -0.806900 -0.873959 -0.899870 4 NaN NaN NaN … -0.873959 -0.899870 -1.032032 .. … … … … … … … 827 -1.483986 -1.532290 -1.456250 … NaN NaN NaN 828 -1.532290 -1.456250 -1.226042 … NaN NaN NaN 829 -1.456250 -1.226042 -1.200911 … NaN NaN NaN 830 -1.226042 -1.200911 -1.441015 … NaN NaN NaN 831 -1.200911 -1.441015 2.416797 … NaN NaN NaN .. … … … … … … … 827 0.524870 0.208073 -0.200912 … NaN NaN NaN 828 0.208073 -0.200912 0.626172 … NaN NaN NaN 829 -0.200912 0.626172 0.591797 … NaN NaN NaN 830 0.626172 0.591797 0.616145 … NaN NaN NaN 831 0.591797 0.616145 0.108594 … NaN NaN NaN
+Would my target y always be var1(t) and explainer variables be all others? For example:
+trainX = np.array(train.drop(['var1(t)'],1)) trainy = np.array(train['var1(t)'])
+This way I can test out different variations of leading/lagging variables when calling the series_to_supervised
+Some train data will be needed for the first few predictions in the test, most likely.
+This may help: https://machinelearningmastery.com/time-series-forecasting-supervised-learning/
+Hi Jason, I have data of Drumspeed, mixing rotations, discharging rotations, weight values of a concrete mixer. The process is a combination of mixing(positive cycle) and discharging(negative cycle). I want to predict how much the weight of concrete is reduced after every discharging process. I am thinking to use multilinear regression. But the problem is How Can I predict the reduced weight at each discharging process? Is it possible with the multilinear regression model? I am new to regression problems. Do I need to use some mathematical formulas before predicting?
+This framework may help you frame your prediction problem: http://machinelearningmastery.com/how-to-define-your-machine-learning-problem/
+Then follow this process: https://machinelearningmastery.com/start-here/#process
+Hi Jason, I have a dataset like this. It is a sample dataset. No Drumspeed Rot.discharging Rot.mixing Weight Predicted_weight 1 12 10 6170 29000 28765 2 8 20 6270 27000 27320 3 4 25 0 25000 24569 4 10 30 6370 30000 29890 5 7 35 6378 28500 28120 6 5 40 0 26000 26789 7 6 28 6235 28500 28435 8 7 36 6298 27564 27111 9 10 43 6300 26560 26780 10 12 47 0 24000 24361
+3,6,10 are the discharging process and remaining are mixing process. I want to predict the weight only at the discharging process(3,6,10).
+The problem is I just want to predict the weight values only at the discharging process. Is it possible with machine learning multiple regression? Because it just predicts the continuous values.
+Perhaps try prototyping a few different models and discover if you can achieve your desired outcome.
+Hi Jason, Do you know which other algorithms are supported for RegressorChain ? I use the LinearSVR following your sample but got an MAE: 991.290 (128.681) which are very high values. Should I change the scorer or the algorithm regarding to my data?
+LSVR = LinearSVR() reg_model = RegressorChain(LSVR, order=[0,1]) reg_model.fit(X_train, y_train) cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=42) cv_r2_scores_lsvr = cross_val_score(estimator =reg_model, X= X_train, y= y_train,scoring=’neg_mean_absolute_error’, cv=cv) abs_cv_r2_scores_lsvr = absolute(cv_r2_scores_lsvr)
+print(‘MAE: %.3f (%.3f)’ % (mean(abs_cv_r2_scores_lsvr), std(abs_cv_r2_scores_lsvr)))
+Also, Do you think GridSearchCV can be used for RegressorChain ? I used in my data as you can see in below but not sure it is logical for RegressorChain method.
+#model tuning svr_params = {‘base_estimator__tol’ : [000.1, 00.1, 0.1], ‘base_estimator__max_iter’: [1000,2000,3000] }
+SVR = LinearSVR() svr_model = RegressorChain(SVR, order=[0,1]) cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=42) svr_cv_model = GridSearchCV(svr_model, svr_params, cv = cv, n_jobs = -1) svr_cv_model.fit(X_train, y_train) print(“Best parameters are: ” + str(svr_cv_model.best_params_))
+Thank you for your hardwork btw, It helps me a lot. I would like to use as a reference if I can publish my work in Kaggle. Hope it is okay for you 🙂
+Perhaps try a number of algorithms and see what works best.
+Not sure about combining grid search with regression chain – try it and see.
+Please clearly cite and link to the source if you reuse my code, details here: https://machinelearningmastery.com/faq/single-faq/can-i-use-your-code-in-my-own-project
+We have developed a python package for that:
+https://github.com/DSARG/amorf
+It combines several different approaches to help you get started with multi-output regression analysis.
+Thanks for sharing.
+hi Jason, thanks for this post.
+I have a question concerning models MAE :
+The MAE for the Inherently Multioutput Regression Algorithms approach is 51.817 (2.863) whereas for the Direct Multioutput Regression approach the MAE is 0.419 (0.024).
+You mention the fact that “error is reported across both output variables, rather than separate error scores for each output variable”. My understanding of your statement is that it is the sum of MAE on y1 added to the MAE on y2.IS that correct?
+My question is : what is the meaning of the MAE of 0.419 ? It is quite small compared to 51.817.
+Thanks.
+No, I believe the MAE is averaged across variables and samples.
+The units of MAE will be the same as the target variable.
+You are comparing different things. “51.817” is a specific predicted value, “0.419” is a MAE.
+MAE: 51.817 (2.863) is what I read in your post, in the Evaluate Multioutput Regression With Cross-Validation paragraph.
+Right you are, yes the decision tree performs poorly on the problem.
+Hello, Jason, a great post as always!
+Consider the following task:
+You have a data frame where each entry is some biomarker, its connection with a therapy and some other data (with results taken from research papers), and the task is to inference what factors affect the therapy composition of the database i.e. how many therapies of each kind are in it based on other data in the table. Would you consider this a multi-output regression problem (I was thinking of glm for poisson regression)? On the one hand, it does look like a multi-output regression problem to me, since we have multiple numerical response variables, but on the other hand it looks like all therapies should be dealt with separately…
+Thanks.
+Perhaps prototype some code for your data modelled as a multi-output regression and see if it makes sense.
+Question about inputs and targets: Could the inputs and targets be the same? Would this cause any issues?
+For example if dealing with multiple sites each with their own values, and we want to predict values for all sites.
+Say we had 3 sites and wanted to predict 3 target values one for each site. Can we make the input and target data the same?
+Yes.
+Perhaps try it out with a small prototype.
+Hi Dr. Drownlee,
+I have one questions: if the two outputs are kind of related to each other, will this cause any issue?
+Thanks!
+It depends. I don’t think so. Perhaps try it and see.
+Hi, Thank you so much for this article and so much more, it really helps me out in my ML project. Nevertheless I have this error for both method of use of SVM:
+C:\Users\Amaury\AppData\Roaming\Python\Python38\site-packages\sklearn\svm\_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations. warnings.warn(“Liblinear failed to converge, increase ” C:\Users\Amaury\AppData\Roaming\Python\Python38\site-packages\sklearn\svm\_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations. warnings.warn(“Liblinear failed to converge, increase ”
+And the results are pretty bad and very different at every executions, do you have an answer ?
+You’re welcome.
+They look like warnings that you can ignore.
+Nevertheless, perhaps change SVM to something else? Perhaps scale your data first? Perhaps change the solver used by SVM?
+What does mean standard deviation and the mean equal to zero in my Multi-Output Regression using linear regression and Linear SVM. is my model fit or I must change my algorithms I have huge excel data of 10 outputs and 80 inputs thank very much for your efforts to make machine learning available and open sorce for every one
+If the mean and standard deviation are zero, then the field has a single value for all rows – in which case the variable has no data and can be removed from the dataset.
+Great article as aways.
+Did you write a similar article (Multioutput Regression) for R language?
+Thanks!
+Not at this stage, sorry.
+Hi Jason, This has been very helpful! Very thorough and well explained.
+Is there a way to get prediction intervals also for the multiple values we are predicting? Can you direct to some help in that direction?
+Thanks!
+A simple approach is to use an ensemble of models, make predictions with each and use the distribution of predictions for each output to determine the interval (percentiles or mean+stdev)
+Thank you, that is helpful! 🙂
+You’re welcome.
+Thanks a lot for the tutorial Jason, it is extremely useful!
+Thanks’ I’m happy to hear that!
+Thanks a lot for the tutorial, I have a question. Do Linear regression, KNN, Decision tree implemented in Scikit-Learn use Direct Multioutput or Chained Multioutput ?
+Direct vector output.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Ensemble Learning With Python EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

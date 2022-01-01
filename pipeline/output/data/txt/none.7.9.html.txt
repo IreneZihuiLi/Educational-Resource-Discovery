@@ -1,0 +1,663 @@
+Statistical Methods for Machine Learning
+Statistical Methods for Machine Learning
+Statistical Methods for Machine Learning
+Why do we need Statistics?
+Why is Statistics Important to Machine Learning?
+…it is needed at each step of a project
+The 3 Mistakes Made By Beginners
+A Better Way into Statistics
+Introducing My New Ebook:
+“Statistical Methods for Machine Learning“
+About Your Outcomes
+…so what will YOU know after reading this book?
+What Exactly Is in This Book?
+…see the table of contents
+Here’s Everything You’ll Get…
+in Statistical Methods for Machine Learning
+Take a Sneak Peek Inside The Ebook
+Download Your Sample Chapter
+BONUS: Statistical Methods Python Code Recipes
+…you also get 86 fully working Python scripts
+Check Out What Customers Are Saying:
+You're Not Alone in Choosing Machine Learning MasteryTrusted by Over 53,938 Practitioners
+Absolutely No Risk with...100% Money BackGuarantee
+Discover Statistical Methods for Machine Learning TODAY!
+Basic Package
+Math Bundle
+Super Bundle
+About The Author
+What Are Skills in Machine Learning Worth?
+What Are Your Alternatives?
+You're A Professional
+Frequently Asked Questions
+Do you haveanother question?
+Navigation
+Main Menu
+Discover how to Transform Data into Knowledge with Python
+These Questions Are Important…
+1. Practitioners Don’t Know Stats
+2. Practitioners Study The Wrong Stats
+3. Practitioners Study Stats The Wrong Way
+Who Is This Book For?
+…so is this book right for YOU?
+But, what if…?
+After reading and working through this book, you will know:
+After reading this book, you will be able to:
+6-Part Book Overview
+Lessons Overview
+Table of Contents
+What More Do You Need?
+Sample Code Recipes
+Python Technical Details
+100% Money-Back Guarantee
+Secure Payment ProcessingWith SSL Encryption
+How much is that worth to you?
+Machine Learning Mastery Ebooks are Amazing Value!
+The field moves quickly,...how long can you wait?
+Bottom-up is Slow and Frustrating,...don't you want afaster way?
+Professionals Stay On Top Of Their FieldGet The Training You Need!
+Discounts
+Free Material
+About my Books
+Comparison to Other Options
+Read on all devices
+Tons of tutorials
+Foundations
+Working code
+Problem Framing
+Data Understanding
+Data Cleaning
+Data Selection
+Data Preparation
+Model Evaluation
+Model Configuration
+Model Selection
+Model Presentation
+Model Predictions
+concrete and executable examples
+need to know
+Convinced?
+Part 1: Statistics
+Part 2: Foundation
+Part 3: Hypothesis Testing
+Part 4: Resampling
+Part 5: Estimation Statistics
+Part 6: Nonparametric Methods
+Lesson 01
+Lesson 02
+Lesson 03
+Lesson 04
+Lesson 05
+Lesson 06
+Lesson 07
+Lesson 08
+Lesson 09
+Lesson 10
+Lesson 11
+Lesson 12
+Lesson 13
+Lesson 14:
+Lesson 15
+Lesson 16
+Lesson 17
+Lesson 18:
+Lesson 19
+Lesson 20
+Lesson 21
+Lesson 22
+Lesson 23
+Lesson 24
+Lesson 25
+Lesson 26
+Lesson 27
+Lesson 28
+Lesson 29
+Appendix A
+Appendix B
+Appendix C
+required for applied machine learning
+Step-by-step Python tutorials
+everything you need
+source code recipes for every example
+exactly how each example works
+best sources of information
+ask your challenging questions
+books, research papers, and articles
+prerequisite for modern machine learning
+required for transforming data
+very closely related perspectives
+harness machine learning
+required at each step
+importance of the Gaussian distribution
+rapidly understand a sample of data
+role of randomness
+law of large numbers
+central limit theorem
+correctly interpret the p-value
+how to recognized
+interpret statistical tests
+quantify the association between variables
+check if samples are drawn from the same or different distributions
+difference between data samples
+statistical power
+data sampling
+bootstrap
+k-fold cross-validation
+estimation statistics
+tolerance intervals
+confidence intervals
+prediction intervals
+transform data
+normality testing
+transform a data sample
+describe a data sample
+correlation coefficients for rank data
+Nonparametric statistical hypothesis tests
+categorical input variable
+Python Version
+SciPy
+Operating System
+Hardware
+Editor
+100% Money-Back Guarantee
+I'll give you your money back
+3-Ebook set
+That's $81.00 of Value!
+complete 20-Ebook set
+That's $747.00 of Value!
+Do you have any Questions?
+(1) A Theoretical Textbook for $100+
+(2) An On-site Boot Camp for $10,000+
+(3) A Higher Degree for $100,000+
+Hands-OnSkills
+Speed of Results
+Low Price
+Right Now is theBest Time to make your start.
+Targeted Training is your Shortest Path to a result.
+Book Name
+Your Email
+Order Number
+All tutorials
+All books
+Short
+Terse
+Limited
+Longer
+Complete
+Broad
+mini-courses
+Ebook
+code/
+discount code
+offer code
+discount coupon
+most excited about
+can apply on a project immediately
+you don’t need to read all of the books
+change log
+errata
+Company Name
+Company Number
+Credit Card
+PayPal
+domestic credit card
+debit card
+The charge does not come from my website or payment processor
+Do you haveanother question?
+$27 USD
+Statistics is a pillar of machine learning. You cannot develop a deep understanding and application of machine learning without it.
+Cut through the equations, Greek letters, and confusion, and discover the topics in statistics that you need to know.
+Using clear explanations, standard Python libraries, and step-by-step tutorial lessons, you will discover the importance of statistical methods to machine learning, summary stats, hypothesis testing, nonparametric stats, resampling methods, and much more.
+About the Ebook:
+Convinced? Click to jump straight to the packages.
+Thorough, accessible, and more importantly interesting. Highly recommend! Ingrid Hastings Developer
+Thorough, accessible, and more importantly interesting. Highly recommend!
+Statistics is a collection of tools that you can use to get answers to important questions about data.
+You can use descriptive statistical methods to transform raw observations into information that you can understand and share. You can use inferential statistical methods to reason from small samples of data to whole domains.
+As a machine learning practitioner, you must have an understanding of statistical methods.
+Raw observations alone are data, but they are not information or knowledge. Data raises questions, such as:
+The results matter to the project, to stakeholders, and to effective decision making. Statistical methods are required to find answers to the questions that we have about data.
+We can see that in order to both understand the data used to train a machine learning model and to interpret the results of testing different machine learning models, that statistical methods are required.
+This is just the tip of the iceberg as each step in a predictive modeling project will require the use of a statistical method.
+It would be fair to say that statistical methods are required to effectively work through a machine learning predictive modeling project.
+Below are 10 examples of where statistical methods are used in an applied machine learning project.
+Once you discover the importance of statistics to machine learning, there are three key mistakes that beginners make:
+Developers don’t know statistics and this is a huge problem.
+Programmers don’t need to know and use statistical methods in order to develop software. Software engineering and computer science courses generally don’t include courses on statistics, let alone advanced statistical tests. As such, it is common for machine learning practitioners coming from the computer science or developer tradition to not know and not value statistical methods.
+This is a problem given the pervasive use of statistical methods and statistical thinking in the preparation of data, evaluation of learned models, and all other steps in a predictive modeling project.
+Often, machine learning practitioners cotton-on to the need for skills in statistics.
+This might start with a need to better interpret descriptive statistics or data visualizations and may progress to the need to start using sophisticated hypothesis tests. The problem is, they don’t seek out the statistical information they need.
+Instead, they try to read through a text book on statistics or work through the material for an undergraduate course on statistics.
+This approach is slow, it’s boring, and it covers a breadth and depth of material on statistics that is beyond the needs of the machine learning practitioner.
+It’s worse than this.
+Regardless of the medium used to learn statistics, be it books, videos, or course material, machine learning practitioners study statistics the wrong way.
+Because the material is intended for undergraduate students that need to pass a test, the material is focused on the theory, on proofs, on derivations. This is great for testing students but terrible for practitioners that need results.
+Practitioners need methods that clearly state when they are appropriate and instruction on how to interpret the result.
+They need code examples that they can use immediately on their project.
+I am frustrated at seeing practitioner after practitioner diving into statistics textbooks and online courses designed for undergraduate students and giving up.
+The bottom-up approach is hard, especially if you already have a full time job.
+Statistics is not only important to machine learning, but it is also a lot of fun, or can be if it is approached in the right way.
+I want to help you see the field the way I see it: as just another set of tools we can harness on our journey toward machine learning mastery.
+Introducing My New Ebook: “Statistical Methods for Machine Learning“ Welcome to the book: “Statistical Methods for Machine Learning“. I designed this book to teach machine learning practitioners, like you, step-by-step the basics of statistical methods with concrete and executable examples in Python. I set out to write a playbook for machine learning practitioners that gives you only those parts of statistics that they need to know in order to work through a predictive modeling project. I set out to present statistical methods in the way that practitioners learn-that is with simple language and working code examples. Statistics is important to machine learning, and I believe that if it is taught at the right level for practitioners, that it can be a fascinating, fun, directly applicable, and immeasurably useful area of study. I hope that you agree. Convinced? Click to jump straight to the packages. Who Is This Book For? …so is this book right for YOU? This book is for developers that may know some applied machine learning. Maybe you know how to work through a predictive modeling problem end-to-end, or at least most of the main steps, with popular tools. The lessons in this book do assume a few things about you, such as: You may know your way around basic Python for programming. You may know some basic NumPy for array manipulation. You want to learn statistical methods to deepen your understanding and application of machine learning. This guide was written in the top-down and results-first machine learning style that you’re used to from Machine Learning Mastery. But, what if…? What if I Am New to Machine Learning? This book does not assume you have a background in machine learning. That being said, I do recommend that you learn how to work through a predictive modeling problem first. It will give you the context for statistics. Otherwise the topic will feel too abstract. What if I Am Just a Developer? Perfect. I wrote this book for you. What if My Math is Really Poor? Maybe you learned statistics a long time ago back in school? Maybe you never covered statistics before. Perfect. This book is for you. I assume you know some basic arithmetic, and even then I give you a refresher. What if I Am Not a Python Programmer? You can handle this book if you are a programmer in another language, even if you are not experienced in Python. Everything is demonstrated with a small code example that you can run directly. All code is provided for you to play with, modify, and learn from. The book even has an appendix to show you how to set up Python on your workstation. What if I Am Working Through a Statistics Course at a University? Excellent! This book is not a substitute for an undergraduate course in statistics or a textbook for such a course, although it is a great complement to such materials.
+Welcome to the book: “Statistical Methods for Machine Learning“.
+I designed this book to teach machine learning practitioners, like you, step-by-step the basics of statistical methods with concrete and executable examples in Python.
+I set out to write a playbook for machine learning practitioners that gives you only those parts of statistics that they need to know in order to work through a predictive modeling project.
+I set out to present statistical methods in the way that practitioners learn-that is with simple language and working code examples.
+Statistics is important to machine learning, and I believe that if it is taught at the right level for practitioners, that it can be a fascinating, fun, directly applicable, and immeasurably useful area of study.
+I hope that you agree.
+Convinced? Click to jump straight to the packages.
+This book is for developers that may know some applied machine learning.
+Maybe you know how to work through a predictive modeling problem end-to-end, or at least most of the main steps, with popular tools.
+The lessons in this book do assume a few things about you, such as:
+This guide was written in the top-down and results-first machine learning style that you’re used to from Machine Learning Mastery.
+This book does not assume you have a background in machine learning.
+That being said, I do recommend that you learn how to work through a predictive modeling problem first. It will give you the context for statistics. Otherwise the topic will feel too abstract.
+Perfect. I wrote this book for you.
+Maybe you learned statistics a long time ago back in school?
+Maybe you never covered statistics before.
+Perfect. This book is for you. I assume you know some basic arithmetic, and even then I give you a refresher.
+You can handle this book if you are a programmer in another language, even if you are not experienced in Python.
+Everything is demonstrated with a small code example that you can run directly.
+All code is provided for you to play with, modify, and learn from.
+The book even has an appendix to show you how to set up Python on your workstation.
+Excellent!
+This book is not a substitute for an undergraduate course in statistics or a textbook for such a course, although it is a great complement to such materials.
+This new basic understanding of statistical methods will impact your practice of machine learning in the following ways:
+This book was designed to be a crash course in statistical methods for machine learning practitioners. Ideally, those with a background as a developer.
+This book was designed around major ideas and methods that are directly relevant to machine learning algorithms.
+There are a lot of things you could learn about statistics, from theory to abstract concepts to APIs. My goal is to take you straight to developing an intuition for the elements you must understand with laser-focused tutorials.
+I designed the tutorials to focus on how to get things done with statistics. They give you the tools to both rapidly understand and apply each technique or operation.
+Each tutorial is designed to take you about one hour to read through and complete, excluding the extensions and further reading.
+You can choose to work through the lessons one per day, one per week, or at your own pace. I think momentum is critically important, and this book is intended to be read and used, not to sit idle.
+I would recommend picking a schedule and sticking to it.
+The tutorials are divided into six parts, they are:
+Below is an overview of the 29 step-by-step tutorial lessons you will work through:
+Each lesson was designed to be completed in about 30-to-60 minutes by an average developer.
+You can see that each part targets a specific learning outcome, and so does each tutorial within each part. This acts as a filter to ensure you are only focused on the things you need to know to get to a specific result and do not get bogged down in the math or near-infinite number of digressions.
+The screenshot below was taken from the PDF Ebook. It provides you a full overview of the table of contents from the book.
+Statistical Methods for Machine Learning Table of Contents
+The tutorials were not designed to teach you everything there is to know about each of the theories or techniques of statistics. They were designed to give you an understanding of how they work, how to use them, and how to interpret the results the fastest way I know how: to learn by doing.
+Click image to Enlarge.
+Download Your Sample Chapter Do you want to take a closer look at the book? Download a free sample chapter PDF. Enter your email address and your sample chapter will be sent to your inbox. >> Click Here to Download Your Sample Chapter
+Do you want to take a closer look at the book? Download a free sample chapter PDF.
+Enter your email address and your sample chapter will be sent to your inbox.
+>> Click Here to Download Your Sample Chapter
+Each recipe presented in the book is standalone, meaning that you can copy and paste it into your project and use it immediately.
+This means that you can follow along and compare your answers to a known working implementation of each example in the provided Python files.
+This helps a lot to speed up your progress when working through the details of a specific task, such as:
+The provided code was developed in a text editor and is intended to be run on the command line. No special IDE or notebooks are required.
+All code examples were designed and tested with Python 3.6+.
+All code examples will run on modest and modern computer hardware and were executed on a CPU.
+This section provides some technical details about the code provided with the book.
+Don’t have a Python environment? No problem!
+The appendix contains a step-by-step tutorial showing you exactly how to set up a Python machine learning environment.
+Statistical Methods for Machine Learning Bonus Code
+The eBook was very concise. It saved me months of my own effort trying to find all the topics covered. The code examples brought each topic to a good understanding and allowed for easy conversion into Jupyter notebooks. The PDF format works great: I was able to cut and paste the whole book into my OneNote knowledge base I am building for continued reference along with linking each topic reference to the Jupyter notebooks built from the code examples and short YouTube videos on the various subjects as supplemental sources. I am currently consuming another of Jason’s eBooks “Master Machine Learning Algorithms,” as soon as I completely that eBook I will be purchasing more.
+Really good book, it helps me to understand statistical concepts for machine learning easily. So, I have more understanding about several machine learning concept. Thanks in advanced for the book, Really recommended.
+A refreshing book with Jason’s unique approach to introducing complex and heady concepts. Best way to comprehend and fully grasp these concepts to code along with this book as ready reckoner. Believe you me, no body teaches machine learning the way Jason does! Jason eagerly awaiting your next one! Cheers
+It’s great, concise and exactly what you need.
+Very good book. Certainly made it easier to understand Statistics for ML without getting into details of a dedicated Statistics book. And links the stats material well with its application in ML and Data Science.
+...including employees from companies like:
+...students and faculty from universities like:
+and many thousands more...
+Absolutely No Risk with...100% Money Back Guarantee Plus, as you should expect of any great product on the market, every Machine Learning Mastery Ebookcomes with the surest sign of confidence: my gold-standard 100% money-back guarantee. 100% Money-Back Guarantee If you're not happy with your purchase of any of the Machine Learning Mastery Ebooks,just email me within 90 days of buying, and I'll give you your money back ASAP. No waiting. No questions asked. No risk.
+Plus, as you should expect of any great product on the market, every Machine Learning Mastery Ebookcomes with the surest sign of confidence: my gold-standard 100% money-back guarantee.
+If you're not happy with your purchase of any of the Machine Learning Mastery Ebooks,just email me within 90 days of buying, and I'll give you your money back ASAP.
+Discover Statistical Methods for Machine Learning TODAY! Choose Your Package:
+You will get the Ebook:
+(including bonus source code)
+Buy Now for $27
+(a great deal!)
+TOP SELLER
+You get the 3-Ebook set:
+(includes all bonus source code)
+Buy Now for $54
+That's $81.00 of Value!
+(You get a huge 33.33% discount)
+BEST VALUE
+You get the complete 20-Ebook set:
+(includes all bonus source code)
+Buy Now for $497
+That's $747.00 of Value!
+(You save a massive $250.00)
+All prices are in US Dollars (USD).
+(1) Click the button. (2) Enter your details. (3) Download immediately.
+Are you a Student, Teacher or Retiree? Contact me about a discount. Do you have any Questions? See the FAQ.
+Contact me about a discount.
+See the FAQ.
+Hi, I'm Jason Brownlee. I run this site and I wrote and published this book.
+I live in Australia with my wife and sons. I love to read books, write tutorials, and develop systems.
+I have a computer science and software engineering background as well as Masters and PhD degrees in Artificial Intelligence with a focus on stochastic optimization.
+I've written books on algorithms, won and ranked well in competitions, consulted for startups, and spent years in industry. (Yes, I have spend a long time building and maintaining REAL operational systems!)
+I get a lot of satisfaction helping developers get started and get really good at applied machine learning.
+I teach an unconventional top-down and results-first approach to machine learning where we start by working through tutorials and problems, then later wade into theory as we need it.
+I'm here to help if you ever have any questions. I want you to be awesome at machine learning.
+What Are Skills in Machine Learning Worth?
+Your boss asks you:
+Hey, can you build a predictive model for this?
+I have been there. It feels great!
+The industry is demanding skills in machine learning.The market wants people that can deliver results, not write academic papers.
+Business knows what these skills are worth and are paying sky-high starting salaries.
+A Data Scientists Salary Begins at:$100,000 to $150,000.A Machine Learning Engineers Salary is Even Higher.
+You made it this far.You're ready to take action.
+But, what are your alternatives? What options are there?
+(1) A Theoretical Textbook for $100+ ...it's boring, math-heavy and you'll probably never finish it.
+(2) An On-site Boot Camp for $10,000+ ...it's full of young kids, you must travel and it can take months.
+(3) A Higher Degree for $100,000+ ...it's expensive, takes years, and you'll be an academic.
+OR...
+For the Hands-On Skills You Get...And the Speed of Results You See...And the Low Price You Pay...
+And they work. That's why I offer the money-back guarantee.
+You're A Professional
+The field moves quickly,...how long can you wait? You think you have all the time in the world, but... New methods are devised and algorithms change. New books get released and prices increase. New graduates come along and jobs get filled. Right Now is the Best Time to make your start.
+You think you have all the time in the world, but...
+Right Now is the Best Time to make your start.
+Bottom-up is Slow and Frustrating,...don't you want a faster way? Can you really go on another day, week or month... Scraping ideas and code from incomplete posts. Skimming theory and insight from short videos. Parsing Greek letters from academic textbooks. Targeted Training is your Shortest Path to a result.
+Can you really go on another day, week or month...
+Targeted Training is your Shortest Path to a result.
+You don't want to fall behind or miss the opportunity.
+Frequently Asked Questions
+Thanks for your interest.
+Sorry, I do not support third-party resellers for my books (e.g. reselling in other bookstores).
+My books are self-published and I think of my website as a small boutique, specialized for developers that are deeply interested in applied machine learning.
+As such I prefer to keep control over the sales and marketing for my books.
+I’m sorry, I don’t support exchanging books within a bundle.
+The collections of books in the offered bundles are fixed.
+My e-commerce system is not sophisticated and it does not support ad-hoc bundles. I’m sure you can understand. You can see the full catalog of books and bundles here:
+If you have already purchased a bundle and would like to exchange one of the books in the bundle, then I’m very sorry, I don’t support book exchanges or partial refunds.
+If you are unhappy, please contact me directly and I can organize a refund.
+Thanks for your interest.
+I’m sorry, I cannot create a customized bundle of books for you. It would create a maintenance nightmare for me. I’m sure you can understand.
+My e-commerce system is not very sophisticated. It cannot support ad-hoc bundles of books or the a la carte ordering of books.
+I do have existing bundles of books that I think go well together.
+You can see the full catalog of my books and bundles available here:
+Sorry, I don’t sell hard copies of my books.
+All of the books and bundles are Ebooks in PDF file format.
+This is intentional and I put a lot of thought into the decision:
+I hope that explains my rationale.
+If you really do want a hard copy, you can purchase the book or bundle and create a printed version for your own personal use. There is no digital rights management (DRM) on the PDF files to prevent you from printing them.
+Sorry, I cannot create a purchase order for you or fill out your procurement documentation.
+You can complete your purchase using the self-service shopping cart with Credit Card or PayPal for payment.
+After you complete the purchase, I can prepare a PDF invoice for you for tax or other purposes.
+Sorry, no.
+I cannot issue a partial refund. It is not supported by my e-commerce system.
+If you are truly unhappy with your purchase, please contact me about getting a full refund.
+I stand behind my books, I know the tutorials work and have helped tens of thousands of readers.
+I am sorry to hear that you want a refund.
+Please contact me directly with your purchase details:
+I will then organize a refund for you.
+I would love to hear why the book is a bad fit for you.
+Anything that you can tell me to help improve my materials will be greatly appreciated.
+I have a thick skin, so please be honest.
+Sample chapters are provided for each book.
+Each book has its own webpage, you can access them from the catalog.
+On each book’s page, you can access the sample chapter.
+If you have trouble with this process or cannot find the email, contact me and I will send the PDF to you directly.
+Yes.
+I can provide an invoice that you can use for reimbursement from your company or for tax purposes.
+Please contact me directly with your purchase details:
+I will create a PDF invoice for you and email it back.
+Sorry, I no longer distribute evaluation copies of my books due to some past abuse of the privilege.
+If you are a teacher or lecturer, I’m happy to offer you a student discount.
+Contact me directly and I can organize a discount for you.
+Sorry, I do not offer Kindle (mobi) or ePub versions of the books.
+The books are only available in PDF file format.
+This is by design and I put a lot of thought into it. My rationale is as follows:
+My materials are playbooks intended to be open on the computer, next to a text editor and a command line.
+They are not textbooks to be read away from the computer.
+Sorry, all of my books are self-published and do not have ISBNs.
+Thanks for your interest in my books
+I’m sorry that you cannot afford my books or purchase them in your country.
+I don’t give away free copies of my books.
+I do give away a lot of free material on applied machine learning already.
+You can access the best free material here:
+Maybe.
+I offer a discount on my books to:
+If you fall into one of these groups and would like a discount, please contact me and ask.
+Sorry, the books and bundles are for individual purchase only.
+I do not respond to RFIs or similar.
+Maybe.
+I support payment via PayPal and Credit Card.
+You may be able to set up a PayPal account that accesses your debit card. I recommend contacting PayPal or reading their documentation.
+Sorry no.
+I do not support WeChat Pay or Alipay at this stage.
+I only support payment via PayPal and Credit Card.
+Yes, you can print the purchased PDF books for your own personal interest.
+There is no digital rights management (DRM) on the PDFs to prevent you from printing them.
+Please do not distribute printed copies of your purchased books.
+You can review the table of contents for any book.
+I provide two copies of the table of contents for each book on the book’s page.
+Specifically:
+If you are having trouble finding the table of contents, search the page for the section titled “Table of Contents”.
+No.
+I only support payment via PayPal or Credit Card.
+Yes.
+If you purchase a book or bundle and later decide that you want to upgrade to the super bundle, I can arrange it for you.
+Contact me and let me know that you would like to upgrade and what books or bundles you have already purchased and which email address you used to make the purchases.
+I will create a special offer code that you can use to get the price of books and bundles purchased so far deducted from the price of the super bundle.
+I am happy for you to use parts of my material in the development of your own course material, such as lecture slides for an in person class or homework exercises.
+I am not happy if you share my material for free or use it verbatim. This would be copyright infringement.
+All code on my site and in my books was developed and provided for educational purposes only. I take no responsibility for the code, what it might do, or how you might use it.
+If you use my material to teach, please reference the source, including:
+For example:
+Also, if your work is public, contact me, I’d love to see it out of general interest.
+Thanks for asking.
+Sorry, no.
+I prefer to keep complete control over my content for now.
+Sorry no.
+My books are self-published and are only available from my website.
+Generally no.
+I don’t have exercises or assignments in my books.
+I do have end-to-end projects in some of the books, but they are in a tutorial format where I lead you through each step.
+The book chapters are written as self-contained tutorials with a specific learning outcome. You will learn how to do something at the end of the tutorial.
+Some books have a section titled “Extensions” with ideas for how to modify the code in the tutorial in some advanced ways. They are like self-study exercises.
+Sorry, I do not offer a certificate of completion for my books or my email courses.
+Sorry, new books are not included in your super bundle.
+I release new books every few months and develop a new super bundle at those times.
+All existing customers will get early access to new books at a discount price.
+Note, that you do get free updates to all of the books in your super bundle. This includes bug fixes, changes to APIs and even new chapters sometimes. I send out an email to customers for major book updates or you can contact me any time and ask for the latest version of a book.
+No.
+I have books that do not require any skill in programming, for example:
+Other books do have code examples in a given programming language.
+You must know the basics of the programming language, such as how to install the environment and how to write simple programs. I do not teach programming, I teach machine learning for developers.
+You do not need to be a good programmer.
+That being said, I do offer tutorials on how to setup your environment efficiently and even crash courses on programming languages for developers that may not be familiar with the given language.
+No.
+My books do not cover the theory or derivations of machine learning methods.
+This is by design.
+My books are focused on the practical concern of applied machine learning. Specifically, how algorithms work and how to use them effectively with modern open source tools.
+If you are interested in the theory and derivations of equations, I recommend a machine learning textbook. Some good examples of machine learning textbooks that cover theory include:
+I generally don’t run sales.
+If I do have a special, such as around the launch of a new book, I only offer it to past customers and subscribers on my email list.
+I do offer book bundles that offer a discount for a collection of related books.
+I do offer a discount to students, teachers, and retirees. Contact me to find out about discounts.
+Sorry, I don’t have videos.
+I only have tutorial lessons and projects in text format.
+This is by design. I used to have video content and I found the completion rate much lower.
+I want you to put the material into practice. I have found that text-based tutorials are the best way of achieving this. With text-based tutorials you must read, implement and run the code.
+With videos, you are passively watching and not required to take any action. Videos are entertainment or infotainment instead of productive learning and work.
+After reading and working through the tutorials you are far more likely to use what you have learned.
+Yes, I offer a 90-day no questions asked money-back guarantee.
+I stand behind my books. They contain my best knowledge on a specific machine learning topic, and each book as been read, tested and used by tens of thousands of readers.
+Nevertheless, if you find that one of my Ebooks is a bad fit for you, I will issue a full refund.
+There are no physical books, therefore no shipping is required.
+All books are EBooks that you can download immediately after you complete your purchase.
+I support purchases from any country via PayPal or Credit Card.
+Yes.
+I recommend using standalone Keras version 2.4 (or higher) running on top of TensorFlow version 2.2 (or higher).
+All tutorials on the blog have been updated to use standalone Keras running on top of Tensorflow 2.
+All books have been updated to use this same combination.
+I do not recommend using Keras as part of TensorFlow 2 yet (e.g. tf.keras). It is too new, new things have issues, and I am waiting for the dust to settle. Standalone Keras has been working for years and continues to work extremely well.
+There is one case of tutorials that do not support TensorFlow 2 because the tutorials make use of third-party libraries that have not yet been updated to support TensorFlow 2. Specifically tutorials that use Mask-RCNN for object recognition. Once the third party library has been updated, these tutorials too will be updated.
+The book “Long Short-Term Memory Networks with Python” is not focused on time series forecasting, instead, it is focused on the LSTM method for a suite of sequence prediction problems.
+The book “Deep Learning for Time Series Forecasting” shows you how to develop MLP, CNN and LSTM models for univariate, multivariate and multi-step time series forecasting problems.
+Mini-courses are free courses offered on a range of machine learning topics and made available via email, PDF and blog posts.
+Mini-courses are:
+Ebooks are provided on many of the same topics providing full training courses on the topics.
+Ebooks are:
+The mini-courses are designed for you to get a quick result. If you would like more information or fuller code examples on the topic then you can purchase the related Ebook.
+The book “Master Machine Learning Algorithms” is for programmers and non-programmers alike. It teaches you how 10 top machine learning algorithms work, with worked examples in arithmetic, and spreadsheets, not code. The focus is on an understanding on how each model learns and makes predictions.
+The book “Machine Learning Algorithms From Scratch” is for programmers that learn by writing code to understand. It provides step-by-step tutorials on how to implement top algorithms as well as how to load data, evaluate models and more. It has less on how the algorithms work, instead focusing exclusively on how to implement each in code.
+The two books can support each other.
+The books are a concentrated and more convenient version of what I put on the blog.
+I design my books to be a combination of lessons and projects to teach you how to use a specific machine learning tool or library and then apply it to real predictive modeling problems.
+The books get updated with bug fixes, updates for API changes and the addition of new chapters, and these updates are totally free.
+I do put some of the book chapters on the blog as examples, but they are not tied to the surrounding chapters or the narrative that a book offers and do not offer the standalone code files.
+With each book, you also get all of the source code files used in the book that you can use as recipes to jump-start your own predictive modeling problems.
+My books are playbooks. Not textbooks.
+They have no deep explanations of theory, just working examples that are laser-focused on the information that you need to know to bring machine learning to your project.
+There is little math, no theory or derivations.
+My readers really appreciate the top-down, rather than bottom-up approach used in my material. It is the one aspect I get the most feedback about.
+My books are not for everyone, they are carefully designed for practitioners that need to get results, fast.
+A code file is provided for each example presented in the book.
+Dataset files used in each chapter are also provided with the book.
+The code and dataset files are provided as part of your .zip download in a code/ subdirectory. Code and datasets are organized into subdirectories, one for each chapter that has a code example.
+If you have misplaced your .zip download, you can contact me and I can send an updated purchase receipt email with a link to download your package.
+Ebooks can be purchased from my website directly.
+All prices are in US dollars (USD).
+Books can be purchased with PayPal or Credit Card.
+All prices on Machine Learning Mastery are in US dollars.
+Payments can be made by using either PayPal or a Credit Card that supports international payments (e.g. most credit cards).
+You do not have to explicitly convert money from your currency to US dollars.
+Currency conversion is performed automatically when you make a payment using PayPal or Credit Card.
+After filling out and submitting your order form, you will be able to download your purchase immediately.
+Your web browser will be redirected to a webpage where you can download your purchase.
+You will also receive an email with a link to download your purchase.
+If you lose the email or the link in the email expires, contact me and I will resend the purchase receipt email with an updated download link.
+After you complete your purchase you will receive an email with a link to download your bundle.
+The download will include the book or books and any bonus material.
+To use a discount code, also called an offer code, or discount coupon when making a purchase, follow these steps:
+1. Enter the discount code text into the field named “Discount Coupon” on the checkout page.
+Note, if you don’t see a field called “Discount Coupon” on the checkout page, it means that that product does not support discounts.
+2. Click the “Apply” button.
+3. You will then see a message that the discount was applied successfully to your order.
+Note, if the discount code that you used is no longer valid, you will see a message that the discount was not successfully applied to your order.
+There are no physical books, therefore no shipping is required.
+All books are EBooks that you can download immediately after you complete your purchase.
+I recommend reading one chapter per day.
+Momentum is important.
+Some readers finish a book in a weekend.
+Most readers finish a book in a few weeks by working through it during nights and weekends.
+You will get your book immediately.
+After you complete and submit the payment form, you will be immediately redirected to a webpage with a link to download your purchase.
+You will also immediately be sent an email with a link to download your purchase.
+What order should you read the books?
+That is a great question, my best suggestions are as follows:
+Also, consider that you don’t need to read all of the books, perhaps a subset of the books will get you the skills you need or want.
+Nevertheless, one suggested order for reading the books is as follows:
+I hope that helps.
+Sorry, I do not have a license to purchase my books or bundles for libraries.
+The books are for individual use only.
+Generally, no.
+Multi-seat licenses create a bit of a maintenance nightmare for me, sorry. It takes time away from reading, writing and helping my readers.
+If you have a big order, such as for a class of students or a large team, please contact me and we will work something out.
+No.
+I update the books frequently and you can access the latest version of a book at any time.
+In order to get the latest version of a book, contact me directly with your order number or purchase email address and I can resend your purchase receipt email with an updated download link.
+I do not maintain a public change log or errata for the changes in the book, sorry.
+There are no physical books, therefore no delivery is required.
+All books are Ebooks in PDF format that you can download immediately after you complete your purchase.
+You will receive an email with a link to download your purchase. You can also contact me any time to get a new download link.
+I support purchases from any country via PayPal or Credit Card.
+My best advice is to start with a book on a topic that you can use immediately.
+Baring that, pick a topic that interests you the most.
+If you are unsure, perhaps try working through some of the free tutorials to see what area that you gravitate towards.
+Generally, I recommend focusing on the process of working through a predictive modeling problem end-to-end:
+I have three books that show you how to do this, with three top open source platforms:
+These are great places to start.
+You can always circle back and pick-up a book on algorithms later to learn more about how specific methods work in greater detail.
+Thanks for your interest.
+You can see the full catalog of my books and bundles here:
+Thanks for asking.
+I try not to plan my books too far into the future. I try to write about the topics that I am asked about the most or topics where I see the most misunderstanding.
+If you would like me to write more about a topic, I would love to know.
+Contact me directly and let me know the topic and even the types of tutorials you would love for me to write.
+Contact me and let me know the email address (or email addresses) that you think you used to make purchases.
+I can look up what purchases you have made and resend purchase receipts to you so that you can redownload your books and bundles.
+All prices are in US Dollars (USD).
+All currency conversion is handled by PayPal for PayPal purchases, or by Stripe and your bank for credit card purchases.
+It is possible that your link to download your purchase will expire after a few days.
+This is a security precaution.
+Please contact me and I will resend you purchase receipt with an updated download link.
+The book “Deep Learning With Python” could be a prerequisite to”Long Short-Term Memory Networks with Python“. It teaches you how to get started with Keras and how to develop your first MLP, CNN and LSTM.
+The book “Long Short-Term Memory Networks with Python” goes deep on LSTMs and teaches you how to prepare data, how to develop a suite of different LSTM architectures, parameter tuning, updating models and more.
+Both books focus on deep learning in Python using the Keras library.
+The book “Long Short-Term Memory Networks in Python” focuses on how to develop a suite of different LSTM networks for sequence prediction, in general.
+The book “Deep Learning for Time Series Forecasting” focuses on how to use a suite of different deep learning models (MLPs, CNNs, LSTMs, and hybrids) to address a suite of different time series forecasting problems (univariate, multivariate, multistep and combinations).
+The LSTM book teaches LSTMs only and does not focus on time series. The Deep Learning for Time Series book focuses on time series and teaches how to use many different models including LSTMs.
+The book “Long Short-Term Memory Networks With Python” focuses on how to implement different types of LSTM models.
+The book “Deep Learning for Natural Language Processing” focuses on how to use a variety of different networks (including LSTMs) for text prediction problems.
+The LSTM book can support the NLP book, but it is not a prerequisite.
+You may need a business or corporate tax number for “Machine Learning Mastery“, the company, for your own tax purposes. This is common in EU companies for example.
+The Machine Learning Mastery company is operated out of Puerto Rico.
+As such, the company does not have a VAT identification number for the EU or similar for your country or regional area.
+The company does have a Company Number. The details are as follows:
+Linux, MacOS, and Windows.
+There are no code examples in “Master Machine Learning Algorithms“, therefore no programming language is used.
+Algorithms are described and their working is summarized using basic arithmetic. The algorithm behavior is also demonstrated in excel spreadsheets, that are available with the book.
+It is a great book for learning how algorithms work, without getting side-tracked with theory or programming syntax.
+If you are interested in learning about machine learning algorithms by coding them from scratch (using the Python programming language), I would recommend a different book:
+I write the content for the books (words and code) using a text editor, specifically sublime.
+I typeset the books and create a PDF using LaTeX.
+All of the books have been tested and work with Python 3 (e.g. 3.5 or 3.6).
+Most of the books have also been tested and work with Python 2.7.
+Where possible, I recommend using the latest version of Python 3.
+After you fill in the order form and submit it, two things will happen:
+The redirect in the browser and the email will happen immediately after you complete the purchase.
+You can download your purchase from either the webpage or the email.
+If you cannot find the email, perhaps check other email folders, such as the “spam” folder?
+If you have any concerns, contact me and I can resend your purchase receipt email with the download link.
+I do test my tutorials and projects on the blog first. It’s like the early access to ideas, and many of them do not make it to my training.
+Much of the material in the books appeared in some form on my blog first and is later refined, improved and repackaged into a chapter format. I find this helps greatly with quality and bug fixing.
+The books provide a more convenient packaging of the material, including source code, datasets and PDF format. They also include updates for new APIs, new chapters, bug and typo fixing, and direct access to me for all the support and help I can provide.
+I believe my books offer thousands of dollars of education for tens of dollars each.
+They are months if not years of experience distilled into a few hundred pages of carefully crafted and well-tested tutorials.
+I think they are a bargain for professional developers looking to rapidly build skills in applied machine learning or use machine learning on a project.
+Also, what are skills in machine learning worth to you? to your next project? and you’re current or next employer?
+Nevertheless, the price of my books may appear expensive if you are a student or if you are not used to the high salaries for developers in North America, Australia, UK and similar parts of the world. For that, I am sorry.
+I do offer discounts to students, teachers and retirees.
+Please contact me to find out more.
+I offer a ton of free content on my blog, you can get started with my best free material here:
+My books are playbooks.
+They are intended for developers who want to know how to use a specific library to actually solve problems and deliver value at work.
+Very few training materials on machine learning are focused on how to get results.
+The vast majority are about repeating the same math and theory and ignore the one thing you really care about: how to use the methods on a project.
+Let me provide some context for you on the pricing of the books:
+There are free videos on youtube and tutorials on blogs.
+There are very cheap video courses that teach you one or two tricks with an API.
+A textbook on machine learning can cost $50 to $100.
+A bootcamp or other in-person training can cost $1000+ dollars and last for days to weeks.
+Sorry, my books are not available on websites like Amazon.com.
+I carefully decided to not put my books on Amazon for a number of reasons:
+I hope that helps you understand my rationale.
+I am sorry to hear that you’re having difficulty purchasing a book or bundle.
+I use Stripe for Credit Card and PayPal services to support secure and encrypted payment processing on my website.
+Some common problems when customers have a problem include:
+I often see customers trying to purchase with a domestic credit card or debit card that does not allow international purchases. This is easy to overcome by talking to your bank.
+If you’re still having difficulty, please contact me and I can help investigate further.
+When you purchase a book from my website and later review your bank statement, it is possible that you may see an additional small charge of one or two dollars.
+The charge does not come from my website or payment processor.
+Instead, the charge was added by your bank, credit card company, or financial institution. It may be because your bank adds an additional charge for online or international transactions.
+This is rare but I have seen this happen once or twice before, often with credit cards used by enterprise or large corporate institutions.
+My advice is to contact your bank or financial institution directly and ask them to explain the cause of the additional charge.
+If you would like a copy of the payment transaction from my side (e.g. a screenshot from the payment processor), or a PDF tax invoice, please contact me directly.
+I give away a lot of content for free. Most of it in fact.
+It is important to me to help students and practitioners that are not well off, hence the enormous amount of free content that I provide.
+You can access the free content:
+I have thought very hard about this and I sell machine learning Ebooks for a few important reasons:
+Yes.
+All updates to the book or books in your purchase are free.
+Books are usually updated once every few months to fix bugs, typos and keep abreast of API changes.
+Contact me anytime and check if there have been updates. Let me know what version of the book you have (version is listed on the copyright page).
+Yes.
+Please contact me anytime with questions about machine learning or the books.
+One question at a time please.
+Also, each book has a final chapter on getting more help and further reading and points to resources that you can use to get more help.
+Yes, the books can help you get a job, but indirectly.
+Getting a job is up to you.
+It is a matching problem between an organization looking for someone to fill a role and you with your skills and background.
+That being said, there are companies that are more interested in the value that you can provide to the business than the degrees that you have. Often, these are smaller companies and start-ups.
+You can focus on providing value with machine learning by learning and getting very good at working through predictive modeling problems end-to-end. You can show this skill by developing a machine learning portfolio of completed projects.
+My books are specifically designed to help you toward these ends. They teach you exactly how to use open source tools and libraries to get results in a predictive modeling project.
+Please contact me.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search

@@ -1,0 +1,2 @@
+,Title,Url,NumAuthors,NumHeadings,NumFigures,NumEquations,NumParagraphs,NumSentences,SentenceLenMean,SentenceLenStdev,NumWords,WordLenMean,WordLenStdev,NormalizedUniqueVocab,UniqueVocabMean,UniqueVocabStdev,PercentTypos,NumLinks,NumGithubLinks,BibLength,SubDomain,SecondDomain,TopDomain,NumUrlSubdirs
+0,How to Develop Elastic Net Regression Models in Python,https://machinelearningmastery.com/elastic-net-regression-in-python/,2,4,14,0,111,130,18.792,10.474,2443,4.494,4.125,0.249,4.018,10.478,2.374,95,0,0,machinelearningmastery,com/elastic-net-regression-in-python,com,2

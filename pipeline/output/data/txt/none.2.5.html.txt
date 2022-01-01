@@ -1,0 +1,282 @@
+How to Perform Data Cleaning for Machine Learning with Python
+How to Perform Data Cleaning for Machine Learning with Python
+Tutorial Overview
+Messy Datasets
+Identify Columns That Contain a Single Value
+Delete Columns That Contain a Single Value
+Consider Columns That Have Very Few Values
+Remove Columns That Have A Low Variance
+Identify Rows That Contain Duplicate Data
+Delete Rows That Contain Duplicate Data
+Further Reading
+Summary
+Get a Handle on Modern Data Preparation!
+Navigation
+Main Menu
+Want to Get Started With Data Preparation?
+Oil Spill Dataset
+Iris Flowers Dataset
+Tutorials
+Books
+APIs
+52 Responses to How to Perform Data Cleaning for Machine Learning with Python
+Leave a Reply Click here to cancel reply.
+Data cleaning
+Kick-start your project
+Updated Apr/2020
+Updated May/2020
+oil spill dataset
+iris flowers dataset
+Do you have any questions?
+self-study tutorials
+full working code
+Welcome!
+help developers
+machine learning
+Really Good
+Last Updated on June 30, 2020
+Data cleaning is a critically important step in any machine learning project.
+In tabular data, there are many different statistical analysis and data visualization techniques you can use to explore your data in order to identify data cleaning operations you may want to perform.
+Before jumping to the sophisticated methods, there are some very basic data cleaning operations that you probably should perform on every single machine learning project. These are so basic that they are often overlooked by seasoned machine learning practitioners, yet are so critical that if skipped, models may break or report overly optimistic performance results.
+In this tutorial, you will discover basic data cleaning you should always perform on your dataset.
+After completing this tutorial, you will know:
+Kick-start your project with my new book Data Preparation for Machine Learning, including step-by-step tutorials and the Python source code files for all examples.
+Let’s get started.
+Basic Data Cleaning You Must Perform in Machine LearningPhoto by Allen McGregor, some rights reserved.
+This tutorial is divided into seven parts; they are:
+Data cleaning refers to identifying and correcting errors in the dataset that may negatively impact a predictive model.
+Data cleaning is used to refer to all kinds of tasks and activities to detect and repair errors in the data.
+— Page xiii, Data Cleaning, 2019.
+Although critically important, data cleaning is not exciting, not does it involve fancy techniques. Just a good knowledge of the dataset.
+Cleaning up your data is not the most glamourous of tasks, but it’s an essential part of data wrangling. […] Knowing how to properly clean and assemble your data will set you miles apart from others in your field.
+— Page 149, Data Wrangling with Python, 2016.
+There are many types of errors that exist in a dataset, although some of the simplest errors include columns that don’t contain much information and duplicated rows.
+Before we dive into identifying and correcting messy data, let’s define some messy datasets.
+We will use two datasets as the basis for this tutorial, the oil spill dataset and the iris flowers dataset.
+Take my free 7-day email crash course now (with sample code).
+Click to sign-up and also get a free PDF Ebook version of the course.
+Download Your FREE Mini-Course
+The so-called “oil spill” dataset is a standard machine learning dataset.
+The task involves predicting whether the patch contains an oil spill or not, e.g. from the illegal or accidental dumping of oil in the ocean, given a vector that describes the contents of a patch of a satellite image.
+There are 937 cases. Each case is comprised of 48 numerical computer vision derived features, a patch number, and a class label.
+The normal case is no oil spill assigned the class label of 0, whereas an oil spill is indicated by a class label of 1. There are 896 cases for no oil spill and 41 cases of an oil spill.
+You can access the entire dataset here:
+Review the contents of the file.
+The first few lines of the file should look as follows:
+We can see that the first column contains integers for the patch number. We can also see that the computer vision derived features are real-valued with differing scales such as thousands in the second column and fractions in other columns.
+This dataset contains columns with very few unique values that provides a good basis for data cleaning.
+The so-called “iris flowers” dataset is another standard machine learning dataset.
+The dataset involves predicting the flower species given measurements of iris flowers in centimeters.
+It is a multi-class classification problem. The number of observations for each class is balanced. There are 150 observations with 4 input variables and 1 output variable.
+You can access the entire dataset here:
+Review the contents of the file.
+The first few lines of the file should look as follows:
+We can see that all four input variables are numeric and that the target class variable is a string representing the iris flower species.
+This dataset contains duplicate rows that provides a good basis for data cleaning.
+Columns that have a single observation or value are probably useless for modeling.
+These columns or predictors are referred to zero-variance predictors as if we measured the variance (average value from the mean), it would be zero.
+When a predictor contains a single value, we call this a zero-variance predictor because there truly is no variation displayed by the predictor.
+— Page 96, Feature Engineering and Selection, 2019.
+Here, a single value means that each row for that column has the same value. For example, the column X1 has the value 1.0 for all rows in the dataset:
+Columns that have a single value for all rows do not contain any information for modeling.
+Depending on the choice of data preparation and modeling algorithms, variables with a single value can also cause errors or unexpected results.
+You can detect rows that have this property using the unique() NumPy function that will report the number of unique values in each column.
+The example below loads the oil-spill classification dataset that contains 50 variables and summarizes the number of unique values for each column.
+Running the example loads the dataset directly from the URL and prints the number of unique values for each column.
+We can see that column index 22 only has a single value and should be removed.
+A simpler approach is to use the nunique() Pandas function that does the hard work for you.
+Below is the same example using the Pandas function.
+Running the example, we get the same result, the column index, and the number of unique values for each column.
+Variables or columns that have a single value should probably be removed from your dataset.
+… simply remove the zero-variance predictors.
+— Page 96, Feature Engineering and Selection, 2019.
+Columns are relatively easy to remove from a NumPy array or Pandas DataFrame.
+One approach is to record all columns that have a single unique value, then delete them from the Pandas DataFrame by calling the drop() function.
+The complete example is listed below.
+Running the example first loads the dataset and reports the number of rows and columns.
+The number of unique values for each column is calculated, and those columns that have a single unique value are identified. In this case, column index 22.
+The identified columns are then removed from the DataFrame, and the number of rows and columns in the DataFrame are reported to confirm the change.
+In the previous section, we saw that some columns in the example dataset had very few unique values.
+For example, there were columns that only had 2, 4, and 9 unique values. This might make sense for ordinal or categorical variables. In this case, the dataset only contains numerical variables. As such, only having 2, 4, or 9 unique numerical values in a column might be surprising.
+We can refer to these columns or predictors as near-zero variance predictors, as their variance is not zero, but a very small number close to zero.
+… near-zero variance predictors or have the potential to have near zero variance during the resampling process. These are predictors that have few unique values (such as two values for binary dummy variables) and occur infrequently in the data.
+— Pages 96-97, Feature Engineering and Selection, 2019.
+These columns may or may not contribute to the skill of a model. We can’t assume that they are useless to modeling.
+Although near-zero variance predictors likely contain little valuable predictive information, we may not desire to filter these out.
+— Page 97, Feature Engineering and Selection, 2019.
+Depending on the choice of data preparation and modeling algorithms, variables with very few numerical values can also cause errors or unexpected results. For example, I have seen them cause errors when using power transforms for data preparation and when fitting linear models that assume a “sensible” data probability distribution.
+To help highlight columns of this type, you can calculate the number of unique values for each variable as a percentage of the total number of rows in the dataset.
+Let’s do this manually using NumPy. The complete example is listed below.
+Running the example reports the column index and the number of unique values for each column, followed by the percentage of unique values out of all rows in the dataset.
+Here, we can see that some columns have a very low percentage of unique values, such as below 1 percent.
+We can update the example to only summarize those variables that have unique values that are less than 1 percent of the number of rows.
+Running the example, we can see that 11 of the 50 variables have numerical variables that have unique values that are less than 1 percent of the number of rows.
+This does not mean that these rows and columns should be deleted, but they require further attention.
+For example:
+For example, if we wanted to delete all 11 columns with unique values less than 1 percent of rows; the example below demonstrates this.
+Running the example first loads the dataset and reports the number of rows and columns.
+The number of unique values for each column is calculated, and those columns that have a number of unique values less than 1 percent of the rows are identified. In this case, 11 columns.
+The identified columns are then removed from the DataFrame, and the number of rows and columns in the DataFrame are reported to confirm the change.
+Another approach to the problem of removing columns with few unique values is to consider the variance of the column.
+Recall that the variance is a statistic calculated on a variable as the average squared difference of values on the sample from the mean.
+The variance can be used as a filter for identifying columns to removed from the dataset. A column that has a single value has a variance of 0.0, and a column that has very few unique values will have a small variance value.
+The VarianceThreshold class from the scikit-learn library supports this as a type of feature selection. An instance of the class can be created specify the “threshold” argument, which defaults to 0.0 to remove columns with a single value.
+It can then be fit and applied to a dataset by calling the fit_transform() function to create a transformed version of the dataset where the columns that have a variance lower than the threshold have been removed automatically.
+We can demonstrate this on the oil spill dataset as follows:
+Running the example first loads the dataset, then applies the transform to remove all columns with a variance of 0.0.
+The shape of the dataset is reported before and after the transform, and we can see that the single column where all values are the same has been removed.
+We can expand this example and see what happens when we use different thresholds.
+We can define a sequence of thresholds from 0.0 to 0.5 with a step size of 0.05, e.g. 0.0, 0.05, 0.1, etc.
+We can then report the number of features in the transformed dataset for each given threshold.
+Finally, we can plot the results.
+Tying this together, the complete example of comparing variance threshold to the number of selected features is listed below.
+Running the example first loads the data and confirms that the raw dataset has 49 columns.
+Next, the VarianceThreshold is applied to the raw dataset with values from 0.0 to 0.5 and the number of remaining features after the transform is applied are reported.
+We can see that the number of features in the dataset quickly drops from 49 in the unchanged data down to 35 with a threshold of 0.15. It later drops to 31 (18 columns deleted) with a threshold of 0.5.
+A line plot is then created showing the relationship between the threshold and the number of features in the transformed dataset.
+We can see that even with a small threshold between 0.15 and 0.4, that a large number of features (14) are removed immediately.
+Line Plot of Variance Threshold (X) Versus Number of Selected Features (Y)
+Rows that have identical data are probably useless, if not dangerously misleading during model evaluation.
+Here, a duplicate row is a row where each value in each column for that row appears in identically the same order (same column values) in another row.
+… if you have used raw data that may have duplicate entries, removing duplicate data will be an important step in ensuring your data can be accurately used.
+— Page 173, Data Wrangling with Python, 2016.
+From a probabilistic perspective, you can think of duplicate data as adjusting the priors for a class label or data distribution. This may help an algorithm like Naive Bayes if you wish to purposefully bias the priors. Typically, this is not the case and machine learning algorithms will perform better by identifying and removing rows with duplicate data.
+From an algorithm evaluation perspective, duplicate rows will result in misleading performance. For example, if you are using a train/test split or k-fold cross-validation, then it is possible for a duplicate row or rows to appear in both train and test datasets and any evaluation of the model on these rows will be (or should be) correct. This will result in an optimistically biased estimate of performance on unseen data.
+Data deduplication, also known as duplicate detection, record linkage, record matching, or entity resolution, refers to the process of identifying tuples in one or more relations that refer to the same real-world entity.
+— Page 47, Data Cleaning, 2019.
+If you think this is not the case for your dataset or chosen model, design a controlled experiment to test it. This could be achieved by evaluating model skill with the raw dataset and the dataset with duplicates removed and comparing performance. Another experiment might involve augmenting the dataset with different numbers of randomly selected duplicate examples.
+The pandas function duplicated() will report whether a given row is duplicated or not. All rows are marked as either False to indicate that it is not a duplicate or True to indicate that it is a duplicate. If there are duplicates, the first occurrence of the row is marked False (by default), as we might expect.
+The example below checks for duplicates.
+Running the example first loads the dataset, then calculates row duplicates.
+First, the presence of any duplicate rows is reported, and in this case, we can see that there are duplicates (True).
+Then all duplicate rows are reported. In this case, we can see that three duplicate rows that were identified are printed.
+Rows of duplicate data should probably be deleted from your dataset prior to modeling.
+If your dataset simply has duplicate rows, there is no need to worry about preserving the data; it is already a part of the finished dataset and you can merely remove or drop these rows from your cleaned data.
+— Page 186, Data Wrangling with Python, 2016.
+There are many ways to achieve this, although Pandas provides the drop_duplicates() function that achieves exactly this.
+The example below demonstrates deleting duplicate rows from a dataset.
+Running the example first loads the dataset and reports the number of rows and columns.
+Next, the rows of duplicated data are identified and removed from the DataFrame. Then the shape of the DataFrame is reported to confirm the change.
+This section provides more resources on the topic if you are looking to go deeper.
+In this tutorial, you discovered basic data cleaning you should always perform on your dataset.
+Specifically, you learned:
+Do you have any questions? Ask your questions in the comments below and I will do my best to answer.
+...with just a few lines of python code
+Discover how in my new Ebook: Data Preparation for Machine Learning
+It provides self-study tutorials with full working code on: Feature Selection, RFE, Data Cleaning, Data Transforms, Scaling, Dimensionality Reduction, and much more...
+nice work
+Thanks.
+Hi Jason,
+May I know the reasons why delete columns that have unique values? Please enlighten me. Thanks.
+We delete columns that do not have many unique values because they do not or are likely to not contribute to the target variable.
+Thanks. I am using R and I am considering to learn Python. Do you know if there is a tutorial about this same topic (how to clean datasets) for R? Is it worth to combine Python and R?
+I don’t know off hand, sorry.
+I recommend sticking to one platform.
+I really enjoyed the Tutorial.
+Thanks!
+Great article sometimes we forget the basics when building ML. Thanks Jason
+Thanks!
+Yes, we sure do.
+Thanks for the tutorial. It’s giving us more options for cleaning.
+Thanks.
+Good thinking in the tutorial. I like the approach of identification of non – unique data. I work in industrial computing and we tend to have a lot of constant “1 / 0 ” entries for when valves are open and shut, but for a time period, removing a constant value would help identify errors.
+Thanks for the thoughts!
+Thanks.
+Nice tutorial, thanks. You have a few articles about clean, evaluate features,.. Do you have a book with everything?
+Not at this stage, hopefully in the future.
+Does a process of removing/filling Nan instances belong to data cleaning as well? I guess it shall be performed even before the steps covered by your article. Regards!
+Yes!
+Nice tutorial thank you. I am new here and want to ask that do you have any tutorial for the training of ML model by aggregating the data for more than one location?
+You’re welcome.
+Perhaps this will give you ideas: https://machinelearningmastery.com/faq/single-faq/how-to-develop-forecast-models-for-multiple-sites
+Hi,
+I’m working with an image Dataset (my model takes as input two images (an image and its ground truth)). I want to do a data Cleaning for my database. There is no tutorial about how to proceed (all tutorials work with a CSV dataset). Can you please guide me on how to do so. Think you very much for your time.
+Yes, you can see tutorials on working with images here: https://machinelearningmastery.com/start-here/#dlfcv
+Dear Dr Jason, Thank you for the article.
+I need clarification on the how unique and nunique operate. Do these functions operate row-wise or column-wise. Steps needed to replicate.
+I need clarification on the counts. Given that there are 50 features and 937 rows, from the above code, for example what does, 238, 297, 927, 933, 179 mean. Does that mean there are 238 counts, or 238 is the unique number? Or does that mean the unique number in each of the 50 columns are 238, 297, 927,933, 179. Or does that mean for example that in the first column there are 238 unique values?
+Reference Example 1, at https://numpy.org/doc/stable/reference/generated/numpy.unique.html
+Thank you, Anthony of Sydney
+Dear Dr Jason, I used a smaller dataset and understood it now. Summary appears after background program. I understand this. I will ask you after the summary of the count/tally of each unique number.
+Summary: unique and DataFrame’s nunique work in the same way. Each column produces a count of the unique occurrence of a number by invocation of unique() and df.nunique(). If unique and df.unique were invoked without the () then we print out the whole matrix.
+Question: How do we tally and/or have a frequency of each number in the column.
+Thank you, Anthony of Sydney
+Dear Dr Jason, A slight correction.
+unique(stuff) – produces a list of the numbers. It does not produce a count.
+To find out a unique number of numbers from using the unique operator.
+Excuse my pun, but it is not the unique way of determining the number of unique numbers in each column.
+My question remains: How do we tally and/or have a frequency of each number in the column?
+Thank you, Anthony of Sydney
+You must specify the axis along which to count unique values, perhaps check the documentation for the function.
+Unique values are column wise.
+Dear Dr Jason, I wasn’t clear again. Before I proceed with what I intended is that: * numpy’s unique and DataFrame’s nunique operate column-wise as I have discovered above.
+My original question was about counting tallies for each feature=column. What I want to share is the tally/frequency of unique numbers in a matrix. It uses the numpy’s unique function BUT with the parameter numpy.unique(stuff,return_counts = True)
+Here is the code to find a tally of frequency/count of unique numbers in the overall matrix
+Now let’s get a frequency/tally of unique numbers for each feature = column
+Maybe the presentation of the counts/frequencies tally for each feature=column could be tidied up.
+The method above for the whole of matrix or for each column=feature is not unique. The implementation was inspired by code at https://kite.com/python/answers/how-to-count-frequency-of-unique-values-in-a-numpy-array-in-python
+You can get a similar result with counts/frequencies tally for each feature=column
+Source for inspiration: section titled Class collections.Counter at https://docs.python.org/2/library/collections.html
+Conclusions: This is NOT about the unique/nunique techniques for determining the counts of features.
+Rather I have presented two techniques for finding the counts/tallies of each column using the unique with parameter return_counts=True while the other uses the collections’ Counter.
+Thank you, Anthony of Sydney
+Thanks for sharing.
+Thanks for the article, Jason! I really enjoyed the Tutorial.
+You’re welcome, I’m happy to hear that.
+Dear Dr. Brownlee,
+Thank you for nice article. I have a doubt that can we use VarianceThreshold() to remove object data types as well? If not, are there alternative methods of doing it?
+Or do you recommend this step to do after data transform?
+Thanks, Swati
+You’re welcome.
+What do you mean object types? E.g. strings? categories?
+Yes, I believe it will work for those data types – at least in principle. Try it and see.
+Hi Jason, Great article!
+I just have one doubt regarding the threshold. If we are taking threshold as 0.5, does that mean we are saying if the variable is having 95% same values or higher remove that variable? Similarly, for 0.8 threshold, if the variable is having 92% or higher same values remove te variable?
+If removing a variable results in better model performance, then I recommend that you remove it.
+I think you misunderstood my question. I was talking about the threshold. What does threshold 0.5 means
+You can learn about thresholds for predicted probabilities here: https://machinelearningmastery.com/threshold-moving-for-imbalanced-classification/
+# example of apply the variance threshold from pandas import read_csv from sklearn.feature_selection import VarianceThreshold # define the location of the dataset path = ‘https://raw.githubusercontent.com/jbrownlee/Datasets/master/oil-spill.csv’ # load the dataset df = read_csv(path, header=None) # split data into inputs and outputs data = df.values X = data[:, :-1] y = data[:, -1] print(X.shape, y.shape) # define the transform transform = VarianceThreshold() # transform the input data X_sel = transform.fit_transform(X) print(X_sel.shape)
+In this example you are using X = data[:, :-1] which do not include the last column. why we are not including last column.
+X is the input data, we do not include the output variable as part of the input.
+Hi Jason,
+As always, thank you for your amazing tutorials.
+I have a question. My dataset is highly imbalanced and there lies some ambiguity (same input but different class label). Do you think its better to “re-assign” ambiguous data points from the majority class label to the minority class label? (since I care more about the minority class) Or its just better to filter those data points out?
+P.S: I am considering class weights while training.
+You’re welcome.
+Excellent question! Try a few strategies for dealing with the ambiguous data and see what works best, e.g. try removing, try re-labelling, etc.
+Hi Jason,
+Thank you for the tutorial. Very informative!
+I have a question regarding features with a constant value. For a classification problem, I have a feature vector of length 80 where 4 of the features are always zero. I get almost the same result using different classifiers (SVM, random forest, logistic regression and two different deep learning models) with and without removing the zero features. Is it because the percentage of the zero feature to the total number of features is small (4/80)? Following this question, apart from computation efficiency, if the portion of features with constant value or very small variance is quite small compared to the total number of features, do we end up with almost the same classification scores whether we keep or remove these features with a constant value or a very small variance? In such cases, are there classifiers for which removing or keeping such features could make a difference in classification scores?
+Thank you for your help!
+You’re welcome.
+If a variable always has the same value, it must be removed from the dataset.
+Perhaps you can try alternate data preparation, alternate models, alternate model configurations, alternate metrics, etc.
+Thank you for your response. In general, if you remove variable(s) with constant zero value for all the observations, do you expect to see any degradation in the classification scores (like accuracy and F-score)?
+Removing low variance data will improve the efficiency of the method and sometimes the performance.
+Is there any chance of degradation in the performance of the model? And if, like in my case, there is almost no change or quite minimal change (like in the order of 10th of a percent) in the classification scores, is there any reason behind that?
+I was thinking for a neural network, the weights of those features with zero value won’t play a role as their multiplication with the feature is always zero (I understand when the number of features with zero value or constant variance increases it can create numerical issues). So, does it actually make any difference for a neural network when the number of features with zero value is small?
+Perhaps. Evaluate with and without and discover the answer for your data and model.
+Sorry for asking you so many questions. Can you think of any reason why performance of a model might degrade despite removing features that do not convey any information (like features that are always zero or have a constant variance in general)?
+Yes, the assumption that the features are not relevant could be false.
+I just wanted to make a clarification about my question. Where I said: “I get almost the same result using different classifiers (SVM, random forest, logistic regression and two different deep learning models) with and without removing the zero features.”, I meant getting almost the same result for each classifier whether I keep those zero features or not. I didn’t mean I got the same result for all the classifiers.
+Hi Jason,
+very nice tutorial!. Thank you.
+I see pandas dataframe as a very powerful tools to clean, replace and filter tabular dataset on .csv and excel files, e.g.. There are many pandas methods I did not know !.
+Anyway, I was a little confused about the fact that you can get, for example, all the columns that have a zero value, or any other weird values such as strings etc. constructing a command like the following:
+n_0 = (dataframe == 0).sum()
+But, if you apply the same “structure” to get all the columns ‘NaN’ values, such as :
+n_nan= (datataframe ==np.nan).sum()
+It does not work!!
+instead, you have to go through this one: n_nan = dataframe.isnull.sum()
+certain logic pandas path fail! 🙁 regards,
+You’re welcome.
+Yes, nan is special. Equality does not work I believe.
+Comment
+Name (required)
+Email (will not be published) (required)
+Website
+Welcome! I'm Jason Brownlee PhD and I help developers get results with machine learning. Read more
+Loving the Tutorials?
+The Data Preparation EBook is where you'll find the Really Good stuff.
+© 2021 Machine Learning Mastery Pty. Ltd. All Rights Reserved. LinkedIn | Twitter | Facebook | Newsletter | RSS
+Privacy | Disclaimer | Terms | Contact | Sitemap | Search
